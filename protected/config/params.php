@@ -1,0 +1,3 @@
+<?php
+$joinStatus = array();
+?>
