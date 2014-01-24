@@ -285,6 +285,12 @@ div.breadcrumbs span
 	border-bottom: 1px solid #CCC;
 	padding: 10px;
 }
+.row_detail{
+	display: table;
+	margin-top: 5px;
+	clear: both;
+	padding: 10px;
+}
 .cell{
 	display: table-cell;
 	float: left;
@@ -354,7 +360,7 @@ li {
     padding-top: 4px;
 }
 .cell5 {
-    width: 450px;
+    width: 420px;
 }
 .trip-search-oneresult .offer {
     margin: 0 0 0 5px;
@@ -409,4 +415,7 @@ article{
     text-indent: -119988px;
     overflow: hidden;
     text-align: left;
+}
+.cell3 {
+    width: 300px;
 }

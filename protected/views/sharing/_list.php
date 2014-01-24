@@ -67,7 +67,7 @@
                     <div class="price price-green" itemprop="location">
                         <strong>
                             <span>
-                               <u>đ</u> <?php echo $ride['fee']; ?> K
+                               <u>đ</u> <?php echo $ride['fee']; ?>K
                             </span>                    
                         </strong>
                         <span class="priceUnit">per passenger</span>
