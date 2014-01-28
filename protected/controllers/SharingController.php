@@ -12,9 +12,23 @@ class SharingController extends Controller
 
 	public function getAllRides()
 	{
-		$sql = "SELECT R.name, R.description, U.username, U.avatar, R.leave, R.return, R.return_trip, R.seat_avail, R.from, R.to, R.fee, R.id
+		$sql = "SELECT 
+			R.user_id, 
+			R.name, 
+			R.description, 
+			U.username, 
+			U.avatar, 
+			R.leave, 
+			R.return, 
+			R.return_trip, 
+			R.seat_avail, 
+			R.from, 
+			R.to, 
+			R.fee, 
+			R.id
 		FROM USER U 
 		INNER JOIN ride R ON U.id = R.user_id
+		/*LEFT JOIN ranking_votes RV ON RV.user_id = */
 		WHERE R.leave >= NOW()
 		ORDER BY R.leave ASC
 		";
@@ -127,13 +141,17 @@ class SharingController extends Controller
 		$allComments = $this->getAllComments($id);
 		$joinStatus = $this->getJoinStatus($id);
 		$members = $this->getRideMembers($id);
+		$isOwner = $this->isOwner($id);
+
 		$this->render('_view',array(
 			'ride'=>$data[0],
 			'model'=>$model,
 			'comment'=>$comment,
 			'members'=>$members,
 			'allComments'=>$allComments,
-			'joinStatus'=>$joinStatus
+			'joinStatus'=>$joinStatus,
+			'isOwner' => $isOwner
+
 		));
 
 	}
@@ -202,10 +220,11 @@ class SharingController extends Controller
 	/*
 	the owner of the ride accept user to join 
 	*/
-	public function actionAcceptJoin($rideId){
-		if($this->isOwner){
-			$rideId = $_GET['id'];
-			$userId = $_GET['user_id'];
+	public function actionAcceptJoin(){
+		$rideId = $_POST['ride_id'];
+		$userId = $_POST['user_id'];
+		if($this->isOwner($rideId)){
+			
 			$model = new RideUser;
 			$sql = "UPDATE ride_user 
 					SET join_status = 1

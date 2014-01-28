@@ -33,7 +33,11 @@ if(Yum::module('profile')->enableProfileComments
 	$this->renderPartial(Yum::module('profile')->profileCommentIndexView, array(
 			 'model' => $model->profile)); ?>
  </div>
+<?php 
 
+$this->widget('PcStarRankWidget', array('modelId' => $model->id, 'modelClassName' => get_class($model)));
+//$this->widget('PcStarRankWidget', array('modelId' => $model->id, 'modelClassName' => 'YumUser'));
+?>
 <?
  if(!Yii::app()->user->isGuest && Yii::app()->user->id == $model->id) {
 	echo CHtml::link(Yum::t('Edit profile'), array('//profile/profile/update'));
