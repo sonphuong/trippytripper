@@ -158,20 +158,29 @@ class SharingController extends Controller
 	*/
 	public function actionJoin()
 	{
-		$model = new RideUser;
-		if(isset($_POST['ride_id']))
-		{
-			$model->user_id = Yii::app()->user->id;
-			$model->user_name = Yii::app()->user->name;
-			//$model->avatar = Yii::app()->user->avatar;
-			$model->join_status = 2;//waiting
-			$model->ride_id = $_POST['ride_id'];
-			$model->save();
-			Yii::app()->user->setFlash('joinRequested','Waiting for approve');
+		//check login 
+		if(isset(Yii::app()->user->id)){
+			$model = new RideUser;
+			if(isset($_POST['ride_id']))
+			{
+				$model->user_id = Yii::app()->user->id;
+				$model->user_name = Yii::app()->user->name;
+				//$model->avatar = Yii::app()->user->avatar;
+				$model->join_status = 2;//waiting
+				$model->ride_id = $_POST['ride_id'];
+				$model->save();
+				Yii::app()->user->setFlash('joinRequested','Waiting for approve');
+			}
+			echo '<div class="flash-success">
+	                '.Yii::app()->user->getFlash('joinRequested').' 
+	            </div>';	
 		}
-		echo '<div class="flash-success">
-                '.Yii::app()->user->getFlash('joinRequested').' 
-            </div>';
+		else{
+			echo '<div class="flash-success">
+	                You need to be a member.
+	            </div>';		
+		}
+		
 	}
 
 
