@@ -50,7 +50,7 @@
     <div class="row">
         <?php echo $form->textField($model,'fee'); ?>
     </div>
-    <div class="row">Description:</div>
+    <div class="row">Trip details:</div>
     <div class="row">
         <?php echo $form->textArea($model,'description',array('rows'=>6, 'cols'=>45)); ?>
     </div>

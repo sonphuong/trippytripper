@@ -89,9 +89,8 @@
     </div>
 </article>
 
-
 <article class="row_detail">
-    <form method="post" name="join_form">
+    <form method="post">
         <input type="hidden" value="<?php echo $_GET['id']; ?>" name="ride_id">
         <div class="cell cell3">
             Members
@@ -99,23 +98,23 @@
                 <?php 
                 if(!empty($members)){
                     foreach ($members as $key => $member) {
-                        echo '<li><span style="float:left">'.$member['user_name'] .'</span>';
-                        echo '<span id="join_status_'.$member['user_id'].'">';    
-                        if($member['join_status']==2){
+                        if($isOwner === true && $member['join_status']==2){
+                            echo '<li><span style="float:left">'.$member['user_name'] .'</span>';                                
+                            echo '<span id="join_status_'.$member['user_id'].'">'; 
+                            echo '<input type="hidden" name="user_id" value="'.$member['user_id'].'" />' ;   
                             echo CHtml::ajaxSubmitButton ("Accept",
-                                  CController::createUrl('sharing/acceptJoin/?user_id='.$member['user_id']), 
+                                  CController::createUrl('sharing/acceptJoin'), 
                                   array('success' => 'js:function(data) {$("#join_status_'.$member['user_id'].'").html("");}'));    
+                            echo '</span></li>';
                         }
-                        else{
-                            echo '';                                    
+                        elseif($member['join_status']==1){
+                            echo '<li><span style="float:left">'.$member['user_name'] .'</span>';                                
                         }
-                        echo '</span></li>';
-
                     }
                 }?>
             </ul>
         </div>
-        </form>
+    </form>
     <div class="cell cell5">
         <ul id="commentsList">
         <?php foreach ($allComments as $key => $value): ?>

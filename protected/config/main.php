@@ -17,12 +17,24 @@ return array(
 		'application.models.*',
 		'application.components.*',
 		'application.modules.*',
+		//for user 
 		'application.modules.user.*',
 		'application.modules.user.models.*',
 		'application.modules.user.components.*',
 		'application.modules.user.controllers.*',
+		//for profile
 		'application.modules.profile.models.*',
+		//for registration
 		'application.modules.registration.models.*',
+		//for role
+		'application.modules.role.models.*',
+		 // Star rank module
+	    'application.modules.PcStarRank.*',
+	    'application.modules.PcStarRank.models.*',
+	    'application.modules.PcStarRank.controllers.*',
+	    'application.modules.PcStarRank.components.*',
+	    'application.modules.PcStarRank.extensions.PcStarRankWidget.*',
+	    //...
 	),
 
 	'defaultController'=>'site',
@@ -42,7 +54,12 @@ return array(
 		'registration'=> array(),
 		'avatar'=> array(),
 		'profile'=> array(),
-		
+		'role' =>array(),
+		//start rank...
+    	'starRank' => array(
+      		'class' => 'application.modules.PcStarRank.PcStarRankModule'
+    	),
+    	//...
 
 		),
 	// application components
