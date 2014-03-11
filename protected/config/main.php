@@ -22,6 +22,7 @@ return array(
 		'application.modules.user.models.*',
 		'application.modules.user.components.*',
 		'application.modules.user.controllers.*',
+		
 		//for profile
 		'application.modules.profile.models.*',
 		//for registration
