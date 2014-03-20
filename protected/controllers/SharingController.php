@@ -108,7 +108,18 @@ class SharingController extends Controller
 			$model->user_id = Yii::app()->user->id;
 			if($model->validate()){
 				if($model->save()){
+                    $lastInsertId = Yii::app()->db->getLastInsertID();
+                    $rideUser = new RideUser();
+                    $rideUser->ride_id = $lastInsertId;
+                    $rideUser->user_id = Yii::app()->user->id;
+                    $rideUser->user_name = Yii::app()->user->name;
+                    //$rideUser->avatar = Yii::app()->user->avatar;
+                    $rideUser->join_status = 9;//owner
+                    if($rideUser->validate()){
+                        $rideUser->save();
+                    }
 					//$this->redirect(array('index'));
+
 				}
 			}
 		}
@@ -231,7 +242,12 @@ class SharingController extends Controller
 		if($this->isOwner($rideId)){
 			//$model = new RideUser;
             $ride = new Ride;
-            $seatAvail = $ride->getSeatAvail();
+            $sql = 'SELECT seat_avail FROM ride WHERE ride_id = :ride_id AND user_id =:loginId';
+            $command = Yii::app()->db->createCommand($sql);
+            $command->bindParam(':loginId',$loginId,PDO::PARAM_INT);
+            $command->bindParam(':ride_id',$rideId,PDO::PARAM_INT);
+            $seatAvail = $command->queryAll();
+
             //if seat is still avaiable
             if($seatAvail>=1){
                 //update seat
@@ -241,7 +257,7 @@ class SharingController extends Controller
 					AND user_id =:loginId
 					" ;
                 $command = Yii::app()->db->createCommand($sql);
-                $command->bindParam(':user_id',$loginId,PDO::PARAM_INT);
+                $command->bindParam(':loginId',$loginId,PDO::PARAM_INT);
                 $command->bindParam(':ride_id',$rideId,PDO::PARAM_INT);
                 if($command->execute()){
                     //update status
@@ -273,8 +289,8 @@ class SharingController extends Controller
 	}
 
 
-	/*
-	check the login user is the owner of the ride
+	/**
+	* check the login user is the owner of the ride
 	*/
 	public function isOwner($rideId){
 		$joinStatus = $this->getJoinStatus($rideId);
