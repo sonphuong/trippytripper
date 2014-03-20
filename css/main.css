@@ -295,15 +295,12 @@ div.breadcrumbs span
 	display: table-cell;
 	float: left;
 	padding: 10px;
-	border-right: 1px solid #CCC;
 	height: 140px;
 }
-.cell_last{
-	display: table-cell;
-	float: left;
-	padding: 10px;
-	height: 140px;
+.border_right{
+    border-right: 1px solid #CCC;
 }
+
 .from{
     background: url("../images/search-from-plot.png") no-repeat scroll 6px 50% #FFFFFF;
     height: 28px;

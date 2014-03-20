@@ -62,7 +62,7 @@
         </dl>
     </div>
 
-    <div class="cell_last offer span2">
+    <div class="cell border_right offer span2">
         <div class="price price-green" itemprop="location">
             <strong>
                 <span>

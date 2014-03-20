@@ -4,7 +4,7 @@ $(document).ready(function(){
 	$("#goFrom").select2({
             placeholder: 'From',
             minimumInputLength: 1,
-            allowClear: false,
+            allowClear: true,
             multiple: false,
             ajax: {
                 url: 'https://graph.facebook.com/search?type=adcity&access_token=' + accessToken,
@@ -21,9 +21,9 @@ $(document).ready(function(){
                     var result = new Array();
                     if (json.data) {
                         for (var i = 0; i < json.data.length; i++) {
-                            var _tmp = escape('{"id":"' + json.data[i].key + '","name":"' + json.data[i].name + '"}');
+                            //var _tmp = escape('{"id":"' + json.data[i].key + '","name":"' + json.data[i].name + '"}');
                             result.push({
-                                id: _tmp,
+                                id: json.data[i].name,
                                 text: json.data[i].name
                             });
                         }
@@ -54,9 +54,9 @@ $(document).ready(function(){
                     var result = new Array();
                     if (json.data) {
                         for (var i = 0; i < json.data.length; i++) {
-                            var _tmp = escape('{"id":"' + json.data[i].key + '","name":"' + json.data[i].name + '"}');
+                            //var _tmp = escape('{"id":"' + json.data[i].key + '","name":"' + json.data[i].name + '"}');
                             result.push({
-                                id: _tmp,
+                                id: json.data[i].name,
                                 text: json.data[i].name
                             });
                         }

@@ -63,7 +63,7 @@
                         </dd>
                     </dl>
                 </div>
-                <div class="cell_last offer cell2">
+                <div class="cell border_right offer cell2">
                     <div class="price price-green" itemprop="location">
                         <strong>
                             <span>
