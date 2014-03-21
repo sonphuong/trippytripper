@@ -88,7 +88,7 @@ class SharingController extends Controller
 		INNER JOIN user U ON U.id = RD.user_id
 		WHERE RD.ride_id = :rideId
 		AND RD.join_status <> 9
-		ORDER BY RD.join_status DESC
+		ORDER BY RD.join_status ASC
 		" ;
 		$command = Yii::app()->db->createCommand($sql);
 		$command->bindParam(':rideId',$rideId,PDO::PARAM_INT);
@@ -214,7 +214,6 @@ class SharingController extends Controller
 	public function getJoinStatus($rideId){
 		$joinStatus ='';
 		$loginId = Yii::app()->user->id;
-		$model = new RideUser;
 		$sql = "SELECT RU.join_status
 				FROM ride_user RU
 				INNER JOIN ride R ON RU.ride_id = R.id
@@ -239,53 +238,57 @@ class SharingController extends Controller
 		$rideId = $_POST['ride_id'];
 		$userId = $_POST['user_id'];
         $loginId = Yii::app()->user->id;
+        $return['status'] = 0;
+        $return['msg'] = 'unsuccess';
 		if($this->isOwner($rideId)){
-			//$model = new RideUser;
-            $ride = new Ride;
-            $sql = 'SELECT seat_avail FROM ride WHERE ride_id = :ride_id AND user_id =:loginId';
+            $sql = 'SELECT seat_avail FROM ride WHERE id = :rideId AND user_id =:loginId';
             $command = Yii::app()->db->createCommand($sql);
             $command->bindParam(':loginId',$loginId,PDO::PARAM_INT);
-            $command->bindParam(':ride_id',$rideId,PDO::PARAM_INT);
+            $command->bindParam(':rideId',$rideId,PDO::PARAM_INT);
             $seatAvail = $command->queryAll();
-
-            //if seat is still avaiable
+            $seatAvail = $seatAvail[0]['seat_avail'];
+            //if seat is still available
             if($seatAvail>=1){
                 //update seat
+                $seatsLeft = $seatAvail - 1;
                 $sql = "UPDATE ride
-					SET seat_avail = seat_avail - 1
-					WHERE ride_id =:ride_id
+					SET seat_avail =:seatsLeft
+					WHERE id =:rideId
 					AND user_id =:loginId
 					" ;
                 $command = Yii::app()->db->createCommand($sql);
                 $command->bindParam(':loginId',$loginId,PDO::PARAM_INT);
-                $command->bindParam(':ride_id',$rideId,PDO::PARAM_INT);
+                $command->bindParam(':rideId',$rideId,PDO::PARAM_INT);
+                $command->bindParam(':seatsLeft',$seatsLeft,PDO::PARAM_INT);
+
                 if($command->execute()){
                     //update status
-                        $sql = "UPDATE ride_user
+                    $sql = "UPDATE ride_user
                     SET join_status = 1
-                    WHERE ride_id =:ride_id
-                    AND user_id =:user_id
+                    WHERE ride_id =:rideId
+                    AND user_id =:userId
                     " ;
                     $command = Yii::app()->db->createCommand($sql);
-                    $command->bindParam(':user_id',$userId,PDO::PARAM_INT);
-                    $command->bindParam(':ride_id',$rideId,PDO::PARAM_INT);
-                    if($command->execute())
-                        $return = 'success';
-                }
-                else{
-                    $return = 'error ';
+                    $command->bindParam(':userId',$userId,PDO::PARAM_INT);
+                    $command->bindParam(':rideId',$rideId,PDO::PARAM_INT);
+                    if($command->execute()){
+                        $return['seatsLeft'] = $seatsLeft;
+                        $return['userId'] = $userId;
+                        $return['status'] = 1;
+                        $return['msg'] = 'success';
+                    }
                 }
             }
             else{
                 Yii::app()->user->setFlash('joinRequested','Waiting for approve');
             }
-
 		}
 		else{
-			$return = "you are not allow to do this action";
+            $return['status'] = 0;
+            $return['msg'] = 'You are not allow to do this action';
 		}
 		
-		echo $return;
+		echo json_encode($return);
 	}
 
 

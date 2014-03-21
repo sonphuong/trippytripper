@@ -416,3 +416,12 @@ article{
 .cell3 {
     width: 300px;
 }
+.approved{
+    color: green;
+}
+.waiting{
+    color: goldenrod;
+}
+.denied{
+    color: red;
+}

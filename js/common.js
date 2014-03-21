@@ -14,7 +14,7 @@ $(document).ready(function(){
                     return {
                         'q': term,
                         'limit': '50',
-                        'country_list': countryList
+                        //'country_list': countryList
                     };  
                 },
                 results: function (json) {
@@ -47,7 +47,7 @@ $(document).ready(function(){
                     return {
                         'q': term,
                         'limit': '50',
-                        'country_list': countryList
+                        //'country_list': countryList
                     };  
                 },
                 results: function (json) {
