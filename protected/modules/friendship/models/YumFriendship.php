@@ -1,4 +1,4 @@
-<?
+<?php
 
 class YumFriendship extends YumActiveRecord {
 	const FRIENDSHIP_NONE = 0; 
@@ -113,9 +113,8 @@ class YumFriendship extends YumActiveRecord {
 
 	public function tableName()
 	{
-        //$this->_tableName = Yum::module('friendship')->friendshipTable
-        //temporary change need to revert after
-        $this->_tableName = 'friendship';
+		$this->_tableName = Yum::module('friendship')->friendshipTable;
+
 		return $this->_tableName;
 	}
 

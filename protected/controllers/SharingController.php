@@ -26,7 +26,8 @@ class SharingController extends Controller
 			R.seat_avail, 
 			R.from, 
 			R.to, 
-			R.fee, 
+			R.fee,
+			R.gathering_point,
 			R.id
 		FROM USER U 
 		INNER JOIN ride R ON U.id = R.user_id

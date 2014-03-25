@@ -9,7 +9,6 @@
                         <h3 class="username"><?php echo $ride['username']; ?></h3>
                     </div>
                     <div class="user-trust">
-                        <?php $this->widget('PcStarRankWidget', array('modelId' => $ride['user_id'], 'modelClassName' => 'YumUser'));?>
                         <div class="rating-container">
                             <!-- <span class="star-rating star_5"></span> -->
                         </div>
@@ -59,7 +58,7 @@
                         </span>
                         </dt>
                         <dd class="tip">
-                            Ciputra
+                            <?php echo $ride['gathering_point']; ?>
                         </dd>
                     </dl>
                 </div>

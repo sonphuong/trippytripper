@@ -6,10 +6,7 @@
             <h3 class="username"><?php echo $ride['username']; ?></h3>
         </div>
         <div class="user-trust">
-            <div class="rating-container">
-                <span class="star-rating star_5"></span>
-                2 ratings
-            </div>
+            
             <div class="facebook-container">
                 <span class="tip user-trust-fb tip">
                     <b class="icon-fb-small"></b>
