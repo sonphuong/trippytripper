@@ -1,5 +1,5 @@
 <div class="form">
-<p class="note"> <?php echo Yum::requiredFieldNote(); ?> </p>
+<!-- <p class="note"> <?php echo Yum::requiredFieldNote(); ?> </p> -->
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 			'id'=>'profile-comment-form',
@@ -10,13 +10,13 @@ echo $form->errorSummary($comment);
 echo CHtml::hiddenField('YumProfileComment[profile_id]', $profile->id); ?>
 
 <div class="row">
-<?php echo $form->labelEx($comment,'comment'); ?>
+<?php //echo $form->labelEx($comment,'comment'); ?>
 <?php echo $form->textArea($comment,'comment',array('rows'=>6, 'cols'=>50)); ?>
 <?php echo $form->error($comment,'comment'); ?>
 </div>
 
 <?
-echo CHtml::Button(Yum::t('Write comment'), array(
+echo CHtml::Button(Yum::t('Comment'), array(
 			'id' => 'write_comment',
 			));
 
