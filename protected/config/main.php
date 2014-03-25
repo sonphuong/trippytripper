@@ -17,18 +17,30 @@ return array(
 		'application.models.*',
 		'application.components.*',
 		'application.modules.*',
+
 		//for user 
 		'application.modules.user.*',
 		'application.modules.user.models.*',
 		'application.modules.user.components.*',
 		'application.modules.user.controllers.*',
 		
-		//for profile
-		'application.modules.profile.models.*',
+		//for friendship
+        'application.modules.friendship.*',
+		'application.modules.friendship.components.*',
+        'application.modules.friendship.controller.*',
+        'application.modules.friendship.models.*',
+
+        //for profile
+        'application.modules.profile.components.*',
+        'application.modules.profile.controller.*',
+        'application.modules.profile.models.*',
+
 		//for registration
 		'application.modules.registration.models.*',
+
 		//for role
 		'application.modules.role.models.*',
+
 		 // Star rank module
 	    'application.modules.PcStarRank.*',
 	    'application.modules.PcStarRank.models.*',
@@ -44,20 +56,20 @@ return array(
             'class'=>'system.gii.GiiModule',
             'password'=>'dontcry',
         ),
+        'avatar'=> array(),
+        'friendship'=> array(),
+        'membership'=> array(),
+        'message' => array(),
+        'starRank' => array(
+            'class' => 'application.modules.PcStarRank.PcStarRankModule'
+        ),
+        'profile'=> array(),
+        'registration'=> array(),
+        'role'=> array(),
 		'user' => array(
 			'debug' => true,
 			),
-		'message' => array(),
-		'registration'=> array(),
-		'avatar'=> array(),
-		'profile'=> array(),
-		'role' =>array(),
-		//start rank...
-    	'starRank' => array(
-      		'class' => 'application.modules.PcStarRank.PcStarRankModule'
-    	),
-    	//...
-
+		'usergroup' =>array(),
 		),
 	// application components
 	'components'=>array(

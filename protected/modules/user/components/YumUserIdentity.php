@@ -116,7 +116,6 @@ class YumUserIdentity extends CUserIdentity {
 	{
 		$user = YumUser::model()->find('username = :username', array(
 					':username' => $this->username));
-
 		// try to authenticate via email
 		if(!$user && (Yum::module()->loginType & 2) && Yum::hasModule('profile')) {
 			if($profile = YumProfile::model()->find('email = :email', array(
@@ -147,6 +146,7 @@ class YumUserIdentity extends CUserIdentity {
 	function credentialsConfirmed($user) {
 		$this->id = $user->id;
 		$this->setState('id', $user->id);
+        $this->setState('avatar', $user->avatar);
 		$this->username = $user->username;
 		$this->errorCode=self::ERROR_NONE;
 	}

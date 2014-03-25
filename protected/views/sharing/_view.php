@@ -1,7 +1,7 @@
 <div class="errorSummary"></div>
 <article class="row_detail">
     <div class="cell user cell2">
-        <img class="photo" src="/images/sonphuong.jpg" width="42" height="42">
+        <img class="photo" src="/<?php echo $ride['avatar']; ?>" width="42" height="42">
         <div class="user-info">
             <h3 class="username"><?php echo $ride['username']; ?></h3>
         </div>
@@ -129,7 +129,7 @@
     <div class="cell cell5">
         <ul id="commentsList">
         <?php foreach ($allComments as $key => $value): ?>
-            <li><img src="<?php echo $value['avatar']; ?>" alt="" width="32px" height="32px" /> 
+            <li><img src="/<?php echo $value['avatar']; ?>" alt="" width="32px" height="32px" />
             <?php echo $value['user_name'].':'; ?>
             <?php echo $value['content']; ?>
             </li>
