@@ -4,12 +4,11 @@
         <a href="view/?id=<?php echo $ride['id']; ?>" rel="nofollow" class="trip-search-oneresult">
             <article class="table_row">
                 <div class="cell user cell2">
-                    <img class="photo" src="/images/sonphuong.jpg" width="42" height="42">
+                    <img class="photo" src="/<?php echo $ride['avatar']; ?>" width="42" height="42">
                     <div class="user-info">
                         <h3 class="username"><?php echo $ride['username']; ?></h3>
                     </div>
                     <div class="user-trust">
-                        <?php $this->widget('PcStarRankWidget', array('modelId' => $ride['user_id'], 'modelClassName' => 'YumUser'));?>
                         <div class="rating-container">
                             <!-- <span class="star-rating star_5"></span> -->
                         </div>
@@ -59,11 +58,11 @@
                         </span>
                         </dt>
                         <dd class="tip">
-                            Ciputra
+                            <?php echo $ride['gathering_point']; ?>
                         </dd>
                     </dl>
                 </div>
-                <div class="cell_last offer cell2">
+                <div class="cell border_right offer cell2">
                     <div class="price price-green" itemprop="location">
                         <strong>
                             <span>

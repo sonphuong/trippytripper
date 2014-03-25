@@ -1,24 +1,21 @@
+<div class="errorSummary"></div>
 <article class="row_detail">
     <div class="cell user cell2">
-        <img class="photo" src="/images/sonphuong.jpg" width="42" height="42">
+        <a href="/index.php/profile/profile/view/id/<?php echo $ride['id']; ?>">
+        <img class="photo" src="/<?php echo $ride['avatar']; ?>" width="42" height="42">
         <div class="user-info">
             <h3 class="username"><?php echo $ride['username']; ?></h3>
         </div>
+        </a>
         <div class="user-trust">
-            <div class="rating-container">
-                <span class="star-rating star_5"></span>
-                2 ratings
-            </div>
+            
             <div class="facebook-container">
                 <span class="tip user-trust-fb tip">
                     <b class="icon-fb-small"></b>
                     113 friends
                 </span>
             </div>
-            <div class="preferences-container">
-                <span class="blabla prefs tip"></span>
-                <span class="no-smoking prefs tip"></span>
-            </div>
+            
         </div>
     </div>
 
@@ -62,7 +59,7 @@
         </dl>
     </div>
 
-    <div class="cell_last offer span2">
+    <div class="cell border_right offer span2">
         <div class="price price-green" itemprop="location">
             <strong>
                 <span>
@@ -72,7 +69,7 @@
             <span class="priceUnit">1 người</span>
         </div>
         <div class="availability">
-            <strong><?php echo $ride['seat_avail']; ?></strong> <span>seats left</span>
+            <strong id="seats_left"><?php echo $ride['seat_avail']; ?></strong> <span>seats left</span>
         </div>
         <?php if($joinStatus==9): ?>
         <?php elseif($joinStatus==1): ?>
@@ -97,18 +94,28 @@
             <ul>
                 <?php 
                 if(!empty($members)){
+                    $i = 0;
                     foreach ($members as $key => $member) {
+                        $i++;
                         if($isOwner === true && $member['join_status']==2){
-                            echo '<li><span style="float:left">'.$member['user_name'] .'</span>';                                
-                            echo '<span id="join_status_'.$member['user_id'].'">'; 
-                            echo '<input type="hidden" name="user_id" value="'.$member['user_id'].'" />' ;   
-                            echo CHtml::ajaxSubmitButton ("Accept",
-                                  CController::createUrl('sharing/acceptJoin'), 
-                                  array('success' => 'js:function(data) {$("#join_status_'.$member['user_id'].'").html("");}'));    
+                            echo '<li class="waiting" id="member_'.$member['user_id'].'">'.$i.'<span style="float:left">'.$member['user_name'] .'</span>';
+                            echo '<span id="join_status_'.$member['user_id'].'">';
+                            if($ride['seat_avail']>0){
+                                echo CHtml::ajaxSubmitButton ("Accept",
+                                    CController::createUrl('sharing/acceptJoin'),
+                                    array(
+                                        'success' => 'js:function(data) {approveJoinSuccess(data);}'
+                                    ,'data' => 'user_id='.$member['user_id'].'&ride_id='.$_GET['id'].''
+                                    )
+                                );
+                            }
+                            else{
+                                echo '<span>&nbsp; No more seat</span>';
+                            }
                             echo '</span></li>';
                         }
                         elseif($member['join_status']==1){
-                            echo '<li><span style="float:left">'.$member['user_name'] .'</span>';                                
+                            echo '<li class="approved" id="member_'.$member['user_id'].'">'.$i.'<span style="float:left">'.$member['user_name'] .'</span>';
                         }
                     }
                 }?>
@@ -118,7 +125,7 @@
     <div class="cell cell5">
         <ul id="commentsList">
         <?php foreach ($allComments as $key => $value): ?>
-            <li><img src="<?php echo $value['avatar']; ?>" alt="" width="32px" height="32px" /> 
+            <li><img src="/<?php echo $value['avatar']; ?>" alt="" width="32px" height="32px" />
             <?php echo $value['user_name'].':'; ?>
             <?php echo $value['content']; ?>
             </li>
@@ -135,3 +142,18 @@
     </div>
 </article>
 
+<script>
+    function approveJoinSuccess(data){
+        data = JSON.parse(data);
+        console.log(data);
+        if(data.status==1){
+            $("#seats_left").html(data.seatsLeft);
+            $("#join_status_"+data.userId).html("");
+            $("#member_"+data.userId).class("approved");
+        }
+        else{
+            $("#errorSummary").html(data.msg);
+        }
+
+    }
+</script>

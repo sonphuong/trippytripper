@@ -4,10 +4,7 @@
 <div class="form search_box">
     <?php $form=$this->beginWidget('CActiveForm'); ?>
     <?php echo $form->errorSummary($model); ?>
-    <div class="row">Title:</div>
-    <div class="row">
-        <?php echo $form->textField($model,'name'); ?>
-    </div>
+
     
     <div class="row">
         <?php echo $form->textField($model,'from',array('id'=>'goFrom', 'class'=>'from')); ?>
@@ -45,10 +42,22 @@
         	),
         ));
         ?>
-    </div> 
-    <div class="row">Fee:</div>
+    </div>
     <div class="row">
-        <?php echo $form->textField($model,'fee'); ?>
+        <span class="label">Seats:</span>
+        <span class="fieldset"><?php echo $form->textField($model,'seat_avail',array('maxlength'=>'2','size'=>'2')); ?></span>
+    </div>
+    <div class="row">
+        <span class="label">Fee:</span>
+        <span class="fieldset"><?php echo $form->textField($model,'fee',array('maxlength'=>'6','size'=>'6')); ?></span>
+    </div>
+    <div class="row">
+        <span class="label">gathering point:</span>
+        <span class="fieldset"><?php echo $form->textField($model,'gathering_point'); ?></span>
+    </div>
+    <div class="row">
+        <span class="label">Title:</span>
+        <span class="fieldset"><?php echo $form->textField($model,'name'); ?></span>
     </div>
     <div class="row">Trip details:</div>
     <div class="row">

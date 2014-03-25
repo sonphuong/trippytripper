@@ -9,7 +9,9 @@ class SharingController extends Controller
 	 * @var CActiveRecord the currently loaded data model instance.
 	 */
 	private $_model;
-
+    /**
+     * get all available tour
+     */
 	public function getAllRides()
 	{
 		$sql = "SELECT 
@@ -24,7 +26,8 @@ class SharingController extends Controller
 			R.seat_avail, 
 			R.from, 
 			R.to, 
-			R.fee, 
+			R.fee,
+			R.gathering_point,
 			R.id
 		FROM USER U 
 		INNER JOIN ride R ON U.id = R.user_id
@@ -37,8 +40,8 @@ class SharingController extends Controller
 	}
 
 
-	/*
-	get login-user's tours
+	/**
+	* get login-user's tours
 	*/
 	public function actionMyRides()
 	{
@@ -77,8 +80,8 @@ class SharingController extends Controller
 	}
 
 
-	/*
-	get members who is involes the the tour
+	/**
+	* get members who is involes the the tour
 	*/
 	public function getRideMembers($rideId){
 		$sql = "SELECT RD.user_name,RD.user_id, RD.avatar, RD.join_status 
@@ -86,7 +89,7 @@ class SharingController extends Controller
 		INNER JOIN user U ON U.id = RD.user_id
 		WHERE RD.ride_id = :rideId
 		AND RD.join_status <> 9
-		ORDER BY RD.join_status DESC
+		ORDER BY RD.join_status ASC
 		" ;
 		$command = Yii::app()->db->createCommand($sql);
 		$command->bindParam(':rideId',$rideId,PDO::PARAM_INT);
@@ -94,24 +97,38 @@ class SharingController extends Controller
 		return $members;
 	}
 
-	/*
-	publish a tour
+	/**
+	* publish a tour
 	*/
 	public function actionOffer(){
 		$model=new Ride;
 		if(isset($_POST['Ride'])){
-			$model->attributes = $_POST['Ride'];
+            //========================================================
+            //careful when using json_decode with non-utf8 (vietnamese language)
+            $model->attributes = $_POST['Ride'];
 			$model->user_id = Yii::app()->user->id;
 			if($model->validate()){
 				if($model->save()){
+                    $lastInsertId = Yii::app()->db->getLastInsertID();
+                    $rideUser = new RideUser();
+                    $rideUser->ride_id = $lastInsertId;
+                    $rideUser->user_id = Yii::app()->user->id;
+                    $rideUser->user_name = Yii::app()->user->name;
+                    //$rideUser->avatar = Yii::app()->user->avatar;
+                    $rideUser->join_status = 9;//owner
+                    if($rideUser->validate()){
+                        $rideUser->save();
+                    }
 					//$this->redirect(array('index'));
-				}
 
+				}
 			}
 		}
 		$this->render('offer',array('model'=>$model));	
-	}	
-
+	}
+    /**
+     * Search a tour.
+     */
 	public function actionSearchRide(){
 		$model=new Ride;
 		$allRides = $this->getAllRides();
@@ -119,7 +136,6 @@ class SharingController extends Controller
 			'model' => $model,
 			'allRides' => $allRides
 		));
-		
 	}
 
 	/**
@@ -208,7 +224,6 @@ class SharingController extends Controller
 	public function getJoinStatus($rideId){
 		$joinStatus ='';
 		$loginId = Yii::app()->user->id;
-		$model = new RideUser;
 		$sql = "SELECT RU.join_status
 				FROM ride_user RU
 				INNER JOIN ride R ON RU.ride_id = R.id
@@ -232,30 +247,63 @@ class SharingController extends Controller
 	public function actionAcceptJoin(){
 		$rideId = $_POST['ride_id'];
 		$userId = $_POST['user_id'];
+        $loginId = Yii::app()->user->id;
+        $return['status'] = 0;
+        $return['msg'] = 'unsuccess';
 		if($this->isOwner($rideId)){
-			
-			$model = new RideUser;
-			$sql = "UPDATE ride_user 
-					SET join_status = 1
-					WHERE ride_id =:ride_id
-					AND user_id =:user_id
+            $sql = 'SELECT seat_avail FROM ride WHERE id = :rideId AND user_id =:loginId';
+            $command = Yii::app()->db->createCommand($sql);
+            $command->bindParam(':loginId',$loginId,PDO::PARAM_INT);
+            $command->bindParam(':rideId',$rideId,PDO::PARAM_INT);
+            $seatAvail = $command->queryAll();
+            $seatAvail = $seatAvail[0]['seat_avail'];
+            //if seat is still available
+            if($seatAvail>=1){
+                //update seat
+                $seatsLeft = $seatAvail - 1;
+                $sql = "UPDATE ride
+					SET seat_avail =:seatsLeft
+					WHERE id =:rideId
+					AND user_id =:loginId
 					" ;
-			$command = Yii::app()->db->createCommand($sql);
-			$command->bindParam(':user_id',$userId,PDO::PARAM_INT);
-			$command->bindParam(':ride_id',$rideId,PDO::PARAM_INT);
-			if($command->execute())
-				$return = 'success';	
+                $command = Yii::app()->db->createCommand($sql);
+                $command->bindParam(':loginId',$loginId,PDO::PARAM_INT);
+                $command->bindParam(':rideId',$rideId,PDO::PARAM_INT);
+                $command->bindParam(':seatsLeft',$seatsLeft,PDO::PARAM_INT);
+
+                if($command->execute()){
+                    //update status
+                    $sql = "UPDATE ride_user
+                    SET join_status = 1
+                    WHERE ride_id =:rideId
+                    AND user_id =:userId
+                    " ;
+                    $command = Yii::app()->db->createCommand($sql);
+                    $command->bindParam(':userId',$userId,PDO::PARAM_INT);
+                    $command->bindParam(':rideId',$rideId,PDO::PARAM_INT);
+                    if($command->execute()){
+                        $return['seatsLeft'] = $seatsLeft;
+                        $return['userId'] = $userId;
+                        $return['status'] = 1;
+                        $return['msg'] = 'success';
+                    }
+                }
+            }
+            else{
+                Yii::app()->user->setFlash('joinRequested','Waiting for approve');
+            }
 		}
 		else{
-			$return = "unsucess";
+            $return['status'] = 0;
+            $return['msg'] = 'You are not allow to do this action';
 		}
 		
-		echo $return;
+		echo json_encode($return);
 	}
 
 
-	/*
-	check the login user is the owner of the ride
+	/**
+	* check the login user is the owner of the ride
 	*/
 	public function isOwner($rideId){
 		$joinStatus = $this->getJoinStatus($rideId);

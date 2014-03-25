@@ -74,8 +74,8 @@ echo '<div class="clear"></div>';
 
 				<div class="row">
 				<?php 
-				echo CHtml::activeLabelEx($profile, 'allow_comments'); 
-			echo CHtml::activeDropDownList($profile, 'allow_comments',
+				echo CHtml::activeLabelEx($profile, 'allow_comments');
+			    echo CHtml::activeDropDownList($profile, 'allow_comments',
 					array(
 						'0' => Yum::t( 'No'),
 						'1' => Yum::t( 'Yes'),

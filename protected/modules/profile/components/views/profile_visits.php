@@ -5,7 +5,7 @@ if($visits) {
 	foreach($visits as $visit)
 		printf('<div style="text-align:center; float:left; width:100px; padding-bottom:10px;">%s <br/> %s</div>', 
 				CHtml::link($visit->visitor->getAvatar(true), array(
-						Yum::module('profile')->profileView, 'id' => $visit->visitor_id)),
+						Yum::module('profile')->profileViewRoute, 'id' => $visit->visitor_id)),
 				substr($visit->visitor->username,0,12)
 				);
 } else

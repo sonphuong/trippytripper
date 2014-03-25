@@ -23,7 +23,7 @@
  * @property YumUser $active
  * @property YumUser $notactive
  * @property YumUser $banned
- * @property YumUser $superuser
+ //* @property YumUser $superuser
  *
  */
 class YumUser extends YumActiveRecord
@@ -739,9 +739,9 @@ class YumUser extends YumActiveRecord
 		if (Yum::hasModule('avatar') && $this->profile) {
 			$options = array();
 			if ($thumb)
-				$options = array('class' => 'avatar', 'style' => 'width: ' . Yum::module('avatar')->avatarThumbnailWidth . ' px;');
+				$options = array('class' => 'avatar', 'style' => 'width: ' . Yum::module('avatar')->avatarThumbnailWidth . 'px;');
 			else
-				$options = array('class' => 'avatar', 'style' => 'width: ' . Yum::module('avatar')->avatarDisplayWidth . ' px;');
+				$options = array('class' => 'avatar', 'style' => 'width: ' . Yum::module('avatar')->avatarDisplayWidth . 'px;');
 
 			$return = '<div class="avatar">';
 
