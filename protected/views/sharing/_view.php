@@ -1,10 +1,12 @@
 <div class="errorSummary"></div>
 <article class="row_detail">
     <div class="cell user cell2">
+        <a href="/index.php/profile/profile/view/id/<?php echo $ride['id']; ?>">
         <img class="photo" src="/<?php echo $ride['avatar']; ?>" width="42" height="42">
         <div class="user-info">
             <h3 class="username"><?php echo $ride['username']; ?></h3>
         </div>
+        </a>
         <div class="user-trust">
             
             <div class="facebook-container">
@@ -13,10 +15,7 @@
                     113 friends
                 </span>
             </div>
-            <div class="preferences-container">
-                <span class="blabla prefs tip"></span>
-                <span class="no-smoking prefs tip"></span>
-            </div>
+            
         </div>
     </div>
 
