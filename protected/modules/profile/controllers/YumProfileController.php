@@ -99,6 +99,24 @@ class YumProfileController extends YumController {
 
 		$this->loadModel($id);
 		$this->updateVisitor(Yii::app()->user->id, $id);
+        $commentAble = 0;
+        var_dump($this);
+        //can't comment by yourself
+        if($id==Yii::app()->user->id){
+            $commentAble = 0;
+        }
+        else{
+            //allow comment only one time
+            $comment =YumProfileComment::model()->exists(
+                array(
+                    'condition' =>'user_id=:user_id AND profile_id=:profile_id',
+                    'params'=>array(':user_id'=>Yii::app()->user->id,':profile_id'=>$id)
+                )
+            );
+            var_dump($id);
+            var_dump(Yii::app()->user->id);
+            var_dump($comment);
+        }
 
 		if(Yii::app()->request->isAjaxRequest)
 			$this->renderPartial($view, array(

@@ -14,6 +14,8 @@ return array(
 
 	// autoloading model and component classes
 	'import'=>array(
+        'application.ext.time.*',
+
 		'application.models.*',
 		'application.components.*',
 		'application.modules.*',

@@ -40,14 +40,13 @@ class YumProfileCommentController extends YumController
 						), false, true);
 	}
 
-
 	public function actionDelete($id) {
 		$comment = YumProfileComment::model()->findByPk($id);
 
 		if($comment->user_id == Yii::app()->user->id
 				|| $comment->profile_id == Yii::app()->user->id) {
 			$comment->delete();
-			$this->redirect(array(Yum::module()->profileView, 'id' => $comment->profile->user_id));
+			$this->redirect(array(Yum::module('profile')->profileViewRoute, 'id' => $comment->profile->user_id));
 		} else
 			throw new CHttpException(400,
 					Yum::t('You are not the owner of this Comment or this Profile!'));
