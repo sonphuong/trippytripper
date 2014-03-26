@@ -4,7 +4,7 @@
 			<?php echo CHtml::link(CHtml::encode($data->user->username), array(
 						'//profile/profile/view', 'id' => $data->user_id)); ?>
 			|
-			<strong><?php echo CHtml::encode($data->getAttributeLabel('createtime')); ?>:</strong>
+			<!-- <strong><?php echo CHtml::encode($data->getAttributeLabel('createtime')); ?>:</strong> -->
 			<?php $locale = CLocale::getInstance(Yii::app()->language);
 			echo $locale->getDateFormatter()->formatDateTime($data->createtime, 'medium', 'medium'); ?>
 	</div>

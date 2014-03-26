@@ -69,6 +69,7 @@ return array(
 		'user' => array(
 			'debug' => true,
 			),
+
 		'usergroup' =>array(),
 		),
 	// application components
