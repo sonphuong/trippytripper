@@ -98,7 +98,7 @@
                     foreach ($members as $key => $member) {
                         $i++;
                         if($isOwner === true && $member['join_status']==2){
-                            echo '<li class="waiting" id="member_'.$member['user_id'].'">'.$i.'<span style="float:left">'.$member['user_name'] .'</span>';
+                            echo '<li class="waiting" id="member_'.$member['user_id'].'">'.$i.'<span style="float:left">'.CHtml::link($member['user_name'], array('//profile/profile/view/'.$member['user_id'])).'</span>';
                             echo '<span id="join_status_'.$member['user_id'].'">';
                             if($ride['seat_avail']>0){
                                 echo CHtml::ajaxSubmitButton ("Accept",
@@ -115,7 +115,7 @@
                             echo '</span></li>';
                         }
                         elseif($member['join_status']==1){
-                            echo '<li class="approved" id="member_'.$member['user_id'].'">'.$i.'<span style="float:left">'.$member['user_name'] .'</span>';
+                            echo '<li class="approved" id="member_'.$member['user_id'].'">'.$i.'<span style="float:left">'.CHtml::link($member['user_name'], array('//profile/profile/view/'.$member['user_id'])).'</span>';
                         }
                     }
                 }?>

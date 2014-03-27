@@ -99,31 +99,44 @@ class YumProfileController extends YumController {
 
 		$this->loadModel($id);
 		$this->updateVisitor(Yii::app()->user->id, $id);
-        $commentAble = 0;
-        var_dump($this);
+        $commentAble = true;
         //can't comment by yourself
         if($id==Yii::app()->user->id){
-            $commentAble = 0;
+            $commentAble = false;
         }
         else{
+        	//get profile_id
+        	$profile = YumProfile::model()->find(array(
+                'select' => 'id',
+                'condition'=> 'user_id=:user_id',
+                'params' => array(':user_id'=>$id)
+            ));
             //allow comment only one time
-            $comment =YumProfileComment::model()->exists(
+            $commentAble = !YumProfileComment::model()->exists(
                 array(
                     'condition' =>'user_id=:user_id AND profile_id=:profile_id',
-                    'params'=>array(':user_id'=>Yii::app()->user->id,':profile_id'=>$id)
+                    'params'=>array(':user_id'=>Yii::app()->user->id,':profile_id'=>$profile->id)
                 )
             );
-            var_dump($id);
-            var_dump(Yii::app()->user->id);
-            var_dump($comment);
+           
         }
-
+        //get the tours lead by
+        $tourNo = Ride::model()->count(array(
+            'condition'=> 'user_id=:user_id',
+            'params' => array(':user_id'=>$id)
+        ));
 		if(Yii::app()->request->isAjaxRequest)
 			$this->renderPartial($view, array(
-						'model' => $this->_model), false, true);
+						'model' => $this->_model,
+						'commentAble' => $commentAble,
+                        'tourNo'=>$tourNo
+						), false, true);
 		else
 			$this->render($view, array(
-						'model' => $this->_model), false, true);
+						'model' => $this->_model,
+						'commentAble' => $commentAble,
+                        'tourNo'=>$tourNo
+						), false, true);
 
 	}
 

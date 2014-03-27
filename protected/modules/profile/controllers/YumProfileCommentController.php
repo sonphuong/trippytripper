@@ -33,10 +33,12 @@ class YumProfileCommentController extends YumController
 			$model->attributes = $_POST['YumProfileComment'];
 			$model->save();
 			}
-
+		//comment only one time
+		$commentAble = false;	
 		if(isset($model->profile->user) && $user = $model->profile->user)
 			$this->renderPartial(Yum::module('profile')->profileView, array(
-						'model'=>$user
+						'model'=>$user,
+						'commentAble' => $commentAble
 						), false, true);
 	}
 
