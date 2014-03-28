@@ -73,7 +73,9 @@
         </div>
         <?php if($joinStatus==9): ?>
         <?php elseif($joinStatus==1): ?>
-            <div class="flash-success">You Joined</div>
+            <?php $this->renderPartial('/sharing/_dis_join_form',array(
+                'model'=>$model,
+            )); ?>
         <?php elseif($joinStatus==2): ?>
             <div class="flash-success">
                 Waiting for approve
@@ -91,15 +93,12 @@
         <input type="hidden" value="<?php echo $_GET['id']; ?>" name="ride_id">
         <div class="cell cell3">
             Members
-            <ul>
+            <ol class="memberList">
                 <?php 
                 if(!empty($members)){
-                    $i = 0;
                     foreach ($members as $key => $member) {
-                        $i++;
                         if($isOwner === true && $member['join_status']==2){
-                            echo '<li class="waiting" id="member_'.$member['user_id'].'">'.$i.'<span style="float:left">'.CHtml::link($member['user_name'], array('//profile/profile/view/'.$member['user_id'])).'</span>';
-                            echo '<span id="join_status_'.$member['user_id'].'">';
+                            echo '<li class="waiting" id="member_'.$member['user_id'].'"><img src="/'.$member['avatar'].'" alt="" width="32px" height="32px" />'.CHtml::link($member['user_name'], array('//profile/profile/view/'.$member['user_id']));                            echo '<span id="join_status_'.$member['user_id'].'">';
                             if($ride['seat_avail']>0){
                                 echo CHtml::ajaxSubmitButton ("Accept",
                                     CController::createUrl('sharing/acceptJoin'),
@@ -115,11 +114,11 @@
                             echo '</span></li>';
                         }
                         elseif($member['join_status']==1){
-                            echo '<li class="approved" id="member_'.$member['user_id'].'">'.$i.'<span style="float:left">'.CHtml::link($member['user_name'], array('//profile/profile/view/'.$member['user_id'])).'</span>';
+                            echo '<li class="approved" id="member_'.$member['user_id'].'"><img src="/'.$member['avatar'].'" alt="" width="32px" height="32px" />'.CHtml::link($member['user_name'], array('//profile/profile/view/'.$member['user_id']));
                         }
                     }
                 }?>
-            </ul>
+            </ol>
         </div>
     </form>
     <div class="cell cell5">
@@ -141,19 +140,3 @@
         <?php endif; ?>
     </div>
 </article>
-
-<script>
-    function approveJoinSuccess(data){
-        data = JSON.parse(data);
-        console.log(data);
-        if(data.status==1){
-            $("#seats_left").html(data.seatsLeft);
-            $("#join_status_"+data.userId).html("");
-            $("#member_"+data.userId).class("approved");
-        }
-        else{
-            $("#errorSummary").html(data.msg);
-        }
-
-    }
-</script>
