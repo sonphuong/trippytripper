@@ -18,8 +18,8 @@ Yum::renderFlash();
 ?>
 <div class="row">Số tours đã lead: 9</div>
 <div class="row">Tỷ lệ trả lời: 50% </div>
-<div class="row">Lần cuối online: hôm qua</div>
-<div class="row">Thành viên từ: 01-09-2012</div>
+<div class="row">Lần cuối online: <?php echo date('d-m-Y',$model->lastvisit); ?></div>
+<div class="row">Thành viên từ: <?php echo date('d-m-Y',$model->createtime); ?></div>
 <?php $this->renderPartial(Yum::module('profile')->publicFieldsView, array(
 			'profile' => $model->profile)); ?>
 <br />
