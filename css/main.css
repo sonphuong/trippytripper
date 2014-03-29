@@ -425,3 +425,15 @@ article{
 .denied{
     color: red;
 }
+.uiCloseButton {
+    /*background-image: url(/images/close.png);
+    background-repeat: no-repeat;*/
+    float: right;
+    height: 15px;
+    width: 15px;
+}
+.memberList a{
+    text-decoration: none;
+    color: #555;
+    font-weight: bold;
+}

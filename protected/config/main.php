@@ -14,6 +14,8 @@ return array(
 
 	// autoloading model and component classes
 	'import'=>array(
+        'application.ext.time.*',
+
 		'application.models.*',
 		'application.components.*',
 		'application.modules.*',
@@ -124,6 +126,6 @@ return array(
 
 	// application-level parameters that can be accessed
 	// using Yii::app()->params['paramName']
-	//'params'=>require(dirname(__FILE__).'/params.php'),
+	'params'=>require(dirname(__FILE__).'/params.php'),
 	
 );

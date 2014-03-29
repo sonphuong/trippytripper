@@ -2,40 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cea8f5dc-6e66-4fa8-b3eb-11e30a59fb27" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/avatar/AvatarModule.php" afterPath="$PROJECT_DIR$/protected/modules/avatar/AvatarModule.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/membership/MembershipModule.php" afterPath="$PROJECT_DIR$/protected/modules/membership/MembershipModule.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/message/MessageModule.php" afterPath="$PROJECT_DIR$/protected/modules/message/MessageModule.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/views/sharing/_dis_join_form.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/controllers/SharingController.php" afterPath="$PROJECT_DIR$/protected/controllers/SharingController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/avatar/controllers/YumAvatarController.php" afterPath="$PROJECT_DIR$/protected/modules/avatar/controllers/YumAvatarController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/friendship/models/YumFriendship.php" afterPath="$PROJECT_DIR$/protected/modules/friendship/models/YumFriendship.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/friendship/controllers/YumFriendshipController.php" afterPath="$PROJECT_DIR$/protected/modules/friendship/controllers/YumFriendshipController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/membership/models/YumMembership.php" afterPath="$PROJECT_DIR$/protected/modules/membership/models/YumMembership.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/membership/controllers/YumMembershipController.php" afterPath="$PROJECT_DIR$/protected/modules/membership/controllers/YumMembershipController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/membership/models/YumPayment.php" afterPath="$PROJECT_DIR$/protected/modules/membership/models/YumPayment.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/membership/controllers/YumPaymentController.php" afterPath="$PROJECT_DIR$/protected/modules/membership/controllers/YumPaymentController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/user/models/YumUser.php" afterPath="$PROJECT_DIR$/protected/modules/user/models/YumUser.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/membership/views/membership/_form.php" afterPath="$PROJECT_DIR$/protected/modules/membership/views/membership/_form.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/sharing/_list.php" afterPath="$PROJECT_DIR$/protected/views/sharing/_list.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/membership/views/membership/_miniform.php" afterPath="$PROJECT_DIR$/protected/modules/membership/views/membership/_miniform.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/membership/views/membership/_view.php" afterPath="$PROJECT_DIR$/protected/modules/membership/views/membership/_view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/membership/views/membership/admin.php" afterPath="$PROJECT_DIR$/protected/modules/membership/views/membership/admin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/membership/views/membership/buttons.php" afterPath="$PROJECT_DIR$/protected/modules/membership/views/membership/buttons.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/membership/views/membership/index.php" afterPath="$PROJECT_DIR$/protected/modules/membership/views/membership/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/message/views/message/index.php" afterPath="$PROJECT_DIR$/protected/modules/message/views/message/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/message/views/message/message_view_forbidden.php" afterPath="$PROJECT_DIR$/protected/modules/message/views/message/message_view_forbidden.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/message/views/message/messages.php" afterPath="$PROJECT_DIR$/protected/modules/message/views/message/messages.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/message/views/message/new_messages_dialog.php" afterPath="$PROJECT_DIR$/protected/modules/message/views/message/new_messages_dialog.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/membership/views/membership/order.php" afterPath="$PROJECT_DIR$/protected/modules/membership/views/membership/order.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/membership/views/membership/orders.php" afterPath="$PROJECT_DIR$/protected/modules/membership/views/membership/orders.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/message/views/message/sent.php" afterPath="$PROJECT_DIR$/protected/modules/message/views/message/sent.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/user/views/statistics/statistics.php" afterPath="$PROJECT_DIR$/protected/modules/user/views/statistics/statistics.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/membership/views/membership/update.php" afterPath="$PROJECT_DIR$/protected/modules/membership/views/membership/update.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/profile/views/privacy/update.php" afterPath="$PROJECT_DIR$/protected/modules/profile/views/privacy/update.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/membership/views/membership/view.php" afterPath="$PROJECT_DIR$/protected/modules/membership/views/membership/view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/message/views/message/view.php" afterPath="$PROJECT_DIR$/protected/modules/message/views/message/view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/profile/views/profile/view.php" afterPath="$PROJECT_DIR$/protected/modules/profile/views/profile/view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/sharing/_view.php" afterPath="$PROJECT_DIR$/protected/views/sharing/_view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/common.js" afterPath="$PROJECT_DIR$/js/common.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/main.css" afterPath="$PROJECT_DIR$/css/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/config/main.php" afterPath="$PROJECT_DIR$/protected/config/main.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/config/params.php" afterPath="$PROJECT_DIR$/protected/config/params.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/message/views/message/write_a_message.php" afterPath="$PROJECT_DIR$/protected/modules/message/views/message/write_a_message.php" />
     </list>
     <ignored path="flipflop.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -58,102 +32,83 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="YumUser.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/modules/user/models/YumUser.php">
+      <file leaf-file-name="view.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/modules/profile/views/profile/view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="124" column="32" selection-start="3127" selection-end="3127" vertical-scroll-proportion="-14.384615" vertical-offset="1734" max-vertical-offset="13141">
+            <state line="48" column="40" selection-start="1816" selection-end="1816" vertical-scroll-proportion="-14.692307" vertical-offset="434" max-vertical-offset="986">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_view.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/views/sharing/_view.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="142" column="0" selection-start="5670" selection-end="5670" vertical-scroll-proportion="-17.461538" vertical-offset="1960" max-vertical-offset="2516">
               <folding>
-                <marker date="1395743017364" expanded="true" signature="2204:2284" placeholder="select count..activities..." />
-                <marker date="1395743017364" expanded="true" signature="9612:9752" placeholder="select id, a..permission..." />
-                <marker date="1395743017364" expanded="true" signature="9967:10107" placeholder="select id, a..permission..." />
-                <marker date="1395743017364" expanded="true" signature="15689:15737" placeholder="insert into ..." />
+                <marker date="1395978931967" expanded="true" signature="5042:5178" placeholder="..." />
+                <marker date="1395978931967" expanded="true" signature="5073:5178" placeholder="..." />
+                <marker date="1395978931967" expanded="true" signature="5482:5522" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="YumAvatarController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/modules/avatar/controllers/YumAvatarController.php">
+      <file leaf-file-name="common.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/common.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="52" selection-start="1828" selection-end="1842" vertical-scroll-proportion="-7.3846154" vertical-offset="896" max-vertical-offset="1717">
+            <state line="90" column="49" selection-start="3431" selection-end="3439" vertical-scroll-proportion="0.0" vertical-offset="1101" max-vertical-offset="1734">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AvatarModule.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/modules/avatar/AvatarModule.php">
+      <file leaf-file-name="_dis_join_form.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/views/sharing/_dis_join_form.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="30" selection-start="465" selection-end="465" vertical-scroll-proportion="-7.076923" vertical-offset="37" max-vertical-offset="663">
+            <state line="7" column="51" selection-start="312" selection-end="312" vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="340">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="update.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/modules/profile/views/profile/update.php">
+      <file leaf-file-name="SharingController.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/protected/controllers/SharingController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="0" selection-start="237" selection-end="237" vertical-scroll-proportion="11.615385" vertical-offset="506" max-vertical-offset="901">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="update.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/modules/profile/views/privacy/update.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="22" selection-start="1964" selection-end="1964" vertical-scroll-proportion="35.307693" vertical-offset="2193" max-vertical-offset="3162">
+            <state line="230" column="50" selection-start="5748" selection-end="5748" vertical-scroll-proportion="0.27173913" vertical-offset="3760" max-vertical-offset="6460">
               <folding>
-                <marker date="1395745561485" expanded="false" signature="859:872" placeholder="..." />
-                <marker date="1395745561485" expanded="false" signature="1177:1190" placeholder="..." />
+                <marker date="1395979524408" expanded="true" signature="270:632" placeholder="SELECT R.use..USER..." />
+                <marker date="1395979524408" expanded="true" signature="537:584" placeholder="/*LEFT JOIN ..." />
+                <marker date="1395979524408" expanded="true" signature="799:1117" placeholder="SELECT R.nam..USER..." />
+                <marker date="1395979524408" expanded="true" signature="1688:1914" placeholder="SELECT RD.us..ride_user..." />
+                <marker date="1395979524408" expanded="true" signature="3491:3696" placeholder="SELECT R.nam..USER..." />
+                <marker date="1395979524408" expanded="true" signature="4317:4452" placeholder="SELECT `cont..." />
+                <marker date="1395979524408" expanded="true" signature="5301:5363" placeholder="..." />
+                <marker date="1395979524408" expanded="true" signature="5793:5861" placeholder="SELECT seat_..ride..." />
+                <marker date="1395979524408" expanded="true" signature="6248:6341" placeholder="UPDATE ride ..." />
+                <marker date="1395979524408" expanded="true" signature="6714:6855" placeholder="UPDATE ride_..." />
+                <marker date="1395979524408" expanded="true" signature="7564:7768" placeholder="SELECT RU.jo..ride_user..." />
+                <marker date="1395979524408" expanded="true" signature="8368:8436" placeholder="SELECT seat_..ride..." />
+                <marker date="1395979524408" expanded="true" signature="8907:9000" placeholder="UPDATE ride ..." />
+                <marker date="1395979524408" expanded="true" signature="9401:9541" placeholder="UPDATE ride_..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="YumProfile.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/protected/modules/profile/models/YumProfile.php">
+      <file leaf-file-name="params.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/config/params.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="168" column="0" selection-start="4242" selection-end="4242" vertical-scroll-proportion="0.3113924" vertical-offset="2733" max-vertical-offset="4403">
+            <state line="5" column="29" selection-start="135" selection-end="135" vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="238">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="YumPrivacysettingController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/modules/profile/controllers/YumPrivacysettingController.php">
+      <file leaf-file-name="main.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/config/main.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="0" selection-start="642" selection-end="642" vertical-scroll-proportion="-5.0384617" vertical-offset="362" max-vertical-offset="1428">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Yum.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/modules/user/models/Yum.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="147" column="0" selection-start="4159" selection-end="4159" vertical-scroll-proportion="-5.0384617" vertical-offset="2368" max-vertical-offset="2958">
-              <folding>
-                <marker date="1395734679622" expanded="true" signature="953:1011" placeholder="select langu..." />
-                <marker date="1395734679622" expanded="true" signature="3403:3507" placeholder="select messa..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CActiveRecord.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../yiiframework/db/ar/CActiveRecord.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="173" column="0" selection-start="6323" selection-end="6323" vertical-scroll-proportion="-4.8846154" vertical-offset="2695" max-vertical-offset="41395">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../yiiframework/web/CController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="781" column="0" selection-start="29429" selection-end="29429" vertical-scroll-proportion="-5.0384617" vertical-offset="13027" max-vertical-offset="20910">
+            <state line="124" column="6" selection-start="3349" selection-end="3349" vertical-scroll-proportion="-26.788462" vertical-offset="715" max-vertical-offset="2312">
               <folding />
             </state>
           </provider>
@@ -174,24 +129,32 @@
       <list>
         <option value="$PROJECT_DIR$/protected/models/Ride.php" />
         <option value="$PROJECT_DIR$/protected/controllers/SiteController.php" />
-        <option value="$PROJECT_DIR$/js/common.js" />
         <option value="$PROJECT_DIR$/css/form.css" />
-        <option value="$PROJECT_DIR$/css/main.css" />
-        <option value="$PROJECT_DIR$/protected/views/sharing/_view.php" />
         <option value="$PROJECT_DIR$/protected/modules/user/controllers/YumAuthController.php" />
         <option value="$PROJECT_DIR$/protected/modules/user/components/YumUserIdentity.php" />
         <option value="$PROJECT_DIR$/protected/controllers/CommentController.php" />
         <option value="$PROJECT_DIR$/protected/views/sharing/offer.php" />
-        <option value="$PROJECT_DIR$/protected/config/main.php" />
         <option value="$PROJECT_DIR$/protected/modules/friendship/models/YumFriendship.php" />
         <option value="$PROJECT_DIR$/protected/modules/profile/components/views/profile_visits.php" />
-        <option value="$PROJECT_DIR$/protected/modules/profile/views/profile/view.php" />
         <option value="$PROJECT_DIR$/protected/views/sharing/_list.php" />
-        <option value="$PROJECT_DIR$/protected/controllers/SharingController.php" />
         <option value="$PROJECT_DIR$/protected/modules/avatar/AvatarModule.php" />
         <option value="$PROJECT_DIR$/protected/modules/user/models/YumUser.php" />
         <option value="$PROJECT_DIR$/protected/modules/profile/views/profile/update.php" />
         <option value="$PROJECT_DIR$/protected/modules/profile/views/privacy/update.php" />
+        <option value="$PROJECT_DIR$/protected/ext/time/Time.php" />
+        <option value="$PROJECT_DIR$/protected/modules/profile/controllers/YumProfileCommentController.php" />
+        <option value="$PROJECT_DIR$/protected/modules/profile/views/profileComment/index.php" />
+        <option value="$PROJECT_DIR$/protected/modules/profile/views/profileComment/_view.php" />
+        <option value="$PROJECT_DIR$/protected/modules/profile/controllers/YumProfileController.php" />
+        <option value="$PROJECT_DIR$/protected/modules/profile/views/profile/view.php" />
+        <option value="$PROJECT_DIR$/css/main.css" />
+        <option value="$PROJECT_DIR$/protected/views/sharing/cancel_tour.php" />
+        <option value="$PROJECT_DIR$/protected/config/main.php" />
+        <option value="$PROJECT_DIR$/protected/views/sharing/_dis_join_form.php" />
+        <option value="$PROJECT_DIR$/protected/views/sharing/_view.php" />
+        <option value="$PROJECT_DIR$/js/common.js" />
+        <option value="$PROJECT_DIR$/protected/config/params.php" />
+        <option value="$PROJECT_DIR$/protected/controllers/SharingController.php" />
       </list>
     </option>
   </component>
@@ -233,6 +196,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -279,7 +243,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -297,37 +261,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="flipflop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sharingcommunity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="protected" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
+              <option name="myItemId" value="sharing" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -345,11 +283,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="profile" />
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -363,51 +297,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="protected" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="profile" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="flipflop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sharingcommunity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="protected" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="profile" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -540,16 +435,16 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22459893" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297587" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19251336" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19251336" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37433156" sideWeight="0.76765084" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37299466" sideWeight="0.76765084" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37566844" sideWeight="0.23234917" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297587" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1283697" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17650834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18421052" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297587" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -558,6 +453,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24967907" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328877" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -613,379 +509,346 @@
           <line>69</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/../yiiframework/web/CController.php</url>
-          <line>781</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/../yiiframework/web/CController.php</url>
-          <line>782</line>
-          <option name="timeStamp" value="30" />
-        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="31" />
+      <option name="time" value="32" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/protected/controllers/SharingController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="114" column="39" selection-start="2379" selection-end="2379" vertical-scroll-proportion="0.0" vertical-offset="1584" max-vertical-offset="4556">
-          <folding>
-            <marker date="1395739169392" expanded="true" signature="-1:-1" placeholder="SELECT R.use..USER..." />
-            <marker date="1395739169392" expanded="true" signature="-1:-1" placeholder="/*LEFT JOIN ..." />
-            <marker date="1395739169392" expanded="true" signature="-1:-1" placeholder="SELECT R.nam..USER..." />
-            <marker date="1395739169392" expanded="true" signature="-1:-1" placeholder="SELECT RD.us..ride_user..." />
-            <marker date="1395739169392" expanded="true" signature="-1:-1" placeholder="SELECT R.nam..USER..." />
-            <marker date="1395739169392" expanded="true" signature="-1:-1" placeholder="SELECT `cont..." />
-            <marker date="1395739169392" expanded="true" signature="-1:-1" placeholder="SELECT RU.jo..ride_user..." />
-            <marker date="1395739169392" expanded="true" signature="-1:-1" placeholder="SELECT seat_..ride..." />
-            <marker date="1395739169392" expanded="true" signature="-1:-1" placeholder="UPDATE ride ..." />
-            <marker date="1395739169392" expanded="true" signature="-1:-1" placeholder="UPDATE ride_..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="42" selection-start="324" selection-end="324" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="272" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/components/Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../yiiframework/web/CWebApplication.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="282" column="0" selection-start="9093" selection-end="9093" vertical-scroll-proportion="0.3548387" vertical-offset="4543" max-vertical-offset="9282" />
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/_superglobals.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="0" selection-start="2457" selection-end="2457" vertical-scroll-proportion="-7.076923" vertical-offset="1210" max-vertical-offset="3944" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="42" selection-start="324" selection-end="324" vertical-scroll-proportion="0.37777779" vertical-offset="0" max-vertical-offset="450" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/profile/views/layouts/yumprofile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="233" selection-end="233" vertical-scroll-proportion="0.28674698" vertical-offset="0" max-vertical-offset="595" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/views/layouts/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="66" selection-start="2343" selection-end="2362" vertical-scroll-proportion="-6.5384617" vertical-offset="561" max-vertical-offset="1173" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../yiiframework/web/CBaseController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="0" selection-start="3171" selection-end="3171" vertical-scroll-proportion="0.0" vertical-offset="1615" max-vertical-offset="5236" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/models/Ride.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="29" selection-start="618" selection-end="618" vertical-scroll-proportion="-3.9230769" vertical-offset="408" max-vertical-offset="2584" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../yiiframework/base/CApplication.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="708" column="0" selection-start="24111" selection-end="24111" vertical-scroll-proportion="0.0" vertical-offset="12036" max-vertical-offset="16932" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../yiiframework/db/CDbCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="471" column="0" selection-start="20240" selection-end="20240" vertical-scroll-proportion="0.0" vertical-offset="8007" max-vertical-offset="27472" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="42" selection-start="861" selection-end="861" vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="1309" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/form.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="165" column="1" selection-start="2668" selection-end="2668" vertical-scroll-proportion="0.8534483" vertical-offset="2211" max-vertical-offset="2924" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="418" column="9" selection-start="5434" selection-end="5442" vertical-scroll-proportion="0.0" vertical-offset="6571" max-vertical-offset="7361">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/sonphuong.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/controllers/SiteController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="115" column="43" selection-start="2630" selection-end="2630" vertical-scroll-proportion="-58.807693" vertical-offset="426" max-vertical-offset="2720">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/models/LoginForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="11" selection-start="982" selection-end="982" vertical-scroll-proportion="-5.8076925" vertical-offset="631" max-vertical-offset="1360" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/user/vendors/openid/EOpenID.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="422" column="11" selection-start="17417" selection-end="17417" vertical-scroll-proportion="-5.8076925" vertical-offset="7023" max-vertical-offset="10914" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/user/controllers/YumAuthController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="172" column="11" selection-start="5827" selection-end="5827" vertical-scroll-proportion="-0.4056604" vertical-offset="3096" max-vertical-offset="6732">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/user/components/YumUserIdentity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="157" column="5" selection-start="5140" selection-end="5140" vertical-scroll-proportion="-12.615385" vertical-offset="2341" max-vertical-offset="2941">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/controllers/CommentController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="54" selection-start="1161" selection-end="1161" vertical-scroll-proportion="-14.269231" vertical-offset="513" max-vertical-offset="2380">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/views/sharing/_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="29" selection-start="2117" selection-end="2117" vertical-scroll-proportion="-9.153846" vertical-offset="714" max-vertical-offset="2856" />
+        <state line="52" column="54" selection-start="1161" selection-end="1161" vertical-scroll-proportion="-14.269231" vertical-offset="513" max-vertical-offset="2380" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/views/sharing/offer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="84" selection-start="2027" selection-end="2027" vertical-scroll-proportion="-10.115385" vertical-offset="740" max-vertical-offset="1530">
-          <folding />
-        </state>
+        <state line="59" column="84" selection-start="2027" selection-end="2027" vertical-scroll-proportion="-10.115385" vertical-offset="740" max-vertical-offset="1530" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/modules/user/components/YumMailer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="16" selection-start="1450" selection-end="1450" vertical-scroll-proportion="0.34" vertical-offset="663" max-vertical-offset="1513">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/config/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="0" selection-start="1813" selection-end="1813" vertical-scroll-proportion="-5.5384617" vertical-offset="910" max-vertical-offset="2261" />
+        <state line="48" column="16" selection-start="1450" selection-end="1450" vertical-scroll-proportion="0.34" vertical-offset="663" max-vertical-offset="1513" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/modules/user/components/YumUserMenu.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="3.9230769" vertical-offset="102" max-vertical-offset="1598">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="3.9230769" vertical-offset="102" max-vertical-offset="1598" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/modules/profile/components/ProfileVisitWidget.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="29" selection-start="328" selection-end="328" vertical-scroll-proportion="0.33333334" vertical-offset="61" max-vertical-offset="663">
-          <folding />
-        </state>
+        <state line="12" column="29" selection-start="328" selection-end="328" vertical-scroll-proportion="0.33333334" vertical-offset="61" max-vertical-offset="663" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/modules/friendship/controllers/YumFriendshipController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="25" selection-start="2106" selection-end="2106" vertical-scroll-proportion="0.40888888" vertical-offset="887" max-vertical-offset="2839">
-          <folding />
-        </state>
+        <state line="63" column="25" selection-start="2106" selection-end="2106" vertical-scroll-proportion="0.40888888" vertical-offset="887" max-vertical-offset="2839" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/modules/friendship/models/YumFriendship.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="26" selection-start="1238" selection-end="1238" vertical-scroll-proportion="0.13729978" vertical-offset="688" max-vertical-offset="3621">
-          <folding />
-        </state>
+        <state line="44" column="26" selection-start="1238" selection-end="1238" vertical-scroll-proportion="0.13729978" vertical-offset="688" max-vertical-offset="3621" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/modules/profile/views/profile/visits.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="50" selection-start="415" selection-end="428" vertical-scroll-proportion="0.5288889" vertical-offset="0" max-vertical-offset="714">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/profile/ProfileModule.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="28" selection-start="640" selection-end="657" vertical-scroll-proportion="0.37333333" vertical-offset="172" max-vertical-offset="1071">
-          <folding />
-        </state>
+        <state line="14" column="50" selection-start="415" selection-end="428" vertical-scroll-proportion="0.5288889" vertical-offset="0" max-vertical-offset="714" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/modules/user/views/install/start.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="157" column="21" selection-start="4347" selection-end="4347" vertical-scroll-proportion="-0.23111111" vertical-offset="2773" max-vertical-offset="3740">
-          <folding />
-        </state>
+        <state line="157" column="21" selection-start="4347" selection-end="4347" vertical-scroll-proportion="-0.23111111" vertical-offset="2773" max-vertical-offset="3740" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/modules/user/components/YumAdminMenu.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="2" selection-start="3516" selection-end="3516" vertical-scroll-proportion="0.6086956" vertical-offset="1026" max-vertical-offset="1513">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/profile/controllers/YumProfileController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="115" column="48" selection-start="2890" selection-end="2890" vertical-scroll-proportion="0.33555555" vertical-offset="1804" max-vertical-offset="2924">
-          <folding />
-        </state>
+        <state line="76" column="2" selection-start="3516" selection-end="3516" vertical-scroll-proportion="0.6086956" vertical-offset="1026" max-vertical-offset="1513" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/modules/profile/components/views/profile_visits.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="518" selection-end="518" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="357">
-          <folding>
-            <marker date="1395734679334" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1395734679334" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
+        <state line="15" column="0" selection-start="518" selection-end="518" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="357" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/modules/user/views/user/browse.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="6" selection-start="506" selection-end="506" vertical-scroll-proportion="-9.153846" vertical-offset="102" max-vertical-offset="816">
-          <folding>
-            <marker date="1395734679735" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/profile/views/profile/view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="265" selection-end="265" vertical-scroll-proportion="-7.8461537" vertical-offset="0" max-vertical-offset="901">
-          <folding />
-        </state>
+        <state line="20" column="6" selection-start="506" selection-end="506" vertical-scroll-proportion="-9.153846" vertical-offset="102" max-vertical-offset="816" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/views/sharing/search_ride.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="88" selection-start="1506" selection-end="1515" vertical-scroll-proportion="-17.307692" vertical-offset="349" max-vertical-offset="901">
-          <folding />
-        </state>
+        <state line="47" column="88" selection-start="1506" selection-end="1515" vertical-scroll-proportion="-17.307692" vertical-offset="349" max-vertical-offset="901" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/views/sharing/_list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="43" selection-start="3033" selection-end="3033" vertical-scroll-proportion="-39.23077" vertical-offset="0" max-vertical-offset="1496">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/controllers/SharingController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="5" selection-start="259" selection-end="259" vertical-scroll-proportion="-0.75" vertical-offset="216" max-vertical-offset="5372">
-          <folding>
-            <marker date="1395739169392" expanded="true" signature="-1:-1" placeholder="SELECT R.use..USER..." />
-            <marker date="1395739169392" expanded="true" signature="-1:-1" placeholder="/*LEFT JOIN ..." />
-            <marker date="1395739169392" expanded="true" signature="-1:-1" placeholder="SELECT R.nam..USER..." />
-            <marker date="1395739169392" expanded="true" signature="-1:-1" placeholder="SELECT RD.us..ride_user..." />
-            <marker date="1395739169392" expanded="true" signature="-1:-1" placeholder="SELECT R.nam..USER..." />
-            <marker date="1395739169392" expanded="true" signature="-1:-1" placeholder="SELECT `cont..." />
-            <marker date="1395739169392" expanded="true" signature="-1:-1" placeholder="SELECT RU.jo..ride_user..." />
-            <marker date="1395739169392" expanded="true" signature="-1:-1" placeholder="SELECT seat_..ride..." />
-            <marker date="1395739169392" expanded="true" signature="-1:-1" placeholder="UPDATE ride ..." />
-            <marker date="1395739169392" expanded="true" signature="-1:-1" placeholder="UPDATE ride_..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/avatar/controllers/YumAvatarController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="52" selection-start="1828" selection-end="1842" vertical-scroll-proportion="-7.3846154" vertical-offset="896" max-vertical-offset="1717">
-          <folding />
-        </state>
+        <state line="60" column="43" selection-start="3033" selection-end="3033" vertical-scroll-proportion="-39.23077" vertical-offset="0" max-vertical-offset="1496" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/modules/user/models/YumUser.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="124" column="32" selection-start="3127" selection-end="3127" vertical-scroll-proportion="-14.384615" vertical-offset="1734" max-vertical-offset="13141">
+        <state line="124" column="32" selection-start="3127" selection-end="3127" vertical-scroll-proportion="0.0" vertical-offset="1734" max-vertical-offset="13141" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../yiiframework/db/ar/CActiveRecord.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="173" column="0" selection-start="6323" selection-end="6323" vertical-scroll-proportion="0.0" vertical-offset="2941" max-vertical-offset="41514" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/avatar/controllers/YumAvatarController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="36" selection-start="1996" selection-end="2640" vertical-scroll-proportion="-4.3846154" vertical-offset="1042" max-vertical-offset="1717" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/avatar/AvatarModule.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="30" selection-start="465" selection-end="465" vertical-scroll-proportion="0.31752872" vertical-offset="0" max-vertical-offset="696" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/profile/views/profile/update.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="0" selection-start="237" selection-end="237" vertical-scroll-proportion="0.0" vertical-offset="205" max-vertical-offset="901">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/profile/models/YumProfile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="172" column="26" selection-start="4287" selection-end="4287" vertical-scroll-proportion="1.2270114" vertical-offset="2070" max-vertical-offset="4403" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/profile/views/privacy/update.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="22" selection-start="1964" selection-end="1964" vertical-scroll-proportion="0.0" vertical-offset="1275" max-vertical-offset="3162">
           <folding>
-            <marker date="1395743017364" expanded="true" signature="2204:2284" placeholder="select count..activities..." />
-            <marker date="1395743017364" expanded="true" signature="9612:9752" placeholder="select id, a..permission..." />
-            <marker date="1395743017364" expanded="true" signature="9967:10107" placeholder="select id, a..permission..." />
-            <marker date="1395743017364" expanded="true" signature="15689:15737" placeholder="insert into ..." />
+            <marker date="1395745561485" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1395745561485" expanded="false" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/modules/user/models/Yum.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="147" column="0" selection-start="4159" selection-end="4159" vertical-scroll-proportion="-5.0384617" vertical-offset="2368" max-vertical-offset="2958">
-          <folding>
-            <marker date="1395734679622" expanded="true" signature="953:1011" placeholder="select langu..." />
-            <marker date="1395734679622" expanded="true" signature="3403:3507" placeholder="select messa..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../yiiframework/db/ar/CActiveRecord.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="173" column="0" selection-start="6323" selection-end="6323" vertical-scroll-proportion="-4.8846154" vertical-offset="2695" max-vertical-offset="41395">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../yiiframework/web/CController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="781" column="0" selection-start="29429" selection-end="29429" vertical-scroll-proportion="-5.0384617" vertical-offset="13027" max-vertical-offset="20910">
+        <state line="147" column="0" selection-start="4159" selection-end="4159" vertical-scroll-proportion="0.34051725" vertical-offset="2262" max-vertical-offset="2958">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/modules/profile/controllers/YumPrivacysettingController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="0" selection-start="642" selection-end="642" vertical-scroll-proportion="-5.0384617" vertical-offset="362" max-vertical-offset="1428">
+        <state line="17" column="22" selection-start="424" selection-end="424" vertical-scroll-proportion="-3.9230769" vertical-offset="187" max-vertical-offset="1428">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/profile/views/profile/update.php">
+    <entry file="file://$PROJECT_DIR$/protected/ext/time/Time.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="237" selection-end="237" vertical-scroll-proportion="11.615385" vertical-offset="506" max-vertical-offset="901">
+        <state line="114" column="18" selection-start="3398" selection-end="3398" vertical-scroll-proportion="-13.692307" vertical-offset="1582" max-vertical-offset="4573" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/user/UserModule.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4199" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/profile/ProfileModule.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="33" selection-start="334" selection-end="355" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="1071">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/avatar/AvatarModule.php">
+    <entry file="file://$PROJECT_DIR$/protected/controllers/SiteController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="30" selection-start="465" selection-end="465" vertical-scroll-proportion="-7.076923" vertical-offset="37" max-vertical-offset="663">
+        <state line="13" column="0" selection-start="152" selection-end="152" vertical-scroll-proportion="0.0" vertical-offset="94" max-vertical-offset="2720">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/profile/views/privacy/update.php">
+    <entry file="file://$PROJECT_DIR$/../yiiframework/web/CController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="22" selection-start="1964" selection-end="1964" vertical-scroll-proportion="35.307693" vertical-offset="2193" max-vertical-offset="3162">
+        <state line="270" column="0" selection-start="10178" selection-end="10178" vertical-scroll-proportion="0.33333334" vertical-offset="4339" max-vertical-offset="20910" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/profile/views/profileComment/buttons.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="701">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/profile/views/profileComment/create.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="765">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/profile/views/profileComment/admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="14.576923" vertical-offset="379" max-vertical-offset="1054">
           <folding>
-            <marker date="1395745561485" expanded="false" signature="859:872" placeholder="..." />
-            <marker date="1395745561485" expanded="false" signature="1177:1190" placeholder="..." />
+            <marker date="1395734679403" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1395734679403" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/profile/models/YumProfile.php">
+    <entry file="file://$PROJECT_DIR$/protected/modules/profile/views/profileComment/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="168" column="0" selection-start="4242" selection-end="4242" vertical-scroll-proportion="0.3113924" vertical-offset="2733" max-vertical-offset="4403">
+        <state line="10" column="29" selection-start="352" selection-end="352" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="459">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/profile/controllers/YumProfileCommentController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="47" selection-start="1076" selection-end="1104" vertical-scroll-proportion="-18.307692" vertical-offset="289" max-vertical-offset="1394">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/profile/controllers/YumProfileController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="137" column="24" selection-start="3779" selection-end="3779" vertical-scroll-proportion="-22.0" vertical-offset="1757" max-vertical-offset="3451">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/PcStarRank/PcStarRankModule.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="9.346154" vertical-offset="243" max-vertical-offset="918">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/PcStarRank/extensions/PcStarRankWidget/views/star_rank_widget.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.10422961" vertical-offset="69" max-vertical-offset="986">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/PcStarRank/controllers/StarRankResultsSupplierController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="701">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/PcStarRank/controllers/DefaultController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="722">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/PcStarRank/extensions/PcStarRankWidget/PcStarRankWidget.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="19" selection-start="861" selection-end="871" vertical-scroll-proportion="0.59736454" vertical-offset="153" max-vertical-offset="7599">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/PcStarRank/views/default/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="701">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/profile/views/profileComment/_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="21" selection-start="12" selection-end="21" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/views/sharing/_join_form.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="7" selection-start="7" selection-end="7" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="531">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/views/sharing/_dis_join_form.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="51" selection-start="312" selection-end="312" vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="340">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/form.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="100" column="22" selection-start="1852" selection-end="1855" vertical-scroll-proportion="-1.2173913" vertical-offset="2372" max-vertical-offset="2924">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="431" column="17" selection-start="5661" selection-end="5661" vertical-scroll-proportion="0.64705884" vertical-offset="6953" max-vertical-offset="7548">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/config/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="124" column="6" selection-start="3349" selection-end="3349" vertical-scroll-proportion="-26.788462" vertical-offset="715" max-vertical-offset="2312">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/profile/views/profile/view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="40" selection-start="1816" selection-end="1816" vertical-scroll-proportion="-14.692307" vertical-offset="434" max-vertical-offset="986">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/views/sharing/_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="142" column="0" selection-start="5670" selection-end="5670" vertical-scroll-proportion="-17.461538" vertical-offset="1960" max-vertical-offset="2516">
+          <folding>
+            <marker date="1395978931967" expanded="true" signature="5042:5178" placeholder="..." />
+            <marker date="1395978931967" expanded="true" signature="5073:5178" placeholder="..." />
+            <marker date="1395978931967" expanded="true" signature="5482:5522" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="90" column="49" selection-start="3431" selection-end="3439" vertical-scroll-proportion="0.0" vertical-offset="1101" max-vertical-offset="1734">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/config/params.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="29" selection-start="135" selection-end="135" vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="238">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/controllers/SharingController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="230" column="50" selection-start="5748" selection-end="5748" vertical-scroll-proportion="0.27173913" vertical-offset="3760" max-vertical-offset="6460">
+          <folding>
+            <marker date="1395979524408" expanded="true" signature="270:632" placeholder="SELECT R.use..USER..." />
+            <marker date="1395979524408" expanded="true" signature="537:584" placeholder="/*LEFT JOIN ..." />
+            <marker date="1395979524408" expanded="true" signature="799:1117" placeholder="SELECT R.nam..USER..." />
+            <marker date="1395979524408" expanded="true" signature="1688:1914" placeholder="SELECT RD.us..ride_user..." />
+            <marker date="1395979524408" expanded="true" signature="3491:3696" placeholder="SELECT R.nam..USER..." />
+            <marker date="1395979524408" expanded="true" signature="4317:4452" placeholder="SELECT `cont..." />
+            <marker date="1395979524408" expanded="true" signature="5301:5363" placeholder="..." />
+            <marker date="1395979524408" expanded="true" signature="5793:5861" placeholder="SELECT seat_..ride..." />
+            <marker date="1395979524408" expanded="true" signature="6248:6341" placeholder="UPDATE ride ..." />
+            <marker date="1395979524408" expanded="true" signature="6714:6855" placeholder="UPDATE ride_..." />
+            <marker date="1395979524408" expanded="true" signature="7564:7768" placeholder="SELECT RU.jo..ride_user..." />
+            <marker date="1395979524408" expanded="true" signature="8368:8436" placeholder="SELECT seat_..ride..." />
+            <marker date="1395979524408" expanded="true" signature="8907:9000" placeholder="UPDATE ride ..." />
+            <marker date="1395979524408" expanded="true" signature="9401:9541" placeholder="UPDATE ride_..." />
+          </folding>
         </state>
       </provider>
     </entry>
