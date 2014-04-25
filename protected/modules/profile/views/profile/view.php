@@ -18,6 +18,7 @@ Yum::renderFlash();
 		echo CHtml::link(Yum::t('Upload avatar image'), array('//avatar/avatar/editAvatar'));
 	}
 ?>
+
 <?php
 if(Yum::hasModule('friendship'))
 $this->renderPartial(
