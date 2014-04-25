@@ -5,7 +5,8 @@ $(document).ready(function(){
             placeholder: 'From',
             minimumInputLength: 1,
             allowClear: true,
-            multiple: false,
+            multiple: true,
+            maximumSelectionSize: 1,
             ajax: {
                 url: 'https://graph.facebook.com/search?type=adcity&access_token=' + accessToken,
                 dataType: 'json',
@@ -37,8 +38,9 @@ $(document).ready(function(){
 	$("#goTo").select2({
             placeholder: 'To',
             minimumInputLength: 1,
-            allowClear: false,
-            multiple: false,
+            allowClear: true,
+            multiple: true,
+            maximumSelectionSize: 1,
             ajax: {
                 url: 'https://graph.facebook.com/search?type=adcity&access_token=' + accessToken,
                 dataType: 'json',

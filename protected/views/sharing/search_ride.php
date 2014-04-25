@@ -5,7 +5,7 @@
     <?php $form = $this->beginWidget('CActiveForm'); ?>
     <?php echo $form->errorSummary($model); ?>
     <div class="row">
-        <?php echo $form->textField($model, 'from', array('id' => 'goFrom', 'class' => 'from')); ?>
+        <?php echo $form->textField($model, 'from', array('id' => 'goFrom', 'class' => 'from','value'=>$model->from)); ?>
     </div>
     <div class="row">Example: Hanoi, Vietnam</div>
     <div class="row">

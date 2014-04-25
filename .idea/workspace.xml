@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cea8f5dc-6e66-4fa8-b3eb-11e30a59fb27" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/controllers/CommentController.php" afterPath="$PROJECT_DIR$/protected/controllers/CommentController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/models/SearchRideForm.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/controllers/SharingController.php" afterPath="$PROJECT_DIR$/protected/controllers/SharingController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/controllers/SiteController.php" afterPath="$PROJECT_DIR$/protected/controllers/SiteController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/User.php" afterPath="$PROJECT_DIR$/protected/models/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/sharing/_list.php" afterPath="$PROJECT_DIR$/protected/views/sharing/_list.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/config/main.php" afterPath="$PROJECT_DIR$/protected/config/main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/config/params.php" afterPath="$PROJECT_DIR$/protected/config/params.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/common.js" afterPath="$PROJECT_DIR$/js/common.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/sharing/search_ride.php" afterPath="$PROJECT_DIR$/protected/views/sharing/search_ride.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/select2.js" afterPath="$PROJECT_DIR$/js/select2.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="flipflop.iws" />
@@ -36,23 +33,34 @@
       <file leaf-file-name="SharingController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/controllers/SharingController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="133" column="23" selection-start="3820" selection-end="3820" vertical-scroll-proportion="-11.884615" vertical-offset="1952" max-vertical-offset="7259">
+            <state line="116" column="5" selection-start="3088" selection-end="3088" vertical-scroll-proportion="-0.7692308" vertical-offset="1952" max-vertical-offset="7259">
               <folding>
-                <marker date="1398393362651" expanded="true" signature="400:717" placeholder="SELECT R.nam..USER..." />
-                <marker date="1398393362651" expanded="true" signature="1403:1629" placeholder="SELECT RD.us..ride_user..." />
-                <marker date="1398393362651" expanded="true" signature="3756:4073" placeholder="SELECT R.use..USER..." />
-                <marker date="1398393362651" expanded="true" signature="4225:4369" placeholder="SELECT count..." />
-                <marker date="1398393362651" expanded="true" signature="5307:5577" placeholder="SELECT R.nam..USER..." />
-                <marker date="1398393362651" expanded="true" signature="6356:6483" placeholder="SELECT conte..comments..." />
-                <marker date="1398393362651" expanded="true" signature="7524:7586" placeholder="..." />
-                <marker date="1398393362651" expanded="true" signature="8021:8067" placeholder="SELECT seat_..ride..." />
-                <marker date="1398393362651" expanded="true" signature="8384:8450" placeholder="UPDATE ride ..." />
-                <marker date="1398393362651" expanded="true" signature="8759:8864" placeholder="DELETE FROM ..." />
-                <marker date="1398393362651" expanded="true" signature="8770:8864" placeholder="UPDATE ride_..." />
-                <marker date="1398393362651" expanded="true" signature="9614:9818" placeholder="SELECT RU.jo..ride_user..." />
-                <marker date="1398393362651" expanded="true" signature="10507:10575" placeholder="SELECT seat_..ride..." />
-                <marker date="1398393362651" expanded="true" signature="11054:11147" placeholder="UPDATE ride ..." />
-                <marker date="1398393362651" expanded="true" signature="11555:11695" placeholder="UPDATE ride_..." />
+                <marker date="1398410442433" expanded="true" signature="400:717" placeholder="SELECT R.nam..USER..." />
+                <marker date="1398410442433" expanded="true" signature="1403:1629" placeholder="SELECT RD.us..ride_user..." />
+                <marker date="1398410442433" expanded="true" signature="3766:4083" placeholder="SELECT R.use..USER..." />
+                <marker date="1398410442433" expanded="true" signature="4230:4374" placeholder="SELECT count..." />
+                <marker date="1398410442433" expanded="true" signature="5312:5582" placeholder="SELECT R.nam..USER..." />
+                <marker date="1398410442433" expanded="true" signature="6361:6488" placeholder="SELECT conte..comments..." />
+                <marker date="1398410442433" expanded="true" signature="7529:7591" placeholder="..." />
+                <marker date="1398410442433" expanded="true" signature="8026:8072" placeholder="SELECT seat_..ride..." />
+                <marker date="1398410442433" expanded="true" signature="8389:8455" placeholder="UPDATE ride ..." />
+                <marker date="1398410442433" expanded="true" signature="8764:8869" placeholder="DELETE FROM ..." />
+                <marker date="1398410442433" expanded="true" signature="8775:8869" placeholder="UPDATE ride_..." />
+                <marker date="1398410442433" expanded="true" signature="9619:9823" placeholder="SELECT RU.jo..ride_user..." />
+                <marker date="1398410442433" expanded="true" signature="10512:10580" placeholder="SELECT seat_..ride..." />
+                <marker date="1398410442433" expanded="true" signature="11059:11152" placeholder="UPDATE ride ..." />
+                <marker date="1398410442433" expanded="true" signature="11560:11700" placeholder="UPDATE ride_..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SearchRideForm.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/models/SearchRideForm.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="19" selection-start="206" selection-end="206" vertical-scroll-proportion="-7.1538463" vertical-offset="35" max-vertical-offset="884">
+              <folding>
+                <element signature="e#6#90#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -70,7 +78,34 @@
       <file leaf-file-name="search_ride.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/views/sharing/search_ride.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="36" selection-start="1260" selection-end="1260" vertical-scroll-proportion="-11.730769" vertical-offset="307" max-vertical-offset="1003">
+            <state line="25" column="11" selection-start="920" selection-end="920" vertical-scroll-proportion="-8.173077" vertical-offset="0" max-vertical-offset="1003">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/views/layouts/main.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="92" selection-start="1295" selection-end="1295" vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="1173">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_view.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/views/sharing/_view.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="59" selection-start="794" selection-end="794" vertical-scroll-proportion="5.230769" vertical-offset="510" max-vertical-offset="2516">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="common.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/common.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="33" selection-start="613" selection-end="613" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1768">
               <folding />
             </state>
           </provider>
@@ -79,7 +114,7 @@
       <file leaf-file-name="_list.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/protected/views/sharing/_list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="29" selection-start="1661" selection-end="1661" vertical-scroll-proportion="0.73275864" vertical-offset="0" max-vertical-offset="1496">
+            <state line="25" column="30" selection-start="1431" selection-end="1431" vertical-scroll-proportion="0.24425288" vertical-offset="255" max-vertical-offset="1496">
               <folding />
             </state>
           </provider>
@@ -119,15 +154,17 @@
         <option value="$PROJECT_DIR$/protected/views/sharing/cancel_tour.php" />
         <option value="$PROJECT_DIR$/protected/views/sharing/_dis_join_form.php" />
         <option value="$PROJECT_DIR$/protected/views/sharing/_view.php" />
-        <option value="$PROJECT_DIR$/js/common.js" />
         <option value="$PROJECT_DIR$/protected/controllers/SiteController.php" />
         <option value="$PROJECT_DIR$/protected/controllers/CommentController.php" />
         <option value="$PROJECT_DIR$/protected/models/User.php" />
         <option value="$PROJECT_DIR$/protected/config/main.php" />
         <option value="$PROJECT_DIR$/protected/config/params.php" />
-        <option value="$PROJECT_DIR$/protected/controllers/SharingController.php" />
         <option value="$PROJECT_DIR$/protected/views/sharing/_list.php" />
+        <option value="$PROJECT_DIR$/protected/models/SearchRideForm.php" />
+        <option value="$PROJECT_DIR$/protected/controllers/SharingController.php" />
         <option value="$PROJECT_DIR$/protected/views/sharing/search_ride.php" />
+        <option value="$PROJECT_DIR$/js/select2.js" />
+        <option value="$PROJECT_DIR$/js/common.js" />
       </list>
     </option>
   </component>
@@ -216,7 +253,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="runtime" />
+              <option name="myItemId" value="modules" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -230,11 +267,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="protected" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -377,7 +410,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1283697" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.08985879" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13928112" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29679143" sideWeight="0.76765084" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37433156" sideWeight="0.23234917" order="7" side_tool="true" content_ui="tabs" />
@@ -452,31 +485,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/protected/modules/profile/components/ProfileVisitWidget.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="29" selection-start="328" selection-end="328" vertical-scroll-proportion="0.33333334" vertical-offset="61" max-vertical-offset="663" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/friendship/controllers/YumFriendshipController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="25" selection-start="2106" selection-end="2106" vertical-scroll-proportion="0.40888888" vertical-offset="887" max-vertical-offset="2839" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/friendship/models/YumFriendship.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="26" selection-start="1238" selection-end="1238" vertical-scroll-proportion="0.13729978" vertical-offset="688" max-vertical-offset="3621" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/profile/views/profile/visits.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="50" selection-start="415" selection-end="428" vertical-scroll-proportion="0.5288889" vertical-offset="0" max-vertical-offset="714" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/user/views/install/start.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="157" column="21" selection-start="4347" selection-end="4347" vertical-scroll-proportion="-0.23111111" vertical-offset="2773" max-vertical-offset="3740" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/modules/user/components/YumAdminMenu.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="76" column="2" selection-start="3516" selection-end="3516" vertical-scroll-proportion="0.6086956" vertical-offset="1026" max-vertical-offset="1513" />
@@ -634,19 +642,9 @@
         <state line="431" column="17" selection-start="5661" selection-end="5661" vertical-scroll-proportion="0.64705884" vertical-offset="6953" max-vertical-offset="7548" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/views/sharing/_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="142" column="0" selection-start="5670" selection-end="5670" vertical-scroll-proportion="0.0" vertical-offset="1960" max-vertical-offset="2516" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/views/sharing/_dis_join_form.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="51" selection-start="312" selection-end="312" vertical-scroll-proportion="0.17097701" vertical-offset="0" max-vertical-offset="696" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="40" selection-start="2532" selection-end="2532" vertical-scroll-proportion="0.023977432" vertical-offset="986" max-vertical-offset="1734" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/modules/profile/views/profile/view.php">
@@ -661,17 +659,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/controllers/SiteController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="188" selection-end="188" vertical-scroll-proportion="0.23641704" vertical-offset="94" max-vertical-offset="2737" />
+        <state line="15" column="0" selection-start="188" selection-end="188" vertical-scroll-proportion="0.23641704" vertical-offset="94" max-vertical-offset="2737">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://E:/www_old/www/demos/blog/protected/controllers/PostController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="120" column="40" selection-start="2600" selection-end="2600" vertical-scroll-proportion="0.23880596" vertical-offset="1880" max-vertical-offset="3774" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/models/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="41" selection-start="445" selection-end="445" vertical-scroll-proportion="-7.8076925" vertical-offset="120" max-vertical-offset="1632" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/config/main.php">
@@ -689,10 +684,49 @@
         <state line="279" column="43" selection-start="9036" selection-end="9036" vertical-scroll-proportion="0.23021583" vertical-offset="4528" max-vertical-offset="9282" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/views/sharing/search_ride.php">
+    <entry file="file://$PROJECT_DIR$/protected/models/LoginForm.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="36" selection-start="1260" selection-end="1260" vertical-scroll-proportion="-11.730769" vertical-offset="307" max-vertical-offset="1003">
+        <state line="18" column="46" selection-start="0" selection-end="1742" vertical-scroll-proportion="0.43965518" vertical-offset="0" max-vertical-offset="1360">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/models/Ride.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="36" selection-start="691" selection-end="691" vertical-scroll-proportion="-1.9554597" vertical-offset="1888" max-vertical-offset="2584">
+          <folding>
+            <marker date="1395306926403" expanded="true" signature="-1:-1" placeholder="SELECT R.*, ..ride..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/models/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="41" selection-start="445" selection-end="445" vertical-scroll-proportion="0.29166666" vertical-offset="120" max-vertical-offset="1632">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/controllers/SharingController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="116" column="5" selection-start="3088" selection-end="3088" vertical-scroll-proportion="-0.7692308" vertical-offset="1952" max-vertical-offset="7259">
+          <folding>
+            <marker date="1398410442433" expanded="true" signature="400:717" placeholder="SELECT R.nam..USER..." />
+            <marker date="1398410442433" expanded="true" signature="1403:1629" placeholder="SELECT RD.us..ride_user..." />
+            <marker date="1398410442433" expanded="true" signature="3766:4083" placeholder="SELECT R.use..USER..." />
+            <marker date="1398410442433" expanded="true" signature="4230:4374" placeholder="SELECT count..." />
+            <marker date="1398410442433" expanded="true" signature="5312:5582" placeholder="SELECT R.nam..USER..." />
+            <marker date="1398410442433" expanded="true" signature="6361:6488" placeholder="SELECT conte..comments..." />
+            <marker date="1398410442433" expanded="true" signature="7529:7591" placeholder="..." />
+            <marker date="1398410442433" expanded="true" signature="8026:8072" placeholder="SELECT seat_..ride..." />
+            <marker date="1398410442433" expanded="true" signature="8389:8455" placeholder="UPDATE ride ..." />
+            <marker date="1398410442433" expanded="true" signature="8764:8869" placeholder="DELETE FROM ..." />
+            <marker date="1398410442433" expanded="true" signature="8775:8869" placeholder="UPDATE ride_..." />
+            <marker date="1398410442433" expanded="true" signature="9619:9823" placeholder="SELECT RU.jo..ride_user..." />
+            <marker date="1398410442433" expanded="true" signature="10512:10580" placeholder="SELECT seat_..ride..." />
+            <marker date="1398410442433" expanded="true" signature="11059:11152" placeholder="UPDATE ride ..." />
+            <marker date="1398410442433" expanded="true" signature="11560:11700" placeholder="UPDATE ride_..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -703,32 +737,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/controllers/SharingController.php">
+    <entry file="file://$PROJECT_DIR$/protected/views/sharing/_view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="23" selection-start="3820" selection-end="3820" vertical-scroll-proportion="-11.884615" vertical-offset="1952" max-vertical-offset="7259">
+        <state line="22" column="59" selection-start="794" selection-end="794" vertical-scroll-proportion="5.230769" vertical-offset="510" max-vertical-offset="2516">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/views/layouts/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="92" selection-start="1295" selection-end="1295" vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="1173">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/views/sharing/search_ride.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="11" selection-start="920" selection-end="920" vertical-scroll-proportion="-8.173077" vertical-offset="0" max-vertical-offset="1003">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/models/SearchRideForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="19" selection-start="206" selection-end="206" vertical-scroll-proportion="-7.1538463" vertical-offset="35" max-vertical-offset="884">
           <folding>
-            <marker date="1398393362651" expanded="true" signature="400:717" placeholder="SELECT R.nam..USER..." />
-            <marker date="1398393362651" expanded="true" signature="1403:1629" placeholder="SELECT RD.us..ride_user..." />
-            <marker date="1398393362651" expanded="true" signature="3756:4073" placeholder="SELECT R.use..USER..." />
-            <marker date="1398393362651" expanded="true" signature="4225:4369" placeholder="SELECT count..." />
-            <marker date="1398393362651" expanded="true" signature="5307:5577" placeholder="SELECT R.nam..USER..." />
-            <marker date="1398393362651" expanded="true" signature="6356:6483" placeholder="SELECT conte..comments..." />
-            <marker date="1398393362651" expanded="true" signature="7524:7586" placeholder="..." />
-            <marker date="1398393362651" expanded="true" signature="8021:8067" placeholder="SELECT seat_..ride..." />
-            <marker date="1398393362651" expanded="true" signature="8384:8450" placeholder="UPDATE ride ..." />
-            <marker date="1398393362651" expanded="true" signature="8759:8864" placeholder="DELETE FROM ..." />
-            <marker date="1398393362651" expanded="true" signature="8770:8864" placeholder="UPDATE ride_..." />
-            <marker date="1398393362651" expanded="true" signature="9614:9818" placeholder="SELECT RU.jo..ride_user..." />
-            <marker date="1398393362651" expanded="true" signature="10507:10575" placeholder="SELECT seat_..ride..." />
-            <marker date="1398393362651" expanded="true" signature="11054:11147" placeholder="UPDATE ride ..." />
-            <marker date="1398393362651" expanded="true" signature="11555:11695" placeholder="UPDATE ride_..." />
+            <element signature="e#6#90#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/select2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="44" selection-start="574" selection-end="574" vertical-scroll-proportion="0.023977432" vertical-offset="204" max-vertical-offset="57851">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="33" selection-start="613" selection-end="613" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1768">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/views/sharing/_list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="29" selection-start="1661" selection-end="1661" vertical-scroll-proportion="0.73275864" vertical-offset="0" max-vertical-offset="1496">
+        <state line="25" column="30" selection-start="1431" selection-end="1431" vertical-scroll-proportion="0.24425288" vertical-offset="255" max-vertical-offset="1496">
           <folding />
         </state>
       </provider>

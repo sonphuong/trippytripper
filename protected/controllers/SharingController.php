@@ -115,7 +115,7 @@ class SharingController extends Controller
      */
     public function actionSearchRide()
     {
-        $model = new Ride;
+        $model = new SearchRideForm;
         //search++++++++++++++++++++++++++++
         $from = '';
         $to = '';
@@ -153,7 +153,7 @@ class SharingController extends Controller
 		";
         /*LEFT JOIN ranking_votes RV ON RV.user_id = */
         //paging+++++++++++++++++++++++++++++++++++++++++++++++
-        echo $sqlCount = "SELECT count(1) as count
+        $sqlCount = "SELECT count(1) as count
 		FROM USER U
 		INNER JOIN ride R ON U.id = R.user_id
 		WHERE 1
