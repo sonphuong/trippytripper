@@ -11,6 +11,18 @@ class SharingController extends Controller
      */
     private $_model;
 
+    public function accessRules() {
+        return array(
+            array('allow',
+                'actions'=>array('myRides'),
+                'users'=>array('@'),
+            ),
+            array('deny',  // deny all other users
+                'users'=>array('*'),
+            ),
+        );
+    }
+
     /**
      * get all available tour
      */
@@ -25,8 +37,9 @@ class SharingController extends Controller
      */
     public function actionMyRides()
     {
+
         $sql = "SELECT R.name,
-						R.description, 
+						R.description,
 						U.username, 
 						U.avatar, 
 						R.leave, 
@@ -84,6 +97,7 @@ class SharingController extends Controller
      */
     public function actionOffer()
     {
+        Yii::import('ext.select2.Select2');
         $model = new Ride;
         if (isset($_POST['Ride'])) {
             //========================================================
@@ -122,10 +136,13 @@ class SharingController extends Controller
         $leave = '';
         $return = '';
         //AND R.leave >= NOW()
-        if (!empty($_POST['Ride']['from'])) $from = 'AND R.from = "' . $_POST['Ride']['from'] . '"';
-        if (!empty($_POST['Ride']['to'])) $to = 'AND R.to = "' . $_POST['Ride']['to'] . '"';
-        if (!empty($_POST['Ride']['leave'])) $leave = 'AND R.leave >= DATE("' . $_POST['Ride']['leave'] . '")';
-        if (!empty($_POST['Ride']['return'])) $return = 'AND R.return <= DATE("' . $_POST['Ride']['return'] . '")';
+        if (isset($_POST['SearchRideForm'])) {
+            $model->attributes = $_POST['SearchRideForm'];
+            if (!empty($_POST['SearchRideForm']['from'])) $from = 'AND R.from = "' . $_POST['SearchRideForm']['from'] . '"';
+            if (!empty($_POST['SearchRideForm']['to'])) $to = 'AND R.to = "' . $_POST['SearchRideForm']['to'] . '"';
+            if (!empty($_POST['SearchRideForm']['leave'])) $leave = 'AND R.leave >= DATE("' . $_POST['SearchRideForm']['leave'] . '")';
+            if (!empty($_POST['SearchRideForm']['return'])) $return = 'AND R.return <= DATE("' . $_POST['SearchRideForm']['return'] . '")';
+        }
         //search++++++++++++++++++++++++++++
         $sql = "SELECT
 			R.user_id,
@@ -417,5 +434,6 @@ class SharingController extends Controller
         }
 
     }
+
 
 }

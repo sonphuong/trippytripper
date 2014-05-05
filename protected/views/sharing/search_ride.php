@@ -5,7 +5,7 @@
     <?php $form = $this->beginWidget('CActiveForm'); ?>
     <?php echo $form->errorSummary($model); ?>
     <div class="row">
-        <?php echo $form->textField($model, 'from', array('id' => 'goFrom', 'class' => 'from','value'=>$model->from)); ?>
+        <?php echo $form->textField($model, 'from', array('id' => 'goFrom', 'class' => 'from')); ?>
     </div>
     <div class="row">Example: Hanoi, Vietnam</div>
     <div class="row">
@@ -61,3 +61,12 @@ $this->widget('CLinkPager', array(
 
 ?>
 <?php $this->widget('CLinkPager', array('pages' => $pages,)); ?>
+
+<script>
+
+    $(document).ready(function(){
+        console.log('XXXXXXXXXXX');
+        $("#goFrom").select2('val','hanoi, vientma');
+        $("#goTo").select2('val','<?php echo $model->to; ?>');
+    });
+</script>

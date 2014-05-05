@@ -1,12 +1,12 @@
-var countryList = "['VN']";
-var accessToken='CAAFbW0cHhFQBAJLrYfAcjURDK0YP54Qf6iM3r7SijogQnnZBQdRiMxWbDTe3kBiboABkQ817LlBlFZA9b8E7tJHD7YNCJRndYQZCuZCeJphLGZC2ir9V3sDEfGocmTPRtMIEguCBc7rKxWQo8TgUyazfzAUqdtO8ZD';
 $(document).ready(function(){
-	$("#goFrom").select2({
+    var accessToken = $('#fb_access_token').val(); 
+    var countryList = "['VN']";
+	/*$("#goFrom").select2({
             placeholder: 'From',
             minimumInputLength: 1,
             allowClear: true,
-            multiple: true,
-            maximumSelectionSize: 1,
+            multiple: false,
+            //maximumSelectionSize: 1,
             ajax: {
                 url: 'https://graph.facebook.com/search?type=adcity&access_token=' + accessToken,
                 dataType: 'json',
@@ -34,13 +34,13 @@ $(document).ready(function(){
                     };
                 }
             }
-        });
-	$("#goTo").select2({
+        });*/
+	/*$("#goTo").select2({
             placeholder: 'To',
             minimumInputLength: 1,
             allowClear: true,
-            multiple: true,
-            maximumSelectionSize: 1,
+            multiple: false,
+            //maximumSelectionSize: 1,
             ajax: {
                 url: 'https://graph.facebook.com/search?type=adcity&access_token=' + accessToken,
                 dataType: 'json',
@@ -68,7 +68,7 @@ $(document).ready(function(){
                     };
                 }
             }
-        });
+        });*/
 })
 //=========================================================================================
 function approveJoinSuccess(data){
