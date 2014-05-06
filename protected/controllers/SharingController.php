@@ -97,12 +97,20 @@ class SharingController extends Controller
      */
     public function actionOffer()
     {
-        Yii::import('ext.select2.Select2');
+        /*$baseUrl = Yii::app()->baseUrl; 
+        $cs = Yii::app()->getClientScript();
+        $cs->registerScriptFile("https://maps.googleapis.com/maps/api/js?key=".Yii::app()->params['GOOGLE_API_KEY']."&sensor=true&libraries=places");
+        $cs->registerScriptFile($baseUrl.'/js/offer.js');*/
+        
+        $fromVal = '';
+        $toVal = '';
         $model = new Ride;
         if (isset($_POST['Ride'])) {
             //========================================================
             //careful when using json_decode with non-utf8 (vietnamese language)
             $model->attributes = $_POST['Ride'];
+            $fromVal = $_POST['Ride']['from'];
+            $toVal = $_POST['Ride']['to'];
             $model->user_id = Yii::app()->user->id;
             if ($model->validate()) {
                 if ($model->save()) {
@@ -121,7 +129,11 @@ class SharingController extends Controller
                 }
             }
         }
-        $this->render('offer', array('model' => $model));
+        $this->render('offer', array(
+            'model' => $model
+            ,'fromVal' => $fromVal
+            ,'toVal' => $toVal
+        ));
     }
 
     /**
@@ -132,14 +144,23 @@ class SharingController extends Controller
         $model = new SearchRideForm;
         //search++++++++++++++++++++++++++++
         $from = '';
+        $fromVal = '';
         $to = '';
+        $toVal='';
         $leave = '';
         $return = '';
         //AND R.leave >= NOW()
         if (isset($_POST['SearchRideForm'])) {
             $model->attributes = $_POST['SearchRideForm'];
-            if (!empty($_POST['SearchRideForm']['from'])) $from = 'AND R.from = "' . $_POST['SearchRideForm']['from'] . '"';
-            if (!empty($_POST['SearchRideForm']['to'])) $to = 'AND R.to = "' . $_POST['SearchRideForm']['to'] . '"';
+            if (!empty($_POST['SearchRideForm']['from'])) {
+                $from = 'AND R.from LIKE "%' . $_POST['SearchRideForm']['from'] . '%"';
+                $fromVal = $_POST['SearchRideForm']['from'];
+
+            }
+            if (!empty($_POST['SearchRideForm']['to'])) {
+                $to = 'AND R.to LIKE "%' . $_POST['SearchRideForm']['to'] . '%"';
+                $toVal = $_POST['SearchRideForm']['to'];
+            }
             if (!empty($_POST['SearchRideForm']['leave'])) $leave = 'AND R.leave >= DATE("' . $_POST['SearchRideForm']['leave'] . '")';
             if (!empty($_POST['SearchRideForm']['return'])) $return = 'AND R.return <= DATE("' . $_POST['SearchRideForm']['return'] . '")';
         }
@@ -191,6 +212,8 @@ class SharingController extends Controller
 
         $this->render('search_ride', array(
             'model' => $model,
+            'fromVal' => $fromVal,
+            'toVal' => $toVal,
             'itemCount' => $itemCount,
             'pageSize' => Yii::app()->params['listPerPage'],
             'pages' => $pages,

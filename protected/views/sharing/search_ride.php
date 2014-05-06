@@ -5,11 +5,11 @@
     <?php $form = $this->beginWidget('CActiveForm'); ?>
     <?php echo $form->errorSummary($model); ?>
     <div class="row">
-        <?php echo $form->textField($model, 'from', array('id' => 'goFrom', 'class' => 'from')); ?>
+        <?php echo $form->textField($model, 'from', array('id' => 'goFrom', 'class' => 'from', 'value'=>$fromVal)); ?>
     </div>
     <div class="row">Example: Hanoi, Vietnam</div>
     <div class="row">
-        <?php echo $form->textField($model, 'to', array('id' => 'goTo', 'class' => 'to')); ?>
+        <?php echo $form->textField($model, 'to', array('id' => 'goTo', 'class' => 'to', 'value'=>$toVal)); ?>
     </div>
 
     <div class="row">Departure date:</div>
@@ -47,26 +47,17 @@
 </div>
 <hr/>
 <div class="row"><?php $this->renderPartial('/sharing/_list', array('allRides' => $allRides,)); ?></div>
-<?php
-/*// the pagination widget with some options to mess
-$this->widget('CLinkPager', array(
-    'currentPage' => $pages->getCurrentPage(),
-    'itemCount' => $itemCount,
-    'pageSize' => $pageSize,
-    'maxButtonCount' => 5,
-    //'nextPageLabel'=>'My text >',
-    //'header' => '',
-    //'htmlOptions' => array('class' => 'pages')
-));*/
-
-?>
 <?php $this->widget('CLinkPager', array('pages' => $pages,)); ?>
 
-<script>
 
-    $(document).ready(function(){
-        console.log('XXXXXXXXXXX');
-        $("#goFrom").select2('val','hanoi, vientma');
-        $("#goTo").select2('val','<?php echo $model->to; ?>');
-    });
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<?php echo Yii::app()->params['GOOGLE_API_KEY']; ?>&sensor=true&libraries=places"></script>
+<script type="text/javascript">
+    var fromOptions = {
+        types: ['(cities)'],
+        //componentRestrictions: {country: "us"}
+    };
+    var mapOptions = {};
+    makeAutoComplete('goFrom',fromOptions);
+    makeAutoComplete('goTo',mapOptions);
 </script>

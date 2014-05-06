@@ -315,7 +315,13 @@ div.breadcrumbs span
 }
 #map-canvas{
 	width:450px;
-	height:500px;
+	height:450px;
+}
+#directions-panel {
+    height: 100%;
+    float: right;
+    width: 450px;
+    overflow: auto;
 }
 .search_box{
 	width:450px; 
