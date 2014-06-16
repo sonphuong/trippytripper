@@ -94,6 +94,7 @@
     var lat = 21.0845;
     var lng = 105.638122;
     var mapZoom = 6;
+    
 
     function initialize() {
         directionsDisplay = new google.maps.DirectionsRenderer();
@@ -112,6 +113,13 @@
         };
         makeAutoComplete('goFrom', fromOptions);
         makeAutoComplete('goTo', mapOptions);
+        //first load
+        var from = $('#goFrom').val();
+        var to = $('#goTo').val();
+        if(from.length>0 && to.length>0){
+            calcRoute($('#goFrom').val(),$('#goTo').val());
+            console.log('first load');
+        }
     }
     function calcRoute(start,end) {
         directionsDisplay = new google.maps.DirectionsRenderer();
@@ -123,23 +131,15 @@
         directionsService.route(request, function (response, status) {
             if (status == google.maps.DirectionsStatus.OK) {
                 directionsDisplay.setDirections(response);
+                console.log('set direction');
             }
         });
     }
     google.maps.event.addDomListener(window, 'load', initialize);
-
-    $(document).ready(function () {
-        
+    
+    //load again when change the value of destination
+    $('#goTo').change(function () {
+        calcRoute($('#goFrom').val(),$('#goTo').val());
     });
-    var from = $('#goFrom').val();
-    var to = $('#goTo').val();
-    //first load
-    if(from.length>0 && to.length>0){
-        calcRoute(from,to);
-        console.log('first load');
-        $('#goTo').change(function () {
-            console.log('calcRoute');
-            calcRoute(from,$('#goTo').val());
-        });
-    }
+   
 </script>
