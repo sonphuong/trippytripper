@@ -62,7 +62,7 @@ class SharingController extends Controller
 
         $myRides = $command->queryAll();
         foreach ($myRides as $key => $myRide) {
-            $members = $this->getRideMembers($myRide['id']);
+            $members = $this->getTripper($myRide['id']);
             $myRides[$key]['members'] = $members;
 
         }
@@ -76,7 +76,7 @@ class SharingController extends Controller
     /**
      * get members who is involes the the tour
      */
-    public function getRideMembers($rideId)
+    public function getTripper($rideId)
     {
         $sql = "SELECT RD.user_name,RD.user_id, U.avatar, RD.join_status
 		FROM ride_user RD 
@@ -249,7 +249,7 @@ class SharingController extends Controller
         $comment = new Comment;
         $allComments = $this->getAllComments($id);
         $joinStatus = $this->getJoinStatus($id);
-        $members = $this->getRideMembers($id);
+        $members = $this->getTripper($id);
         $isOwner = $this->isOwner($id);
 
         $this->render('_view', array(
@@ -321,13 +321,47 @@ class SharingController extends Controller
         
         if ($this->isOwner($rideId)) {
             $return = $this->ownerDisJoin($rideId,$userId);
+            $this->noticeTripper($rideId,$userId);
         } else {
             $return = $this->disJoin($rideId,$userId);
         }
 
         echo json_encode($return);
     }
+    /**
+     * [noticeTripper notice to the tripper that this trip has deleted]
+     * @param  [int] $rideId
+     * @param  [int] $owner
+     * @return [void]
+     */
+    private function noticeTripper($rideId,$owner){
+        $trippers = $this->getTripper($rideId);
+        $trippersNum = count($trippers);
+        if(!empty($trippers)){
+            $sql = "INSERT INTO message 
+                (`timestamp`,`from_user_id`,`to_user_id`,`title`,`message`)
+                VALUES
+                ";
+            $i = 1;    
+            foreach($trippers as $tripper){
+                if($i<$trippersNum){
+                    $comma = ", ";
+                }
+                else{
+                    $comma = "";
+                }
+                $sql .="(:timestamp,:owner,'".$tripper['user_id']."','','Sorry this trip has removed by the owner')".$comma;
+                $i++;
+            }
 
+            $command = Yii::app()->db->createCommand($sql);
+            $timestamp = time();
+            $command->bindParam(':owner', $owner, PDO::PARAM_INT);
+            $command->bindParam(':timestamp', $timestamp, PDO::PARAM_INT);
+            $result = $command->execute();
+        }
+        
+    }
     private function ownerDisJoin($rideId,$userId){
         $return['status'] = 0;
         $return['msg'] = 'unsuccess';
@@ -482,7 +516,7 @@ class SharingController extends Controller
     /**
      * check the login user is the owner of the ride
      */
-    public function isOwner($rideId)
+    private function isOwner($rideId)
     {
         $joinStatus = $this->getJoinStatus($rideId);
         if ($joinStatus == 9) {
