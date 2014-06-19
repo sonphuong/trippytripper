@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * @author phuongds
  */
 class SharingController extends Controller
 {
@@ -124,8 +124,7 @@ class SharingController extends Controller
                     if ($rideUser->validate()) {
                         $rideUser->save();
                     }
-                    //$this->redirect(array('index'));
-
+                    $this->redirect(array('searchRide'));
                 }
             }
         }
@@ -319,47 +318,83 @@ class SharingController extends Controller
         $rideId = $_POST['ride_id'];
         $userId = $_POST['user_id'];
         $loginId = Yii::app()->user->id;
-        $return['status'] = 0;
-        $return['msg'] = 'unsuccess';
+        
         if ($this->isOwner($rideId)) {
-            //the owner can not do this action????
+            $return = $this->ownerDisJoin($rideId,$userId);
         } else {
-            $sql = 'SELECT seat_avail FROM ride WHERE id = :rideId';
-            $command = Yii::app()->db->createCommand($sql);
-            $command->bindParam(':rideId', $rideId, PDO::PARAM_INT);
-            $seatAvail = $command->queryRow();
-            $seatAvail = $seatAvail['seat_avail'];
-            //update seat
-            $seatsLeft = $seatAvail + 1;
-            $sql = "UPDATE ride
-					SET seat_avail =:seatsLeft
-					WHERE id =:rideId
-					";
-            $command = Yii::app()->db->createCommand($sql);
-            $command->bindParam(':rideId', $rideId, PDO::PARAM_INT);
-            $command->bindParam(':seatsLeft', $seatsLeft, PDO::PARAM_INT);
-
-            if ($command->execute()) {
-                //update status
-                $sql = 'DELETE FROM ride_user
-                    WHERE ride_id =:rideId
-                    AND user_id =:userId
-                    ';
-                $command = Yii::app()->db->createCommand($sql);
-                $command->bindParam(':userId', $userId, PDO::PARAM_INT);
-                $command->bindParam(':rideId', $rideId, PDO::PARAM_INT);
-                if ($command->execute()) {
-                    $return['seatsLeft'] = $seatsLeft;
-                    $return['userId'] = $userId;
-                    $return['status'] = 1;
-                    $return['msg'] = 'success';
-                }
-            }
+            $return = $this->disJoin($rideId,$userId);
         }
 
         echo json_encode($return);
     }
 
+    private function ownerDisJoin($rideId,$userId){
+        $return['status'] = 0;
+        $return['msg'] = 'unsuccess';
+        //update status to delete
+        $sql = "UPDATE ride
+                SET del_flg =:deleted
+                WHERE id =:rideId
+                ";
+        $deleted = Yii::app()->params['DELETED'];
+        $command = Yii::app()->db->createCommand($sql);
+        $command->bindParam(':rideId', $rideId, PDO::PARAM_INT);
+        $command->bindParam(':deleted', $deleted, PDO::PARAM_INT);
+
+        if ($command->execute()) {
+            //update status
+            $sql = 'UPDATE ride_user
+                SET del_flg =:deleted
+                WHERE ride_id =:rideId
+                ';
+            $command = Yii::app()->db->createCommand($sql);
+            $command->bindParam(':rideId', $rideId, PDO::PARAM_INT);
+            $command->bindParam(':deleted', $deleted, PDO::PARAM_INT);
+            if ($command->execute()) {
+                $return['userId'] = $userId;
+                $return['status'] = 1;
+                $return['msg'] = 'success';
+            }
+        }  
+        return $return;  
+    }
+
+    private function disJoin($rideId,$userId){
+        $return['status'] = 0;
+        $return['msg'] = 'unsuccess';
+        $sql = 'SELECT seat_avail FROM ride WHERE id = :rideId';
+        $command = Yii::app()->db->createCommand($sql);
+        $command->bindParam(':rideId', $rideId, PDO::PARAM_INT);
+        $seatAvail = $command->queryRow();
+        $seatAvail = $seatAvail['seat_avail'];
+        //update seat
+        $seatsLeft = $seatAvail + 1;
+        $sql = "UPDATE ride
+                SET seat_avail =:seatsLeft
+                WHERE id =:rideId
+                ";
+        $command = Yii::app()->db->createCommand($sql);
+        $command->bindParam(':rideId', $rideId, PDO::PARAM_INT);
+        $command->bindParam(':seatsLeft', $seatsLeft, PDO::PARAM_INT);
+
+        if ($command->execute()) {
+            //update status
+            $sql = 'DELETE FROM ride_user
+                WHERE ride_id =:rideId
+                AND user_id =:userId
+                ';
+            $command = Yii::app()->db->createCommand($sql);
+            $command->bindParam(':userId', $userId, PDO::PARAM_INT);
+            $command->bindParam(':rideId', $rideId, PDO::PARAM_INT);
+            if ($command->execute()) {
+                $return['seatsLeft'] = $seatsLeft;
+                $return['userId'] = $userId;
+                $return['status'] = 1;
+                $return['msg'] = 'success';
+            }
+        }  
+        return $return;  
+    }
     /*
     get join status to display the join button
     */

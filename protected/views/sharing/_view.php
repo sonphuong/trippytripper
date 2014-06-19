@@ -30,7 +30,6 @@
             $today = date('Y-m-d');
             $today = new DateTime($today);                            
             $interval = $leaveDate->diff($today);
-            print_r($interval);
 
             if($interval->days===0){
                 echo 'Hôm nay - ' . $time;
@@ -75,18 +74,15 @@
         </div>
         <?php if($interval->days>0):?>
         <?php if($joinStatus==9): ?>
+            <?php $this->renderPartial('/sharing/_owner_dis_join_form',array('model'=>$model,)); ?>
         <?php elseif($joinStatus==1): ?>
-            <?php $this->renderPartial('/sharing/_dis_join_form',array(
-                'model'=>$model,
-            )); ?>
+            <?php $this->renderPartial('/sharing/_dis_join_form',array('model'=>$model,)); ?>
         <?php elseif($joinStatus==2): ?>
             <div class="flash-success">
                 Waiting for approve
             </div>
         <?php else: ?>
-            <?php $this->renderPartial('/sharing/_join_form',array(
-                'model'=>$model,
-            )); ?>
+            <?php $this->renderPartial('/sharing/_join_form',array('model'=>$model,)); ?>
         <?php endif; ?>
         <?php endif; ?>
     </div>

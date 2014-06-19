@@ -1,5 +1,9 @@
 <?php
 return array(
+	'DELETED'=>'1',
+	'TRIP_STATUS' => array('ACTIVE'=>0,'DELETED'=>1,'DONE'=>2),
+	'YES' =>'1',
+	'NO' =>'0',
     //join status
     'joining' => '2'
     ,'joined' => '1'
