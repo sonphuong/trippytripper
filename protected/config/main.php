@@ -81,6 +81,11 @@ return array(
     ),
     // application components
     'components' => array(
+        'queue' => array(
+            'class' => 'nfy.components.NfyDbQueue',
+            'name' => 'Notifications',
+            'timeout' => 30,
+        ),
         'user' => array(
             // enable cookie-based authentication
             'class' =>'application.modules.user.components.YumWebUser',

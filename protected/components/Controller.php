@@ -22,6 +22,6 @@ class Controller extends CController
 	public $breadcrumbs=array();
 	
 	public function init(){
-        Yii::app()->language='vi';
+        Yii::app()->language='en';
     }
 }
