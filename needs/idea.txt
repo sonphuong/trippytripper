@@ -1,0 +1,3 @@
+functions: 
+
+the owner is cancle the trip => send notice to every body in the trip

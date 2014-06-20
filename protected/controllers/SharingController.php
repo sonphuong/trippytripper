@@ -14,7 +14,7 @@ class SharingController extends Controller
     public function accessRules() {
         return array(
             array('allow',
-                'actions'=>array('myRides'),
+                'actions'=>array('myTrips'),
                 'users'=>array('@'),
             ),
             array('deny',  // deny all other users
@@ -26,7 +26,7 @@ class SharingController extends Controller
     /**
      * get all available tour
      */
-    public function getAllRides()
+    public function getAllTrips()
     {
 
     }
@@ -35,7 +35,7 @@ class SharingController extends Controller
     /**
      * get login-user's tours
      */
-    public function actionMyRides()
+    public function actionMyTrips()
     {
 
         $sql = "SELECT R.name,
@@ -51,24 +51,24 @@ class SharingController extends Controller
 						R.fee, 
 						R.id
 				FROM USER U 
-				INNER JOIN ride R ON U.id = R.user_id
+				INNER JOIN trip R ON U.id = R.user_id
 				WHERE R.user_id = :loginId
 				ORDER BY R.leave DESC
 		";
         $command = Yii::app()->db->createCommand($sql);
         $loginId = Yii::app()->user->id;
         $command->bindParam(':loginId', $loginId, PDO::PARAM_INT);
-        //get all member invole to the rides
+        //get all member invole to the trips
 
-        $myRides = $command->queryAll();
-        foreach ($myRides as $key => $myRide) {
-            $members = $this->getTripper($myRide['id']);
-            $myRides[$key]['members'] = $members;
+        $myTrips = $command->queryAll();
+        foreach ($myTrips as $key => $myTrip) {
+            $members = $this->getTripper($myTrip['id']);
+            $myTrips[$key]['members'] = $members;
 
         }
-        $this->render('my_rides', array(
+        $this->render('my_trips', array(
             'members' => $members,
-            'myRides' => $myRides
+            'myTrips' => $myTrips
         ));
     }
 
@@ -76,18 +76,18 @@ class SharingController extends Controller
     /**
      * get members who is involes the the tour
      */
-    public function getTripper($rideId)
+    public function getTripper($tripId)
     {
         $sql = "SELECT RD.user_name,RD.user_id, U.avatar, RD.join_status
-		FROM ride_user RD 
+		FROM trip_user RD 
 		INNER JOIN user U ON U.id = RD.user_id
-		WHERE RD.ride_id = :rideId
+		WHERE RD.trip_id = :tripId
 		AND RD.join_status = 1
 		OR RD.join_status = 2
 		ORDER BY RD.join_status ASC
 		";
         $command = Yii::app()->db->createCommand($sql);
-        $command->bindParam(':rideId', $rideId, PDO::PARAM_INT);
+        $command->bindParam(':tripId', $tripId, PDO::PARAM_INT);
         $members = $command->queryAll();
         return $members;
     }
@@ -104,27 +104,27 @@ class SharingController extends Controller
         
         $fromVal = '';
         $toVal = '';
-        $model = new Ride;
-        if (isset($_POST['Ride'])) {
+        $model = new Trip;
+        if (isset($_POST['Trip'])) {
             //========================================================
             //careful when using json_decode with non-utf8 (vietnamese language)
-            $model->attributes = $_POST['Ride'];
-            $fromVal = $_POST['Ride']['from'];
-            $toVal = $_POST['Ride']['to'];
+            $model->attributes = $_POST['Trip'];
+            $fromVal = $_POST['Trip']['from'];
+            $toVal = $_POST['Trip']['to'];
             $model->user_id = Yii::app()->user->id;
             if ($model->validate()) {
                 if ($model->save()) {
                     $lastInsertId = Yii::app()->db->getLastInsertID();
-                    $rideUser = new RideUser();
-                    $rideUser->ride_id = $lastInsertId;
-                    $rideUser->user_id = Yii::app()->user->id;
-                    $rideUser->user_name = Yii::app()->user->name;
-                    //$rideUser->avatar = Yii::app()->user->avatar;
-                    $rideUser->join_status = 9; //owner
-                    if ($rideUser->validate()) {
-                        $rideUser->save();
+                    $tripUser = new TripUser();
+                    $tripUser->trip_id = $lastInsertId;
+                    $tripUser->user_id = Yii::app()->user->id;
+                    $tripUser->user_name = Yii::app()->user->name;
+                    //$tripUser->avatar = Yii::app()->user->avatar;
+                    $tripUser->join_status = 9; //owner
+                    if ($tripUser->validate()) {
+                        $tripUser->save();
                     }
-                    $this->redirect(array('searchRide'));
+                    $this->redirect(array('searchTrip'));
                 }
             }
         }
@@ -138,9 +138,9 @@ class SharingController extends Controller
     /**
      * Search a tour.
      */
-    public function actionSearchRide()
+    public function actionSearchTrip()
     {
-        $model = new SearchRideForm;
+        $model = new SearchTripForm;
         //search++++++++++++++++++++++++++++
         $from = '';
         $fromVal = '';
@@ -149,19 +149,19 @@ class SharingController extends Controller
         $leave = '';
         $return = '';
         //AND R.leave >= NOW()
-        if (isset($_POST['SearchRideForm'])) {
-            $model->attributes = $_POST['SearchRideForm'];
-            if (!empty($_POST['SearchRideForm']['from'])) {
-                $from = 'AND R.from LIKE "%' . $_POST['SearchRideForm']['from'] . '%"';
-                $fromVal = $_POST['SearchRideForm']['from'];
+        if (isset($_POST['SearchTripForm'])) {
+            $model->attributes = $_POST['SearchTripForm'];
+            if (!empty($_POST['SearchTripForm']['from'])) {
+                $from = 'AND R.from LIKE "%' . $_POST['SearchTripForm']['from'] . '%"';
+                $fromVal = $_POST['SearchTripForm']['from'];
 
             }
-            if (!empty($_POST['SearchRideForm']['to'])) {
-                $to = 'AND R.to LIKE "%' . $_POST['SearchRideForm']['to'] . '%"';
-                $toVal = $_POST['SearchRideForm']['to'];
+            if (!empty($_POST['SearchTripForm']['to'])) {
+                $to = 'AND R.to LIKE "%' . $_POST['SearchTripForm']['to'] . '%"';
+                $toVal = $_POST['SearchTripForm']['to'];
             }
-            if (!empty($_POST['SearchRideForm']['leave'])) $leave = 'AND R.leave >= DATE("' . $_POST['SearchRideForm']['leave'] . '")';
-            if (!empty($_POST['SearchRideForm']['return'])) $return = 'AND R.return <= DATE("' . $_POST['SearchRideForm']['return'] . '")';
+            if (!empty($_POST['SearchTripForm']['leave'])) $leave = 'AND R.leave >= DATE("' . $_POST['SearchTripForm']['leave'] . '")';
+            if (!empty($_POST['SearchTripForm']['return'])) $return = 'AND R.return <= DATE("' . $_POST['SearchTripForm']['return'] . '")';
         }
         //search++++++++++++++++++++++++++++
         $sql = "SELECT
@@ -180,7 +180,7 @@ class SharingController extends Controller
 			R.gathering_point,
 			R.id
 		FROM USER U
-		INNER JOIN ride R ON U.id = R.user_id
+		INNER JOIN trip R ON U.id = R.user_id
 		WHERE 1
 		$from
 		$to
@@ -192,7 +192,7 @@ class SharingController extends Controller
         //paging+++++++++++++++++++++++++++++++++++++++++++++++
         $sqlCount = "SELECT count(1) as count
 		FROM USER U
-		INNER JOIN ride R ON U.id = R.user_id
+		INNER JOIN trip R ON U.id = R.user_id
 		WHERE 1
 		$from
 		$to
@@ -206,17 +206,17 @@ class SharingController extends Controller
         $pages->setPageSize(Yii::app()->params['listPerPage']);
         $page = (isset($_GET['page']) ? $_GET['page'] : 1);
         $sql .= ' LIMIT ' . ($page - 1) . ', ' . Yii::app()->params['listPerPage'] . '';
-        $allRides = Yii::app()->db->createCommand($sql)->queryAll();
+        $allTrips = Yii::app()->db->createCommand($sql)->queryAll();
         //paging+++++++++++++++++++++++++++++++++++++++++++++++
 
-        $this->render('search_ride', array(
+        $this->render('search_trip', array(
             'model' => $model,
             'fromVal' => $fromVal,
             'toVal' => $toVal,
             'itemCount' => $itemCount,
             'pageSize' => Yii::app()->params['listPerPage'],
             'pages' => $pages,
-            'allRides' => $allRides
+            'allTrips' => $allTrips
         ));
     }
 
@@ -225,7 +225,7 @@ class SharingController extends Controller
      */
     public function actionView()
     {
-        $model = new Ride;
+        $model = new Trip;
         $id = $_GET['id'];
         $sql = "SELECT R.name,
 					R.description, 
@@ -240,7 +240,7 @@ class SharingController extends Controller
 					R.fee, 
 					R.id
 				FROM USER U 
-				INNER JOIN ride R ON U.id = R.user_id
+				INNER JOIN trip R ON U.id = R.user_id
 				WHERE R.id = :id
 				";
         $command = Yii::app()->db->createCommand($sql);
@@ -253,7 +253,7 @@ class SharingController extends Controller
         $isOwner = $this->isOwner($id);
 
         $this->render('_view', array(
-            'ride' => $data[0],
+            'trip' => $data[0],
             'model' => $model,
             'comment' => $comment,
             'members' => $members,
@@ -266,17 +266,17 @@ class SharingController extends Controller
     }
 
     //get list comments
-    public function getAllComments($rideId)
+    public function getAllComments($tripId)
     {
         $sql = "SELECT content,create_time,user_name,avatar
 		FROM comments  
-		WHERE ride_id = :ride_id
+		WHERE trip_id = :trip_id
 		ORDER BY create_time DESC
 		LIMIT 30
 		";
 
         $command = Yii::app()->db->createCommand($sql);
-        $command->bindParam(':ride_id', $rideId, PDO::PARAM_INT);
+        $command->bindParam(':trip_id', $tripId, PDO::PARAM_INT);
 
         $data = $command->queryAll();
         return $data;
@@ -289,13 +289,13 @@ class SharingController extends Controller
     {
         //check login
         if (isset(Yii::app()->user->id)) {
-            $model = new RideUser;
-            if (isset($_POST['ride_id'])) {
+            $model = new TripUser;
+            if (isset($_POST['trip_id'])) {
                 $model->user_id = Yii::app()->user->id;
                 $model->user_name = Yii::app()->user->name;
                 //$model->avatar = Yii::app()->user->avatar;
                 $model->join_status = 2; //waiting
-                $model->ride_id = $_POST['ride_id'];
+                $model->trip_id = $_POST['trip_id'];
                 $model->save();
                 Yii::app()->user->setFlash('joinRequested', 'Waiting for approve');
             }
@@ -311,31 +311,31 @@ class SharingController extends Controller
     }
 
     /*
-    the owner of the ride accept user to join
+    the owner of the trip accept user to join
     */
     public function actionDisJoin()
     {
-        $rideId = $_POST['ride_id'];
+        $tripId = $_POST['trip_id'];
         $userId = $_POST['user_id'];
         $loginId = Yii::app()->user->id;
         
-        if ($this->isOwner($rideId)) {
-            $return = $this->ownerDisJoin($rideId,$userId);
-            $this->noticeTripper($rideId,$userId);
+        if ($this->isOwner($tripId)) {
+            $return = $this->ownerDisJoin($tripId,$userId);
+            $this->noticeTripper($tripId,$userId);
         } else {
-            $return = $this->disJoin($rideId,$userId);
+            $return = $this->disJoin($tripId,$userId);
         }
 
         echo json_encode($return);
     }
     /**
      * [noticeTripper notice to the tripper that this trip has deleted]
-     * @param  [int] $rideId
+     * @param  [int] $tripId
      * @param  [int] $owner
      * @return [void]
      */
-    private function noticeTripper($rideId,$owner){
-        $trippers = $this->getTripper($rideId);
+    private function noticeTripper($tripId,$owner){
+        $trippers = $this->getTripper($tripId);
         $trippersNum = count($trippers);
         if(!empty($trippers)){
             $sql = "INSERT INTO message 
@@ -362,27 +362,27 @@ class SharingController extends Controller
         }
         
     }
-    private function ownerDisJoin($rideId,$userId){
+    private function ownerDisJoin($tripId,$userId){
         $return['status'] = 0;
         $return['msg'] = 'unsuccess';
         //update status to delete
-        $sql = "UPDATE ride
+        $sql = "UPDATE trip
                 SET del_flg =:deleted
-                WHERE id =:rideId
+                WHERE id =:tripId
                 ";
         $deleted = Yii::app()->params['DELETED'];
         $command = Yii::app()->db->createCommand($sql);
-        $command->bindParam(':rideId', $rideId, PDO::PARAM_INT);
+        $command->bindParam(':tripId', $tripId, PDO::PARAM_INT);
         $command->bindParam(':deleted', $deleted, PDO::PARAM_INT);
 
         if ($command->execute()) {
             //update status
-            $sql = 'UPDATE ride_user
+            $sql = 'UPDATE trip_user
                 SET del_flg =:deleted
-                WHERE ride_id =:rideId
+                WHERE trip_id =:tripId
                 ';
             $command = Yii::app()->db->createCommand($sql);
-            $command->bindParam(':rideId', $rideId, PDO::PARAM_INT);
+            $command->bindParam(':tripId', $tripId, PDO::PARAM_INT);
             $command->bindParam(':deleted', $deleted, PDO::PARAM_INT);
             if ($command->execute()) {
                 $return['userId'] = $userId;
@@ -393,33 +393,33 @@ class SharingController extends Controller
         return $return;  
     }
 
-    private function disJoin($rideId,$userId){
+    private function disJoin($tripId,$userId){
         $return['status'] = 0;
         $return['msg'] = 'unsuccess';
-        $sql = 'SELECT seat_avail FROM ride WHERE id = :rideId';
+        $sql = 'SELECT seat_avail FROM trip WHERE id = :tripId';
         $command = Yii::app()->db->createCommand($sql);
-        $command->bindParam(':rideId', $rideId, PDO::PARAM_INT);
+        $command->bindParam(':tripId', $tripId, PDO::PARAM_INT);
         $seatAvail = $command->queryRow();
         $seatAvail = $seatAvail['seat_avail'];
         //update seat
         $seatsLeft = $seatAvail + 1;
-        $sql = "UPDATE ride
+        $sql = "UPDATE trip
                 SET seat_avail =:seatsLeft
-                WHERE id =:rideId
+                WHERE id =:tripId
                 ";
         $command = Yii::app()->db->createCommand($sql);
-        $command->bindParam(':rideId', $rideId, PDO::PARAM_INT);
+        $command->bindParam(':tripId', $tripId, PDO::PARAM_INT);
         $command->bindParam(':seatsLeft', $seatsLeft, PDO::PARAM_INT);
 
         if ($command->execute()) {
             //update status
-            $sql = 'DELETE FROM ride_user
-                WHERE ride_id =:rideId
+            $sql = 'DELETE FROM trip_user
+                WHERE trip_id =:tripId
                 AND user_id =:userId
                 ';
             $command = Yii::app()->db->createCommand($sql);
             $command->bindParam(':userId', $userId, PDO::PARAM_INT);
-            $command->bindParam(':rideId', $rideId, PDO::PARAM_INT);
+            $command->bindParam(':tripId', $tripId, PDO::PARAM_INT);
             if ($command->execute()) {
                 $return['seatsLeft'] = $seatsLeft;
                 $return['userId'] = $userId;
@@ -432,21 +432,21 @@ class SharingController extends Controller
     /*
     get join status to display the join button
     */
-    public function getJoinStatus($rideId)
+    public function getJoinStatus($tripId)
     {
         $joinStatus = '';
         $loginId = Yii::app()->user->id;
         $sql = "SELECT RU.join_status
-				FROM ride_user RU
-				INNER JOIN ride R ON RU.ride_id = R.id
+				FROM trip_user RU
+				INNER JOIN trip R ON RU.trip_id = R.id
 				INNER JOIN user U ON RU.user_id = U.id
-				WHERE RU.ride_id = :ride_id
+				WHERE RU.trip_id = :trip_id
 					AND RU.user_id = :user_id
 				LIMIT 1	
 				";
         $command = Yii::app()->db->createCommand($sql);
         $command->bindParam(':user_id', $loginId, PDO::PARAM_INT);
-        $command->bindParam(':ride_id', $rideId, PDO::PARAM_INT);
+        $command->bindParam(':trip_id', $tripId, PDO::PARAM_INT);
         $data = $command->queryAll();
         if ($data)
             $joinStatus = $data[0]['join_status'];
@@ -454,46 +454,46 @@ class SharingController extends Controller
     }
 
     /*
-    the owner of the ride accept user to join
+    the owner of the trip accept user to join
     */
     public function actionAcceptJoin()
     {
-        $rideId = $_POST['ride_id'];
+        $tripId = $_POST['trip_id'];
         $userId = $_POST['user_id'];
         $loginId = Yii::app()->user->id;
         $return['status'] = 0;
         $return['msg'] = 'unsuccess';
-        if ($this->isOwner($rideId)) {
-            $sql = 'SELECT seat_avail FROM ride WHERE id = :rideId AND user_id =:loginId';
+        if ($this->isOwner($tripId)) {
+            $sql = 'SELECT seat_avail FROM trip WHERE id = :tripId AND user_id =:loginId';
             $command = Yii::app()->db->createCommand($sql);
             $command->bindParam(':loginId', $loginId, PDO::PARAM_INT);
-            $command->bindParam(':rideId', $rideId, PDO::PARAM_INT);
+            $command->bindParam(':tripId', $tripId, PDO::PARAM_INT);
             $seatAvail = $command->queryAll();
             $seatAvail = $seatAvail[0]['seat_avail'];
             //if seat is still available
             if ($seatAvail >= 1) {
                 //update seat
                 $seatsLeft = $seatAvail - 1;
-                $sql = "UPDATE ride
+                $sql = "UPDATE trip
 					SET seat_avail =:seatsLeft
-					WHERE id =:rideId
+					WHERE id =:tripId
 					AND user_id =:loginId
 					";
                 $command = Yii::app()->db->createCommand($sql);
                 $command->bindParam(':loginId', $loginId, PDO::PARAM_INT);
-                $command->bindParam(':rideId', $rideId, PDO::PARAM_INT);
+                $command->bindParam(':tripId', $tripId, PDO::PARAM_INT);
                 $command->bindParam(':seatsLeft', $seatsLeft, PDO::PARAM_INT);
 
                 if ($command->execute()) {
                     //update status
-                    $sql = "UPDATE ride_user
+                    $sql = "UPDATE trip_user
                     SET join_status = 1
-                    WHERE ride_id =:rideId
+                    WHERE trip_id =:tripId
                     AND user_id =:userId
                     ";
                     $command = Yii::app()->db->createCommand($sql);
                     $command->bindParam(':userId', $userId, PDO::PARAM_INT);
-                    $command->bindParam(':rideId', $rideId, PDO::PARAM_INT);
+                    $command->bindParam(':tripId', $tripId, PDO::PARAM_INT);
                     if ($command->execute()) {
                         $return['seatsLeft'] = $seatsLeft;
                         $return['userId'] = $userId;
@@ -514,11 +514,11 @@ class SharingController extends Controller
 
 
     /**
-     * check the login user is the owner of the ride
+     * check the login user is the owner of the trip
      */
-    private function isOwner($rideId)
+    private function isOwner($tripId)
     {
-        $joinStatus = $this->getJoinStatus($rideId);
+        $joinStatus = $this->getJoinStatus($tripId);
         if ($joinStatus == 9) {
             return true;
         } else {

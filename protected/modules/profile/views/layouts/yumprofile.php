@@ -7,7 +7,7 @@ $module = Yii::app()->getModule('user');
 $this->beginContent($module->baseLayout); ?>
 
 <div id="usermenu">
-<div><a href= "/index.php/sharing/myRides">My rides</a></div>
+<div><a href= "/index.php/sharing/myTrips">My trips</a></div>
 <?php Yum::renderFlash(); ?>
 <?php 
 if(Yum::hasModule('message')) {

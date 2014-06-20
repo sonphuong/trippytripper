@@ -1,13 +1,13 @@
 <ul class="trip-search-results">
-    <?php foreach ($allRides as $key => $ride): ?>
+    <?php foreach ($allTrips as $key => $trip): ?>
         <li class="trip" itemscope="" itemtype="http://schema.org/Event">
-            <a href="view/?id=<?php echo $ride['id']; ?>" rel="nofollow" class="trip-search-oneresult">
+            <a href="view/?id=<?php echo $trip['id']; ?>" rel="nofollow" class="trip-search-oneresult">
                 <article class="table_row">
                     <div class="cell user cell2">
-                        <img class="photo" src="/<?php echo $ride['avatar']; ?>" width="42" height="42">
+                        <img class="photo" src="/<?php echo $trip['avatar']; ?>" width="42" height="42">
 
                         <div class="user-info">
-                            <h3 class="username"><?php echo $ride['username']; ?></h3>
+                            <h3 class="username"><?php echo $trip['username']; ?></h3>
                         </div>
                         <div class="user-trust">
                             <div class="rating-container">
@@ -26,10 +26,10 @@
                         </div>
                     </div>
                     <div class="cell cell5">
-                        <div class="time" itemprop="startDate"><?php echo $ride['name']; ?></div>
+                        <div class="time" itemprop="startDate"><?php echo $trip['name']; ?></div>
                         <h4/>
                         <?php
-                        $leaveDate = new DateTime($ride['leave']);
+                        $leaveDate = new DateTime($trip['leave']);
                         $date = $leaveDate->format('Y-m-d');
                         $time = $leaveDate->format('h:m');
                         $today = date('Y-m-d');
@@ -45,9 +45,9 @@
                         ?>
 
                         <h3 class="fromto" itemprop="name">
-                            <span class="trip-roads-stop"><?php echo $ride['from']; ?></span>
+                            <span class="trip-roads-stop"><?php echo $trip['from']; ?></span>
                             <span class="arrow-ie">→</span>
-                            <span class="trip-roads-stop"><?php echo $ride['to']; ?></span>
+                            <span class="trip-roads-stop"><?php echo $trip['to']; ?></span>
                         </h3>
 
                         <dl class="geo-from">
@@ -57,7 +57,7 @@
                         </span>
                             </dt>
                             <dd class="tip">
-                                <?php echo $ride['gathering_point']; ?>
+                                <?php echo $trip['gathering_point']; ?>
                             </dd>
                         </dl>
                     </div>
@@ -65,13 +65,13 @@
                         <div class="price price-green" itemprop="location">
                             <strong>
                             <span>
-                               <u>đ</u> <?php echo $ride['fee']; ?>K
+                               <u>đ</u> <?php echo $trip['fee']; ?>K
                             </span>
                             </strong>
                             <span class="priceUnit">per passenger</span>
                         </div>
                         <div class="availability">
-                            <strong><?php echo $ride['seat_avail']; ?></strong> <span>seats left</span>
+                            <strong><?php echo $trip['seat_avail']; ?></strong> <span>seats left</span>
                         </div>
                     </div>
                 </article>

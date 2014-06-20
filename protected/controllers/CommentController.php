@@ -51,29 +51,29 @@ class CommentController extends Controller
             $model->user_name = Yii::app()->user->name;
             $model->avatar = Yii::app()->user->avatar;
             $model->create_time = $date;
-            $model->ride_id = $arrData['ride_id'];
+            $model->trip_id = $arrData['trip_id'];
             $model->save();
             //$this->refresh();
 
         }
         //get the record have just insert
-        $lastCommentData = $this->getLastComment(Yii::app()->user->id, $arrData['ride_id']);
+        $lastCommentData = $this->getLastComment(Yii::app()->user->id, $arrData['trip_id']);
         echo $lastCommentObj = '<li><img src="/' . Yii::app()->user->avatar . '" alt="" width="32px" height="32px">&nbsp' . Yii::app()->user->name . ':&nbsp' . $lastCommentData['content'] . '</li>';
     }
 
-    public function getLastComment($userId, $rideId)
+    public function getLastComment($userId, $tripId)
     {
         $sql = "SELECT `content`,`create_time`,`user_name`,`avatar`
 		FROM comments  
 		WHERE user_id = :user_id
-			AND ride_id = :ride_id
+			AND trip_id = :trip_id
 		ORDER BY id DESC
 		LIMIT 1
 		";
 
         $command = Yii::app()->db->createCommand($sql);
         $command->bindParam(':user_id', $userId, PDO::PARAM_INT);
-        $command->bindParam(':ride_id', $rideId, PDO::PARAM_INT);
+        $command->bindParam(':trip_id', $tripId, PDO::PARAM_INT);
 
         $data = $command->queryAll();
         return $data[0];

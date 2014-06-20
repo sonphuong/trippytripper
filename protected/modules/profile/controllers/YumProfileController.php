@@ -111,17 +111,20 @@ class YumProfileController extends YumController {
                 'condition'=> 'user_id=:user_id',
                 'params' => array(':user_id'=>$id)
             ));
-            //allow comment only one time
-            $commentAble = !YumProfileComment::model()->exists(
-                array(
-                    'condition' =>'user_id=:user_id AND profile_id=:profile_id',
-                    'params'=>array(':user_id'=>Yii::app()->user->id,':profile_id'=>$profile->id)
-                )
-            );
+            if($profile){
+	            //allow comment only one time
+	            $commentAble = !YumProfileComment::model()->exists(
+	                array(
+	                    'condition' =>'user_id=:user_id AND profile_id=:profile_id',
+	                    'params'=>array(':user_id'=>Yii::app()->user->id,':profile_id'=>$profile->id)
+	                )
+	            );	
+            }
+            
            
         }
         //get the tours lead by
-        $tourNo = Ride::model()->count(array(
+        $tourNo = Trip::model()->count(array(
             'condition'=> 'user_id=:user_id',
             'params' => array(':user_id'=>$id)
         ));

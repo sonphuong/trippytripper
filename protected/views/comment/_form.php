@@ -5,7 +5,7 @@
 )); ?>
 	<div class="row">
 		<?php echo $form->textArea($model,'content',array('rows'=>3, 'cols'=>30)); ?>
-		<?php echo $form->hiddenField($model,'ride_id',array('value'=>$_GET['id'])); ?>
+		<?php echo $form->hiddenField($model,'trip_id',array('value'=>$_GET['id'])); ?>
 	</div>
 
 	<div class="row buttons">

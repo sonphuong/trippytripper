@@ -7,7 +7,7 @@ class Comment extends CActiveRecord
 	 * @var integer $id
 	 * @var string $content
 	 * @var integer $create_time
-	 * @var integer $ride_id
+	 * @var integer $trip_id
 	 */
 
 	/**
@@ -47,7 +47,7 @@ class Comment extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'ride' => array(self::BELONGS_TO, 'Ride', 'ride_id'),
+			'trip' => array(self::BELONGS_TO, 'Trip', 'trip_id'),
 		);
 	}
 
@@ -62,7 +62,7 @@ class Comment extends CActiveRecord
 			'create_time' => 'Create Time',
 			'user_id' => 'User Id',
 			'user_name' => 'User name',
-			'ride_id' => 'Ride',
+			'trip_id' => 'Trip',
 		);
 	}
 
@@ -72,7 +72,7 @@ class Comment extends CActiveRecord
 	 */
 	public function findRecentComments($limit=10)
 	{
-		return $this->with('ride')->findAll(array(
+		return $this->with('trip')->findAll(array(
 			'order'=>'t.create_time DESC',
 			'limit'=>$limit,
 		));

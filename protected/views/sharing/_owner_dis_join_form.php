@@ -9,7 +9,7 @@
             CController::createUrl('sharing/disJoin'),
             array(
                 'success' => 'js:function(data) {ownerDisJoinSuccess(data);}'
-            ,'data' => 'user_id='.Yii::app()->user->id.'&ride_id='.$_GET['id'].''
+            ,'data' => 'user_id='.Yii::app()->user->id.'&trip_id='.$_GET['id'].''
             )
         );
         ?>
