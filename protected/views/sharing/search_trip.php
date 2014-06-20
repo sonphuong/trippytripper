@@ -7,12 +7,12 @@
     <div class="row">
         <?php echo $form->textField($model, 'from', array('id' => 'goFrom', 'class' => 'from', 'value'=>$fromVal)); ?>
     </div>
-    <div class="row">Example: Hanoi, Vietnam</div>
+    <div class="row"><?php echo Yii::t('translator','Example: Hanoi, Vietnam');?></div>
     <div class="row">
         <?php echo $form->textField($model, 'to', array('id' => 'goTo', 'class' => 'to', 'value'=>$toVal)); ?>
     </div>
 
-    <div class="row">Departure date:</div>
+    <div class="row"><?php echo Yii::t('translator','Departure date');?>:</div>
     <div class="row">
         <?php
         $this->widget('application.widgets.timepicker.timepicker', array(
@@ -27,7 +27,7 @@
         ?>
         <?php //echo $form->error($model,'date_from'); ?>
     </div>
-    <div class="row">Return date:</div>
+    <div class="row"><?php echo Yii::t('translator','Return date');?>:</div>
     <div class="row">
         <?php
         $this->widget('application.widgets.timepicker.timepicker', array(
@@ -42,7 +42,7 @@
         ?>
     </div>
     <div class="row"/>
-    <input type="submit" value="Search"></div>
+    <input type="submit" value="<?php echo Yii::t('translator','Search');?>"></div>
 <?php $this->endWidget(); ?>
 </div>
 <hr/>

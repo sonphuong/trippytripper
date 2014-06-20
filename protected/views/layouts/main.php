@@ -34,13 +34,13 @@
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
-				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'About', 'url'=>array('/site/about')),
-				array('label'=>'Contact', 'url'=>array('/site/contact')),
-				array('label'=>'Offer a trip', 'url'=>array('/sharing/offer')),
+				array('label'=>'Trang chủ', 'url'=>array('/site/index')),
+				array('label'=>'Giới thiệu', 'url'=>array('/site/about')),
+				array('label'=>'Liên hệ', 'url'=>array('/site/contact')),
+				array('label'=>'Đăng tin', 'url'=>array('/sharing/offer')),
 				array('label'=>'Trips', 'url'=>array('/sharing/searchTrip')),
 				array('label'=>'Trippers', 'url'=>array('/user/user/browse')),
-				array('label'=>'Join us', 'url'=>array('/registration/registration'), 'visible'=>Yii::app()->user->isGuest),
+				array('label'=>'Đăng ký', 'url'=>array('/registration/registration'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Login', 'url'=>array('/user/auth'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>''.Yii::app()->user->name.'', 'url'=>array('/profile/profile/view'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Logout', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
@@ -55,7 +55,7 @@
 	<?php echo $content; ?>
 
 	<div id="footer">
-		doittogether.com <?php echo date('Y'); ?> &copy;
+		www.trippytripper.org <?php echo date('Y'); ?> &copy;
 	</div><!-- footer -->
 
 </div><!-- page -->

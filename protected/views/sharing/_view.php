@@ -7,16 +7,6 @@
             <h3 class="username"><?php echo $trip['username']; ?></h3>
         </div>
         </a>
-        <div class="user-trust">
-            
-            <div class="facebook-container">
-                <span class="tip user-trust-fb tip">
-                    <b class="icon-fb-small"></b>
-                    113 friends
-                </span>
-            </div>
-            
-        </div>
     </div>
 
     <div class="cell cell5">
@@ -51,11 +41,11 @@
         <dl class="geo-from">
             <dt>
             <span class="icon icon-marker-green-small">
-                Pick up point
+                <?php echo Yii::t('translator','Pick up point');?>
             </span>
             </dt>
             <dd class="tip">
-                Ciputra
+                <?php echo $trip['gathering_point']; ?>
             </dd>
         </dl>
     </div>
@@ -67,19 +57,19 @@
                    <u>đ</u> <?php echo $trip['fee']; ?>K
                 </span>                    
             </strong>
-            <span class="priceUnit">1 người</span>
+            <span class="priceUnit"><?php echo Yii::t('translator','per passenger');?></span>
         </div>
         <div class="availability">
-            <strong id="seats_left"><?php echo $trip['seat_avail']; ?></strong> <span>seats left</span>
+            <span>Còn </span><strong id="seats_left"> <?php echo $trip['seat_avail']; ?></strong> <span> xuất </span>
         </div>
-        <?php if($interval->days>0):?>
+        <?php if($interval->days>=0):?>
         <?php if($joinStatus==9): ?>
             <?php $this->renderPartial('/sharing/_owner_dis_join_form',array('model'=>$model,)); ?>
         <?php elseif($joinStatus==1): ?>
             <?php $this->renderPartial('/sharing/_dis_join_form',array('model'=>$model,)); ?>
         <?php elseif($joinStatus==2): ?>
             <div class="flash-success">
-                Waiting for approve
+                <?php echo Yii::t('translator','Wait for approve');?>
             </div>
         <?php else: ?>
             <?php $this->renderPartial('/sharing/_join_form',array('model'=>$model,)); ?>
@@ -92,7 +82,7 @@
     <form method="post">
         <input type="hidden" value="<?php echo $_GET['id']; ?>" name="trip_id">
         <div class="cell cell3">
-            Members
+            <h4>Thành viên</h4>
             <ol class="memberList">
                 <?php 
                 if(!empty($members)){
@@ -109,7 +99,7 @@
                                 );
                             }
                             else{
-                                echo '<span>&nbsp; No more seat</span>';
+                                echo '<span>&nbsp; Đã đủ</span>';
                             }
                             echo '</span></li>';
                         }

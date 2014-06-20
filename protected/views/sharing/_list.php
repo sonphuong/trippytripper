@@ -13,12 +13,7 @@
                             <div class="rating-container">
                                 <!-- <span class="star-rating star_5"></span> -->
                             </div>
-                            <div class="facebook-container">
-                            <span class="tip user-trust-fb tip">
-                                <b class="icon-fb-small"></b>
-                                113 friends
-                            </span>
-                            </div>
+                            
                             <div class="preferences-container">
                                 <span class="blabla prefs tip"></span>
                                 <span class="no-smoking prefs tip"></span>
@@ -53,7 +48,7 @@
                         <dl class="geo-from">
                             <dt>
                         <span class="icon icon-marker-green-small">
-                            Pick up point
+                            <?php echo Yii::t('translator','Pick up point');?>
                         </span>
                             </dt>
                             <dd class="tip">
@@ -68,7 +63,7 @@
                                <u>đ</u> <?php echo $trip['fee']; ?>K
                             </span>
                             </strong>
-                            <span class="priceUnit">per passenger</span>
+                            <span class="priceUnit"><?php echo Yii::t('translator','per passenger');?></span>
                         </div>
                         <div class="availability">
                             <strong><?php echo $trip['seat_avail']; ?></strong> <span>seats left</span>

@@ -34,12 +34,12 @@
                     </a>
                     <dl>
                         <span>
-                            Pick up point: Ciputra
+                            <?php echo Yii::t('translator','Pick up point');?>: <?php echo $trip['gathering_point']; ?>
                         </span>
                     </dl>
                     <div class="price price-green" itemprop="location">
                         <u>đ</u> <?php echo $trip['fee']; ?>K
-                        <span class="priceUnit">1 người</span>
+                        <span class="priceUnit"><?php echo Yii::t('translator','per passenger');?></span>
                     </div>
                     <div class="availability">
                         <strong><?php echo $trip['seat_avail']; ?></strong> <span>seats left</span>

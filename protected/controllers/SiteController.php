@@ -12,7 +12,9 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $this->render('index');
+        $this->render('index', array(
+        //'notifiche' => ModelNotifyii::getAllNotifications()
+    ));
     }
 
     /**

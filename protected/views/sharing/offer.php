@@ -1,5 +1,5 @@
 <div class="header-main-block">
-    <h2>Route</h2>
+    <h2>Trip</h2>
 </div>
 <div class="form search_box">
     <?php $form = $this->
@@ -10,13 +10,13 @@
         <?php echo $form->
             textField($model, 'from', array('id' => 'goFrom', 'class' => 'from', 'value'=>$fromVal)); ?>
     </div>
-    <div class="row">Example: Hanoi, Vietnam</div>
+    <div class="row"><?php echo Yii::t('translator','Example: Hanoi, Vietnam');?></div>
     <div class="row">
         <?php echo $form->
             textField($model, 'to', array('id' => 'goTo', 'class' => 'to', 'value'=>$toVal)); ?>
     </div>
 
-    <div class="row">Departure date:</div>
+    <div class="row"><?php echo Yii::t('translator','Departure date');?>:</div>
     <div class="row">
         <?php
         $this->
@@ -31,7 +31,7 @@
             ));
         ?>
         <?php //echo $form->error($model,'date_from'); ?></div>
-    <div class="row">Return date:</div>
+    <div class="row"><?php echo Yii::t('translator','Return date');?>:</div>
     <div class="row">
         <?php
         $this->
@@ -47,36 +47,36 @@
         ?>
     </div>
     <div class="row">
-        <span class="label">Seats:</span>
+        <span class="label"><?php echo Yii::t('translator', 'Seats');?>:</span>
         <span class="fieldset">
             <?php echo $form->
                 textField($model, 'seat_avail', array('maxlength' => '2', 'size' => '2')); ?>
         </span>
     </div>
     <div class="row">
-        <span class="label">Fee:</span>
+        <span class="label"><?php echo Yii::t('translator', 'Fee');?>:</span>
         <span class="fieldset">
             <?php echo $form->
                 textField($model, 'fee', array('maxlength' => '6', 'size' => '6')); ?>
         </span>
     </div>
     <div class="row">
-        <span class="label">Gathering point:</span>
+        <span class="label"><?php echo Yii::t('translator', 'Gathering point');?>: </span>
         <span class="fieldset">
             <?php echo $form->textField($model, 'gathering_point'); ?></span>
     </div>
     <div class="row">
-        <span class="label">Title:</span>
+        <span class="label"><?php echo Yii::t('translator', 'Title');?>:</span>
         <span class="fieldset">
             <?php echo $form->textField($model, 'name'); ?></span>
     </div>
-    <div class="row">Trip details:</div>
+    <div class="row"><?php echo Yii::t('translator', 'Trip details');?>:</div>
     <div class="row">
         <?php echo $form->
             textArea($model, 'description', array('rows' => 6, 'cols' => 45)); ?>
     </div>
     <div class="row"/>
-    <input type="submit" value="Offer">
+    <input type="submit" value="<?php echo Yii::t('translator', 'Offer');?>">
 </div>
 <?php $this->endWidget(); ?></div>
 <div id="directions-panel"/>

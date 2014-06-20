@@ -8,7 +8,7 @@
 return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
     'name' => 'Trippy tripper',
-
+    'sourceLanguage'=>'en',
     // preloading 'log' component
     //'preload'=>array('log'),
 
@@ -49,7 +49,9 @@ return array(
         'application.modules.PcStarRank.controllers.*',
         'application.modules.PcStarRank.components.*',
         'application.modules.PcStarRank.extensions.PcStarRankWidget.*',
-        //...
+        //nfy
+        'application.modules.nfy.components.*', 
+        'application.modules.nfy.models.*',
     ),
 
     'defaultController' => 'site',
@@ -73,12 +75,15 @@ return array(
         ),
 
         'usergroup' => array(),
+        'nfy' => array(
+            'class' =>'application.modules.nfy.NfyModule',
+        ),
     ),
     // application components
     'components' => array(
         'user' => array(
             // enable cookie-based authentication
-            'class' => 'application.modules.user.components.YumWebUser',
+            'class' =>'application.modules.user.components.YumWebUser',
             'allowAutoLogin' => true,
             'loginUrl' => array('//user/user/login'),
         ),
