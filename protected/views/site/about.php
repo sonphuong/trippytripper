@@ -4,6 +4,12 @@ $this->breadcrumbs=array(
 	'About',
 );
 ?>
-<h1>About</h1>
+<?php echo Yii::t('translator','About us');?>
 
-<p>This is the "about" page for my blog site.</p>
+<?php
+$send = Yii::app()->queue->send('test');
+// receive all available messages for current user and immediately delete them from the queue
+$messages = Yii::app()->queue->receive();
+Nfy::log();
+var_dump($messages);
+?>

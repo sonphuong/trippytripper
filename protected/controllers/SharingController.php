@@ -61,13 +61,15 @@ class SharingController extends Controller
         //get all member invole to the trips
 
         $myTrips = $command->queryAll();
-        foreach ($myTrips as $key => $myTrip) {
-            $members = $this->getTripper($myTrip['id']);
-            $myTrips[$key]['members'] = $members;
-
+        if(!empty($myTrips)){
+            foreach ($myTrips as $key => $myTrip) {
+                $members = $this->getTripper($myTrip['id']);
+                $myTrips[$key]['members'] = $members;
+            }    
         }
+        
         $this->render('my_trips', array(
-            'members' => $members,
+            //'members' => $members,
             'myTrips' => $myTrips
         ));
     }

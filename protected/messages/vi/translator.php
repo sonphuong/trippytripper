@@ -11,9 +11,14 @@ return array(
 	,'Fee'=> 'Chi phí'
 	,'Title'=> 'Tiêu đề'
 	,'Trip details'=>'Thông tin thêm'
-	,'Offer'=>'Đăng'
+	,'Offer'=>'Đăng tìm'
 	,'Search'=>'Tìm'
-	,''=>''
-	
+	,'Homepage'=>'Trang chủ'
+	,'About us' => 'Giới thiệu'
+	,'Contact' => 'Liên hệ'
+	,'Join us'=>'Đăng ký'
+	,'Trips'=>'Chuyến đi'
+	,'Trippers'=>'Thành viên'
+	,'' =>''
 	);
 ?>

@@ -31,19 +31,23 @@
 		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
 	</div><!-- header -->
 
+	<?php
+	$this->widget('LangBox');
+	?>
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
-				array('label'=>'Trang chủ', 'url'=>array('/site/index')),
-				array('label'=>'Giới thiệu', 'url'=>array('/site/about')),
-				array('label'=>'Liên hệ', 'url'=>array('/site/contact')),
-				array('label'=>'Đăng tin', 'url'=>array('/sharing/offer')),
-				array('label'=>'Trips', 'url'=>array('/sharing/searchTrip')),
-				array('label'=>'Trippers', 'url'=>array('/user/user/browse')),
-				array('label'=>'Đăng ký', 'url'=>array('/registration/registration'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Login', 'url'=>array('/user/auth'), 'visible'=>Yii::app()->user->isGuest),
+				array('label'=>Yii::t('translator','Homepage'), 'url'=>array('/site/index')),
+				array('label'=>Yii::t('translator','About us'), 'url'=>array('/site/about')),
+				array('label'=>Yii::t('translator','Contact'), 'url'=>array('/site/contact')),
+				array('label'=>Yii::t('translator','Offer'), 'url'=>array('/sharing/offer')),
+				array('label'=>Yii::t('translator','Trips'), 'url'=>array('/sharing/searchTrip')),
+				array('label'=>Yii::t('translator','Trippers'), 'url'=>array('/user/user/browse')),
+				array('label'=>Yii::t('translator','Join us'), 'url'=>array('/registration/registration'), 'visible'=>Yii::app()->user->isGuest),
+				array('label'=>Yii::t('translator','Login'), 'url'=>array('/user/auth'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>''.Yii::app()->user->name.'', 'url'=>array('/profile/profile/view'), 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Logout', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+				array('label'=>Yii::t('translator','Logout'), 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+				
 			),
 		)); ?>
 	</div><!-- mainmenu -->
