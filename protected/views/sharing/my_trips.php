@@ -43,33 +43,43 @@
                             <span class="priceUnit"><?php echo Yii::t('translator','per passenger');?></span>
                         </div>
                         <div class="availability">
-                            <strong><?php echo $trip['seat_avail']; ?></strong> <span>seats left</span>
+                            <strong><?php echo $trip['seat_avail']; ?></strong> <span><?php echo Yii::t('translator','seat(s) left');?></span>
                         </div>
                     </div>
                     <div class="cell cell5">
-                    Members
-                        <ul>
+                    <?php echo Yii::t('translator','Trippers');?>
+                        <ol class="memberList">
                             <?php 
-                            if(!empty($trip['members'])){
-                                foreach ($trip['members'] as $key => $member) {
-                                    echo '<li>'.$member['user_name'];
-                                    echo '<span id="join_status" style="float:left">';    
+                            $members = $trip['members'];
+                            if(!empty($members)){
+                                foreach ($members as $key => $member) {
                                     if($member['join_status']==2){
-                                        echo CHtml::ajaxLink ("approve",
-                                              CController::createUrl('sharing/approve'), 
-                                              array('success' => 'js:function(data) { 
-                                                                                        $("#join_status").html("");
-                                                                                    }')
-                                              );    
+                                        echo '<li class="" id="member_'.$member['user_id'].'"><img src="/'.$member['avatar'].'" alt="" width="32px" height="32px" />'.CHtml::link($member['user_name'], array('//profile/profile/view/'.$member['user_id']));                            
+                                        echo '<span id="join_status_'.$member['user_id'].'">';
+                                        if($trip['seat_avail']>0){
+                                            echo CHtml::ajaxSubmitButton ("Accept",
+                                                CController::createUrl('sharing/acceptJoin'),
+                                                array(
+                                                    'success' => 'js:function(data) {approveJoinSuccess(data);}'
+                                                ,'data' => 'user_id='.$member['user_id'].'&trip_id='.$trip['id'].''
+                                                )
+                                            );
+                                        }
+                                        else{
+                                            echo '<span>&nbsp; '.Yii::t('translator','fulled').'</span>';
+                                        }
+                                        echo '</span></li>';
                                     }
-                                    else{
-                                        echo '';                                    
+                                    elseif($member['join_status']==1){
+                                        echo '<li class="" id="member_'.$member['user_id'].'"><img src="/'.$member['avatar'].'" alt="" width="32px" height="32px" />'.CHtml::link($member['user_name'], array('//profile/profile/view/'.$member['user_id']));
                                     }
-                                    echo '</span></li>';
-
                                 }
-                            }?>
-                        </ul>
+                            }
+                            else{
+                                echo Yii::t('translator','No one join yet');
+                            }
+                            ?>
+                        </ol>
                     </div>
                 </article>
             

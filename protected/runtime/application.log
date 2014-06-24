@@ -1,0 +1,526 @@
+2014/06/23 10:22:37 [error] [nfy] Failed to save message 'test' in queue .
+2014/06/23 10:28:48 [error] [nfy] Failed to save message 'test' in queue .
+2014/06/23 10:31:49 [error] [nfy] Failed to save message 'test' in queue .
+2014/06/23 10:39:23 [error] [nfy] Failed to save message 'test' in queue .
+2014/06/24 02:43:15 [error] [nfy] Failed to save message 'test' in queue .
+2014/06/24 02:49:18 [error] [nfy] Failed to save message 'test' in queue .
+2014/06/24 02:50:04 [error] [nfy] Failed to save message 'test' in queue .
+2014/06/24 02:50:50 [error] [nfy] Failed to save message 'test' in queue .
+2014/06/24 02:51:26 [error] [nfy] Failed to save message 'test' in queue .
+2014/06/24 02:53:29 [error] [nfy] Failed to save message 'test' in queue .
+2014/06/24 02:54:07 [error] [nfy] Failed to save message 'test' in queue .
+2014/06/24 02:54:38 [error] [nfy] Failed to save message 'test' in queue .
+2014/06/24 03:05:11 [error] [nfy] Failed to save message 'test' in queue .
+2014/06/24 03:10:43 [error] [exception.CException] exception 'CException' with message 'Failed to subscribe 3 to ' in D:\wamp\www\trippytripper\protected\modules\nfy\components\NfyDbQueue.php:219
+Stack trace:
+#0 D:\wamp\www\trippytripper\protected\views\site\about.php(7): NfyDbQueue->subscribe('3')
+#1 D:\wamp\www\yiiframework\web\CBaseController.php(126): require('D:\wamp\www\tri...')
+#2 D:\wamp\www\yiiframework\web\CBaseController.php(95): CBaseController->renderInternal('D:\wamp\www\tri...', NULL, true)
+#3 D:\wamp\www\yiiframework\web\CController.php(869): CBaseController->renderFile('D:\wamp\www\tri...', NULL, true)
+#4 D:\wamp\www\yiiframework\web\CController.php(782): CController->renderPartial('about', NULL, true)
+#5 D:\wamp\www\trippytripper\protected\controllers\SiteController.php(27): CController->render('about')
+#6 D:\wamp\www\yiiframework\web\actions\CInlineAction.php(49): SiteController->actionAbout()
+#7 D:\wamp\www\yiiframework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 D:\wamp\www\yiiframework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#9 D:\wamp\www\yiiframework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 D:\wamp\www\yiiframework\web\CWebApplication.php(282): CController->run('about')
+#11 D:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController('site/about')
+#12 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 D:\wamp\www\trippytripper\index.php(11): CApplication->run()
+#14 {main}
+REQUEST_URI=/index.php/site/about?XDEBUG_SESSION_START
+---
+2014/06/24 03:11:25 [error] [exception.CException] exception 'CException' with message 'Failed to subscribe 1 to ' in D:\wamp\www\trippytripper\protected\modules\nfy\components\NfyDbQueue.php:219
+Stack trace:
+#0 D:\wamp\www\trippytripper\protected\views\site\about.php(7): NfyDbQueue->subscribe(1)
+#1 D:\wamp\www\yiiframework\web\CBaseController.php(126): require('D:\wamp\www\tri...')
+#2 D:\wamp\www\yiiframework\web\CBaseController.php(95): CBaseController->renderInternal('D:\wamp\www\tri...', NULL, true)
+#3 D:\wamp\www\yiiframework\web\CController.php(869): CBaseController->renderFile('D:\wamp\www\tri...', NULL, true)
+#4 D:\wamp\www\yiiframework\web\CController.php(782): CController->renderPartial('about', NULL, true)
+#5 D:\wamp\www\trippytripper\protected\controllers\SiteController.php(27): CController->render('about')
+#6 D:\wamp\www\yiiframework\web\actions\CInlineAction.php(49): SiteController->actionAbout()
+#7 D:\wamp\www\yiiframework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 D:\wamp\www\yiiframework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#9 D:\wamp\www\yiiframework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 D:\wamp\www\yiiframework\web\CWebApplication.php(282): CController->run('about')
+#11 D:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController('site/about')
+#12 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 D:\wamp\www\trippytripper\index.php(11): CApplication->run()
+#14 {main}
+REQUEST_URI=/index.php/site/about?XDEBUG_SESSION_START
+---
+2014/06/24 03:12:48 [error] [exception.CException] exception 'CException' with message 'Failed to subscribe 1 to ' in D:\wamp\www\trippytripper\protected\modules\nfy\components\NfyDbQueue.php:219
+Stack trace:
+#0 D:\wamp\www\trippytripper\protected\views\site\about.php(7): NfyDbQueue->subscribe(1)
+#1 D:\wamp\www\yiiframework\web\CBaseController.php(126): require('D:\wamp\www\tri...')
+#2 D:\wamp\www\yiiframework\web\CBaseController.php(95): CBaseController->renderInternal('D:\wamp\www\tri...', NULL, true)
+#3 D:\wamp\www\yiiframework\web\CController.php(869): CBaseController->renderFile('D:\wamp\www\tri...', NULL, true)
+#4 D:\wamp\www\yiiframework\web\CController.php(782): CController->renderPartial('about', NULL, true)
+#5 D:\wamp\www\trippytripper\protected\controllers\SiteController.php(27): CController->render('about')
+#6 D:\wamp\www\yiiframework\web\actions\CInlineAction.php(49): SiteController->actionAbout()
+#7 D:\wamp\www\yiiframework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 D:\wamp\www\yiiframework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#9 D:\wamp\www\yiiframework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 D:\wamp\www\yiiframework\web\CWebApplication.php(282): CController->run('about')
+#11 D:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController('site/about')
+#12 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 D:\wamp\www\trippytripper\index.php(11): CApplication->run()
+#14 {main}
+REQUEST_URI=/index.php/site/about?XDEBUG_SESSION_START
+---
+2014/06/24 03:14:26 [error] [exception.CException] exception 'CException' with message 'Failed to subscribe 1 to ' in D:\wamp\www\trippytripper\protected\modules\nfy\components\NfyDbQueue.php:219
+Stack trace:
+#0 D:\wamp\www\trippytripper\protected\views\site\about.php(7): NfyDbQueue->subscribe(1)
+#1 D:\wamp\www\yiiframework\web\CBaseController.php(126): require('D:\wamp\www\tri...')
+#2 D:\wamp\www\yiiframework\web\CBaseController.php(95): CBaseController->renderInternal('D:\wamp\www\tri...', NULL, true)
+#3 D:\wamp\www\yiiframework\web\CController.php(869): CBaseController->renderFile('D:\wamp\www\tri...', NULL, true)
+#4 D:\wamp\www\yiiframework\web\CController.php(782): CController->renderPartial('about', NULL, true)
+#5 D:\wamp\www\trippytripper\protected\controllers\SiteController.php(27): CController->render('about')
+#6 D:\wamp\www\yiiframework\web\actions\CInlineAction.php(49): SiteController->actionAbout()
+#7 D:\wamp\www\yiiframework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 D:\wamp\www\yiiframework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#9 D:\wamp\www\yiiframework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 D:\wamp\www\yiiframework\web\CWebApplication.php(282): CController->run('about')
+#11 D:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController('site/about')
+#12 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 D:\wamp\www\trippytripper\index.php(11): CApplication->run()
+#14 {main}
+REQUEST_URI=/index.php/site/about?XDEBUG_SESSION_START
+---
+2014/06/24 03:19:10 [error] [exception.CException] exception 'CException' with message 'Failed to subscribe 1 to ' in D:\wamp\www\trippytripper\protected\modules\nfy\components\NfyDbQueue.php:219
+Stack trace:
+#0 D:\wamp\www\trippytripper\protected\views\site\about.php(9): NfyDbQueue->subscribe(1)
+#1 D:\wamp\www\yiiframework\web\CBaseController.php(126): require('D:\wamp\www\tri...')
+#2 D:\wamp\www\yiiframework\web\CBaseController.php(95): CBaseController->renderInternal('D:\wamp\www\tri...', NULL, true)
+#3 D:\wamp\www\yiiframework\web\CController.php(869): CBaseController->renderFile('D:\wamp\www\tri...', NULL, true)
+#4 D:\wamp\www\yiiframework\web\CController.php(782): CController->renderPartial('about', NULL, true)
+#5 D:\wamp\www\trippytripper\protected\controllers\SiteController.php(27): CController->render('about')
+#6 D:\wamp\www\yiiframework\web\actions\CInlineAction.php(49): SiteController->actionAbout()
+#7 D:\wamp\www\yiiframework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 D:\wamp\www\yiiframework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#9 D:\wamp\www\yiiframework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 D:\wamp\www\yiiframework\web\CWebApplication.php(282): CController->run('about')
+#11 D:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController('site/about')
+#12 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 D:\wamp\www\trippytripper\index.php(11): CApplication->run()
+#14 {main}
+REQUEST_URI=/index.php/site/about?XDEBUG_SESSION_START
+---
+2014/06/24 03:20:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "nfy/default/poll/id/queueComponentId".' in D:\wamp\www\yiiframework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController('nfy/default/pol...')
+#1 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\wamp\www\trippytripper\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/nfy/default/poll/id/queueComponentId?_=1403580035860
+HTTP_REFERER=http://www.trippytripper.org/index.php/site/about?XDEBUG_SESSION_START
+---
+2014/06/24 03:22:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "nfy/default/poll/id/queueComponentId".' in D:\wamp\www\yiiframework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController('nfy/default/pol...')
+#1 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\wamp\www\trippytripper\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/nfy/default/poll/id/queueComponentId?_=1403580131614
+HTTP_REFERER=http://www.trippytripper.org/index.php/site/about?XDEBUG_SESSION_START
+---
+2014/06/24 03:22:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "nfy/default/poll/id/queueComponentId".' in D:\wamp\www\yiiframework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController('nfy/default/pol...')
+#1 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\wamp\www\trippytripper\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/nfy/default/poll/id/queueComponentId?_=1403580170862
+HTTP_REFERER=http://www.trippytripper.org/index.php/site/about?XDEBUG_SESSION_START
+---
+2014/06/24 03:23:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "nfy/default/poll/id/queueComponentId".' in D:\wamp\www\yiiframework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController('nfy/default/pol...')
+#1 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\wamp\www\trippytripper\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/nfy/default/poll/id/queueComponentId?_=1403580207386
+HTTP_REFERER=http://www.trippytripper.org/index.php/site/about?XDEBUG_SESSION_START
+---
+2014/06/24 03:24:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "nfy/default/poll/id/queueComponentId".' in D:\wamp\www\yiiframework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController('nfy/default/pol...')
+#1 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\wamp\www\trippytripper\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/nfy/default/poll/id/queueComponentId?_=1403580245061
+HTTP_REFERER=http://www.trippytripper.org/index.php/site/about?XDEBUG_SESSION_START
+---
+2014/06/24 03:25:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "nfy/default/poll/id/queueComponentId".' in D:\wamp\www\yiiframework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController('nfy/default/pol...')
+#1 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\wamp\www\trippytripper\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/nfy/default/poll/id/queueComponentId?_=1403580346650
+HTTP_REFERER=http://www.trippytripper.org/index.php/site/about?XDEBUG_SESSION_START
+---
+2014/06/24 06:36:07 [error] [php] mail() [<a href='function.mail'>function.mail</a>]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() (D:\wamp\www\trippytripper\protected\modules\user\components\YumMailer.php:80)
+Stack trace:
+#0 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(1071): YumMessage->beforeSave()
+#1 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(806): YumMessage->insert()
+#2 D:\wamp\www\trippytripper\protected\modules\message\models\YumMessage.php(109): YumMessage->save()
+#3 D:\wamp\www\trippytripper\protected\modules\friendship\models\YumFriendship.php(170): write()
+#4 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(1071): YumFriendship->beforeSave()
+#5 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(806): YumFriendship->insert()
+#6 D:\wamp\www\trippytripper\protected\modules\friendship\models\YumFriendship.php(46): YumFriendship->save()
+#7 D:\wamp\www\trippytripper\protected\modules\friendship\controllers\YumFriendshipController.php(70): YumFriendship->requestFriendship()
+#8 unknown(0): YumFriendshipController->actionInvite()
+#9 D:\wamp\www\yiiframework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#10 D:\wamp\www\yiiframework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#11 D:\wamp\www\yiiframework\web\CController.php(308): CInlineAction->runWithParams()
+#12 D:\wamp\www\yiiframework\web\filters\CFilterChain.php(133): YumFriendshipController->runAction()
+#13 D:\wamp\www\yiiframework\web\filters\CFilter.php(40): CFilterChain->run()
+#14 D:\wamp\www\yiiframework\web\CController.php(1145): CAccessControlFilter->filter()
+#15 D:\wamp\www\yiiframework\web\filters\CInlineFilter.php(58): YumFriendshipController->filterAccessControl()
+#16 D:\wamp\www\yiiframework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#17 D:\wamp\www\yiiframework\web\CController.php(291): CFilterChain->run()
+#18 D:\wamp\www\yiiframework\web\CController.php(265): YumFriendshipController->runActionWithFilters()
+#19 D:\wamp\www\yiiframework\web\CWebApplication.php(282): YumFriendshipController->run()
+#20 D:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController()
+#21 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#22 D:\wamp\www\trippytripper\index.php(11): CWebApplication->run()
+REQUEST_URI=/index.php/friendship/friendship/invite
+2014/06/24 07:02:10 [error] [php] mail() [<a href='function.mail'>function.mail</a>]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() (D:\wamp\www\trippytripper\protected\modules\user\components\YumMailer.php:80)
+Stack trace:
+#0 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(1071): YumMessage->beforeSave()
+#1 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(806): YumMessage->insert()
+#2 D:\wamp\www\trippytripper\protected\modules\message\models\YumMessage.php(109): YumMessage->save()
+#3 D:\wamp\www\trippytripper\protected\modules\friendship\models\YumFriendship.php(170): write()
+#4 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(1071): YumFriendship->beforeSave()
+#5 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(806): YumFriendship->insert()
+#6 D:\wamp\www\trippytripper\protected\modules\friendship\models\YumFriendship.php(46): YumFriendship->save()
+#7 D:\wamp\www\trippytripper\protected\modules\friendship\controllers\YumFriendshipController.php(70): YumFriendship->requestFriendship()
+#8 unknown(0): YumFriendshipController->actionInvite()
+#9 D:\wamp\www\yiiframework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#10 D:\wamp\www\yiiframework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#11 D:\wamp\www\yiiframework\web\CController.php(308): CInlineAction->runWithParams()
+#12 D:\wamp\www\yiiframework\web\filters\CFilterChain.php(133): YumFriendshipController->runAction()
+#13 D:\wamp\www\yiiframework\web\filters\CFilter.php(40): CFilterChain->run()
+#14 D:\wamp\www\yiiframework\web\CController.php(1145): CAccessControlFilter->filter()
+#15 D:\wamp\www\yiiframework\web\filters\CInlineFilter.php(58): YumFriendshipController->filterAccessControl()
+#16 D:\wamp\www\yiiframework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#17 D:\wamp\www\yiiframework\web\CController.php(291): CFilterChain->run()
+#18 D:\wamp\www\yiiframework\web\CController.php(265): YumFriendshipController->runActionWithFilters()
+#19 D:\wamp\www\yiiframework\web\CWebApplication.php(282): YumFriendshipController->run()
+#20 D:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController()
+#21 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#22 D:\wamp\www\trippytripper\index.php(11): CWebApplication->run()
+REQUEST_URI=/index.php/friendship/friendship/invite
+2014/06/24 07:13:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "profile/friendship/invite".' in D:\wamp\www\yiiframework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController('profile/friends...')
+#1 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\wamp\www\trippytripper\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/profile/friendship/invite
+HTTP_REFERER=http://www.trippytripper.local/index.php/profile/profile/view/id/3
+---
+2014/06/24 07:20:24 [error] [php] mail() [<a href='function.mail'>function.mail</a>]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() (D:\wamp\www\trippytripper\protected\modules\user\components\YumMailer.php:80)
+Stack trace:
+#0 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(1071): YumMessage->beforeSave()
+#1 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(806): YumMessage->insert()
+#2 D:\wamp\www\trippytripper\protected\modules\message\models\YumMessage.php(109): YumMessage->save()
+#3 D:\wamp\www\trippytripper\protected\modules\friendship\models\YumFriendship.php(170): write()
+#4 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(1071): YumFriendship->beforeSave()
+#5 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(806): YumFriendship->insert()
+#6 D:\wamp\www\trippytripper\protected\modules\friendship\models\YumFriendship.php(46): YumFriendship->save()
+#7 D:\wamp\www\trippytripper\protected\modules\friendship\controllers\YumFriendshipController.php(70): YumFriendship->requestFriendship()
+#8 unknown(0): YumFriendshipController->actionInvite()
+#9 D:\wamp\www\yiiframework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#10 D:\wamp\www\yiiframework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#11 D:\wamp\www\yiiframework\web\CController.php(308): CInlineAction->runWithParams()
+#12 D:\wamp\www\yiiframework\web\filters\CFilterChain.php(133): YumFriendshipController->runAction()
+#13 D:\wamp\www\yiiframework\web\filters\CFilter.php(40): CFilterChain->run()
+#14 D:\wamp\www\yiiframework\web\CController.php(1145): CAccessControlFilter->filter()
+#15 D:\wamp\www\yiiframework\web\filters\CInlineFilter.php(58): YumFriendshipController->filterAccessControl()
+#16 D:\wamp\www\yiiframework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#17 D:\wamp\www\yiiframework\web\CController.php(291): CFilterChain->run()
+#18 D:\wamp\www\yiiframework\web\CController.php(265): YumFriendshipController->runActionWithFilters()
+#19 D:\wamp\www\yiiframework\web\CWebApplication.php(282): YumFriendshipController->run()
+#20 D:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController()
+#21 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#22 D:\wamp\www\trippytripper\index.php(11): CWebApplication->run()
+REQUEST_URI=/index.php/friendship/friendship/invite
+2014/06/24 07:22:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "profile/friendship/invite".' in D:\wamp\www\yiiframework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController('profile/friends...')
+#1 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\wamp\www\trippytripper\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/profile/friendship/invite
+HTTP_REFERER=http://www.trippytripper.local/index.php/profile/profile/view/id/2
+---
+2014/06/24 07:22:44 [error] [php] mail() [<a href='function.mail'>function.mail</a>]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() (D:\wamp\www\trippytripper\protected\modules\user\components\YumMailer.php:80)
+Stack trace:
+#0 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(1071): YumMessage->beforeSave()
+#1 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(806): YumMessage->insert()
+#2 D:\wamp\www\trippytripper\protected\modules\message\models\YumMessage.php(109): YumMessage->save()
+#3 D:\wamp\www\trippytripper\protected\modules\friendship\models\YumFriendship.php(170): write()
+#4 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(1071): YumFriendship->beforeSave()
+#5 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(806): YumFriendship->insert()
+#6 D:\wamp\www\trippytripper\protected\modules\friendship\models\YumFriendship.php(46): YumFriendship->save()
+#7 D:\wamp\www\trippytripper\protected\modules\friendship\controllers\YumFriendshipController.php(70): YumFriendship->requestFriendship()
+#8 unknown(0): YumFriendshipController->actionInvite()
+#9 D:\wamp\www\yiiframework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#10 D:\wamp\www\yiiframework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#11 D:\wamp\www\yiiframework\web\CController.php(308): CInlineAction->runWithParams()
+#12 D:\wamp\www\yiiframework\web\filters\CFilterChain.php(133): YumFriendshipController->runAction()
+#13 D:\wamp\www\yiiframework\web\filters\CFilter.php(40): CFilterChain->run()
+#14 D:\wamp\www\yiiframework\web\CController.php(1145): CAccessControlFilter->filter()
+#15 D:\wamp\www\yiiframework\web\filters\CInlineFilter.php(58): YumFriendshipController->filterAccessControl()
+#16 D:\wamp\www\yiiframework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#17 D:\wamp\www\yiiframework\web\CController.php(291): CFilterChain->run()
+#18 D:\wamp\www\yiiframework\web\CController.php(265): YumFriendshipController->runActionWithFilters()
+#19 D:\wamp\www\yiiframework\web\CWebApplication.php(282): YumFriendshipController->run()
+#20 D:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController()
+#21 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#22 D:\wamp\www\trippytripper\index.php(11): CWebApplication->run()
+REQUEST_URI=/index.php/friendship/friendship/invite
+2014/06/24 07:30:00 [error] [php] mail() [<a href='function.mail'>function.mail</a>]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() (D:\wamp\www\trippytripper\protected\modules\user\components\YumMailer.php:80)
+Stack trace:
+#0 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(1071): YumMessage->beforeSave()
+#1 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(806): YumMessage->insert()
+#2 D:\wamp\www\trippytripper\protected\modules\message\models\YumMessage.php(109): YumMessage->save()
+#3 D:\wamp\www\trippytripper\protected\modules\friendship\models\YumFriendship.php(170): write()
+#4 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(1071): YumFriendship->beforeSave()
+#5 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(806): YumFriendship->insert()
+#6 D:\wamp\www\trippytripper\protected\modules\friendship\models\YumFriendship.php(46): YumFriendship->save()
+#7 D:\wamp\www\trippytripper\protected\modules\friendship\controllers\YumFriendshipController.php(69): YumFriendship->requestFriendship()
+#8 unknown(0): YumFriendshipController->actionInvite()
+#9 D:\wamp\www\yiiframework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#10 D:\wamp\www\yiiframework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#11 D:\wamp\www\yiiframework\web\CController.php(308): CInlineAction->runWithParams()
+#12 D:\wamp\www\yiiframework\web\filters\CFilterChain.php(133): YumFriendshipController->runAction()
+#13 D:\wamp\www\yiiframework\web\filters\CFilter.php(40): CFilterChain->run()
+#14 D:\wamp\www\yiiframework\web\CController.php(1145): CAccessControlFilter->filter()
+#15 D:\wamp\www\yiiframework\web\filters\CInlineFilter.php(58): YumFriendshipController->filterAccessControl()
+#16 D:\wamp\www\yiiframework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#17 D:\wamp\www\yiiframework\web\CController.php(291): CFilterChain->run()
+#18 D:\wamp\www\yiiframework\web\CController.php(265): YumFriendshipController->runActionWithFilters()
+#19 D:\wamp\www\yiiframework\web\CWebApplication.php(282): YumFriendshipController->run()
+#20 D:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController()
+#21 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#22 D:\wamp\www\trippytripper\index.php(11): CWebApplication->run()
+REQUEST_URI=/index.php/friendship/friendship/invite
+2014/06/24 07:35:07 [error] [php] mail() [<a href='function.mail'>function.mail</a>]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() (D:\wamp\www\trippytripper\protected\modules\user\components\YumMailer.php:80)
+Stack trace:
+#0 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(1071): YumMessage->beforeSave()
+#1 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(806): YumMessage->insert()
+#2 D:\wamp\www\trippytripper\protected\modules\message\models\YumMessage.php(109): YumMessage->save()
+#3 D:\wamp\www\trippytripper\protected\modules\friendship\models\YumFriendship.php(170): write()
+#4 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(1071): YumFriendship->beforeSave()
+#5 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(806): YumFriendship->insert()
+#6 D:\wamp\www\trippytripper\protected\modules\friendship\models\YumFriendship.php(46): YumFriendship->save()
+#7 D:\wamp\www\trippytripper\protected\modules\friendship\controllers\YumFriendshipController.php(69): YumFriendship->requestFriendship()
+#8 unknown(0): YumFriendshipController->actionInvite()
+#9 D:\wamp\www\yiiframework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#10 D:\wamp\www\yiiframework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#11 D:\wamp\www\yiiframework\web\CController.php(308): CInlineAction->runWithParams()
+#12 D:\wamp\www\yiiframework\web\filters\CFilterChain.php(133): YumFriendshipController->runAction()
+#13 D:\wamp\www\yiiframework\web\filters\CFilter.php(40): CFilterChain->run()
+#14 D:\wamp\www\yiiframework\web\CController.php(1145): CAccessControlFilter->filter()
+#15 D:\wamp\www\yiiframework\web\filters\CInlineFilter.php(58): YumFriendshipController->filterAccessControl()
+#16 D:\wamp\www\yiiframework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#17 D:\wamp\www\yiiframework\web\CController.php(291): CFilterChain->run()
+#18 D:\wamp\www\yiiframework\web\CController.php(265): YumFriendshipController->runActionWithFilters()
+#19 D:\wamp\www\yiiframework\web\CWebApplication.php(282): YumFriendshipController->run()
+#20 D:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController()
+#21 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#22 D:\wamp\www\trippytripper\index.php(11): CWebApplication->run()
+REQUEST_URI=/index.php/friendship/friendship/invite
+2014/06/24 07:43:52 [error] [php] mail() [<a href='function.mail'>function.mail</a>]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() (D:\wamp\www\trippytripper\protected\modules\user\components\YumMailer.php:80)
+Stack trace:
+#0 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(1071): YumMessage->beforeSave()
+#1 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(806): YumMessage->insert()
+#2 D:\wamp\www\trippytripper\protected\modules\message\models\YumMessage.php(109): YumMessage->save()
+#3 D:\wamp\www\trippytripper\protected\modules\friendship\models\YumFriendship.php(170): write()
+#4 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(1071): YumFriendship->beforeSave()
+#5 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(806): YumFriendship->insert()
+#6 D:\wamp\www\trippytripper\protected\modules\friendship\models\YumFriendship.php(46): YumFriendship->save()
+#7 D:\wamp\www\trippytripper\protected\modules\friendship\controllers\YumFriendshipController.php(69): YumFriendship->requestFriendship()
+#8 unknown(0): YumFriendshipController->actionInvite()
+#9 D:\wamp\www\yiiframework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#10 D:\wamp\www\yiiframework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#11 D:\wamp\www\yiiframework\web\CController.php(308): CInlineAction->runWithParams()
+#12 D:\wamp\www\yiiframework\web\filters\CFilterChain.php(133): YumFriendshipController->runAction()
+#13 D:\wamp\www\yiiframework\web\filters\CFilter.php(40): CFilterChain->run()
+#14 D:\wamp\www\yiiframework\web\CController.php(1145): CAccessControlFilter->filter()
+#15 D:\wamp\www\yiiframework\web\filters\CInlineFilter.php(58): YumFriendshipController->filterAccessControl()
+#16 D:\wamp\www\yiiframework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#17 D:\wamp\www\yiiframework\web\CController.php(291): CFilterChain->run()
+#18 D:\wamp\www\yiiframework\web\CController.php(265): YumFriendshipController->runActionWithFilters()
+#19 D:\wamp\www\yiiframework\web\CWebApplication.php(282): YumFriendshipController->run()
+#20 D:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController()
+#21 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#22 D:\wamp\www\trippytripper\index.php(11): CWebApplication->run()
+REQUEST_URI=/index.php/friendship/friendship/invite
+2014/06/24 07:44:57 [error] [php] mail() [<a href='function.mail'>function.mail</a>]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() (D:\wamp\www\trippytripper\protected\modules\user\components\YumMailer.php:80)
+Stack trace:
+#0 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(1071): YumMessage->beforeSave()
+#1 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(806): YumMessage->insert()
+#2 D:\wamp\www\trippytripper\protected\modules\message\models\YumMessage.php(109): YumMessage->save()
+#3 D:\wamp\www\trippytripper\protected\modules\friendship\models\YumFriendship.php(170): write()
+#4 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(1071): YumFriendship->beforeSave()
+#5 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(806): YumFriendship->insert()
+#6 D:\wamp\www\trippytripper\protected\modules\friendship\models\YumFriendship.php(46): YumFriendship->save()
+#7 D:\wamp\www\trippytripper\protected\modules\friendship\controllers\YumFriendshipController.php(69): YumFriendship->requestFriendship()
+#8 unknown(0): YumFriendshipController->actionInvite()
+#9 D:\wamp\www\yiiframework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#10 D:\wamp\www\yiiframework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#11 D:\wamp\www\yiiframework\web\CController.php(308): CInlineAction->runWithParams()
+#12 D:\wamp\www\yiiframework\web\filters\CFilterChain.php(133): YumFriendshipController->runAction()
+#13 D:\wamp\www\yiiframework\web\filters\CFilter.php(40): CFilterChain->run()
+#14 D:\wamp\www\yiiframework\web\CController.php(1145): CAccessControlFilter->filter()
+#15 D:\wamp\www\yiiframework\web\filters\CInlineFilter.php(58): YumFriendshipController->filterAccessControl()
+#16 D:\wamp\www\yiiframework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#17 D:\wamp\www\yiiframework\web\CController.php(291): CFilterChain->run()
+#18 D:\wamp\www\yiiframework\web\CController.php(265): YumFriendshipController->runActionWithFilters()
+#19 D:\wamp\www\yiiframework\web\CWebApplication.php(282): YumFriendshipController->run()
+#20 D:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController()
+#21 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#22 D:\wamp\www\trippytripper\index.php(11): CWebApplication->run()
+REQUEST_URI=/index.php/friendship/friendship/invite
+2014/06/24 08:04:50 [error] [php] mail() [<a href='function.mail'>function.mail</a>]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() (D:\wamp\www\trippytripper\protected\modules\user\components\YumMailer.php:80)
+Stack trace:
+#0 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(1071): YumMessage->beforeSave()
+#1 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(806): YumMessage->insert()
+#2 D:\wamp\www\trippytripper\protected\modules\message\models\YumMessage.php(109): YumMessage->save()
+#3 D:\wamp\www\trippytripper\protected\modules\friendship\models\YumFriendship.php(170): write()
+#4 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(1071): YumFriendship->beforeSave()
+#5 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(806): YumFriendship->insert()
+#6 D:\wamp\www\trippytripper\protected\modules\friendship\models\YumFriendship.php(46): YumFriendship->save()
+#7 D:\wamp\www\trippytripper\protected\modules\friendship\controllers\YumFriendshipController.php(69): YumFriendship->requestFriendship()
+#8 unknown(0): YumFriendshipController->actionInvite()
+#9 D:\wamp\www\yiiframework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#10 D:\wamp\www\yiiframework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#11 D:\wamp\www\yiiframework\web\CController.php(308): CInlineAction->runWithParams()
+#12 D:\wamp\www\yiiframework\web\filters\CFilterChain.php(133): YumFriendshipController->runAction()
+#13 D:\wamp\www\yiiframework\web\filters\CFilter.php(40): CFilterChain->run()
+#14 D:\wamp\www\yiiframework\web\CController.php(1145): CAccessControlFilter->filter()
+#15 D:\wamp\www\yiiframework\web\filters\CInlineFilter.php(58): YumFriendshipController->filterAccessControl()
+#16 D:\wamp\www\yiiframework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#17 D:\wamp\www\yiiframework\web\CController.php(291): CFilterChain->run()
+#18 D:\wamp\www\yiiframework\web\CController.php(265): YumFriendshipController->runActionWithFilters()
+#19 D:\wamp\www\yiiframework\web\CWebApplication.php(282): YumFriendshipController->run()
+#20 D:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController()
+#21 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#22 D:\wamp\www\trippytripper\index.php(11): CWebApplication->run()
+REQUEST_URI=/index.php/friendship/friendship/invite
+2014/06/24 08:06:58 [error] [php] mail() [<a href='function.mail'>function.mail</a>]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() (D:\wamp\www\trippytripper\protected\modules\user\components\YumMailer.php:80)
+Stack trace:
+#0 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(1071): YumMessage->beforeSave()
+#1 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(806): YumMessage->insert()
+#2 D:\wamp\www\trippytripper\protected\modules\message\models\YumMessage.php(109): YumMessage->save()
+#3 D:\wamp\www\trippytripper\protected\modules\friendship\models\YumFriendship.php(170): write()
+#4 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(1071): YumFriendship->beforeSave()
+#5 D:\wamp\www\yiiframework\db\ar\CActiveRecord.php(806): YumFriendship->insert()
+#6 D:\wamp\www\trippytripper\protected\modules\friendship\models\YumFriendship.php(46): YumFriendship->save()
+#7 D:\wamp\www\trippytripper\protected\modules\friendship\controllers\YumFriendshipController.php(69): YumFriendship->requestFriendship()
+#8 unknown(0): YumFriendshipController->actionInvite()
+#9 D:\wamp\www\yiiframework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#10 D:\wamp\www\yiiframework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#11 D:\wamp\www\yiiframework\web\CController.php(308): CInlineAction->runWithParams()
+#12 D:\wamp\www\yiiframework\web\filters\CFilterChain.php(133): YumFriendshipController->runAction()
+#13 D:\wamp\www\yiiframework\web\filters\CFilter.php(40): CFilterChain->run()
+#14 D:\wamp\www\yiiframework\web\CController.php(1145): CAccessControlFilter->filter()
+#15 D:\wamp\www\yiiframework\web\filters\CInlineFilter.php(58): YumFriendshipController->filterAccessControl()
+#16 D:\wamp\www\yiiframework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#17 D:\wamp\www\yiiframework\web\CController.php(291): CFilterChain->run()
+#18 D:\wamp\www\yiiframework\web\CController.php(265): YumFriendshipController->runActionWithFilters()
+#19 D:\wamp\www\yiiframework\web\CWebApplication.php(282): YumFriendshipController->run()
+#20 D:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController()
+#21 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#22 D:\wamp\www\trippytripper\index.php(11): CWebApplication->run()
+REQUEST_URI=/index.php/friendship/friendship/invite
+2014/06/24 08:23:57 [error] [application.modules.user.controllers.YumController] Password invalid for user sonphuong (Ip-Address: 127.0.0.1)
+2014/06/24 08:24:03 [error] [application.modules.user.controllers.YumController] Password invalid for user sonphuong (Ip-Address: 127.0.0.1)
+2014/06/24 08:24:12 [error] [application.modules.user.controllers.YumController] Password invalid for user sonphuong (Ip-Address: 127.0.0.1)
+2014/06/24 08:24:16 [error] [application.modules.user.controllers.YumController] Password invalid for user sonphuong (Ip-Address: 127.0.0.1)
+2014/06/24 09:53:12 [error] [php] Undefined index: gathering_point (D:\wamp\www\trippytripper\protected\views\sharing\my_trips.php:38)
+Stack trace:
+#0 D:\wamp\www\yiiframework\web\CController.php(869): SharingController->renderFile()
+#1 D:\wamp\www\yiiframework\web\CController.php(782): SharingController->renderPartial()
+#2 D:\wamp\www\trippytripper\protected\controllers\SharingController.php(74): SharingController->render()
+#3 D:\wamp\www\yiiframework\web\actions\CInlineAction.php(49): SharingController->actionMyTrips()
+#4 D:\wamp\www\yiiframework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\wamp\www\yiiframework\web\CController.php(286): SharingController->runAction()
+#6 D:\wamp\www\yiiframework\web\CController.php(265): SharingController->runActionWithFilters()
+#7 D:\wamp\www\yiiframework\web\CWebApplication.php(282): SharingController->run()
+#8 D:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\wamp\www\trippytripper\index.php(11): CWebApplication->run()
+REQUEST_URI=/index.php/sharing/myTrips
+2014/06/24 09:59:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "approve".' in D:\wamp\www\yiiframework\web\CController.php:483
+Stack trace:
+#0 D:\wamp\www\yiiframework\web\CController.php(270): CController->missingAction('approve')
+#1 D:\wamp\www\yiiframework\web\CWebApplication.php(282): CController->run('approve')
+#2 D:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController('sharing/approve')
+#3 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 D:\wamp\www\trippytripper\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/sharing/approve?_=1403603896650
+HTTP_REFERER=http://www.trippytripper.local/index.php/sharing/myTrips
+---
+2014/06/24 10:00:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "approve".' in D:\wamp\www\yiiframework\web\CController.php:483
+Stack trace:
+#0 D:\wamp\www\yiiframework\web\CController.php(270): CController->missingAction('approve')
+#1 D:\wamp\www\yiiframework\web\CWebApplication.php(282): CController->run('approve')
+#2 D:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController('sharing/approve')
+#3 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 D:\wamp\www\trippytripper\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/sharing/approve?_=1403603998435
+HTTP_REFERER=http://www.trippytripper.local/index.php/sharing/myTrips
+---
+2014/06/24 10:08:29 [error] [php] Undefined index: trip_id (D:\wamp\www\trippytripper\protected\controllers\SharingController.php:463)
+Stack trace:
+#0 D:\wamp\www\yiiframework\web\CController.php(286): SharingController->runAction()
+#1 D:\wamp\www\yiiframework\web\CController.php(265): SharingController->runActionWithFilters()
+#2 D:\wamp\www\yiiframework\web\CWebApplication.php(282): SharingController->run()
+#3 D:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 D:\wamp\www\trippytripper\index.php(11): CWebApplication->run()
+REQUEST_URI=/index.php/sharing/acceptJoin?_=1403604509109
+2014/06/24 10:08:32 [error] [php] Undefined index: trip_id (D:\wamp\www\trippytripper\protected\controllers\SharingController.php:463)
+Stack trace:
+#0 D:\wamp\www\yiiframework\web\CController.php(286): SharingController->runAction()
+#1 D:\wamp\www\yiiframework\web\CController.php(265): SharingController->runActionWithFilters()
+#2 D:\wamp\www\yiiframework\web\CWebApplication.php(282): SharingController->run()
+#3 D:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 D:\wamp\www\trippytripper\index.php(11): CWebApplication->run()
+REQUEST_URI=/index.php/sharing/acceptJoin?_=1403604509110
+2014/06/24 10:10:18 [error] [php] Undefined variable: isOwner (D:\wamp\www\trippytripper\protected\views\sharing\my_trips.php:81)
+Stack trace:
+#0 D:\wamp\www\yiiframework\web\CController.php(869): SharingController->renderFile()
+#1 D:\wamp\www\yiiframework\web\CController.php(782): SharingController->renderPartial()
+#2 D:\wamp\www\trippytripper\protected\controllers\SharingController.php(75): SharingController->render()
+#3 D:\wamp\www\yiiframework\web\actions\CInlineAction.php(49): SharingController->actionMyTrips()
+#4 D:\wamp\www\yiiframework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\wamp\www\yiiframework\web\CController.php(286): SharingController->runAction()
+#6 D:\wamp\www\yiiframework\web\CController.php(265): SharingController->runActionWithFilters()
+#7 D:\wamp\www\yiiframework\web\CWebApplication.php(282): SharingController->run()
+#8 D:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\wamp\www\trippytripper\index.php(11): CWebApplication->run()
+REQUEST_URI=/index.php/sharing/myTrips
+2014/06/24 10:10:58 [error] [php] Undefined index: id (D:\wamp\www\trippytripper\protected\views\sharing\my_trips.php:86)
+Stack trace:
+#0 D:\wamp\www\yiiframework\web\CController.php(869): SharingController->renderFile()
+#1 D:\wamp\www\yiiframework\web\CController.php(782): SharingController->renderPartial()
+#2 D:\wamp\www\trippytripper\protected\controllers\SharingController.php(75): SharingController->render()
+#3 D:\wamp\www\yiiframework\web\actions\CInlineAction.php(49): SharingController->actionMyTrips()
+#4 D:\wamp\www\yiiframework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\wamp\www\yiiframework\web\CController.php(286): SharingController->runAction()
+#6 D:\wamp\www\yiiframework\web\CController.php(265): SharingController->runActionWithFilters()
+#7 D:\wamp\www\yiiframework\web\CWebApplication.php(282): SharingController->run()
+#8 D:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\wamp\www\trippytripper\index.php(11): CWebApplication->run()
+REQUEST_URI=/index.php/sharing/myTrips

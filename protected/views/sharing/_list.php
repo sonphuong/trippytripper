@@ -66,7 +66,7 @@
                             <span class="priceUnit"><?php echo Yii::t('translator','per passenger');?></span>
                         </div>
                         <div class="availability">
-                            <strong><?php echo $trip['seat_avail']; ?></strong> <span>seats left</span>
+                            <strong><?php echo $trip['seat_avail']; ?></strong> <span><?php echo Yii::t('translator','seat(s) left');?></span>
                         </div>
                     </div>
                 </article>

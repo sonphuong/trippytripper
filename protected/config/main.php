@@ -7,10 +7,10 @@
 // CWebApplication properties can be configured here.
 return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
-    'name' => 'Trippy tripper',
+    'name' => 'Trippy Tripper',
     'sourceLanguage'=>'en',
     // preloading 'log' component
-    //'preload'=>array('log'),
+    'preload'=>array('log'),
 
     // autoloading model and component classes
     'import' => array(

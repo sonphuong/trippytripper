@@ -34,10 +34,10 @@ $this->renderPartial('/message/write_a_message', array(
 $this->widget('PcStarRankWidget', array('modelId' => $model->id, 'modelClassName' => get_class($model)));
 //$this->widget('PcStarRankWidget', array('modelId' => $model->id, 'modelClassName' => 'YumUser'));
 ?>
-<div class="row">Số tours đã lead: <?php echo $tourNo; ?></div>
+<div class="row"><?php echo Yii::t('translator','Leaded tours'); ?>: <?php echo $tourNo; ?></div>
 <!--<div class="row">Tỷ lệ trả lời: 50% </div>-->
-<div class="row">Lần cuối online: <?php echo Time::timeAgoInWords(date('d-m-Y',$model->lastvisit)); ?></div>
-<div class="row">Thành viên từ: <?php echo date('d-m-Y',$model->createtime);?></div>
+<div class="row"><?php echo Yii::t('translator','Last online');?>: <?php echo Time::timeAgoInWords(date('d-m-Y',$model->lastvisit)); ?></div>
+<div class="row"><?php echo Yii::t('translator','Member since');?>: <?php echo date('d-m-Y',$model->createtime);?></div>
 <?php $this->renderPartial(Yum::module('profile')->publicFieldsView, array(
 			'profile' => $model->profile)); ?>
 <br />

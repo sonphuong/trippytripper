@@ -63,11 +63,10 @@ class YumFriendshipController extends YumController {
 		if($user_id == null)
 			return false;
 
-		if(isset($_POST['message']) && isset($user_id)) {
+		if(isset($user_id)) {
 			$friendship = new YumFriendship;
 			if($friendship->requestFriendship(Yii::app()->user->id,
-						$_POST['user_id'],
-						$_POST['message'])) {
+						$_POST['user_id'])) {
 				Yum::setFlash('The friendship request has been sent');
 				$this->redirect(array('//profile/profile/view', 'id' => $user_id));
 			}
@@ -153,8 +152,28 @@ class YumFriendshipController extends YumController {
 				if($friend->id == $invited->id)
 					return false; // already friends, rejected or request pending
 
-		return CHtml::link(Yum::t('Add as a friend'), array(
-					'//friendship/friendship/invite', 'user_id' => $invited->id));
+		// return CHtml::link(Yum::t('Add as a friend'), array(
+		//  			'//friendship/friendship/invite', 'user_id' => $invited->id));
+
+		$friendship_status = $invited->isFriendOf(Yii::app()->user->id);
+		if($friendship_status !== false)  {
+			if($friendship_status == 1)
+				echo Yum::t('Friendship request already sent');
+			if($friendship_status == 2)
+				echo Yum::t('You already are friends');
+			if($friendship_status == 3)
+				echo Yum::t('Friendship request has been rejected');
+
+			return false;
+		} else {
+			if(isset($friendship))
+				echo CHtml::errorSummary($friendship);
+
+			echo CHtml::beginForm(array('//friendship/friendship/invite'));
+			echo CHtml::hiddenField('user_id', $invited->id);
+			echo CHtml::submitButton(Yum::t('Add friend'));
+			echo CHtml::endForm();
+		}
 	}
 }
 

@@ -45,6 +45,7 @@ class SharingController extends Controller
 						R.leave, 
 						R.return, 
 						R.return_trip, 
+                        R.gathering_point, 
 						R.seat_avail, 
 						R.from, 
 						R.to, 
@@ -300,15 +301,13 @@ class SharingController extends Controller
                 $model->join_status = 2; //waiting
                 $model->trip_id = $_POST['trip_id'];
                 $model->save();
-                Yii::app()->user->setFlash('joinRequested', 'Chờ duyệt...');
+                Yii::app()->user->setFlash('joinRequested', Yii::t('translator','waiting for approve'));
             }
             echo '<div class="flash-success">
 	                ' . Yii::app()->user->getFlash('joinRequested') . '
 	            </div>';
         } else {
-            echo '<div class="flash-success">
-	                Bạn phải là thành viên.
-	            </div>';
+            echo '<div class="flash-success">'.Yii::t('translator','You need to be a member').'</div>';
         }
 
     }
@@ -505,7 +504,7 @@ class SharingController extends Controller
                     }
                 }
             } else {
-                Yii::app()->user->setFlash('joinRequested', 'Waiting for approve');
+                Yii::app()->user->setFlash('joinRequested', Yii::t('Waiting for approve','Cho duyet'));
             }
         } else {
             $return['status'] = 0;

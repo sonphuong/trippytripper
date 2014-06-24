@@ -1,6 +1,3 @@
-<div class="header-main-block">
-    <h2>Route</h2>
-</div>
 <div class="form search_box">
     <?php $form = $this->beginWidget('CActiveForm'); ?>
     <?php echo $form->errorSummary($model); ?>
@@ -51,7 +48,7 @@
 
 
 
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<?php echo Yii::app()->params['GOOGLE_API_KEY']; ?>&sensor=true&libraries=places"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<?php echo Yii::app()->params['GOOGLE_API_KEY_LOCAL']; ?>&sensor=true&libraries=places"></script>
 <script type="text/javascript">
     var fromOptions = {
         types: ['(cities)'],

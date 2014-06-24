@@ -29,23 +29,22 @@
 
 	<div id="header">
 		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
+        <div style="float:left;"><?php $this->widget('LangBox'); ?></div>
 	</div><!-- header -->
-
-	<?php
-	$this->widget('LangBox');
-	?>
+    <div>
+        <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/icon_email.gif"/>
+        <span id="num_email" style="color: red;font-size: bold;">1</span>
+    </div>
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
-				array('label'=>Yii::t('translator','Homepage'), 'url'=>array('/site/index')),
-				array('label'=>Yii::t('translator','About us'), 'url'=>array('/site/about')),
-				array('label'=>Yii::t('translator','Contact'), 'url'=>array('/site/contact')),
 				array('label'=>Yii::t('translator','Offer'), 'url'=>array('/sharing/offer')),
 				array('label'=>Yii::t('translator','Trips'), 'url'=>array('/sharing/searchTrip')),
 				array('label'=>Yii::t('translator','Trippers'), 'url'=>array('/user/user/browse')),
 				array('label'=>Yii::t('translator','Join us'), 'url'=>array('/registration/registration'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>Yii::t('translator','Login'), 'url'=>array('/user/auth'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>''.Yii::app()->user->name.'', 'url'=>array('/profile/profile/view'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>Yii::t('translator','My trips'), 'url'=>array('/sharing/myTrips'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>Yii::t('translator','Logout'), 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 				
 			),
@@ -59,7 +58,11 @@
 	<?php echo $content; ?>
 
 	<div id="footer">
-		www.trippytripper.org <?php echo date('Y'); ?> &copy;
+        <a href="/index.php/site/index"><?php echo Yii::t('translator','Homepage'); ?></a>
+        <a href="/index.php/site/about"><?php echo Yii::t('translator','About us'); ?></a>
+        <a href="/index.php/site/contact"><?php echo Yii::t('translator','Contact'); ?></a>
+        <div>www.trippytripper.org <?php echo date('Y'); ?> &copy;</div>
+
 	</div><!-- footer -->
 
 </div><!-- page -->

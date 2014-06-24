@@ -1,6 +1,3 @@
-<div class="header-main-block">
-    <h2>Trip</h2>
-</div>
 <div class="form search_box">
     <?php $form = $this->
         beginWidget('CActiveForm'); ?>
@@ -86,7 +83,7 @@
     params['FB_ACCESS_TOKEN']; ?>">
 
 <script type="text/javascript"
-        src="https://maps.googleapis.com/maps/api/js?key=<?php echo Yii::app()->params['GOOGLE_API_KEY']; ?>&sensor=true&libraries=places"></script>
+        src="https://maps.googleapis.com/maps/api/js?key=<?php echo Yii::app()->params['GOOGLE_API_KEY_LOCAL']; ?>&sensor=true&libraries=places"></script>
 <script type="text/javascript">
     var directionsDisplay;
     var directionsService = new google.maps.DirectionsService();

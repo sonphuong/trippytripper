@@ -60,7 +60,7 @@
             <span class="priceUnit"><?php echo Yii::t('translator','per passenger');?></span>
         </div>
         <div class="availability">
-            <span>Còn </span><strong id="seats_left"> <?php echo $trip['seat_avail']; ?></strong> <span> xuất </span>
+            <strong id="seats_left"> <?php echo $trip['seat_avail']; ?></strong> <span> <?php echo Yii::t('translator', 'seat(s) left');?> </span>
         </div>
         <?php if($interval->days>=0):?>
         <?php if($joinStatus==9): ?>
@@ -82,32 +82,42 @@
     <form method="post">
         <input type="hidden" value="<?php echo $_GET['id']; ?>" name="trip_id">
         <div class="cell cell3">
-            <h4>Thành viên</h4>
+            <h4><?php echo Yii::t('translator','Trippers');?></h4>
             <ol class="memberList">
                 <?php 
                 if(!empty($members)){
                     foreach ($members as $key => $member) {
-                        if($isOwner === true && $member['join_status']==2){
-                            echo '<li class="waiting" id="member_'.$member['user_id'].'"><img src="/'.$member['avatar'].'" alt="" width="32px" height="32px" />'.CHtml::link($member['user_name'], array('//profile/profile/view/'.$member['user_id']));                            echo '<span id="join_status_'.$member['user_id'].'">';
-                            if($trip['seat_avail']>0){
-                                echo CHtml::ajaxSubmitButton ("Accept",
-                                    CController::createUrl('sharing/acceptJoin'),
-                                    array(
-                                        'success' => 'js:function(data) {approveJoinSuccess(data);}'
-                                    ,'data' => 'user_id='.$member['user_id'].'&trip_id='.$_GET['id'].''
-                                    )
-                                );
+                        if($member['join_status']==2){
+                            echo '<li class="" id="member_'.$member['user_id'].'"><img src="/'.$member['avatar'].'" alt="" width="32px" height="32px" />'.CHtml::link($member['user_name'], array('//profile/profile/view/'.$member['user_id']));                            
+                            echo '<span id="join_status_'.$member['user_id'].'">';
+                            if($isOwner === true){
+                                if($trip['seat_avail']>0){
+                                    echo CHtml::ajaxSubmitButton ("Accept",
+                                        CController::createUrl('sharing/acceptJoin'),
+                                        array(
+                                            'success' => 'js:function(data) {approveJoinSuccess(data);}'
+                                        ,'data' => 'user_id='.$member['user_id'].'&trip_id='.$_GET['id'].''
+                                        )
+                                    );
+                                }
+                                else{
+                                    echo '<span>&nbsp; '.Yii::t('translator','fulled').'</span>';
+                                }
                             }
                             else{
-                                echo '<span>&nbsp; Đã đủ</span>';
+                                echo ' - '.Yii::t('translator','waiting for approve'); 
                             }
                             echo '</span></li>';
                         }
                         elseif($member['join_status']==1){
-                            echo '<li class="approved" id="member_'.$member['user_id'].'"><img src="/'.$member['avatar'].'" alt="" width="32px" height="32px" />'.CHtml::link($member['user_name'], array('//profile/profile/view/'.$member['user_id']));
+                            echo '<li class="" id="member_'.$member['user_id'].'"><img src="/'.$member['avatar'].'" alt="" width="32px" height="32px" />'.CHtml::link($member['user_name'], array('//profile/profile/view/'.$member['user_id']));
                         }
                     }
-                }?>
+                }
+                else{
+                    echo Yii::t('translator','No one join yet');
+                }
+                ?>
             </ol>
         </div>
     </form>
