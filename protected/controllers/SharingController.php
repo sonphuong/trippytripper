@@ -51,7 +51,7 @@ class SharingController extends Controller
 						R.to, 
 						R.fee, 
 						R.id
-				FROM USER U 
+				FROM user U 
 				INNER JOIN trip R ON U.id = R.user_id
 				WHERE R.user_id = :loginId
 				ORDER BY R.leave DESC
@@ -182,7 +182,7 @@ class SharingController extends Controller
 			R.fee,
 			R.gathering_point,
 			R.id
-		FROM USER U
+		FROM user U
 		INNER JOIN trip R ON U.id = R.user_id
 		WHERE 1
 		$from
@@ -194,7 +194,7 @@ class SharingController extends Controller
         /*LEFT JOIN ranking_votes RV ON RV.user_id = */
         //paging+++++++++++++++++++++++++++++++++++++++++++++++
         $sqlCount = "SELECT count(1) as count
-		FROM USER U
+		FROM user U
 		INNER JOIN trip R ON U.id = R.user_id
 		WHERE 1
 		$from
@@ -243,7 +243,7 @@ class SharingController extends Controller
 					R.to, 
 					R.fee, 
 					R.id
-				FROM USER U 
+				FROM user U 
 				INNER JOIN trip R ON U.id = R.user_id
 				WHERE R.id = :id
 				";

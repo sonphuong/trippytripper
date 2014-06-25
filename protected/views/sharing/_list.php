@@ -1,6 +1,6 @@
 <ul class="trip-search-results">
     <?php foreach ($allTrips as $key => $trip): ?>
-        <li class="trip" itemscope="" itemtype="http://schema.org/Event">
+        <li class="trip" itemscope="" itemtype="">
             <a href="view/?id=<?php echo $trip['id']; ?>" rel="nofollow" class="trip-search-oneresult">
                 <article class="table_row">
                     <div class="cell user cell2">
