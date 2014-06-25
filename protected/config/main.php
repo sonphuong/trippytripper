@@ -100,10 +100,10 @@ return array(
         // uncomment the following to use a MySQL database
 
         'db' => array(
-            'connectionString' => 'mysql:host=localhost;dbname=trippytripper',
+            'connectionString' => 'mysql:host=trippytripper.c3mfgwza7g4u.us-west-2.rds.amazonaws.com;dbname=trippytripper',
             'emulatePrepare' => true,
-            'username' => 'root',
-            'password' => '',
+            'username' => 'trippytripper',
+            'password' => 'trippytripper',
             'charset' => 'utf8',
             'enableParamLogging' => true
             //'tablePrefix' => 'tbl_',
