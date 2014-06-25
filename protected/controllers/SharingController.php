@@ -38,24 +38,25 @@ class SharingController extends Controller
     public function actionMyTrips()
     {
 
-        $sql = "SELECT R.name,
-						R.description,
-						U.username, 
-						U.avatar, 
-						R.leave, 
-						R.return, 
-						R.return_trip, 
-                        R.gathering_point, 
-						R.seat_avail, 
-						R.from, 
-						R.to, 
-						R.fee, 
-						R.id
-				FROM user U 
-				INNER JOIN trip R ON U.id = R.user_id
-				WHERE R.user_id = :loginId
-				ORDER BY R.leave DESC
-		";
+        $sql = "SELECT T.name,
+                        T.description,
+                        U.username, 
+                        U.avatar, 
+                        T.leave, 
+                        T.return, 
+                        T.return_trip, 
+                        T.gathering_point, 
+                        T.seat_avail, 
+                        T.from, 
+                        T.to, 
+                        T.fee, 
+                        T.id
+                FROM trip_user TU 
+                INNER JOIN trip T  ON T.id = TU.trip_id
+                INNER JOIN USER U ON U.id = T.user_id
+                WHERE TU.user_id = :loginId
+                ORDER BY T.leave DESC
+        ";
         $command = Yii::app()->db->createCommand($sql);
         $loginId = Yii::app()->user->id;
         $command->bindParam(':loginId', $loginId, PDO::PARAM_INT);

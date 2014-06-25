@@ -54,7 +54,7 @@
                             if(!empty($members)){
                                 foreach ($members as $key => $member) {
                                     if($member['join_status']==2){
-                                        echo '<li class="" id="member_'.$member['user_id'].'"><img src="/'.$member['avatar'].'" alt="" width="32px" height="32px" />'.CHtml::link($member['user_name'], array('//profile/profile/view/'.$member['user_id']));                            
+                                        echo '<li class="" id="member_'.$member['user_id'].'"><img src="/'.$member['avatar'].'" alt="" width="32px" height="32px" />'.CHtml::link($member['user_name'], array('//profile/profile/view/id/'.$member['user_id']));                            
                                         echo '<span id="join_status_'.$member['user_id'].'">';
                                         if($trip['seat_avail']>0){
                                             echo CHtml::ajaxSubmitButton ("Accept",
@@ -65,13 +65,11 @@
                                                 )
                                             );
                                         }
-                                        else{
-                                            echo '<span>&nbsp; '.Yii::t('translator','fulled').'</span>';
-                                        }
+                                        
                                         echo '</span></li>';
                                     }
                                     elseif($member['join_status']==1){
-                                        echo '<li class="" id="member_'.$member['user_id'].'"><img src="/'.$member['avatar'].'" alt="" width="32px" height="32px" />'.CHtml::link($member['user_name'], array('//profile/profile/view/'.$member['user_id']));
+                                        echo '<li class="" id="member_'.$member['user_id'].'"><img src="/'.$member['avatar'].'" alt="" width="32px" height="32px" />'.CHtml::link($member['user_name'], array('//profile/profile/view/id/'.$member['user_id']));
                                     }
                                 }
                             }

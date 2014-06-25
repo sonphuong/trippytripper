@@ -28,5 +28,6 @@ return array(
 	,'Member since'=>'Thành viên từ'
 	,'Quit' => 'Bỏ tour'
 	,'Message to trippers' => 'Lời nhắn tới thành viên'
+	,'Fulled' =>'Đã đủ'
 	);
 ?>

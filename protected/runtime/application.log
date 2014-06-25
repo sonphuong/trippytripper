@@ -571,3 +571,23 @@ Stack trace:
 #21 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
 #22 D:\wamp\www\trippytripper\index.php(13): CWebApplication->run()
 REQUEST_URI=/index.php/friendship/friendship/invite
+2014/06/25 09:32:20 [error] [application.modules.user.controllers.YumController] Password invalid for user demo (Ip-Address: 127.0.0.1)
+2014/06/25 09:37:45 [error] [php] mail() [<a href='function.mail'>function.mail</a>]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() (D:\wamp\www\trippytripper\protected\modules\user\components\YumMailer.php:80)
+Stack trace:
+#0 D:\wamp\www\trippytripper\protected\modules\registration\controllers\YumRegistrationController.php(87): YumRegistrationController->sendRegistrationEmail()
+#1 D:\wamp\www\yiiframework\web\actions\CInlineAction.php(49): YumRegistrationController->actionRegistration()
+#2 D:\wamp\www\yiiframework\web\CController.php(308): CInlineAction->runWithParams()
+#3 D:\wamp\www\yiiframework\web\filters\CFilterChain.php(133): YumRegistrationController->runAction()
+#4 D:\wamp\www\yiiframework\web\filters\CFilter.php(40): CFilterChain->run()
+#5 D:\wamp\www\yiiframework\web\CController.php(1145): CAccessControlFilter->filter()
+#6 D:\wamp\www\yiiframework\web\filters\CInlineFilter.php(58): YumRegistrationController->filterAccessControl()
+#7 D:\wamp\www\yiiframework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#8 D:\wamp\www\yiiframework\web\CController.php(291): CFilterChain->run()
+#9 D:\wamp\www\yiiframework\web\CController.php(265): YumRegistrationController->runActionWithFilters()
+#10 D:\wamp\www\yiiframework\web\CWebApplication.php(282): YumRegistrationController->run()
+#11 D:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 D:\wamp\www\trippytripper\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/registration/registration/registration
+2014/06/25 09:38:56 [warning] [application] Failed to set unsafe attribute "YumRole" of "YumUser".
+2014/06/25 09:39:23 [error] [application.modules.user.controllers.YumController] Non-existent user siglinde tried to log in (Ip-Address: 127.0.0.1)

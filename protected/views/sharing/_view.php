@@ -61,6 +61,9 @@
         </div>
         <div class="availability">
             <strong id="seats_left"> <?php echo $trip['seat_avail']; ?></strong> <span> <?php echo Yii::t('translator', 'seat(s) left');?> </span>
+            <?php if($trip['seat_avail']==0): ?>
+            <h2 style="color:red"><?php echo Yii::t('translator', 'Fulled'); ?></h2>
+            <?php endif;?>
         </div>
         <?php if($interval->days>=0):?>
         <?php if($joinStatus==9): ?>
@@ -72,7 +75,11 @@
                 <?php echo Yii::t('translator','Wait for approve');?>
             </div>
         <?php else: ?>
-            <?php $this->renderPartial('/sharing/_join_form',array('model'=>$model,)); ?>
+            <?php 
+            //if seat is availabel 
+            if($trip['seat_avail']>0)
+            $this->renderPartial('/sharing/_join_form',array('model'=>$model,)); 
+            ?>
         <?php endif; ?>
         <?php endif; ?>
     </div>
@@ -88,7 +95,7 @@
                 if(!empty($members)){
                     foreach ($members as $key => $member) {
                         if($member['join_status']==2){
-                            echo '<li class="" id="member_'.$member['user_id'].'"><img src="/'.$member['avatar'].'" alt="" width="32px" height="32px" />'.CHtml::link($member['user_name'], array('//profile/profile/view/'.$member['user_id']));                            
+                            echo '<li class="" id="member_'.$member['user_id'].'"><img src="/'.$member['avatar'].'" alt="" width="32px" height="32px" />'.CHtml::link($member['user_name'], array('//profile/profile/view/id/'.$member['user_id']));                            
                             echo '<span id="join_status_'.$member['user_id'].'">';
                             if($isOwner === true){
                                 if($trip['seat_avail']>0){
@@ -100,9 +107,7 @@
                                         )
                                     );
                                 }
-                                else{
-                                    echo '<span>&nbsp; '.Yii::t('translator','fulled').'</span>';
-                                }
+                                
                             }
                             else{
                                 echo ' - '.Yii::t('translator','waiting for approve'); 
@@ -110,7 +115,7 @@
                             echo '</span></li>';
                         }
                         elseif($member['join_status']==1){
-                            echo '<li class="" id="member_'.$member['user_id'].'"><img src="/'.$member['avatar'].'" alt="" width="32px" height="32px" />'.CHtml::link($member['user_name'], array('//profile/profile/view/'.$member['user_id']));
+                            echo '<li class="" id="member_'.$member['user_id'].'"><img src="/'.$member['avatar'].'" alt="" width="32px" height="32px" />'.CHtml::link($member['user_name'], array('//profile/profile/view/id/'.$member['user_id']));
                         }
                     }
                 }

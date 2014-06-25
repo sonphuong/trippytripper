@@ -1,3 +1,6 @@
+Server
+ssh -l ubuntu -i /c/Users/HPT/Google\ Drive/sonphuong-trippytripper.pem 54.213.153.89
+
 1 Add more information to Yii::app()->user
 class: YumuserIdentiy 
 function: credentialsConfirmed
