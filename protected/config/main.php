@@ -5,6 +5,21 @@
 
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
+
+//google key
+$domain = $_SERVER['SERVER_NAME'];
+if($domain==='www.trippytripper.org'){
+    $googleKey = 'AIzaSyD-o3Di-HaEWv6q81Sa-Kh5n5jaZ-Exkr8';
+    $dbUser = 'trippytripper';
+    $dbPass = 'trippytripper';
+    $dbHost = 'trippytripper.c3mfgwza7g4u.us-west-2.rds.amazonaws.com';
+}
+else{
+    $googleKey = 'AIzaSyAisOhSjoLbzL_hEtuBhUoS3pr71vhwtu4';    
+    $dbUser = 'root';
+    $dbPass = '';
+    $dbHost = 'localhost'
+}
 return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
     'name' => 'Trippy Tripper',
@@ -100,10 +115,10 @@ return array(
         // uncomment the following to use a MySQL database
 
         'db' => array(
-            'connectionString' => 'mysql:host=trippytripper.c3mfgwza7g4u.us-west-2.rds.amazonaws.com;dbname=trippytripper',
+            'connectionString' => 'mysql:host='.$dbHost.';dbname=trippytripper',
             'emulatePrepare' => true,
-            'username' => 'trippytripper',
-            'password' => 'trippytripper',
+            'username' => $dbUser,
+            'password' => $dbPass,
             'charset' => 'utf8',
             'enableParamLogging' => true
             //'tablePrefix' => 'tbl_',
@@ -129,12 +144,10 @@ return array(
                     'levels' => 'error, warning',
                 ),
                 // uncomment the following to show log messages on web pages
-
                 array(
                     'class' => 'CWebLogRoute',
                     'levels' => 'trace, info, error, warning',
                 ),
-
             ),
         ),
     ),
