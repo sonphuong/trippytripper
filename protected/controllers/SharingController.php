@@ -151,7 +151,7 @@ class SharingController extends Controller
         $toVal='';
         $leave = '';
         $return = '';
-        //AND R.leave >= NOW()
+        
         if (isset($_POST['SearchTripForm'])) {
             $model->attributes = $_POST['SearchTripForm'];
             if (!empty($_POST['SearchTripForm']['from'])) {
@@ -185,6 +185,7 @@ class SharingController extends Controller
 		FROM user U
 		INNER JOIN trip R ON U.id = R.user_id
 		WHERE 1
+        AND R.leave >= NOW()
 		$from
 		$to
 		$leave
@@ -197,6 +198,7 @@ class SharingController extends Controller
 		FROM user U
 		INNER JOIN trip R ON U.id = R.user_id
 		WHERE 1
+        AND R.leave >= NOW()
 		$from
 		$to
 		$leave

@@ -1,11 +1,11 @@
 <form method="post" id="frm_owner_dis_join">
     <div class="row buttons">
-        <span>Message to tripper:</span>
+        <span><?php echo Yii::t('translator','Message to trippers'); ?>:</span>
         <textarea></textarea>
     </div>
     <div class="row buttons">
         <?php
-        echo CHtml::ajaxSubmitButton ("Bỏ tour",
+        echo CHtml::ajaxSubmitButton (Yii::t('translator','Quit'),
             CController::createUrl('sharing/disJoin'),
             array(
                 'success' => 'js:function(data) {ownerDisJoinSuccess(data);}'

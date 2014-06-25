@@ -19,12 +19,14 @@ return array(
 	,'Join us'=>'Đăng ký'
 	,'Trips'=>'Chuyến đi'
 	,'Trippers'=>'Thành viên'
-	,'No one join yet'=>'Chua co ai tham gia' 
-	,'seat(s) left' =>'ghe'
+	,'No one join yet'=>'Chưa có ai tham gia' 
+	,'seat(s) left' =>'ghế'
 	,'waiting for approve' =>'chờ duyệt'
 	,'You need to be a member' => 'Bạn phải là thành viên'
 	,'Leaded tours'=>'Số tours đã lead'
 	,'Last online'=>'Lần cuối online'
 	,'Member since'=>'Thành viên từ'
+	,'Quit' => 'Bỏ tour'
+	,'Message to trippers' => 'Lời nhắn tới thành viên'
 	);
 ?>

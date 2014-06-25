@@ -1,7 +1,7 @@
 <form method="post">
     <div class="row buttons">
         <?php
-        echo CHtml::ajaxSubmitButton ("Bỏ tour",
+        echo CHtml::ajaxSubmitButton (Yii::t('translator','Quit'),
             CController::createUrl('sharing/disJoin'),
             array(
                 'success' => 'js:function(data) {disJoinSuccess(data);}'
