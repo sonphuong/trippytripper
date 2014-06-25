@@ -74,6 +74,8 @@ class YumAvatarController extends YumController {
 					$model->avatar->saveAs($filename);
 					$model->avatar = $filename;
 					if($model->save()) {
+						//update avatar in comment table
+						$this->updateAvatarForComment($filename,Yii::app()->user->id);
 						Yum::setFlash(Yum::t('The image was uploaded successfully'));
 						Yum::log(Yum::t('User {username} uploaded avatar image {filename}', array(
 										'{username}' => $model->username,
@@ -86,7 +88,15 @@ class YumAvatarController extends YumController {
 
 		$this->render('edit_avatar', array('model' => $model));
 	}
+	public function updateAvatarForComment($avatar,$userId){
+		$sql = "UPDATE comments SET avatar =:avatar WHERE user_id = :userId";
 
+        $command = Yii::app()->db->createCommand($sql);
+        $command->bindParam(':userId', $userId, PDO::PARAM_INT);
+        $command->bindParam(':avatar', $avatar, PDO::PARAM_STR);
+
+        $data = $command->execute();
+	}
 	public function actionAdmin() {
 		$model = new YumUser();
 		$model->unsetAttributes(); // display all users

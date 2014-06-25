@@ -22,10 +22,10 @@
             $interval = $leaveDate->diff($today);
 
             if($interval->days===0){
-                echo 'Hôm nay - ' . $time;
+                echo Yii::t('translator','Today').' - ' . $time;
             }
             elseif($interval->days===1){
-                echo 'Ngày mai - ' . $time;    
+                echo Yii::t('translator','Tomorrow').' - ' . $time;    
             }
             else{
                 echo $date .' : '. $time;

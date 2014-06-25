@@ -29,5 +29,7 @@ return array(
 	,'Quit' => 'Bỏ tour'
 	,'Message to trippers' => 'Lời nhắn tới thành viên'
 	,'Fulled' =>'Đã đủ'
+	,'Today'=>'Hôm nay'
+	,'Tomorrow'=>'Ngày mai'
 	);
 ?>

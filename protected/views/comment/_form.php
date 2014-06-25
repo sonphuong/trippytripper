@@ -13,6 +13,7 @@
                               CController::createUrl('comment/add'), 
                               array('success' => 'js:function(data) { 
 									                              		$("#commentsList").append(data);
+									                              		$("#Comment_content").val("");
 																	}')
                               //array('update' => '#commentsList')
                               );
