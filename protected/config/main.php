@@ -11,12 +11,14 @@ $domain = $_SERVER['SERVER_NAME'];
 if($domain==='www.trippytripper.org'){
     $googleKey = 'AIzaSyD-o3Di-HaEWv6q81Sa-Kh5n5jaZ-Exkr8';
     $dbUser = 'trippytripper';
-    $dbPass = 'kgB6MgZr55S';
+    $dbPass = 'trippytripper';
+    $dbHost = 'trippytripper.c3mfgwza7g4u.us-west-2.rds.amazonaws.com';
 }
 else{
     $googleKey = 'AIzaSyAisOhSjoLbzL_hEtuBhUoS3pr71vhwtu4';    
     $dbUser = 'root';
     $dbPass = '';
+    $dbHost = 'localhost'
 }
 return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
@@ -113,7 +115,7 @@ return array(
         // uncomment the following to use a MySQL database
 
         'db' => array(
-            'connectionString' => 'mysql:host=localhost;dbname=trippytripper',
+            'connectionString' => 'mysql:host='.$dbHost.';dbname=trippytripper',
             'emulatePrepare' => true,
             'username' => $dbUser,
             'password' => $dbPass,
