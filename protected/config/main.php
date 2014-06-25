@@ -18,7 +18,7 @@ else{
     $googleKey = 'AIzaSyAisOhSjoLbzL_hEtuBhUoS3pr71vhwtu4';    
     $dbUser = 'root';
     $dbPass = '';
-    $dbHost = 'localhost'
+    $dbHost = 'localhost';
 }
 return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
