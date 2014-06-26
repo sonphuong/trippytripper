@@ -319,7 +319,7 @@ class TripController extends Controller
         $itemCount = $itemCount['count'];
         $offset = Yii::app()->request->getQuery('offset', 0);
         
-        $sql .= ' LIMIT ' . $offset . ', ' . Yii::app()->params['RECORDS_PER_PAGE'] . '';
+        $sql .= ' LIMIT ' . $offset . ', ' . Yii::app()->params['COMMENTS_PER_TIME'] . '';
         //paging+++++++++++++++++++++++++++++++++++++++++++++++
         
         $command = Yii::app()->db->createCommand($sql);
@@ -328,6 +328,8 @@ class TripController extends Controller
         //no more record to get
         if($offset < $itemCount){
             $data = $command->queryAll();
+            //reorder follow by time
+            $data = array_reverse($data);
         }
         
 
@@ -343,12 +345,10 @@ class TripController extends Controller
                 }    
             }
             $ajaxData['html'] = $html;
-            $ajaxData['offset'] = $offset+Yii::app()->params['RECORDS_PER_PAGE'];
+            $ajaxData['offset'] = $offset+Yii::app()->params['COMMENTS_PER_TIME'];
             echo json_encode($ajaxData);
         }
         else{
-            //reorder follow by time
-            $data = array_reverse($data);
             return $data;    
         }
         

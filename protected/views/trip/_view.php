@@ -146,7 +146,7 @@
                 'data'=>array("offset"=>"js:$('#commentsOffset').val()","tripId"=>Yii::app()->request->getQuery('id')),
                 'success'=>'function(objReturn){ 
                     if(objReturn.html!==""){
-                        $("#commentsList").append(objReturn.html); 
+                        $("#commentsList").prepend(objReturn.html); 
                         $("#commentsOffset").val(objReturn.offset);     
                     }
                     else{
@@ -165,7 +165,7 @@
                     'model'=>$comment,
                 )); ?>
         </div>
-        <input type="hidden" name="commentsOffset" id = "commentsOffset" value="<?php echo Yii::app()->params['RECORDS_PER_PAGE']; ?>">
+        <input type="hidden" name="commentsOffset" id = "commentsOffset" value="<?php echo Yii::app()->params['COMMENTS_PER_TIME']; ?>">
         <?php endif; ?>
     </div>
 </article>
