@@ -1,7 +1,7 @@
 <div class="errorSummary"></div>
 <article class="row_detail">
     <div class="cell user cell2">
-        <a href="/index.php/profile/profile/view/id/<?php echo $trip['id']; ?>">
+        <a href="/index.php/profile/profile/view/id/<?php echo $trip['user_id']; ?>">
         <img class="photo" src="/<?php echo $trip['avatar']; ?>" width="42" height="42">
         <div class="user-info">
             <h3 class="username"><?php echo $trip['username']; ?></h3>

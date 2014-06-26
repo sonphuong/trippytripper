@@ -236,6 +236,7 @@ class SharingController extends Controller
         $sql = "SELECT R.name,
 					R.description, 
 					U.username, 
+                    U.id AS user_id, 
 					U.avatar, 
 					R.leave, 
 					R.return, 
