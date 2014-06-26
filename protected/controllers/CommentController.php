@@ -45,12 +45,10 @@ class CommentController extends Controller
         $model = new Comment;
         if (isset($_POST['Comment'])) {
             $arrData = $_POST['Comment'];
-            $date = date('Y-m-d H:i:s');
             $model->content = $arrData['content'];
             $model->user_id = Yii::app()->user->id;
             $model->user_name = Yii::app()->user->name;
             $model->avatar = Yii::app()->user->avatar;
-            $model->create_time = $date;
             $model->trip_id = $arrData['trip_id'];
             $model->save();
             //$this->refresh();

@@ -276,7 +276,7 @@ class TripController extends Controller
         $command->bindParam(':id', $id, PDO::PARAM_INT);
         $data = $command->queryAll();
         $comment = new Comment;
-        $allComments = $this->getAllComments($id);
+        $allComments = $this->actionGetComments($id);
         $joinStatus = $this->getJoinStatus($id);
         $members = $this->getTripper($id);
         $isOwner = $this->isOwner($id);
@@ -295,20 +295,63 @@ class TripController extends Controller
     }
 
     //get list comments
-    public function getAllComments($tripId)
+    public function actionGetComments($tripId=null)
     {
-        $sql = "SELECT content,create_time,user_name,avatar
+        $data = array();
+        if($tripId==null){
+            $tripId = Yii::app()->request->getQuery('tripId');
+        }            
+        $sql = "SELECT content,create_time,user_name,avatar 
 		FROM comments  
-		WHERE trip_id = :trip_id
+		WHERE trip_id = :trip_id 
 		ORDER BY create_time DESC
-		LIMIT 3
 		";
-
+        //paging+++++++++++++++++++++++++++++++++++++++++++++++
+        $sqlCount = "SELECT count(1) AS count 
+        FROM comments  
+        WHERE trip_id = :trip_id 
+        ORDER BY create_time DESC 
+        ";
+        $commandCount = Yii::app()->db->createCommand($sqlCount);
+        $commandCount->bindParam(':trip_id', $tripId, PDO::PARAM_INT);
+        $itemCount = $commandCount->queryRow();
+        
+        $itemCount = $itemCount['count'];
+        $offset = Yii::app()->request->getQuery('offset', 0);
+        
+        $sql .= ' LIMIT ' . $offset . ', ' . Yii::app()->params['RECORDS_PER_PAGE'] . '';
+        //paging+++++++++++++++++++++++++++++++++++++++++++++++
+        
         $command = Yii::app()->db->createCommand($sql);
         $command->bindParam(':trip_id', $tripId, PDO::PARAM_INT);
 
-        $data = $command->queryAll();
-        return $data;
+        //no more record to get
+        if($offset < $itemCount){
+            $data = $command->queryAll();
+        }
+        
+
+        $isAjax = Yii::app()->request->isAjaxRequest;
+
+        if($isAjax){
+            $html = '';
+            if(!empty($data)){
+                foreach ($data as $key => $value){
+                    $html .='<li><img src="/'.$value['avatar'].'" alt="" width="32px" height="32px" />';
+                    $html .=$value['user_name'].':'.$value['content'];
+                    $html .='</li>';
+                }    
+            }
+            $ajaxData['html'] = $html;
+            $ajaxData['offset'] = $offset+Yii::app()->params['RECORDS_PER_PAGE'];
+            echo json_encode($ajaxData);
+        }
+        else{
+            //reorder follow by time
+            $data = array_reverse($data);
+            return $data;    
+        }
+        
     }
 
     /*

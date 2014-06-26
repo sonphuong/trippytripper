@@ -11,6 +11,7 @@ return array(
     ,'dis-join' => '-1'
     //paging
     ,'RECORDS_PER_PAGE' => 2
+    ,'COMMENTS_PER_PAGE' => 2
     ,'FB_ACCESS_TOKEN' =>'CAAFbW0cHhFQBAJLrYfAcjURDK0YP54Qf6iM3r7SijogQnnZBQdRiMxWbDTe3kBiboABkQ817LlBlFZA9b8E7tJHD7YNCJRndYQZCuZCeJphLGZC2ir9V3sDEfGocmTPRtMIEguCBc7rKxWQo8TgUyazfzAUqdtO8ZD'
     ,'GOOGLE_API_KEY' => $googleKey
 );

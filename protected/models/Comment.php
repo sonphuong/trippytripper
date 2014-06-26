@@ -36,6 +36,9 @@ class Comment extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('content', 'required'),
+			array('create_time','default',
+              'value'=>new CDbExpression('NOW()'),
+              'setOnEmpty'=>false,'on'=>'insert')
 		);
 	}
 
@@ -84,13 +87,8 @@ class Comment extends CActiveRecord
 	 */
 	protected function beforeSave()
 	{
-		if(parent::beforeSave())
-		{
-			if($this->isNewRecord)
-				$this->create_time=time();
-			return true;
-		}
-		else
-			return false;
+		if($this->isNewRecord)
+				$this->create_time= new CDbExpression('NOW()');
+		return 	parent::beforeSave();
 	}
 }

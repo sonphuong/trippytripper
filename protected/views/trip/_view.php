@@ -128,22 +128,32 @@
     </form>
     <div class="cell cell5">
         <ul id="commentsList">
-        <?php foreach ($allComments as $key => $value): ?>
+        <?php  foreach ($allComments as $key => $value): ?>
             <li><img src="/<?php echo $value['avatar']; ?>" alt="" width="32px" height="32px" />
             <?php echo $value['user_name'].':'; ?>
             <?php echo $value['content']; ?>
             </li>
         <?php endforeach; ?>
         </ul>
-        <div>
+        <div id="viewMoreComments">
         <?php 
         echo CHtml::ajaxLink(
             $text = Yii::t('translator','view more comments'), 
-            $url = '/index.php/trip/getAllComments', 
+            $url = '/index.php/trip/getComments', 
             $ajaxOptions=array (
-                'type'=>'POST',
+                'type'=>'GET',
                 'dataType'=>'json',
-                'success'=>'function(html){ $("#commentsList").append("html"); }'
+                'data'=>array("offset"=>"js:$('#commentsOffset').val()","tripId"=>Yii::app()->request->getQuery('id')),
+                'success'=>'function(objReturn){ 
+                    if(objReturn.html!==""){
+                        $("#commentsList").append(objReturn.html); 
+                        $("#commentsOffset").val(objReturn.offset);     
+                    }
+                    else{
+                        $("#viewMoreComments").html("");
+                    }
+                    
+                }'
                 ), 
             $htmlOptions=array ()
             );
@@ -155,6 +165,7 @@
                     'model'=>$comment,
                 )); ?>
         </div>
+        <input type="hidden" name="commentsOffset" id = "commentsOffset" value="<?php echo Yii::app()->params['RECORDS_PER_PAGE']; ?>">
         <?php endif; ?>
     </div>
 </article>
