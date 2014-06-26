@@ -19,12 +19,12 @@
             $time = $leaveDate->format('h:m');
             $today = date('Y-m-d');
             $today = new DateTime($today);                            
-            $interval = $leaveDate->diff($today);
-
-            if($interval->days===0){
+            $interval = $today->diff($leaveDate);
+            $days = (int)$interval->format("%r%a");
+            if($days===0){
                 echo Yii::t('translator','Today').' - ' . $time;
             }
-            elseif($interval->days===1){
+            elseif($days===1){
                 echo Yii::t('translator','Tomorrow').' - ' . $time;    
             }
             else{
@@ -65,7 +65,8 @@
             <h2 style="color:red"><?php echo Yii::t('translator', 'Fulled'); ?></h2>
             <?php endif;?>
         </div>
-        <?php if($interval->days>=0):?>
+        <!-- check current date (no meaning for these below actions if the trip already done) -->
+        <?php if($days>=0):?>
         <?php if($joinStatus==9): ?>
             <?php $this->renderPartial('/trip/_owner_dis_join_form',array('model'=>$model,)); ?>
         <?php elseif($joinStatus==1): ?>

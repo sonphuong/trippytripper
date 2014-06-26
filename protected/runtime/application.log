@@ -137,3 +137,31 @@ Stack trace:
 #9 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
 #10 D:\wamp\www\trippytripper\index.php(13): CWebApplication->run()
 REQUEST_URI=/index.php/trip/view/?id=42
+2014/06/26 09:20:58 [error] [php] Trying to get property of non-object (D:\wamp\www\trippytripper\protected\views\trip\_view.php:24)
+Stack trace:
+#0 D:\wamp\www\yiiframework\web\CController.php(869): TripController->renderFile()
+#1 D:\wamp\www\yiiframework\web\CController.php(782): TripController->renderPartial()
+#2 D:\wamp\www\trippytripper\protected\controllers\TripController.php(293): TripController->render()
+#3 D:\wamp\www\yiiframework\web\actions\CInlineAction.php(49): TripController->actionView()
+#4 D:\wamp\www\yiiframework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\wamp\www\yiiframework\web\CController.php(286): TripController->runAction()
+#6 D:\wamp\www\yiiframework\web\CController.php(265): TripController->runActionWithFilters()
+#7 D:\wamp\www\yiiframework\web\CWebApplication.php(282): TripController->run()
+#8 D:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\wamp\www\trippytripper\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/trip/view/?id=43
+2014/06/26 09:22:03 [error] [php] Trying to get property of non-object (D:\wamp\www\trippytripper\protected\views\trip\_view.php:24)
+Stack trace:
+#0 D:\wamp\www\yiiframework\web\CController.php(869): TripController->renderFile()
+#1 D:\wamp\www\yiiframework\web\CController.php(782): TripController->renderPartial()
+#2 D:\wamp\www\trippytripper\protected\controllers\TripController.php(293): TripController->render()
+#3 D:\wamp\www\yiiframework\web\actions\CInlineAction.php(49): TripController->actionView()
+#4 D:\wamp\www\yiiframework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\wamp\www\yiiframework\web\CController.php(286): TripController->runAction()
+#6 D:\wamp\www\yiiframework\web\CController.php(265): TripController->runActionWithFilters()
+#7 D:\wamp\www\yiiframework\web\CWebApplication.php(282): TripController->run()
+#8 D:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\wamp\www\trippytripper\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/trip/view/?id=43

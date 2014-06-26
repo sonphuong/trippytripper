@@ -37,3 +37,14 @@ function makeAutoComplete(tid,options){
     var text = (document.getElementById(''+tid+''));
     var autocomplete = new google.maps.places.Autocomplete(text,options);
 }
+$( document ).ready(function() {
+    $("#num_friend").click(function(){
+        $("#friend_notis").show();
+    });
+    $("#num_email").click(function(){
+        $("#mail_notis").show();
+    });
+    $("#num_trip").click(function(){
+        $("#trip_notis").show();
+    });
+});
