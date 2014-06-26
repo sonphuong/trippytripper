@@ -16,91 +16,6 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`trippytripper` /*!40100 DEFAULT CHARACT
 
 USE `trippytripper`;
 
-/*Table structure for table `{{nfy_channels}}` */
-
-DROP TABLE IF EXISTS `{{nfy_channels}}`;
-
-CREATE TABLE `{{nfy_channels}}` (
-  `name` varchar(255) DEFAULT NULL,
-  `message_template` text,
-  `route_class` varchar(255) DEFAULT NULL,
-  `enabled` tinyint(1) DEFAULT NULL,
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
-/*Data for the table `{{nfy_channels}}` */
-
-insert  into `{{nfy_channels}}`(`name`,`message_template`,`route_class`,`enabled`,`id`) values ('default','New notification!','NfyDbRoute',1,1);
-
-/*Table structure for table `{{nfy_messages}}` */
-
-DROP TABLE IF EXISTS `{{nfy_messages}}`;
-
-CREATE TABLE `{{nfy_messages}}` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `queue_id` varchar(255) NOT NULL,
-  `created_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `sender_id` int(10) unsigned DEFAULT NULL,
-  `message_id` int(11) DEFAULT NULL,
-  `subscription_id` int(11) DEFAULT NULL,
-  `status` int(11) NOT NULL,
-  `timeout` int(11) DEFAULT NULL,
-  `reserved_on` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `deleted_on` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `mimetype` varchar(255) NOT NULL DEFAULT 'text/plain',
-  `body` text,
-  PRIMARY KEY (`id`),
-  KEY `{{nfy_messages}}_queue_id_idx` (`queue_id`),
-  KEY `{{nfy_messages}}_sender_id_idx` (`sender_id`),
-  KEY `{{nfy_messages}}_message_id_idx` (`message_id`),
-  KEY `{{nfy_messages}}_status_idx` (`status`),
-  KEY `{{nfy_messages}}_reserved_on_idx` (`reserved_on`),
-  KEY `{{nfy_messages}}_subscription_id_idx` (`subscription_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=latin1;
-
-/*Data for the table `{{nfy_messages}}` */
-
-insert  into `{{nfy_messages}}`(`id`,`queue_id`,`created_on`,`sender_id`,`message_id`,`subscription_id`,`status`,`timeout`,`reserved_on`,`deleted_on`,`mimetype`,`body`) values (14,'1','2014-06-24 10:24:02',3,NULL,NULL,2,NULL,'0000-00-00 00:00:00','2014-06-24 03:24:02','text/plain','test'),(15,'1','2014-06-24 03:24:02',3,14,2,0,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','text/plain','test'),(16,'1','2014-06-24 03:25:44',3,NULL,NULL,0,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','text/plain','test'),(17,'1','2014-06-24 03:25:44',3,16,2,0,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','text/plain','test'),(18,'1','2014-06-24 03:29:46',3,NULL,NULL,0,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','text/plain','test'),(19,'1','2014-06-24 03:29:46',3,18,2,0,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','text/plain','test'),(20,'1','2014-06-24 03:30:09',3,NULL,NULL,0,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','text/plain','test'),(21,'1','2014-06-24 03:30:09',3,20,2,0,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','text/plain','test'),(22,'1','2014-06-24 05:56:38',3,NULL,NULL,0,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','text/plain','test'),(23,'1','2014-06-24 05:56:38',3,22,2,0,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','text/plain','test'),(24,'1','2014-06-24 05:58:01',3,NULL,NULL,0,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','text/plain','test'),(25,'1','2014-06-24 05:58:01',3,24,2,0,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','text/plain','test'),(26,'1','2014-06-24 06:00:27',3,NULL,NULL,0,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','text/plain','test'),(27,'1','2014-06-24 06:00:27',3,26,2,0,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','text/plain','test'),(28,'1','2014-06-24 06:03:06',3,NULL,NULL,0,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','text/plain','test'),(29,'1','2014-06-24 06:03:06',3,28,2,0,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','text/plain','test'),(30,'1','2014-06-24 06:03:52',3,NULL,NULL,0,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','text/plain','test'),(31,'1','2014-06-24 06:03:52',3,30,2,0,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','text/plain','test'),(32,'1','2014-06-24 06:06:06',3,NULL,NULL,0,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','text/plain','test'),(33,'1','2014-06-24 06:06:06',3,32,2,0,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','text/plain','test'),(34,'1','2014-06-24 06:07:22',3,NULL,NULL,0,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','text/plain','test'),(35,'1','2014-06-24 06:07:22',3,34,2,0,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','text/plain','test'),(36,'1','2014-06-24 06:07:56',3,NULL,NULL,0,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','text/plain','test'),(37,'1','2014-06-24 06:07:56',3,36,2,0,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','text/plain','test'),(38,'1','2014-06-24 06:08:15',3,NULL,NULL,0,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','text/plain','test'),(39,'1','2014-06-24 06:08:15',3,38,2,0,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','text/plain','test'),(40,'1','2014-06-24 06:12:27',3,NULL,NULL,0,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','text/plain','test'),(41,'1','2014-06-24 06:12:27',3,40,2,0,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','text/plain','test'),(42,'1','2014-06-24 06:12:41',3,NULL,NULL,0,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','text/plain','test'),(43,'1','2014-06-24 06:12:41',3,42,2,0,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','text/plain','test'),(44,'1','2014-06-24 06:12:56',3,NULL,NULL,0,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','text/plain','test'),(45,'1','2014-06-24 06:12:56',3,44,2,0,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','text/plain','test'),(46,'1','2014-06-24 06:19:24',3,NULL,NULL,0,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','text/plain','test'),(47,'1','2014-06-24 06:19:24',3,46,2,0,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','text/plain','test'),(48,'1','2014-06-24 06:19:28',3,NULL,NULL,0,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','text/plain','test'),(49,'1','2014-06-24 06:19:28',3,48,2,0,NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','text/plain','test');
-
-/*Table structure for table `{{nfy_subscription_categories}}` */
-
-DROP TABLE IF EXISTS `{{nfy_subscription_categories}}`;
-
-CREATE TABLE `{{nfy_subscription_categories}}` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `subscription_id` int(11) NOT NULL,
-  `category` varchar(255) NOT NULL,
-  `is_exception` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `{{nfy_subscription_categories}}_subscription_id_category_idx` (`subscription_id`,`category`,`is_exception`),
-  KEY `{{nfy_subscription_categories}}_subscription_id_idx` (`subscription_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-/*Data for the table `{{nfy_subscription_categories}}` */
-
-/*Table structure for table `{{nfy_subscriptions}}` */
-
-DROP TABLE IF EXISTS `{{nfy_subscriptions}}`;
-
-CREATE TABLE `{{nfy_subscriptions}}` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `queue_id` varchar(255) NOT NULL,
-  `label` varchar(255) DEFAULT NULL,
-  `subscriber_id` int(10) unsigned NOT NULL,
-  `created_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `is_deleted` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `{{nfy_subscriptions}}_queue_id_subscriber_id_idx` (`queue_id`,`subscriber_id`),
-  KEY `{{nfy_subscriptions}}_queue_id_idx` (`queue_id`),
-  KEY `{{nfy_subscriptions}}_subscriber_id_idx` (`subscriber_id`),
-  KEY `{{nfy_subscriptions}}_is_deleted_idx` (`is_deleted`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
-/*Data for the table `{{nfy_subscriptions}}` */
-
-insert  into `{{nfy_subscriptions}}`(`id`,`queue_id`,`label`,`subscriber_id`,`created_on`,`is_deleted`) values (2,'1',NULL,1,'2014-06-24 03:24:02',0);
-
 /*Table structure for table `action` */
 
 DROP TABLE IF EXISTS `action`;
@@ -131,11 +46,11 @@ CREATE TABLE `comments` (
   `avatar` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_comments_userId` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `comments` */
 
-insert  into `comments`(`id`,`content`,`user_id`,`create_time`,`trip_id`,`user_name`,`avatar`) values (1,'đi đi\r\n',1,'0000-00-00 00:00:00',43,'admin','images/1_105_images (8).jpg'),(2,'vụ này hay, đi thôi, bao giờ off nhỉ\r\n',4,'0000-00-00 00:00:00',42,'tania','images/4_101_a-beautiful_face-388803.jpg'),(3,'123',4,'0000-00-00 00:00:00',42,'tania','images/4_101_a-beautiful_face-388803.jpg'),(4,'`1234',4,'0000-00-00 00:00:00',42,'tania','images/4_101_a-beautiful_face-388803.jpg'),(5,'sdfsdf',4,'0000-00-00 00:00:00',42,'tania','images/4_101_a-beautiful_face-388803.jpg'),(6,'ertyu',4,'0000-00-00 00:00:00',42,'tania','images/4_101_a-beautiful_face-388803.jpg'),(7,'noi linh tinh gi the?\r\n',1,'0000-00-00 00:00:00',42,'admin','images/1_105_images (8).jpg');
+insert  into `comments`(`id`,`content`,`user_id`,`create_time`,`trip_id`,`user_name`,`avatar`) values (1,'đi đi\r\n',1,'0000-00-00 00:00:00',43,'admin','images/1_105_images (8).jpg'),(2,'1 vụ này hay, đi thôi, bao giờ off nhỉ\r\n',4,'0000-00-00 00:00:00',42,'tania','images/4_101_a-beautiful_face-388803.jpg'),(13,'3 cuoi thang off nhe! ',1,'2014-06-26 15:29:07',42,'admin','images/1_images (1).jpg'),(14,'4 ngày giờ thế nào nhỉ? và ở đâu?\r\n',4,'2014-06-26 15:29:57',42,'tania','images/4_2_images (9).jpg'),(15,'5 ngày giờ a?\r\n',4,'2014-06-26 15:50:40',42,'tania','images/4_2_images (9).jpg'),(16,'6 ngày gì?\r\n',1,'2014-06-26 15:50:53',42,'admin','images/1_105_images (8).jpg'),(17,'7 ngày off a?',4,'2014-06-26 15:51:58',42,'tania','images/4_101_a-beautiful_face-388803.jpg'),(18,'8 ah, thu2, 7h',1,'2014-06-26 15:52:12',42,'admin','images/1_105_images (8).jpg'),(19,'mọi người thấy chuyến này thế nào?\r\n',1,'2014-06-26 16:26:16',43,'admin','images/1_105_images (8).jpg'),(20,'off line share ảnh tuần sau nhé! ',1,'2014-06-26 16:26:31',43,'admin','images/1_105_images (8).jpg');
 
 /*Table structure for table `friendship` */
 
@@ -196,6 +111,23 @@ CREATE TABLE `message` (
 /*Data for the table `message` */
 
 insert  into `message`(`id`,`timestamp`,`from_user_id`,`to_user_id`,`title`,`message`,`message_read`,`answered`,`draft`) values (1,123,1,2,'tit','Sorry this trip has removed by the owner',0,NULL,NULL),(2,1403173407,1,2,'tit','Sorry this trip has removed by the owner',0,NULL,NULL),(3,1403173594,1,2,'tit','Sorry this trip has removed by the owner',0,NULL,NULL),(4,1403173603,1,2,'tit','Sorry this trip has removed by the owner',0,NULL,NULL),(5,1403173629,1,2,'tit','Sorry this trip has removed by the owner',1,NULL,NULL);
+
+/*Table structure for table `notis` */
+
+DROP TABLE IF EXISTS `notis`;
+
+CREATE TABLE `notis` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `from_user_id` int(11) DEFAULT NULL,
+  `to_user_id` int(11) DEFAULT NULL,
+  `message` varchar(255) DEFAULT NULL,
+  `type` enum('friend','mail','trip') DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+/*Data for the table `notis` */
+
+insert  into `notis`(`id`,`from_user_id`,`to_user_id`,`message`,`type`) values (1,1,2,'sent you a message','mail'),(2,1,3,'sent you a friend request','friend'),(3,1,4,'comment on Hanoi- Thai nguyen','trip');
 
 /*Table structure for table `payment` */
 
@@ -336,7 +268,7 @@ CREATE TABLE `profile_visit` (
 
 /*Data for the table `profile_visit` */
 
-insert  into `profile_visit`(`visitor_id`,`visited_id`,`timestamp_first_visit`,`timestamp_last_visit`,`num_of_visits`) values (1,2,1403593265,1403597094,20),(1,3,1403593877,1403750226,11),(1,4,1403748170,1403748170,1),(1,42,1403748118,1403750249,25),(1,43,1403231309,1403231309,1),(2,1,1403598351,1403598351,1),(3,1,1403263360,1403591755,2),(3,43,1403237327,1403237337,2),(4,2,1403692425,1403693371,4);
+insert  into `profile_visit`(`visitor_id`,`visited_id`,`timestamp_first_visit`,`timestamp_last_visit`,`num_of_visits`) values (1,2,1403593265,1403597094,20),(1,3,1403593877,1403773485,12),(1,4,1403748170,1403748170,1),(1,42,1403748118,1403750249,25),(1,43,1403231309,1403231309,1),(2,1,1403598351,1403598351,1),(3,1,1403263360,1403591755,2),(3,43,1403237327,1403237337,2),(4,2,1403692425,1403693371,4);
 
 /*Table structure for table `ranking_votes` */
 
@@ -391,20 +323,6 @@ CREATE TABLE `role` (
 
 insert  into `role`(`id`,`title`,`description`,`membership_priority`,`price`,`duration`) values (1,'UserManager','These users can manage Users',0,0,0),(2,'Demo','Users having the demo role',0,0,0),(3,'Business','Example Business account',1,9.99,7),(4,'Premium','Example Premium account',2,19.99,28);
 
-/*Table structure for table `tbl_migration` */
-
-DROP TABLE IF EXISTS `tbl_migration`;
-
-CREATE TABLE `tbl_migration` (
-  `version` varchar(255) NOT NULL,
-  `apply_time` int(11) DEFAULT NULL,
-  PRIMARY KEY (`version`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-/*Data for the table `tbl_migration` */
-
-insert  into `tbl_migration`(`version`,`apply_time`) values ('m000000_000000_base',1403262443),('m130713_201034_notifications_install',1403262448),('m130815_155154_insert_nfy_channels',1403511798);
-
 /*Table structure for table `translation` */
 
 DROP TABLE IF EXISTS `translation`;
@@ -446,7 +364,7 @@ CREATE TABLE `trip` (
 
 /*Data for the table `trip` */
 
-insert  into `trip`(`id`,`user_id`,`from`,`to`,`leave`,`seat_avail`,`return_trip`,`return`,`fee`,`name`,`description`,`gathering_point`,`status`,`del_flg`) values (42,1,'Hanoi, Vietnam','Mexico City, Mexico','2015-03-19 00:00:00',0,'0','2015-04-23 00:00:00',100,NULL,NULL,'',NULL,'0'),(43,1,'Thai Nguyen, Vietnam','Hanoi, Vietnam','2014-06-20 00:00:00',0,'0','2014-06-21 00:00:00',1,NULL,NULL,'','0','1'),(44,1,'Gatineau, QC, Canada','Giảng Võ, Hanoi, Vietnam','2014-06-20 00:00:00',1,'0','2014-06-21 00:00:00',1,NULL,NULL,'',NULL,'0');
+insert  into `trip`(`id`,`user_id`,`from`,`to`,`leave`,`seat_avail`,`return_trip`,`return`,`fee`,`name`,`description`,`gathering_point`,`status`,`del_flg`) values (42,1,'Hanoi, Vietnam','Mexico City, Mexico','2015-03-19 00:00:00',0,'0','2015-04-23 00:00:00',100,NULL,NULL,'',NULL,'0'),(43,1,'Thai Nguyen, Vietnam','Hanoi, Vietnam','2014-06-20 00:00:00',0,'0','2014-06-21 00:00:00',1,NULL,NULL,'','0','0'),(44,1,'Gatineau, QC, Canada','Giảng Võ, Hanoi, Vietnam','2014-06-20 00:00:00',1,'0','2014-06-21 00:00:00',1,NULL,NULL,'',NULL,'0');
 
 /*Table structure for table `trip_user` */
 
@@ -493,7 +411,7 @@ CREATE TABLE `user` (
 
 /*Data for the table `user` */
 
-insert  into `user`(`id`,`username`,`password`,`salt`,`activationKey`,`createtime`,`lastvisit`,`lastaction`,`lastpasswordchange`,`superuser`,`status`,`avatar`,`notifyType`,`average_rank`) values (1,'admin','f5966cba40f0fe130b26e8ff5caab00acabc806050b2c5cfdb94dddb7ab5f9ddcab307bf438c4f30eedd5d73646338bbc41c566e6f7fc290844c564f275d7801','FImILRB5CDYIqPoVINRxDUUDym1zYIWJw6MBpCD53XkJUg5x1+qaR2qbAmjQYaVmLnQ5Q6MM6+WXGIcPkgwJ0Q==','',1383027794,1403688769,1403750560,0,1,1,'images/1_105_images (8).jpg','Instant',10),(2,'demo','8a23af61dc12c46fc27cba6256776897c91909f6c9931544d1013e3c4bf5d445ba297f8cc310eb2e2b4e3891dd28465f2650046fe4354f24ee38ed597e4e2250','wuTyGqbMIwiGIUBHISRf1cv0VMj4IceMkqp+n76cptMcbVrXY+venquMCbcL5VD6IQO6vSV5v+N2g/Pr5RFUDg==','',1383027794,1403688744,1403602364,0,0,1,'images/2_Look at Megan Fox Beautiful Face_1.jpg','Instant',8),(3,'sonphuong','21d1d1c9b55ecb91f96cb3841b753c45e26a1550317f507d6b98fb4abb65a01ebd36d72818df408e2895d24bf4bcd4e24618814dfb064c3ed35e129106d877e3','bt1D5E0FQH0cMKBBeYgxjoWOzFyY3BE0oTKVPKXMul66yVUSqLQ0RUWymYeoO+JNGbjnsveSDSbaPPovsVYlfw==','a6a3c37abdc62dbedd9d6b99c735a8ebdde436f6d814b813c73a8f906ce3f3b467746ddc42046e11128c07c155c72f0e1cdf3654b68abdab65c0fb138eeab893',1403233672,1403688914,1403591849,1403233672,0,1,'gravatar','Instant',NULL),(4,'tania','e7dd6650bb859202e8d18bbee783daa2ac334c64a54f1705856bd3a364f61aaf79a9b56cbc0268b491440394b40b8ceaa22fdcb1170d39a2c1fde9017940ef11','DFi1fSqPh4ixnFS1eKIoresqILdF4wLFyVcfdUc+F5qdR/CGgAxSAFdFfKSjRYjxKvsw5U/r0iENCu0uhY5qgQ==','d3aef1890f7a2195267a6f6aeaf822395f097bdbf42767950ac37da703e114dd923cc2c7fae3c0297edac25531a3c40c78ba9b27ad8ebae6e52d0488eac3746a',1403689064,1403695117,1403750666,1403689064,0,1,'images/4_101_a-beautiful_face-388803.jpg','Instant',NULL);
+insert  into `user`(`id`,`username`,`password`,`salt`,`activationKey`,`createtime`,`lastvisit`,`lastaction`,`lastpasswordchange`,`superuser`,`status`,`avatar`,`notifyType`,`average_rank`) values (1,'admin','f5966cba40f0fe130b26e8ff5caab00acabc806050b2c5cfdb94dddb7ab5f9ddcab307bf438c4f30eedd5d73646338bbc41c566e6f7fc290844c564f275d7801','FImILRB5CDYIqPoVINRxDUUDym1zYIWJw6MBpCD53XkJUg5x1+qaR2qbAmjQYaVmLnQ5Q6MM6+WXGIcPkgwJ0Q==','',1383027794,1403771623,1403774663,0,1,1,'images/1_105_images (8).jpg','Instant',10),(2,'demo','8a23af61dc12c46fc27cba6256776897c91909f6c9931544d1013e3c4bf5d445ba297f8cc310eb2e2b4e3891dd28465f2650046fe4354f24ee38ed597e4e2250','wuTyGqbMIwiGIUBHISRf1cv0VMj4IceMkqp+n76cptMcbVrXY+venquMCbcL5VD6IQO6vSV5v+N2g/Pr5RFUDg==','',1383027794,1403688744,1403602364,0,0,1,'images/2_Look at Megan Fox Beautiful Face_1.jpg','Instant',8),(3,'sonphuong','21d1d1c9b55ecb91f96cb3841b753c45e26a1550317f507d6b98fb4abb65a01ebd36d72818df408e2895d24bf4bcd4e24618814dfb064c3ed35e129106d877e3','bt1D5E0FQH0cMKBBeYgxjoWOzFyY3BE0oTKVPKXMul66yVUSqLQ0RUWymYeoO+JNGbjnsveSDSbaPPovsVYlfw==','a6a3c37abdc62dbedd9d6b99c735a8ebdde436f6d814b813c73a8f906ce3f3b467746ddc42046e11128c07c155c72f0e1cdf3654b68abdab65c0fb138eeab893',1403233672,1403688914,1403591849,1403233672,0,1,'gravatar','Instant',NULL),(4,'tania','e7dd6650bb859202e8d18bbee783daa2ac334c64a54f1705856bd3a364f61aaf79a9b56cbc0268b491440394b40b8ceaa22fdcb1170d39a2c1fde9017940ef11','DFi1fSqPh4ixnFS1eKIoresqILdF4wLFyVcfdUc+F5qdR/CGgAxSAFdFfKSjRYjxKvsw5U/r0iENCu0uhY5qgQ==','d3aef1890f7a2195267a6f6aeaf822395f097bdbf42767950ac37da703e114dd923cc2c7fae3c0297edac25531a3c40c78ba9b27ad8ebae6e52d0488eac3746a',1403689064,1403772699,1403756914,1403689064,0,1,'images/4_101_a-beautiful_face-388803.jpg','Instant',NULL);
 
 /*Table structure for table `user_role` */
 

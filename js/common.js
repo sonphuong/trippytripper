@@ -39,12 +39,12 @@ function makeAutoComplete(tid,options){
 }
 $( document ).ready(function() {
     $("#num_friend").click(function(){
-        $("#friend_notis").show();
+        $("#friend_notis").toggle();
     });
     $("#num_email").click(function(){
-        $("#mail_notis").show();
+        $("#mail_notis").toggle();
     });
     $("#num_trip").click(function(){
-        $("#trip_notis").show();
+        $("#trip_notis").toggle();
     });
 });
