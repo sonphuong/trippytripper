@@ -121,13 +121,15 @@ CREATE TABLE `notis` (
   `from_user_id` int(11) DEFAULT NULL,
   `to_user_id` int(11) DEFAULT NULL,
   `message` varchar(255) DEFAULT NULL,
-  `type` enum('friend','mail','trip') DEFAULT NULL,
+  `notis_type` enum('friend','trip','email') DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `notis_read` char(1) DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 /*Data for the table `notis` */
 
-insert  into `notis`(`id`,`from_user_id`,`to_user_id`,`message`,`type`) values (1,1,2,'sent you a message','mail'),(2,1,3,'sent you a friend request','friend'),(3,1,4,'comment on Hanoi- Thai nguyen','trip');
+insert  into `notis`(`id`,`from_user_id`,`to_user_id`,`message`,`notis_type`,`create_time`,`notis_read`) values (1,1,1,'sent you a message','email',NULL,'0'),(2,2,1,'sent you a friend request','friend',NULL,'0'),(3,3,1,'comment on Hanoi- Thai nguyen','trip',NULL,'0');
 
 /*Table structure for table `payment` */
 
