@@ -58,7 +58,7 @@
                                         echo '<span id="join_status_'.$member['user_id'].'">';
                                         if($trip['seat_avail']>0){
                                             echo CHtml::ajaxSubmitButton ("Accept",
-                                                CController::createUrl('sharing/acceptJoin'),
+                                                CController::createUrl('trip/acceptJoin'),
                                                 array(
                                                     'success' => 'js:function(data) {approveJoinSuccess(data);}'
                                                 ,'data' => 'user_id='.$member['user_id'].'&trip_id='.$trip['id'].''
@@ -84,6 +84,7 @@
         </li>
         <?php endforeach;?>
     </ul>
+    <?php $this->widget('CLinkPager', array('pages' => $pages,)); ?>
 <?php else: ?>    
     <div><?php echo Yii::t('translator',"You haven't not publish any trip yet! click on 'Offer' to publish a trip");?></div>
 <?php endif; ?>

@@ -3,7 +3,7 @@
 /**
  * @author phuongds
  */
-class SharingController extends Controller
+class TripController extends Controller
 {
     public $layout = 'column1';
     /**
@@ -37,7 +37,7 @@ class SharingController extends Controller
      */
     public function actionMyTrips()
     {
-
+        $loginId = Yii::app()->user->id;
         $sql = "SELECT T.name,
                         T.description,
                         U.username, 
@@ -57,11 +57,31 @@ class SharingController extends Controller
                 WHERE TU.user_id = :loginId
                 ORDER BY T.leave DESC
         ";
-        $command = Yii::app()->db->createCommand($sql);
-        $loginId = Yii::app()->user->id;
-        $command->bindParam(':loginId', $loginId, PDO::PARAM_INT);
+        
+        
+        
+        //paging+++++++++++++++++++++++++++++++++++++++++++++++
+        $sqlCount = "SELECT count(1) as count
+            FROM trip_user TU 
+            INNER JOIN trip T  ON T.id = TU.trip_id
+            INNER JOIN user U ON U.id = T.user_id
+            WHERE TU.user_id = :loginId
+            ORDER BY T.leave DESC
+        ";
+        $commandCount = Yii::app()->db->createCommand($sqlCount);
+        $commandCount->bindParam(':loginId', $loginId, PDO::PARAM_INT);
+        $itemCount = $commandCount->queryRow();
+        
+        $itemCount = $itemCount['count'];
+        $pages = new CPagination($itemCount);
+        $pages->setPageSize(Yii::app()->params['RECORDS_PER_PAGE']);
+        $page = (isset($_GET['page']) ? $_GET['page'] : 0);
+        $sql .= ' LIMIT ' . $page . ', ' . Yii::app()->params['RECORDS_PER_PAGE'] . '';
+        //paging+++++++++++++++++++++++++++++++++++++++++++++++
+        
         //get all member invole to the trips
-
+        $command = Yii::app()->db->createCommand($sql);
+        $command->bindParam(':loginId', $loginId, PDO::PARAM_INT);
         $myTrips = $command->queryAll();
         if(!empty($myTrips)){
             foreach ($myTrips as $key => $myTrip) {
@@ -69,10 +89,11 @@ class SharingController extends Controller
                 $myTrips[$key]['members'] = $members;
             }    
         }
-        
+
         $this->render('my_trips', array(
             //'members' => $members,
-            'myTrips' => $myTrips
+            'myTrips' => $myTrips,
+            'pages'=>$pages
         ));
     }
 
@@ -209,9 +230,9 @@ class SharingController extends Controller
         $itemCount = Yii::app()->db->createCommand($sqlCount)->queryRow();
         $itemCount = $itemCount['count'];
         $pages = new CPagination($itemCount);
-        $pages->setPageSize(Yii::app()->params['listPerPage']);
+        $pages->setPageSize(Yii::app()->params['RECORDS_PER_PAGE']);
         $page = (isset($_GET['page']) ? $_GET['page'] : 1);
-        $sql .= ' LIMIT ' . ($page - 1) . ', ' . Yii::app()->params['listPerPage'] . '';
+        $sql .= ' LIMIT ' . ($page - 1) . ', ' . Yii::app()->params['RECORDS_PER_PAGE'] . '';
         $allTrips = Yii::app()->db->createCommand($sql)->queryAll();
         //paging+++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -220,7 +241,7 @@ class SharingController extends Controller
             'fromVal' => $fromVal,
             'toVal' => $toVal,
             'itemCount' => $itemCount,
-            'pageSize' => Yii::app()->params['listPerPage'],
+            'pageSize' => Yii::app()->params['RECORDS_PER_PAGE'],
             'pages' => $pages,
             'allTrips' => $allTrips
         ));
@@ -280,7 +301,7 @@ class SharingController extends Controller
 		FROM comments  
 		WHERE trip_id = :trip_id
 		ORDER BY create_time DESC
-		LIMIT 30
+		LIMIT 3
 		";
 
         $command = Yii::app()->db->createCommand($sql);

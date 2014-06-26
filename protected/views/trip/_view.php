@@ -67,9 +67,9 @@
         </div>
         <?php if($interval->days>=0):?>
         <?php if($joinStatus==9): ?>
-            <?php $this->renderPartial('/sharing/_owner_dis_join_form',array('model'=>$model,)); ?>
+            <?php $this->renderPartial('/trip/_owner_dis_join_form',array('model'=>$model,)); ?>
         <?php elseif($joinStatus==1): ?>
-            <?php $this->renderPartial('/sharing/_dis_join_form',array('model'=>$model,)); ?>
+            <?php $this->renderPartial('/trip/_dis_join_form',array('model'=>$model,)); ?>
         <?php elseif($joinStatus==2): ?>
             <div class="flash-success">
                 <?php echo Yii::t('translator','Wait for approve');?>
@@ -78,7 +78,7 @@
             <?php 
             //if seat is availabel 
             if($trip['seat_avail']>0)
-            $this->renderPartial('/sharing/_join_form',array('model'=>$model,)); 
+            $this->renderPartial('/trip/_join_form',array('model'=>$model,)); 
             ?>
         <?php endif; ?>
         <?php endif; ?>
@@ -100,7 +100,7 @@
                             if($isOwner === true){
                                 if($trip['seat_avail']>0){
                                     echo CHtml::ajaxSubmitButton ("Accept",
-                                        CController::createUrl('sharing/acceptJoin'),
+                                        CController::createUrl('trip/acceptJoin'),
                                         array(
                                             'success' => 'js:function(data) {approveJoinSuccess(data);}'
                                         ,'data' => 'user_id='.$member['user_id'].'&trip_id='.$_GET['id'].''
@@ -134,8 +134,21 @@
             <?php echo $value['content']; ?>
             </li>
         <?php endforeach; ?>
-            
         </ul>
+        <div>
+        <?php 
+        echo CHtml::ajaxLink(
+            $text = Yii::t('translator','view more comments'), 
+            $url = '/index.php/trip/getAllComments', 
+            $ajaxOptions=array (
+                'type'=>'POST',
+                'dataType'=>'json',
+                'success'=>'function(html){ $("#commentsList").append("html"); }'
+                ), 
+            $htmlOptions=array ()
+            );
+        ?>
+        </div>
         <?php if($joinStatus==1 || $joinStatus==9): ?>
         <div id="comments">
             <?php $this->renderPartial('/comment/_form',array(

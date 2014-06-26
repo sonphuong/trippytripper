@@ -6,7 +6,7 @@
     <div class="row buttons">
         <?php
         echo CHtml::ajaxSubmitButton (Yii::t('translator','Quit'),
-            CController::createUrl('sharing/disJoin'),
+            CController::createUrl('trip/disJoin'),
             array(
                 'success' => 'js:function(data) {ownerDisJoinSuccess(data);}'
             ,'data' => 'user_id='.Yii::app()->user->id.'&trip_id='.$_GET['id'].''

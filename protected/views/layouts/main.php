@@ -38,13 +38,13 @@
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
-				array('label'=>Yii::t('translator','Offer'), 'url'=>array('/sharing/offer')),
-				array('label'=>Yii::t('translator','Trips'), 'url'=>array('/sharing/searchTrip')),
+				array('label'=>Yii::t('translator','Offer'), 'url'=>array('/trip/offer')),
+				array('label'=>Yii::t('translator','Trips'), 'url'=>array('/trip/searchTrip')),
 				array('label'=>Yii::t('translator','Trippers'), 'url'=>array('/user/user/browse')),
 				array('label'=>Yii::t('translator','Join us'), 'url'=>array('/registration/registration'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>Yii::t('translator','Login'), 'url'=>array('/user/auth'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>''.Yii::app()->user->name.'', 'url'=>array('/profile/profile/view'), 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>Yii::t('translator','My trips'), 'url'=>array('/sharing/myTrips'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>Yii::t('translator','My trips'), 'url'=>array('/trip/myTrips'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>Yii::t('translator','Logout'), 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 				
 			),
