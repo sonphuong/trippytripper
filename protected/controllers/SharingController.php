@@ -53,7 +53,7 @@ class SharingController extends Controller
                         T.id
                 FROM trip_user TU 
                 INNER JOIN trip T  ON T.id = TU.trip_id
-                INNER JOIN USER U ON U.id = T.user_id
+                INNER JOIN user U ON U.id = T.user_id
                 WHERE TU.user_id = :loginId
                 ORDER BY T.leave DESC
         ";
