@@ -64,10 +64,7 @@ return array(
         'application.modules.PcStarRank.controllers.*',
         'application.modules.PcStarRank.components.*',
         'application.modules.PcStarRank.extensions.PcStarRankWidget.*',
-        //nfy
-        'application.modules.nfy.extensions.webNotifications.*',
-        'application.modules.nfy.components.*', 
-        'application.modules.nfy.models.*',
+        
     ),
 
     'defaultController' => 'site',
@@ -91,19 +88,10 @@ return array(
         ),
 
         'usergroup' => array(),
-        'nfy' => array(
-            'class' =>'application.modules.nfy.NfyModule',
-            'longPolling'=>null
-        ),
+       
     ),
     // application components
     'components' => array(
-        'queue' => array(
-            'class' => 'application.modules.nfy.components.NfyDbQueue',
-            //'name' => 'Notifications',
-            'timeout' => 30,
-        ),
-
         'user' => array(
             // enable cookie-based authentication
             'class' =>'application.modules.user.components.YumWebUser',

@@ -128,6 +128,27 @@
         </div>
     </form>
     <div class="cell cell5">
+        <div id="viewMoreComments">
+        <?php 
+        echo CHtml::ajaxLink(
+            $text = Yii::t('translator','view previous comments'), 
+            $url = '/index.php/trip/getComments', 
+            $ajaxOptions=array (
+                'type'=>'GET',
+                'dataType'=>'json',
+                'data'=>array("offset"=>"js:$('#commentsOffset').val()","tripId"=>Yii::app()->request->getQuery('id')),
+                'success'=>'function(objReturn){ 
+                    $("#commentsList").prepend(objReturn.html); 
+                    $("#commentsOffset").val(objReturn.offset);     
+                    if(objReturn.noMoreComments==1){
+                        $("#viewMoreComments").html("");
+                    }
+                }'
+                ), 
+            $htmlOptions=array ()
+            );
+        ?>
+        </div>
         <ul id="commentsList">
         <?php  foreach ($allComments as $key => $value): ?>
             <li><img src="/<?php echo $value['avatar']; ?>" alt="" width="32px" height="32px" />
@@ -136,30 +157,7 @@
             </li>
         <?php endforeach; ?>
         </ul>
-        <div id="viewMoreComments">
-        <?php 
-        echo CHtml::ajaxLink(
-            $text = Yii::t('translator','view more comments'), 
-            $url = '/index.php/trip/getComments', 
-            $ajaxOptions=array (
-                'type'=>'GET',
-                'dataType'=>'json',
-                'data'=>array("offset"=>"js:$('#commentsOffset').val()","tripId"=>Yii::app()->request->getQuery('id')),
-                'success'=>'function(objReturn){ 
-                    if(objReturn.html!==""){
-                        $("#commentsList").prepend(objReturn.html); 
-                        $("#commentsOffset").val(objReturn.offset);     
-                    }
-                    else{
-                        $("#viewMoreComments").html("");
-                    }
-                    
-                }'
-                ), 
-            $htmlOptions=array ()
-            );
-        ?>
-        </div>
+
         <?php if($joinStatus==1 || $joinStatus==9): ?>
         <div id="comments">
             <?php $this->renderPartial('/comment/_form',array(

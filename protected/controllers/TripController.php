@@ -346,6 +346,9 @@ class TripController extends Controller
             }
             $ajaxData['html'] = $html;
             $ajaxData['offset'] = $offset+Yii::app()->params['COMMENTS_PER_TIME'];
+            $ajaxData['noMoreComments'] = 0;
+            if($ajaxData['offset']>=$itemCount)
+                $ajaxData['noMoreComments'] = 1;
             echo json_encode($ajaxData);
         }
         else{

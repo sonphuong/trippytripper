@@ -29,9 +29,9 @@
 
 	<div id="header">
 		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
-        <div style="float:left;"><?php $this->widget('LangBox'); ?></div>
+        <div style="float:left;"><?php $this->widget('application.widgets.langbox.LangBox'); ?></div>
 	</div><!-- header -->
-	<?php $this->widget('Notis'); ?>
+	<?php $this->widget('application.widgets.notis.Notis'); ?>
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
