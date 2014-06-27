@@ -299,7 +299,7 @@ class TripController extends Controller
     {
         $data = array();
         if($tripId==null){
-            $tripId = Yii::app()->request->getQuery('tripId');
+            $tripId = Yii::app()->request->getParam('tripId');
         }            
         $sql = "SELECT content,create_time,user_name,avatar 
 		FROM comments  
@@ -317,7 +317,7 @@ class TripController extends Controller
         $itemCount = $commandCount->queryRow();
         
         $itemCount = $itemCount['count'];
-        $offset = Yii::app()->request->getQuery('offset', 0);
+        $offset = Yii::app()->request->getParam('offset', 0);
         
         $sql .= ' LIMIT ' . $offset . ', ' . Yii::app()->params['COMMENTS_PER_TIME'] . '';
         //paging+++++++++++++++++++++++++++++++++++++++++++++++

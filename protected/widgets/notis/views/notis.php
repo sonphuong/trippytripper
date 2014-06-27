@@ -1,47 +1,122 @@
-<div>
-    <span id="num_friend" class="numNotis">1</span>
-    <div id="friend_notis" style="display: none">
-        <ul>
-            <?php foreach($friendNotis as $noti):?>
-            <a href="/index.php/friendship/friendship/index">
-        	<li>
-                <img src="/<?php echo $noti['from_avatar']; ?>" alt="" width="32px" height="32px" />
-                <?php echo $noti['from_user_name'].':'.$noti['message']; ?>
-            </li>
-            </a>
-            <?php endforeach;?>
-        </ul>
-    </div>
+<div style="clear: both">
+    <div id="friend_num" class="numNotis"></div>
+    <div id="friend_notis" style="display: none"></div>
     
-    <span id="num_email" class="numNotis">1</span>
-	<div id="mail_notis" style="display: none">
-        <ul>
-            <?php foreach($emailNotis as $noti):?>
-            <a href="/index.php/message/message/index">
-            <li>
-                <img src="/<?php echo $noti['from_avatar']; ?>" alt="" width="32px" height="32px" />
-                <?php echo $noti['from_user_name'].':'.$noti['message']; ?>
-            </li>
-            </a>
-            <?php endforeach;?>
-        </ul>
-    </div>
+    <div id="email_num" class="numNotis"></div>
+	<div id="email_notis" style="display: none"></div>
     
-    <span id="num_trip" class="numNotis">1</span>
-    <div id="trip_notis" style="display: none">
-        <ul>
-            <?php foreach($tripNotis as $noti):?>
-            <a href="/index.php/trip/view/?id=<?php echo $noti['trip_id']; ?>">
-            <li>
-                <img src="/<?php echo $noti['from_avatar']; ?>" alt="" width="32px" height="32px" />
-                <?php echo $noti['from_user_name'].':'.$noti['message']; ?>
-            </li>
-            </a>
-            <?php endforeach;?>
-        </ul>
-    	<!-- <div>Tania: comment on Hanoi-Thai Nguye</div>
-    	<div>demo: Join Hanoi-Thai Nguyen</div>
-    	<div>Longx: Leave Hanoi-Thai Nguyen</div>
-    	<div>admin(Owner): Leave Hanoi-Thai Nguyen</div> -->
-    </div>
+    <div id="trip_num" class="numNotis"></div>
+    <div id="trip_notis" style="display: none"></div>
 </div>	
+
+<script>
+$( document ).ready(function() {
+    $("#friend_num").click(function(){
+        $("#friend_notis").toggle();
+        $("#friend_num").html('');
+        //get notis id
+        var friendIds = [];
+        $(".liFriend").each(function(){
+            friendIds.push($(this).attr("name"));
+        });
+        updateReadStatus(friendIds);
+    });
+    $("#email_num").click(function(){
+        $("#email_notis").toggle();
+        $("#email_num").html('');
+        //get notis id
+        var emailIds = [];
+        $(".liEmail").each(function(){
+            emailIds.push($(this).attr("name"));
+        });
+        updateReadStatus(emailIds);
+    });
+    $("#trip_num").click(function(){
+        $("#trip_notis").toggle();
+        $("#trip_num").html('');
+        //get notis id
+        var tripIds = [];
+        $(".liTrip").each(function(){
+            tripIds.push($(this).attr("name"));
+        });
+        updateReadStatus(tripIds);
+    });
+    getNotis();
+    function getNotis(){
+        $.ajax({
+            url: '/index.php/notis/getNotis',
+            success: function(respone){
+                data = JSON.parse(respone);
+                genNotisHTML(data);
+            }
+        });
+    }    
+    setInterval(function(){getNotis();}, 10000);
+});
+function updateReadStatus(ids){
+    var quote = '"';
+    ids = ids.join('","');
+    ids = quote.concat(ids).concat(quote);
+
+    console.log(ids); 
+
+    $.ajax({
+        url: '/index.php/notis/read',
+        data: {"ids":ids},
+        type: "POST",
+        success: function(respone){
+            console.log(respone);
+        }
+    });
+}
+function genNotisHTML(notis){
+    //friend ++++++++++++++++++++++
+    var friendNotis='';
+    var friends = notis.friend;
+    friendNotis += '<ul>';
+    for (var i = 0; i < friends.length; i++) {
+        friendNotis +='<a href="/index.php/friendship/friendship/index">';
+        friendNotis +='<li name="'+friends[i].notis_id+'" class="liFriend">';
+        friendNotis +='<img src="/'+friends[i].from_avatar+'" alt="" width="32px" height="32px" />';                               
+        friendNotis += friends[i].from_user_name +': '+ friends[i].message;
+        friendNotis += '</li>';
+        friendNotis += '</a>';
+    };          
+    friendNotis += '</ul>';
+    $('#friend_notis').html(friendNotis);
+    $("#friend_num").html(notis.friendCount);
+    //friend -----------------------
+    //email ++++++++++++++++++++++
+    var emailNotis='';
+    var emails = notis.email;
+    emailNotis += '<ul>';
+    for (var i = 0; i < emails.length; i++) {
+        emailNotis +='<a href="/index.php/message/message/index">';
+        emailNotis +='<li name="'+emails[i].notis_id+'" class="liEmail">';
+        emailNotis +='<img src="/'+emails[i].from_avatar+'" alt="" width="32px" height="32px" />';                               
+        emailNotis += emails[i].from_user_name +': '+ emails[i].message;
+        emailNotis += '</li>';
+        emailNotis += '</a>';
+    };          
+    emailNotis += '</ul>';
+    $('#email_notis').html(emailNotis);
+    $("#email_num").html(notis.emailCount);
+    //email -----------------------
+    //trip ++++++++++++++++++++++
+    var tripNotis='';
+    var trips = notis.trip;
+    tripNotis += '<ul>';
+    for (var i = 0; i < trips.length; i++) {
+        tripNotis +='<a href="/index.php/trip/view/?id="'+trips[i].trip_id+'>';
+        tripNotis +='<li name="'+trips[i].notis_id+'" class="liTrip">';
+        tripNotis +='<img src="/'+trips[i].from_avatar+'" alt="" width="32px" height="32px" />';                               
+        tripNotis += trips[i].from_user_name +': '+ trips[i].message;
+        tripNotis += '</li>';
+        tripNotis += '</a>';
+    };          
+    tripNotis += '</ul>';
+    $('#trip_notis').html(tripNotis);
+    $("#trip_num").html(notis.tripCount);
+    //trip -----------------------
+}
+</script>

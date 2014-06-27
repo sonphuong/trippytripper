@@ -1,20 +1,22 @@
 .numNotis{
     color: red;
-    font-size: bold;
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    padding-bottom: 6px;
 }
-#num_trip{
+#trip_num{
 	background: url(images/trip_icon.png);
 	background-size: 16px 16px;
     background-repeat: no-repeat;	
 }
-#num_email{
+#email_num{
 	background: url(images/email_icon.png);	
 	background-size: 16px 16px;
     background-repeat: no-repeat;
 }
-#num_friend{
-	width: 16px;
-	height: 16px;
+#friend_num{
 	background: url(images/friend_icon.png);	
 	background-size: 16px 16px;
     background-repeat: no-repeat;
