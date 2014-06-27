@@ -1,0 +1,21 @@
+.numNotis{
+    color: red;
+    font-size: bold;
+}
+#num_trip{
+	background: url(images/trip_icon.png);
+	background-size: 16px 16px;
+    background-repeat: no-repeat;	
+}
+#num_email{
+	background: url(images/email_icon.png);	
+	background-size: 16px 16px;
+    background-repeat: no-repeat;
+}
+#num_friend{
+	width: 16px;
+	height: 16px;
+	background: url(images/friend_icon.png);	
+	background-size: 16px 16px;
+    background-repeat: no-repeat;
+}
