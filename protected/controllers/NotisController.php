@@ -66,7 +66,6 @@ class NotisController extends Controller{
 		            FROM notis
 		            WHERE to_user_id = :loginId
 		            AND notis_type =  '".$obj."'
-		            AND notis_read = '0'
 		            ORDER BY create_time DESC
 		    ";
 		    

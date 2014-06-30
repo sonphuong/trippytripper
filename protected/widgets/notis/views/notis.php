@@ -1,17 +1,20 @@
-<div style="clear: both">
-    <div id="friend_num" class="numNotis"></div>
-    <div id="friend_notis" style="display: none"></div>
+<div class="table_row">
+    <div id="friend_num" class="numNotis cell"></div>
+    <div id="friend_notis" class = "notis cell"></div>
     
-    <div id="email_num" class="numNotis"></div>
-	<div id="email_notis" style="display: none"></div>
+    <div id="email_num" class="numNotis cell"></div>
+	<div id="email_notis" class = "notis cell"></div>
     
-    <div id="trip_num" class="numNotis"></div>
-    <div id="trip_notis" style="display: none"></div>
+    <div id="trip_num" class="numNotis cell"></div>
+    <div id="trip_notis" class = "notis cell"></div>
 </div>	
 
 <script>
 $( document ).ready(function() {
     $("#friend_num").click(function(){
+        $("#email_notis").hide();
+        $("#trip_notis").hide();
+
         $("#friend_notis").toggle();
         $("#friend_num").html('');
         //get notis id
@@ -22,6 +25,9 @@ $( document ).ready(function() {
         updateReadStatus(friendIds);
     });
     $("#email_num").click(function(){
+        $("#friend_notis").hide();
+        $("#trip_notis").hide();
+
         $("#email_notis").toggle();
         $("#email_num").html('');
         //get notis id
@@ -32,6 +38,9 @@ $( document ).ready(function() {
         updateReadStatus(emailIds);
     });
     $("#trip_num").click(function(){
+        $("#email_notis").hide();
+        $("#friend_notis").hide();
+
         $("#trip_notis").toggle();
         $("#trip_num").html('');
         //get notis id
@@ -84,6 +93,7 @@ function genNotisHTML(notis){
     };          
     friendNotis += '</ul>';
     $('#friend_notis').html(friendNotis);
+    if(notis.friendCount>0)
     $("#friend_num").html(notis.friendCount);
     //friend -----------------------
     //email ++++++++++++++++++++++
@@ -100,6 +110,7 @@ function genNotisHTML(notis){
     };          
     emailNotis += '</ul>';
     $('#email_notis').html(emailNotis);
+    if(notis.emailCount>0)
     $("#email_num").html(notis.emailCount);
     //email -----------------------
     //trip ++++++++++++++++++++++
@@ -116,6 +127,7 @@ function genNotisHTML(notis){
     };          
     tripNotis += '</ul>';
     $('#trip_notis').html(tripNotis);
+    if(notis.tripCount>0)
     $("#trip_num").html(notis.tripCount);
     //trip -----------------------
 }

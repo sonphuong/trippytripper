@@ -21,3 +21,12 @@
 	background-size: 16px 16px;
     background-repeat: no-repeat;
 }
+.notis{
+    display: none;
+    background-color: #FFE7A7;
+    width: 300px;
+    max-height: 500px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    z-index: 9999;
+}
