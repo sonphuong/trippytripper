@@ -31,13 +31,17 @@
 		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
         <div style="float:left;"><?php $this->widget('application.widgets.langbox.LangBox'); ?></div>
 	</div><!-- header -->
-	<?php $this->widget('application.widgets.notis.Notis'); ?>
+
+	<?php 
+	if(!Yii::app()->user->isGuest)
+	$this->widget('application.widgets.notis.Notis'); 
+	?>
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
-				array('label'=>Yii::t('translator','Offer'), 'url'=>array('/trip/offer')),
+				array('label'=>Yii::t('translator','Offer'), 'url'=>array('/trip/offer'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>Yii::t('translator','Trips'), 'url'=>array('/trip/searchTrip')),
-				array('label'=>Yii::t('translator','Trippers'), 'url'=>array('/user/user/browse')),
+				array('label'=>Yii::t('translator','Trippers'), 'url'=>array('/user/user/browse'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>Yii::t('translator','Join us'), 'url'=>array('/registration/registration'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>Yii::t('translator','Login'), 'url'=>array('/user/auth'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>''.Yii::app()->user->name.'', 'url'=>array('/profile/profile/view'), 'visible'=>!Yii::app()->user->isGuest),

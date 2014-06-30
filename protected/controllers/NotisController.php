@@ -1,4 +1,7 @@
 <?php
+/**
+ * @author phuongds dosonphuong@gmail.com
+ */
 class NotisController extends Controller{
 	public $layout = 'column2';
 
@@ -48,7 +51,8 @@ class NotisController extends Controller{
         return $this->_model;
     }
 
-        /**
+
+    /**
      * Updates a particular model.
      * If update is successful, the browser will be redirected to the 'view' page.
      */
