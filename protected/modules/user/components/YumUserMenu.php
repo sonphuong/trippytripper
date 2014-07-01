@@ -57,7 +57,7 @@ class YumUserMenu extends CPortlet {
 								'label' => 'My friends',
 								'url' => array('/friendship/friendship/index'),
 								'visible' => Yum::hasModule('friendship')),
-							array('label' => 'Browse users', 'url' => array('/user/user/browse')),
+							//array('label' => 'Browse users', 'url' => array('/user/user/browse')),
 							array('label' => 'My groups', 'url' => array(
 									'/usergroup/groups/index'),
 								'visible' => Yum::hasModule('usergroup')),
