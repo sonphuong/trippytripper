@@ -72,6 +72,8 @@ class YumMessageController extends YumController {
 			$model->validate();
 			if(!$model->hasErrors()) {
 				$model->save();
+				Yii::import('application.controllers.NotisController');
+				NotisController::add('email',$model->to_user_id);
 				Yum::setFlash(Yum::t('Message "{message}" has been sent to {to}', array(
 								'{message}' => $model->title,
 								'{to}' => YumUser::model()->findByPk($model->to_user_id)->username
