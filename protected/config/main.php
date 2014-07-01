@@ -13,12 +13,14 @@ if($domain==='www.trippytripper.org'){
     $dbUser = 'trippytripper';
     $dbPass = 'trippytripper';
     $dbHost = 'trippytripper.c3mfgwza7g4u.us-west-2.rds.amazonaws.com';
+    $userDebug = false;
 }
 else{
     $googleKey = 'AIzaSyAisOhSjoLbzL_hEtuBhUoS3pr71vhwtu4';    
     $dbUser = 'root';
     $dbPass = '';
     $dbHost = 'localhost';
+    $userDebug = true;
 }
 return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
@@ -84,7 +86,7 @@ return array(
         'registration' => array(),
         'role' => array(),
         'user' => array(
-            'debug' => true,
+            'debug' => $userDebug,
         ),
 
         'usergroup' => array(),

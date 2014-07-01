@@ -35,14 +35,14 @@ class YumUserMenu extends CPortlet {
 						array('label' => 'Privacy settings', 'url' => array('/profile/privacy/update')),
 						)
 					),
-
-				array('label' => 'Membership',
+				//phuongds remove (no need now)
+				/*array('label' => 'Membership',
 					'visible' => Yum::hasModule('membership')
 					,'items' => array(
 						array('label' => 'My memberships', 'url' => array('/membership/membership/index')),
 						array('label' => 'Browse memberships', 'url' => array('/membership/membership/order')),
 						)
-					),
+					),*/
 
 				array('label' => 'Messages',
 					'visible' => Yum::hasModule('message'),
