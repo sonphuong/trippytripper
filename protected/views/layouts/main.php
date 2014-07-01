@@ -34,7 +34,7 @@
 
 	<?php 
 	if(!Yii::app()->user->isGuest)
-	$this->widget('application.widgets.notis.Notis'); 
+	$this->widget('application.widgets.notification.Notification'); 
 	?>
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(

@@ -55,13 +55,13 @@ class YumMessage extends YumActiveRecord
 						Yii::app()->controller->createAbsoluteUrl(
 							'//message/message/compose', array(
 							'to_user_id' => $this->from_user_id)));
-
-				YumMailer::send($this->to_user->profile->email,
-						Yum::t('New message from {from}: {subject}', array(
-								'{from}' => $this->from_user->username,
-								'{subject}' => $this->title,
-								)),
-						$this->message . '<br />' . $answer_link);
+				//phuongds remove (no need now - no need to send email when user send message to each other)
+				// YumMailer::send($this->to_user->profile->email,
+				// 		Yum::t('New message from {from}: {subject}', array(
+				// 				'{from}' => $this->from_user->username,
+				// 				'{subject}' => $this->title,
+				// 				)),
+				// 		$this->message . '<br />' . $answer_link);
 			}
 		}
 		return parent::beforeSave();

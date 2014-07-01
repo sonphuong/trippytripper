@@ -56,9 +56,24 @@ class NotisController extends Controller{
      * Updates a particular model.
      * If update is successful, the browser will be redirected to the 'view' page.
      */
-    public function actionAdd()
+    public static function add($notisType,$toUserId,$tripId=false,$tripMsg=false)
     {
-    	//
+    	$model = new Notis;
+    	$model->to_user_id = $toUserId;
+    	$model->from_user_name = Yii::app()->user->name;
+    	$model->from_user_id = Yii::app()->user->id;
+    	$model->from_avatar = Yii::app()->user->avatar;
+    	$model->notis_type = $notisType;
+
+    	if($model->notis_type=='friend')
+    		$model->message=Yii::t('translator','send you a friend request');
+    	if($model->notis_type=='email')
+    		$model->message=Yii::t('translator','send you a friend message');
+    	if($model->notis_type=='trip'){
+    		$model->trip_id = $tripId;
+    		$model->message=$tripMsg;
+    	}
+    	$model->save();
     }
 
 	public function actionGetNotis(){

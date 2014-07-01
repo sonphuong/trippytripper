@@ -1,0 +1,32 @@
+.numNotis{
+    color: red;
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    padding-bottom: 6px;
+}
+#trip_num{
+	background: url(images/trip_icon.png);
+	background-size: 16px 16px;
+    background-repeat: no-repeat;	
+}
+#email_num{
+	background: url(images/email_icon.png);	
+	background-size: 16px 16px;
+    background-repeat: no-repeat;
+}
+#friend_num{
+	background: url(images/friend_icon.png);	
+	background-size: 16px 16px;
+    background-repeat: no-repeat;
+}
+.notis{
+    display: none;
+    background-color: #FFE7A7;
+    width: 300px;
+    max-height: 500px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    z-index: 9999;
+}

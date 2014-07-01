@@ -118,4 +118,11 @@ class Notis extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+	public function beforeSave() {
+	    if ($this->isNewRecord)
+	        $this->create_time = new CDbExpression('NOW()');
+	 
+	    return parent::beforeSave();
+	}
 }

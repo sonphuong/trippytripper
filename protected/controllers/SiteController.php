@@ -3,6 +3,7 @@
 /**
  *
  */
+Yii::import('application.models.Notis');
 class SiteController extends Controller
 {
     public $layout = 'column1';
@@ -12,8 +13,10 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $notisModel = new Notis;
+        $allNotis = $notisModel->findAll();
         $this->render('index', array(
-        //'notifiche' => ModelNotifyii::getAllNotifications()
+        'allNotis'=>$allNotis
     ));
     }
 

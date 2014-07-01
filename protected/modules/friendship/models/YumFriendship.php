@@ -158,16 +158,20 @@ class YumFriendship extends YumActiveRecord {
 				if(Yum::hasModule('message')
 						&& $user->privacy 
 						&& $user->privacy->message_new_friendship) {
-					Yii::import('application.modules.message.models.YumMessage');
-					YumMessage::write($user, $this->inviter,
-							Yum::t('New friendship request from {username}', array(
-									'{username}' => $this->inviter->username)),
-							strtr(
-								'A new friendship request from {username} has been made: {message} <a href="{link_friends}">Manage my friends</a><br /><a href="{link_profile}">To the profile</a>', array(
-									'{username}' => $this->inviter->username,
-									'{link_friends}' => Yii::app()->controller->createUrl('//friendship/friendship/index'),
-									'{link_profile}' => Yii::app()->controller->createUrl('//profile/profile/view'),
-									'{message}' => $this->message)));
+					//add to notification
+					Yii::import('application.controllers.NotisController');
+					NotisController::add('friend',$this->friend_id);
+					//phuongds remove (no need to send message when someone add friend)
+					//Yii::import('application.modules.message.models.YumMessage');
+					// YumMessage::write($user, $this->inviter,
+					// 		Yum::t('New friendship request from {username}', array(
+					// 				'{username}' => $this->inviter->username)),
+					// 		strtr(
+					// 			'A new friendship request from {username} has been made: {message} <a href="{link_friends}">Manage my friends</a><br /><a href="{link_profile}">To the profile</a>', array(
+					// 				'{username}' => $this->inviter->username,
+					// 				'{link_friends}' => Yii::app()->controller->createUrl('//friendship/friendship/index'),
+					// 				'{link_profile}' => Yii::app()->controller->createUrl('//profile/profile/view'),
+					// 				'{message}' => $this->message)));
 				}
 			}
 		return parent::beforeSave();
