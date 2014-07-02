@@ -4,6 +4,9 @@
 
 <div class="view_user" id="user_<?php echo $data->id;?>"> 
 
+<?php echo CHtml::link($data->getAvatar(),
+		array(
+			'//profile/profile/view', 'id' => $data->id)); ?>
 <?
 $online = '';
 if(Yum::hasModule('profile') && Yum::module('profile')->enablePrivacySetting) {
@@ -16,11 +19,7 @@ if(Yum::hasModule('profile') && Yum::module('profile')->enablePrivacySetting) {
 
 ?>
 
-<?php printf('<h3>%s %s</h3>', $data->username, $online); ?>
-
-<?php echo CHtml::link($data->getAvatar(true),
-		array(
-			'//profile/profile/view', 'id' => $data->id)); ?>
+<?php printf('<div class="username">%s %s</div>', $data->username, $online); ?>			
 </div>
 
 <?

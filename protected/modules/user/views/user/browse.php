@@ -1,6 +1,6 @@
 <?
 //$this->title = Yum::t('Browse users');
-$this->breadcrumbs=array(Yum::t('Browse users'));
+//$this->breadcrumbs=array(Yum::t('Browse users'));
 
 Yum::register('js/tooltip.min.js');
 Yum::register('css/yum.css'); 
@@ -26,7 +26,7 @@ echo CHtml::endForm();
 $this->widget('zii.widgets.CListView', array(
     'dataProvider'=>$dataProvider,
     'itemView'=>'_view', 
-		'template' => '{summary} {sorter} {items} <div style="clear:both;"></div> {pager}',
+	'template' => '{summary} {sorter} {items} <div style="clear:both;"></div> {pager}',
     'sortableAttributes'=>array(
         'username',
         'lastvisit',
