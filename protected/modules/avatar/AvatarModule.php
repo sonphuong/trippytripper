@@ -30,4 +30,10 @@ class AvatarModule extends CWebModule {
 					'application.modules.avatar.models.*',
 					));
 	}
+	public static function getAvatarThumb($avatar){
+    	//subtring the path to put thumb
+    	$avatar = substr($avatar, strrpos($avatar,"/"));
+		return '/images/avatars/thumbs'.$avatar;
+
+    }
 }

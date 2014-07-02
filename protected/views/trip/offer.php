@@ -76,8 +76,6 @@
     <input type="submit" value="<?php echo Yii::t('translator', 'Offer');?>">
 </div>
 <?php $this->endWidget(); ?></div>
-<div id= "#direction-route">UUUUUUUUUUU</div>
-<div id="directions-panel">XXXXXXXX</div>
 <div id="map-canvas"/>
 <!-- google maps -->
 <input id="fb_access_token" type="hidden" value="<?php echo Yii::app()->params['FB_ACCESS_TOKEN']; ?>">
@@ -85,125 +83,63 @@
 <script type="text/javascript"
         src="https://maps.googleapis.com/maps/api/js?key=<?php echo Yii::app()->params['GOOGLE_API_KEY']; ?>&sensor=true&libraries=places"></script>
 <script type="text/javascript">
-    // var directionsDisplay;
-    // var directionsService = new google.maps.DirectionsService();
-    // var map;
-    // var lat = 21.0845;
-    // var lng = 105.638122;
-    // var mapZoom = 6;
+    var directionsDisplay;
+    var directionsService = new google.maps.DirectionsService();
+    var map;
+    var lat = 21.0845;
+    var lng = 105.638122;
+    var mapZoom = 6;
     
 
-    // function initialize() {
-    //     directionsDisplay = new google.maps.DirectionsRenderer();
-    //     var hanoi = new google.maps.LatLng(lat, lng);
-    //     var mapOptions = {
-    //         zoom: mapZoom,
-    //         center: hanoi
-    //     }
-    //     map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-    //     directionsDisplay.setMap(map);
-    //     directionsDisplay.setPanel(document.getElementById('directions-panel'));
-
-    //     var fromOptions = {
-    //         types: ['(cities)'],
-    //         //componentRestrictions: {country: "us"}
-    //     };
-    //     makeAutoComplete('goFrom', fromOptions);
-    //     makeAutoComplete('goTo', mapOptions);
-    //     //first load
-    //     var from = $('#goFrom').val();
-    //     var to = $('#goTo').val();
-    //     if(from.length>0 && to.length>0){
-    //         calcRoute($('#goFrom').val(),$('#goTo').val());
-    //         console.log('first load');
-    //     }
-    // }
-    // function calcRoute(start,end) {
-    //     var digiLocation = {
-    //         "lat": "51.597336",
-    //         "long": "-0.109035"
-    //     };
-    //     directionsDisplay = new google.maps.DirectionsRenderer();
-    //     var request = {
-    //         origin: start,
-    //         destination: new google.maps.LatLng(digiLocation.lat, digiLocation.long),
-    //         //destination: end,
-    //         //travelMode: google.maps.TravelMode.DRIVING
-    //         travelMode: google.maps.DirectionsTravelMode.DRIVING
-    //     };
-    //     directionsService.route(request, function (response, status) {
-    //         if (status == google.maps.DirectionsStatus.OK) {
-    //             directionsDisplay.setDirections(response);
-    //             console.log('set direction');
-    //         }
-    //     });
-    // }
-    // google.maps.event.addDomListener(window, 'load', initialize);
-    
-    // //load again when change the value of destination
-    // $('#goTo').change(function () {
-    //     calcRoute($('#goFrom').val(),$('#goTo').val());
-    // });
-var directionDisplay;
-var directionsService = new google.maps.DirectionsService();
-
-var map;
-var digiLocation = {
-    "lat": "51.597336",
-        "long": "-0.109035"
-};
-var myLatlng = new google.maps.LatLng(digiLocation.lat, digiLocation.long);
-
-$(document).ready(function () {
-    $("#direction-route").click(function (event) {
-        event.preventDefault();
-        var locationStart = "turnpike lane"
-        calcRoute(locationStart)
-    });
-    var laLatLng;
-    initialize();
-});
-// Set pointer at the middle while resize
-google.maps.event.addDomListener(window, "resize", function () {
-    var center = map.getCenter();
-    google.maps.event.trigger(map, "resize");
-    map.setCenter(center);
-});
-
-function calcRoute(locationStart) {
-    var request = {
-        origin: locationStart,
-        destination: new google.maps.LatLng(digiLocation.lat, digiLocation.long),
-        travelMode: google.maps.DirectionsTravelMode.DRIVING
-    };
-    directionsService.route(request, function (response, status) {
-        if (status == google.maps.DirectionsStatus.OK) {
-            directionsDisplay.setDirections(response);
+    function initialize() {
+        directionsDisplay = new google.maps.DirectionsRenderer();
+        var hanoi = new google.maps.LatLng(lat, lng);
+        var mapOptions = {
+            zoom: mapZoom,
+            center: hanoi
         }
-    });
-}
+        map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+        directionsDisplay.setMap(map);
+        directionsDisplay.setPanel(document.getElementById('directions-panel'));
 
-function initialize() {
-    var myOptions = {
-        scrollwheel: false,
-        zoom: 16,
-        center: myLatlng,
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        styles: [{
-            "stylers": [{
-                "saturation": -100
-            }]
-        }]
-    };
-    map = new google.maps.Map(document.getElementById('digi-map'), myOptions);
-    marker = new google.maps.Marker({
-        position: myLatlng,
-        icon: 'img/digi-marker.png',
-        map: map
+        var fromOptions = {
+            types: ['(cities)'],
+            //componentRestrictions: {country: "us"}
+        };
+        makeAutoComplete('goFrom', fromOptions);
+        makeAutoComplete('goTo', mapOptions);
+        //first load
+        var from = $('#goFrom').val();
+        var to = $('#goTo').val();
+        if(from.length>0 && to.length>0){
+            calcRoute($('#goFrom').val(),$('#goTo').val());
+            console.log('first load');
+        }
+    }
+    function calcRoute(start,end) {
+        var digiLocation = {
+            "lat": "51.597336",
+            "long": "-0.109035"
+        };
+        directionsDisplay = new google.maps.DirectionsRenderer();
+        var request = {
+            origin: start,
+            destination: new google.maps.LatLng(digiLocation.lat, digiLocation.long),
+            //destination: end,
+            //travelMode: google.maps.TravelMode.DRIVING
+            travelMode: google.maps.DirectionsTravelMode.DRIVING
+        };
+        directionsService.route(request, function (response, status) {
+            if (status == google.maps.DirectionsStatus.OK) {
+                directionsDisplay.setDirections(response);
+                console.log('set direction');
+            }
+        });
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+    
+    //load again when change the value of destination
+    $('#goTo').change(function () {
+        calcRoute($('#goFrom').val(),$('#goTo').val());
     });
-    directionsDisplay = new google.maps.DirectionsRenderer();
-    directionsDisplay.setMap(map);
-
-}
-google.maps.event.addDomListener(window, 'load', initialize);   
 </script>

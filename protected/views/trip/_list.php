@@ -4,7 +4,7 @@
             <a href="view/?id=<?php echo $trip['id']; ?>" rel="nofollow" class="trip-search-oneresult">
                 <article class="table_row">
                     <div class="cell user cell2">
-                        <img class="photo" src="/<?php echo $trip['avatar']; ?>" width="42" height="42">
+                        <img class="photo" src="<?php echo Yum::module('avatar')->getAvatarThumb($trip['avatar']); ?>" width="42" height="42">
 
                         <div class="user-info">
                             <h3 class="username"><?php echo $trip['username']; ?></h3>
