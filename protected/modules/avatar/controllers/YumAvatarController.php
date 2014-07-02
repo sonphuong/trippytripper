@@ -72,15 +72,19 @@ class YumAvatarController extends YumController {
 					$ext = substr($_FILES['YumUser']['name']['avatar'], -4);
 					$filename = Yum::module('avatar')->avatarPath .'/'.  $model->id . $ext;
 					$model->avatar->saveAs($filename);
-					//thumb
+					//thumb+++++++++++++++++++++++++
 					Yii::import("application.ext.EPhpThumb.EPhpThumb");
 					$thumb=new EPhpThumb();
 					$thumb->init(); //this is needed
-
+					//small
 					$thumbImg=$thumb->create($filename);
-					$thumbImg->resize(50,50);
+					$thumbImg->resize(42,42);
 					$thumbImg->save(Yum::module('avatar')->avatarPath .'/thumbs/'.$model->id . $ext);
-
+					//resize to standard and remove the original one
+					$thumbImg=$thumb->create($filename);
+					$thumbImg->resize(160,160);
+					$thumbImg->save(Yum::module('avatar')->avatarPath .'/'.$model->id . $ext);
+					//thumb-------------------------
 					$model->avatar = $filename;
 					if($model->save()) {
 						//update avatar in comment table

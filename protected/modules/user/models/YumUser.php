@@ -738,11 +738,14 @@ class YumUser extends YumActiveRecord
 	{
 		if (Yum::hasModule('avatar') && $this->profile) {
 			$options = array();
-			if ($thumb)
+			if ($thumb){
 				$options = array('class' => 'avatar', 'style' => 'width: ' . Yum::module('avatar')->avatarThumbnailWidth . 'px;');
-			else
+				$avatar = Yii::app()->params['AVATAR_PATH'].'/thumbs'.substr($this->avatar, strrpos($this->avatar,"/"));
+			}
+			else{
 				$options = array('class' => 'avatar', 'style' => 'width: ' . Yum::module('avatar')->avatarDisplayWidth . 'px;');
-
+				$avatar = Yii::app()->baseUrl . '/'. $this->avatar; 
+			}	
 			$return = '<div class="avatar">';
 
 			if(Yum::module('avatar')->enableGravatar && $this->avatar == 'gravatar') 
@@ -752,8 +755,7 @@ class YumUser extends YumActiveRecord
 						$options);
 
 			if (isset($this->avatar) && $this->avatar)
-				$return .= CHtml::image(Yii::app()->baseUrl . '/'
-						. $this->avatar, 'Avatar', $options);
+				$return .= CHtml::image($avatar, 'Avatar', $options);
 			else
 				$return .= CHtml::image(Yii::app()->getAssetManager()->publish(
 							Yii::getPathOfAlias('YumAssets.images') . ($thumb
