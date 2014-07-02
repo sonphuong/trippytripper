@@ -1,5 +1,5 @@
 <?
-$this->title = Yum::t('Browse users');
+//$this->title = Yum::t('Browse users');
 $this->breadcrumbs=array(Yum::t('Browse users'));
 
 Yum::register('js/tooltip.min.js');
@@ -11,7 +11,7 @@ Yum::register('css/yum.css');
 
 <div style="float: left;">
 <?
-echo CHtml::label(Yum::t('Search for username'), 'search_username') . '<br />';
+//echo CHtml::label(Yum::t('Search for username'), 'search_username') . '<br />';
 echo CHtml::textField('search_username',
 		$search_username, array(
 			'submit' => array('//user/user/browse')));

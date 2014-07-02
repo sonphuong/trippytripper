@@ -23,7 +23,7 @@
  * @property YumUser $active
  * @property YumUser $notactive
  * @property YumUser $banned
- //* @property YumUser $superuser
+ * @property YumUser $superuser
  *
  */
 class YumUser extends YumActiveRecord

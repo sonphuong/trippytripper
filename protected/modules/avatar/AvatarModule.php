@@ -8,7 +8,7 @@ class AvatarModule extends CWebModule {
 	public $adminLayout = 'application.modules.user.views.layouts.yum';
 	public $layout = 'application.modules.user.views.layouts.yum';
 
-	public $avatarPath = 'images';
+	public $avatarPath = 'images/avatars';
 
 	// Set avatarMaxWidth to a value other than 0 to enable image size check
 	public $avatarMaxWidth = 0;

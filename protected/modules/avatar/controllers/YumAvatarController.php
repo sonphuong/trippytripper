@@ -68,9 +68,9 @@ class YumAvatarController extends YumController {
 			$model->avatar = CUploadedFile::getInstanceByName('YumUser[avatar]');
 			if($model->validate()) {
 				if ($model->avatar instanceof CUploadedFile) {
-
-					// Prepend the id of the user to avoid filename conflicts
-					$filename = Yum::module('avatar')->avatarPath .'/'.  $model->id . '_' . $_FILES['YumUser']['name']['avatar'];
+					//set name of avatar is the user_id
+					$ext = substr($_FILES['YumUser']['name']['avatar'], -4);
+					$filename = Yum::module('avatar')->avatarPath .'/'.  $model->id . $ext;
 					$model->avatar->saveAs($filename);
 					$model->avatar = $filename;
 					if($model->save()) {
