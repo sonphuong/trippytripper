@@ -28,11 +28,9 @@ return array(
     'sourceLanguage'=>'en',
     // preloading 'log' component
     'preload'=>array('log'),
-
     // autoloading model and component classes
     'import' => array(
         'application.ext.time.*',
-
         'application.models.*',
         'application.components.*',
         'application.modules.*',
