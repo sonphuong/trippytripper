@@ -739,11 +739,11 @@ class YumUser extends YumActiveRecord
 		if (Yum::hasModule('avatar') && $this->profile) {
 			$options = array();
 			if ($thumb){
-				$options = array('class' => 'avatar', 'style' => 'width: ' . Yum::module('avatar')->avatarThumbnailWidth . 'px;');
+				$options = array('class' => 'avatar', 'style' => 'width: ' . Yum::module('avatar')->avatarThumbnailWidth . 'px;height: ' . Yum::module('avatar')->avatarThumbnailWidth . 'px;');
 				$avatar = Yii::app()->params['AVATAR_PATH'].'/thumbs'.substr($this->avatar, strrpos($this->avatar,"/"));
 			}
 			else{
-				$options = array('class' => 'avatar', 'style' => 'width: ' . Yum::module('avatar')->avatarDisplayWidth . 'px;');
+				$options = array('class' => 'avatar', 'style' => 'width: ' . Yum::module('avatar')->avatarDisplayWidth . 'px;height: ' . Yum::module('avatar')->avatarDisplayWidth . 'px;');
 				$avatar = Yii::app()->baseUrl . '/'. $this->avatar; 
 			}	
 			$return = '<div class="avatar">';

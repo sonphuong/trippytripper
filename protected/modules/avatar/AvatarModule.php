@@ -14,7 +14,7 @@ class AvatarModule extends CWebModule {
 	public $avatarMaxWidth = 0;
 
 	public $avatarThumbnailWidth = 42; // For display in user browse, friend list
-	public $avatarDisplayWidth = 160;
+	public $avatarDisplayWidth = 120;
 
 	public $enableGravatar = true;
 

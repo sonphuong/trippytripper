@@ -82,7 +82,7 @@ class YumAvatarController extends YumController {
 					$thumbImg->save(Yum::module('avatar')->avatarPath .'/thumbs/'.$model->id . $ext);
 					//resize to standard and remove the original one
 					$thumbImg=$thumb->create($filename);
-					$thumbImg->resize(160,160);
+					$thumbImg->resize(120,120);
 					$thumbImg->save(Yum::module('avatar')->avatarPath .'/'.$model->id . $ext);
 					//thumb-------------------------
 					$model->avatar = $filename;
