@@ -30,13 +30,13 @@
 	<div id="header">
 		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
         <div style="float:left;"><?php $this->widget('application.widgets.langbox.LangBox'); ?></div>
-	
-
 	<?php if(!Yii::app()->user->isGuest): ?>
 	<div style="float:right">
-		<a href="/index.php/profile/profile/view"><img class="photo" src="<?php echo Yum::module('avatar')->getAvatarThumb(Yii::app()->user->avatar); ?>" width="42" height="42"></a>
-		<a href="/index.php/trip/myTrips"><?php echo Yii::t('translator','My trips'); ?></a>
-		<a href="/index.php/site/logout"><?php echo Yii::t('translator','Logout'); ?></a>
+		<a id="myavatar" href="/index.php/profile/profile/view"><img class="photo" src="<?php echo Yum::module('avatar')->getAvatarThumb(Yii::app()->user->avatar); ?>" width="42" height="42"></a>
+		<div id="mymenu">
+			<a href="/index.php/trip/myTrips"><?php echo Yii::t('translator','My trips'); ?></a>
+			<a href="/index.php/site/logout"><?php echo Yii::t('translator','Logout'); ?></a>
+		</div>
 	</div>
 		
 	<?php $this->widget('application.widgets.notification.Notification'); endif; ?>

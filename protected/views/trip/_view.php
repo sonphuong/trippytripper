@@ -129,6 +129,7 @@
     </form>
     <div class="cell cell5">
         <div id="viewMoreComments">
+        <input type="hidden" name="commentsOffset" id = "commentsOffset" value="<?php echo Yii::app()->params['COMMENTS_PER_TIME']; ?>">
         <?php 
         echo CHtml::ajaxLink(
             $text = Yii::t('translator','view previous comments'), 
@@ -164,7 +165,7 @@
                     'model'=>$comment,
                 )); ?>
         </div>
-        <input type="hidden" name="commentsOffset" id = "commentsOffset" value="<?php echo Yii::app()->params['COMMENTS_PER_TIME']; ?>">
+        
         <?php endif; ?>
     </div>
 </article>
