@@ -3,10 +3,10 @@ Yii::import('zii.widgets.CPortlet');
 
 class YumUserMenu extends CPortlet {
 	public function init() {
-		$this->title = sprintf('%s <br /> %s: %s',
-				Yum::t('Usermenu'),
-				Yum::t('Logged in as'),
-				Yii::app()->user->data()->username);
+		// $this->title = sprintf('%s <br /> %s: %s',
+		// 		Yum::t('Usermenu'),
+		// 		Yum::t('Logged in as'),
+		// 		Yii::app()->user->data()->username);
 
 		$this->contentCssClass = 'menucontent';
 		return parent::init();
