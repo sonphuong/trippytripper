@@ -67,8 +67,8 @@
         </div>
         <!-- check current date (no meaning for these below actions if the trip already done) -->
         <?php if($days>=0):?>
-        <?php if($joinStatus==9): ?>
-            <?php $this->renderPartial('/trip/_owner_dis_join_form',array('model'=>$model,)); ?>
+        <?php if($joinStatus==9): ?><a href="/index.php/trip/ownerDisJoin/?height=150&width=400&trip_id=<?php echo $_GET['id']; ?>" class="thickbox"><?php echo Yii::t('translator','Cancel this tour');?></a>
+            <?php //$this->renderPartial('/trip/_owner_dis_join_form',array('model'=>$model,)); ?>
         <?php elseif($joinStatus==1): ?>
             <?php $this->renderPartial('/trip/_dis_join_form',array('model'=>$model,)); ?>
         <?php elseif($joinStatus==2): ?>

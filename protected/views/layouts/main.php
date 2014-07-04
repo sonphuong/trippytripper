@@ -14,10 +14,12 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/select2.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/thickbox.css" />
 
 	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-2.0.3.min.js"></script>
 	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/select2.js"></script>
 	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/common.js"></script>
+	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/thickbox.js"></script>
 	<?php Yii::app()->clientScript->scriptMap=array('jquery.js'=>false,);?>
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 
@@ -34,8 +36,13 @@
 	<div style="float:right">
 		<a id="myavatar" href="/index.php/profile/profile/view"><img class="photo" src="<?php echo Yum::module('avatar')->getAvatarThumb(Yii::app()->user->avatar); ?>" width="42" height="42"></a>
 		<div id="mymenu">
-			<a href="/index.php/trip/myTrips"><?php echo Yii::t('translator','My trips'); ?></a>
-			<a href="/index.php/site/logout"><?php echo Yii::t('translator','Logout'); ?></a>
+			<ul>
+				<li><a href="/index.php/trip/myTrips"><?php echo Yii::t('translator','My trips'); ?></a></li>
+				<li><a href="/index.php/friendship/friendship/index"><?php echo Yii::t('translator','My friends'); ?></a></li>
+				<li><a href="/index.php/message/message/index"><?php echo Yii::t('translator','My inbox'); ?></a></li>
+				<li><a href="/index.php/usergroup/groups/index"><?php echo Yii::t('translator','My groups'); ?></a></li>
+				<li><a href="/index.php/site/logout"><?php echo Yii::t('translator','Logout'); ?></a></li>
+			</ul>
 		</div>
 	</div>
 		

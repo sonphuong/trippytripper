@@ -435,6 +435,11 @@ class TripController extends Controller
         }
         
     }
+    public function actionOwnerDisJoin(){
+        $this->layout=false;
+        $model = new Trip;
+        $this->render('_owner_dis_join_form', array('model'=>$model));
+    }
     private function ownerDisJoin($tripId,$userId){
         $return['status'] = 0;
         $return['msg'] = 'unsuccess';

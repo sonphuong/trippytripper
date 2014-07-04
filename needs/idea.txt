@@ -1,3 +1,4 @@
 functions: 
 
-the owner is cancle the trip => send notice to every body in the trip
+(done)the owner is cancle the trip => send notice to every body in the trip
+invite my friend to join the my trip=> just send message to friend
