@@ -90,7 +90,6 @@ class YumProfileController extends YumController {
 		if(!Yum::module('profile')->profilesViewableByGuests 
 				&& Yii::app()->user->isGuest)
 			throw new CHttpException(403);
-
 		// If no profile id is provided, take myself
 		if(!$id)
 			$id = Yii::app()->user->id;

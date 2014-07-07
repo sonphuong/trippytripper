@@ -51,7 +51,19 @@ class CommentController extends Controller
             $model->avatar = Yii::app()->user->avatar;
             $model->trip_id = $arrData['trip_id'];
             $model->save();
-            //$this->refresh();
+            //add to notification
+            Yii::import('application.controllers.NotisController');
+            Yii::import('application.controllers.TripController');
+            //get trippers to send notification
+            $tripController = new TripController($model->trip_id);
+            $trippers = $tripController->getTripper($model->trip_id);
+            //get trip from and to
+            $tripRoute = $tripController->getTripRoute($model->trip_id);
+            
+            foreach ($trippers as $key => $tripper) {
+                NotisController::add('trip',$tripper['user_id'],$model->trip_id,Yii::t('translator','Comment on <b>'.$tripRoute.'</b>'));    
+            }
+            
 
         }
         //get the record have just insert

@@ -28,17 +28,23 @@ class YumProfileCommentController extends YumController
 		$model = new YumProfileComment;
 
 		$this->performAjaxValidation($model, 'profile-comment-form');
-
+		$userId =$_POST['YumProfileComment']['profile_id']; 
 		if(isset($_POST['YumProfileComment'])) {
 			$model->attributes = $_POST['YumProfileComment'];
 			$model->save();
 			}
 		//comment only one time
 		$commentAble = false;	
+		 //get the tours lead by
+        $tourNo = Trip::model()->count(array(
+            'condition'=> 'user_id=:user_id',
+            'params' => array(':user_id'=>$userId)
+        ));
 		if(isset($model->profile->user) && $user = $model->profile->user)
 			$this->renderPartial(Yum::module('profile')->profileView, array(
 						'model'=>$user,
-						'commentAble' => $commentAble
+						'commentAble' => $commentAble,
+						'tourNo'=>$tourNo
 						), false, true);
 	}
 

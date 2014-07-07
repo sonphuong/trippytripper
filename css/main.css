@@ -443,4 +443,7 @@ article{
     color: #555;
     font-weight: bold;
 }
-
+#myavatar{
+	text-decoration: none;
+	font-weight: bold;
+}

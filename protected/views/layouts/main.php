@@ -34,7 +34,10 @@
         <div style="float:left;"><?php $this->widget('application.widgets.langbox.LangBox'); ?></div>
 	<?php if(!Yii::app()->user->isGuest): ?>
 	<div style="float:right">
-		<a id="myavatar" href="/index.php/profile/profile/view"><img class="photo" src="<?php echo Yum::module('avatar')->getAvatarThumb(Yii::app()->user->avatar); ?>" width="42" height="42"></a>
+		<a id="myavatar" href="/index.php/profile/profile/view">
+			<img class="photo" src="<?php echo Yum::module('avatar')->getAvatarThumb(Yii::app()->user->avatar); ?>" width="42" height="42">
+			<?php echo Yii::app()->user->name; ?>
+		</a>
 		<div id="mymenu">
 			<ul>
 				<li><a href="/index.php/trip/myTrips"><?php echo Yii::t('translator','My trips'); ?></a></li>

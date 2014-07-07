@@ -10,7 +10,7 @@ class TripController extends Controller
      * @var CActiveRecord the currently loaded data model instance.
      */
     private $_model;
-
+   
     public function accessRules() {
         return array(
             array('allow',
@@ -114,7 +114,11 @@ class TripController extends Controller
         $command = Yii::app()->db->createCommand($sql);
         $command->bindParam(':tripId', $tripId, PDO::PARAM_INT);
         $members = $command->queryAll();
-        return $members;
+        $return = array();
+        foreach ($members as $key => $value) {
+            $return[$value['user_id']] = $value;
+        }
+        return $return;
     }
 
     /**
@@ -293,7 +297,23 @@ class TripController extends Controller
         ));
 
     }
-
+    public function getTripRoute($id)
+    {
+        $model = new Trip;
+        $sql = "SELECT
+                    R.from, 
+                    R.to
+                FROM user U 
+                INNER JOIN trip R ON U.id = R.user_id
+                WHERE R.id = :id
+                ";
+        $command = Yii::app()->db->createCommand($sql);
+        $command->bindParam(':id', $id, PDO::PARAM_INT);
+        $data = $command->queryRow();
+        $isAjax = Yii::app()->request->isAjaxRequest;       
+        $return = $data['from'] .' - '. $data['to'];
+        return $return;
+    }
     //get list comments
     public function actionGetComments($tripId=null)
     {
@@ -578,6 +598,22 @@ class TripController extends Controller
                         $return['status'] = 1;
                         $return['msg'] = 'success';
                     }
+                }
+                //send notice to trippers
+                //add to notification
+                Yii::import('application.controllers.NotisController');
+                //get trippers to send notification
+                $trippers = $this->getTripper($tripId);
+                //get trip from and to
+                $tripRoute = $this->getTripRoute($tripId);
+
+                $joiner['from_user_name'] = $trippers[$userId]['user_name'];
+                $joiner['from_user_id'] = $trippers[$userId]['user_id'];
+                $joiner['from_avatar'] = $trippers[$userId]['avatar'];
+                
+                foreach ($trippers as $key => $tripper) {
+                    $message = 'joined <b>'.$tripRoute.'</b>';   
+                    NotisController::add('trip',$tripper['user_id'],$tripId,Yii::t('translator',$message),$joiner);
                 }
             } else {
                 Yii::app()->user->setFlash('joinRequested', Yii::t('Waiting for approve','Cho duyet'));

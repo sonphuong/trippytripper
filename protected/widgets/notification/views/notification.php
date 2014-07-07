@@ -87,7 +87,7 @@ function genNotisHTML(notis){
         friendNotis +='<a href="/index.php/friendship/friendship/index">';
         friendNotis +='<li name="'+friends[i].notis_id+'" class="liFriend">';
         friendNotis +='<img src="/'+friends[i].from_avatar+'" alt="" width="32px" height="32px" />';                               
-        friendNotis += friends[i].from_user_name +': '+ friends[i].message;
+        friendNotis += friends[i].from_user_name +' '+ friends[i].message;
         friendNotis += '</li>';
         friendNotis += '</a>';
     };          
@@ -104,7 +104,7 @@ function genNotisHTML(notis){
         emailNotis +='<a href="/index.php/message/message/index">';
         emailNotis +='<li name="'+emails[i].notis_id+'" class="liEmail">';
         emailNotis +='<img src="/'+emails[i].from_avatar+'" alt="" width="32px" height="32px" />';                               
-        emailNotis += emails[i].from_user_name +': '+ emails[i].message;
+        emailNotis += emails[i].from_user_name +' '+ emails[i].message;
         emailNotis += '</li>';
         emailNotis += '</a>';
     };          
@@ -118,10 +118,10 @@ function genNotisHTML(notis){
     var trips = notis.trip;
     tripNotis += '<ul>';
     for (var i = 0; i < trips.length; i++) {
-        tripNotis +='<a href="/index.php/trip/view/?id="'+trips[i].trip_id+'>';
+        tripNotis +='<a href="/index.php/trip/view/?id='+trips[i].trip_id+'">';
         tripNotis +='<li name="'+trips[i].notis_id+'" class="liTrip">';
         tripNotis +='<img src="/'+trips[i].from_avatar+'" alt="" width="32px" height="32px" />';                               
-        tripNotis += trips[i].from_user_name +': '+ trips[i].message;
+        tripNotis += trips[i].from_user_name +' '+ trips[i].message;
         tripNotis += '</li>';
         tripNotis += '</a>';
     };          
