@@ -414,7 +414,6 @@ class TripController extends Controller
         
         if ($this->isOwner($tripId)) {
             $return = $this->ownerDisJoin($tripId,$userId);
-            $this->noticeTripper($tripId,$userId);
         } else {
             $return = $this->disJoin($tripId,$userId);
         }
@@ -427,32 +426,50 @@ class TripController extends Controller
      * @param  [int] $owner
      * @return [void]
      */
-    private function noticeTripper($tripId,$owner){
+    private function noticeTripper($tripId,$userId,$owner=false){
+        //add to notification
+        Yii::import('application.controllers.NotisController');
+        //get trippers to send notification
         $trippers = $this->getTripper($tripId);
-        $trippersNum = count($trippers);
-        if(!empty($trippers)){
-            $sql = "INSERT INTO message 
-                (`timestamp`,`from_user_id`,`to_user_id`,`title`,`message`)
-                VALUES
-                ";
-            $i = 1;    
-            foreach($trippers as $tripper){
-                if($i<$trippersNum){
-                    $comma = ", ";
-                }
-                else{
-                    $comma = "";
-                }
-                $sql .="(:timestamp,:owner,'".$tripper['user_id']."','','Sorry this trip has removed by the owner')".$comma;
-                $i++;
-            }
+        //get trip from and to
+        $tripRoute = $this->getTripRoute($tripId);
 
-            $command = Yii::app()->db->createCommand($sql);
-            $timestamp = time();
-            $command->bindParam(':owner', $owner, PDO::PARAM_INT);
-            $command->bindParam(':timestamp', $timestamp, PDO::PARAM_INT);
-            $result = $command->execute();
+        $joiner['from_user_name'] = $trippers[$userId]['user_name'];
+        $joiner['from_user_id'] = $trippers[$userId]['user_id'];
+        $joiner['from_avatar'] = $trippers[$userId]['avatar'];
+        
+        foreach ($trippers as $key => $tripper) {
+            $message = 'joined <b>'.$tripRoute.'</b>';   
+            NotisController::add('trip',$tripper['user_id'],$tripId,Yii::t('translator',$message),$joiner);
         }
+        //if owner disjoin send message to all tripper
+        if($owner){
+            $trippersNum = count($trippers);
+            if(!empty($trippers)){
+                $sql = "INSERT INTO message 
+                    (`timestamp`,`from_user_id`,`to_user_id`,`title`,`message`)
+                    VALUES
+                    ";
+                $i = 1;    
+                foreach($trippers as $tripper){
+                    if($i<$trippersNum){
+                        $comma = ", ";
+                    }
+                    else{
+                        $comma = "";
+                    }
+                    $sql .="(:timestamp,:owner,'".$tripper['user_id']."','','Sorry this trip has removed by the owner')".$comma;
+                    $i++;
+                }
+
+                $command = Yii::app()->db->createCommand($sql);
+                $timestamp = time();
+                $command->bindParam(':owner', $owner, PDO::PARAM_INT);
+                $command->bindParam(':timestamp', $timestamp, PDO::PARAM_INT);
+                $result = $command->execute();
+            }
+        }
+
         
     }
     public function actionOwnerDisJoin(){
@@ -488,6 +505,8 @@ class TripController extends Controller
                 $return['msg'] = 'success';
             }
         }  
+        //send notice to trippers
+        $this->noticeTripper($tripId,$userId,true);
         return $return;  
     }
 
@@ -524,9 +543,12 @@ class TripController extends Controller
                 $return['status'] = 1;
                 $return['msg'] = 'success';
             }
-        }  
+        }
+        //send notice to trippers
+        $this->noticeTripper($tripId,$userId);
         return $return;  
     }
+
     /*
     get join status to display the join button
     */
@@ -600,21 +622,7 @@ class TripController extends Controller
                     }
                 }
                 //send notice to trippers
-                //add to notification
-                Yii::import('application.controllers.NotisController');
-                //get trippers to send notification
-                $trippers = $this->getTripper($tripId);
-                //get trip from and to
-                $tripRoute = $this->getTripRoute($tripId);
-
-                $joiner['from_user_name'] = $trippers[$userId]['user_name'];
-                $joiner['from_user_id'] = $trippers[$userId]['user_id'];
-                $joiner['from_avatar'] = $trippers[$userId]['avatar'];
-                
-                foreach ($trippers as $key => $tripper) {
-                    $message = 'joined <b>'.$tripRoute.'</b>';   
-                    NotisController::add('trip',$tripper['user_id'],$tripId,Yii::t('translator',$message),$joiner);
-                }
+                $this->noticeTripper($tripId,$userId);
             } else {
                 Yii::app()->user->setFlash('joinRequested', Yii::t('Waiting for approve','Cho duyet'));
             }
