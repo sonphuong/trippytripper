@@ -15,7 +15,9 @@ Yum::renderFlash();
 	if(!Yii::app()->user->isGuest && Yii::app()->user->id == $model->id) {
 		echo CHtml::link(Yum::t('Edit profile'), array('//profile/profile/update'));
 		echo '&nbsp';
-		echo CHtml::link(Yum::t('Upload avatar image'), array('//avatar/avatar/editAvatar'));
+		echo CHtml::link(Yum::t('Upload avatar image'), array('//avatar/avatar/editAvatar'), array('class'=>'thickbox'));
+		echo '&nbsp';
+		echo CHtml::link(Yum::t('1qa'), array('//profile/profile/update'), array('class'=>'thickbox'));
 	}
 ?>
 

@@ -50,6 +50,7 @@ class YumAvatarController extends YumController {
 	}
 
 	public function actionEditAvatar($id = null) {
+		$this->layout = false;
 		if($id && Yii::app()->user->isAdmin())
 			$model = YumUser::model()->findByPk($id);
 		else
@@ -99,7 +100,7 @@ class YumAvatarController extends YumController {
 			}
 		}
 
-		$this->render('edit_avatar', array('model' => $model));
+		$this->renderPartial('edit_avatar', array('model' => $model),false,true);
 	}
 	public function updateAvatarForComment($avatar,$userId){
 		$sql = "UPDATE comments SET avatar =:avatar WHERE user_id = :userId";

@@ -1,3 +1,4 @@
+<div><input type="text" value="enter a name"> Rearrange by: online - name</div>
 <?
 $this->title = Yum::t('My friends');
 $this->breadcrumbs = array(Yum::t('Friends'));
