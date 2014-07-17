@@ -199,6 +199,7 @@ class TripController extends Controller
 			R.description,
 			U.username,
 			U.avatar,
+            U.createtime,
 			R.leave,
 			R.return,
 			R.return_trip,
@@ -207,7 +208,8 @@ class TripController extends Controller
 			R.to,
 			R.fee,
 			R.gathering_point,
-			R.id
+			R.id,
+            COUNT(R.user_id) AS tour_no
 		FROM user U
 		INNER JOIN trip R ON U.id = R.user_id
 		WHERE 1
@@ -239,7 +241,6 @@ class TripController extends Controller
         $sql .= ' LIMIT ' . ($page - 1) . ', ' . Yii::app()->params['RECORDS_PER_PAGE'] . '';
         $allTrips = Yii::app()->db->createCommand($sql)->queryAll();
         //paging+++++++++++++++++++++++++++++++++++++++++++++++
-
         $this->render('search_trip', array(
             'model' => $model,
             'fromVal' => $fromVal,

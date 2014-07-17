@@ -1,3 +1,4 @@
+<div>rearrange by: departure date - prices</div>
 <ul class="trip-search-results">
     <?php foreach ($allTrips as $key => $trip): ?>
         <li class="trip" itemscope="" itemtype="">
@@ -11,8 +12,12 @@
                         </div>
                         <div class="user-trust">
                             <div class="rating-container">
-                                <!-- <span class="star-rating star_5"></span> -->
+                                <?php
+                                $this->widget('PcStarRankWidget', array('modelId' => $trip['user_id'], 'modelClassName' => get_class($model)));
+                                ?>
                             </div>
+                            <div class="row"><?php echo Yii::t('translator','Leaded tours'); ?>: <?php echo $trip['tour_no']; ?></div>
+                            <div class="row"><?php echo Yii::t('translator','Member since');?>: <?php echo date('d-m-Y',$trip['createtime']);?></div>
                             
                             <div class="preferences-container">
                                 <span class="blabla prefs tip"></span>

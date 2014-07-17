@@ -43,7 +43,7 @@
 <?php $this->endWidget(); ?>
 </div>
 <hr/>
-<div class="row"><?php $this->renderPartial('/trip/_list', array('allTrips' => $allTrips,)); ?></div>
+<div class="row"><?php $this->renderPartial('/trip/_list', array('allTrips' => $allTrips,'model' => $model,)); ?></div>
 <?php $this->widget('CLinkPager', array('pages' => $pages,)); ?>
 
 
