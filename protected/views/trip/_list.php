@@ -1,4 +1,4 @@
-<div>rearrange by: departure date - prices</div>
+<div>94  tours from Hanoi to Myanmar                          rearrange by: departure date - prices</div>
 <ul class="trip-search-results">
     <?php foreach ($allTrips as $key => $trip): ?>
         <li class="trip" itemscope="" itemtype="">
