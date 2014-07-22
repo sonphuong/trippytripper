@@ -50,7 +50,6 @@ class YumAvatarController extends YumController {
 	}
 
 	public function actionEditAvatar($id = null) {
-		$this->layout = false;
 		if($id && Yii::app()->user->isAdmin())
 			$model = YumUser::model()->findByPk($id);
 		else
@@ -73,21 +72,21 @@ class YumAvatarController extends YumController {
 					$ext = substr($_FILES['YumUser']['name']['avatar'], -4);
 					$filename = Yum::module('avatar')->avatarPath .'/'.  $model->id . $ext;
 					$model->avatar->saveAs($filename);
-					//thumb+++++++++++++++++++++++++
-					Yii::import("application.ext.EPhpThumb.EPhpThumb");
-					$thumb=new EPhpThumb();
-					$thumb->init(); //this is needed
-					//small
-					$thumbImg=$thumb->create($filename);
-					$thumbImg->resize(45,45);
-					$thumbImg->save(Yum::module('avatar')->avatarPath .'/thumbs/'.$model->id . $ext);
-					//resize to standard and remove the original one
-					$thumbImg=$thumb->create($filename);
-					$thumbImg->resize(120,120);
-					$thumbImg->save(Yum::module('avatar')->avatarPath .'/'.$model->id . $ext);
-					//thumb-------------------------
 					$model->avatar = $filename;
 					if($model->save()) {
+						//thumb+++++++++++++++++++++++++
+						Yii::import("application.ext.EPhpThumb.EPhpThumb");
+						$thumb=new EPhpThumb();
+						$thumb->init(); //this is needed
+						//small
+						$thumbImg=$thumb->create($filename);
+						$thumbImg->resize(45,45);
+						$thumbImg->save(Yum::module('avatar')->avatarPath .'/thumbs/'.$model->id . $ext);
+						//resize to standard and remove the original one
+						$thumbImg=$thumb->create($filename);
+						$thumbImg->resize(120,120);
+						$thumbImg->save(Yum::module('avatar')->avatarPath .'/'.$model->id . $ext);
+						//thumb-------------------------
 						//update avatar in comment table
 						$this->updateAvatarForComment($filename,Yii::app()->user->id);
 						Yum::setFlash(Yum::t('The image was uploaded successfully'));
@@ -96,11 +95,12 @@ class YumAvatarController extends YumController {
 										'{filename}' => $model->avatar)));
 						$this->redirect(array('//profile/profile/view'));	
 					}
+
 				}
 			}
 		}
 
-		$this->renderPartial('edit_avatar', array('model' => $model),false,true);
+		$this->render('edit_avatar', array('model' => $model));
 	}
 	public function updateAvatarForComment($avatar,$userId){
 		$sql = "UPDATE comments SET avatar =:avatar WHERE user_id = :userId";
