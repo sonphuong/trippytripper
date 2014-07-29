@@ -56,7 +56,7 @@ class Trip extends CActiveRecord
 	        ),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, user_id, from, to, leave, seat_avail, return_trip, return,fee,name,description', 'safe', 'on'=>'search'),
+			array('id, user_id, from, to, leave, seat_avail, return_trip, return,fee,description', 'safe', 'on'=>'search'),
 		);
 	}
 

@@ -2,7 +2,7 @@
 <form method="post" name="join_form">
 	<input type="hidden" value="<?php echo $_GET['id']; ?>" name="trip_id">
 	<div class="row buttons">
-		<?php echo CHtml::ajaxSubmitButton ("JOIN",
+		<?php echo CHtml::ajaxSubmitButton ("Join",
                           CController::createUrl('trip/join'), 
                           array('update' => '#join_div')
                           );

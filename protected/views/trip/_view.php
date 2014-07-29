@@ -10,8 +10,8 @@
     </div>
 
     <div class="cell cell5">
-        <h2 class="time" itemprop="startDate"><?php echo $trip['name']; ?></h2>
-        <div class="rowsep"><?php echo $trip['description']; ?></div>
+        
+        
         <h4 />
         <?php 
             $leaveDate = new DateTime($trip['leave']);
@@ -49,7 +49,7 @@
             </dd>
         </dl>
     </div>
-
+    <div class="rowsep"><?php echo $trip['description']; ?></div>
     <div class="cell border_right offer span2">
         <div class="price price-green" itemprop="location">
             <strong>
@@ -73,7 +73,7 @@
             <?php $this->renderPartial('/trip/_dis_join_form',array('model'=>$model,)); ?>
         <?php elseif($joinStatus==2): ?>
             <div class="flash-success">
-                <?php echo Yii::t('translator','Wait for approve');?>
+                <?php echo Yii::t('translator','Waiting for approve');?>
             </div>
         <?php else: ?>
             <?php 
@@ -91,7 +91,7 @@
         <input type="hidden" value="<?php echo $_GET['id']; ?>" name="trip_id">
         <div class="cell cell3">
             <h4><?php echo Yii::t('translator','Trippers');?></h4>
-            <ol class="memberList">
+            <ul class="memberList">
                 <?php 
                 if(!empty($members)){
                     foreach ($members as $key => $member) {
@@ -119,7 +119,7 @@
                                 
                             }
                             else{
-                                echo ' - '.Yii::t('translator','waiting for approve'); 
+                                echo ' - '.Yii::t('translator','Waiting for approve'); 
                             }
                             echo '</span></li>';
                         }
@@ -132,7 +132,7 @@
                     echo Yii::t('translator','No one join yet');
                 }
                 ?>
-            </ol>
+            </ul>
         </div>
     </form>
     <div class="cell cell5">

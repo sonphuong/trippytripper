@@ -63,11 +63,6 @@
         <span class="fieldset">
             <?php echo $form->textField($model, 'gathering_point'); ?></span>
     </div>
-    <div class="row">
-        <span class="label"><?php echo Yii::t('translator', 'Title');?>:</span>
-        <span class="fieldset">
-            <?php echo $form->textField($model, 'name'); ?></span>
-    </div>
     <div class="row"><?php echo Yii::t('translator', 'Trip details');?>:</div>
     <div class="row">
         <?php echo $form->textArea($model, 'description', array('rows' => 6, 'cols' => 45)); ?>

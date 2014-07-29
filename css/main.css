@@ -438,6 +438,9 @@ article{
     height: 15px;
     width: 15px;
 }
+.memberList{
+	list-style-type: none;
+}
 .memberList a{
     text-decoration: none;
     color: #555;

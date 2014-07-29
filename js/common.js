@@ -3,7 +3,6 @@ function approveJoinSuccess(data){
     if(data.status==1){
         $("#seats_left").html(data.seatsLeft);
         $("#join_status_"+data.userId).html("");
-        $("#member_"+data.userId).class("approved");
     }
     else{
         $("#errorSummary").html(data.msg);
@@ -12,6 +11,7 @@ function approveJoinSuccess(data){
 }
 function declineJoinSuccess(data){
     data = JSON.parse(data);
+    console.log(data);
     if(data.status==1){
         $("#member_"+data.userId).html("");
     }
@@ -24,8 +24,8 @@ function disJoinSuccess(data){
     data = JSON.parse(data);
     if(data.status==1){
         $("#seats_left").html(data.seatsLeft);
-        $("#join_status_"+data.userId).html("");
-        $("#member_"+data.userId).class("approved");
+        $("#member_"+data.userId).html("");
+        $("#dis_join_div").html("");
     }
     else{
         $("#errorSummary").html(data.msg);
@@ -35,7 +35,6 @@ function ownerDisJoinSuccess(data){
     data = JSON.parse(data);
     if(data.status==1){
         //$("#join_status_"+data.userId).html("");
-        //$("#member_"+data.userId).class("approved");
         $("#frm_owner_dis_join").html("This trip is no longer anymore!");
     }
     else{

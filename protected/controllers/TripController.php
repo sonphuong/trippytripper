@@ -270,7 +270,7 @@ class TripController extends Controller
     {
         $model = new Trip;
         $id = $_GET['id'];
-        $sql = "SELECT R.name,
+        $sql = "SELECT 
 					R.description, 
 					U.username, 
                     U.id AS user_id, 
@@ -408,15 +408,12 @@ class TripController extends Controller
                 $model->join_status = 2; //waiting
                 $model->trip_id = $_POST['trip_id'];
                 $model->save();
-                //get trippers to send notification
+                //notification--------------------------------------------------
                 $toUsers = $this->getOwner($model->trip_id);
-
-                $joiner['from_user_name'] = $model->user_name;
-                $joiner['from_user_id'] = $model->user_id;
-                $joiner['from_avatar'] = $model->avatar;
                 $action = "asking to join";
-                $this->noticeTripper($model->trip_id,$joiner,$toUsers,$action);
-                Yii::app()->user->setFlash('joinRequested', Yii::t('translator','waiting for approve'));
+                $this->noticeTripper($model->trip_id,$toUsers,$action);
+                //notification--------------------------------------------------
+                Yii::app()->user->setFlash('joinRequested', Yii::t('translator','Waiting for approve'));
             }
             echo '<div class="flash-success">
 	                ' . Yii::app()->user->getFlash('joinRequested') . '
@@ -452,7 +449,7 @@ class TripController extends Controller
      * @param  string $action
      * @return [void]
      */
-    private function noticeTripper($tripId,$fromUser,$toUsers,$action){
+    private function noticeTripper($tripId,$toUsers,$action,$fromUser=false){
         //add to notification
         Yii::import('application.controllers.NotisController');
         //get trip from and to
@@ -528,14 +525,18 @@ class TripController extends Controller
             $command->bindParam(':userId', $userId, PDO::PARAM_INT);
             $command->bindParam(':tripId', $tripId, PDO::PARAM_INT);
             if ($command->execute()) {
+                //notification--------------------------------------------------
+                $toUsers = $this->getTripper($tripId);
+                $action = "quit";
+                $this->noticeTripper($tripId,$toUsers,$action);
+                //notification--------------------------------------------------
                 $return['seatsLeft'] = $seatsLeft;
                 $return['userId'] = $userId;
                 $return['status'] = 1;
                 $return['msg'] = 'success';
             }
         }
-        //send notice to trippers
-        $this->noticeTripper($tripId,$userId);
+        
         return $return;  
     }
 
@@ -605,14 +606,23 @@ class TripController extends Controller
                     $command->bindParam(':userId', $userId, PDO::PARAM_INT);
                     $command->bindParam(':tripId', $tripId, PDO::PARAM_INT);
                     if ($command->execute()) {
+                        //notification--------------------------------------------------
+                        $owner = $this->getOwner($tripId);
+                        $user = new User;
+                        $fromUserObj = $user->findByPk($userId);
+                        $fromUser['from_user_name'] = $fromUserObj->username;
+                        $fromUser['from_user_id'] = $fromUserObj->id;
+                        $fromUser['from_avatar'] = $fromUserObj->avatar;
+                        $toUsers = $this->getTripper($tripId);
+                        $action = "joined";
+                        $this->noticeTripper($tripId,$toUsers,$action,$fromUser);
+                        //notification--------------------------------------------------
                         $return['seatsLeft'] = $seatsLeft;
                         $return['userId'] = $userId;
                         $return['status'] = 1;
                         $return['msg'] = 'success';
                     }
                 }
-                //send notice to trippers
-                $this->noticeTripper($tripId,$userId);
             } else {
                 Yii::app()->user->setFlash('joinRequested', Yii::t('translator','Waiting'));
             }
@@ -642,7 +652,15 @@ class TripController extends Controller
             $command = Yii::app()->db->createCommand($sql);
             $command->bindParam(':userId', $userId, PDO::PARAM_INT);
             $command->bindParam(':tripId', $tripId, PDO::PARAM_INT);
+            
             if ($command->execute()) {
+                //notification--------------------------------------------------
+                $owner = $this->getOwner($tripId);
+                $toUsers = array(0=>array('user_id'=>$userId));
+                $action = "decline to join";
+                $this->noticeTripper($tripId,$toUsers,$action);
+                //notification--------------------------------------------------
+                $return['userId'] = $userId;
                 $return['status'] = 1;
                 $return['msg'] = 'success';
             }

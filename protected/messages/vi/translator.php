@@ -1,7 +1,7 @@
 <?php
 return array(
 	'Pick up point' => 'Điểm xuất phát'
-	,'Wait for approve' => 'Chờ duyệt'
+	,'Waiting for approve' => 'Chờ duyệt'
 	,'per passenger' => '1 người'
 	,'Gathering point' => 'Điểm xuất phát'
 	,'Return date' => 'Ngày về'
@@ -21,7 +21,6 @@ return array(
 	,'Trippers'=>'Thành viên'
 	,'No one join yet'=>'Chưa có ai tham gia' 
 	,'seat(s) left' =>'ghế'
-	,'waiting for approve' =>'chờ duyệt'
 	,'You need to be a member' => 'Bạn phải là thành viên'
 	,'Leaded tours'=>'Số tours đã lead'
 	,'Last online'=>'Lần cuối online'
