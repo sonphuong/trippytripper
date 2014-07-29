@@ -10,6 +10,16 @@ function approveJoinSuccess(data){
     }
 
 }
+function declineJoinSuccess(data){
+    data = JSON.parse(data);
+    if(data.status==1){
+        $("#member_"+data.userId).html("");
+    }
+    else{
+        $("#errorSummary").html(data.msg);
+    }
+
+}
 function disJoinSuccess(data){
     data = JSON.parse(data);
     if(data.status==1){

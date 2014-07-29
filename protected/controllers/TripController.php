@@ -83,9 +83,15 @@ class TripController extends Controller
         $command = Yii::app()->db->createCommand($sql);
         $command->bindParam(':loginId', $loginId, PDO::PARAM_INT);
         $myTrips = $command->queryAll();
+        
         if(!empty($myTrips)){
             foreach ($myTrips as $key => $myTrip) {
-                $members = $this->getTripper($myTrip['id']);
+                $isOwner = $this->isOwner($myTrip['id']);
+                if($isOwner) $includeWaiting = true; 
+                else $includeWaiting = false; 
+                $members = $this->getTripper($myTrip['id'],$includeWaiting);
+
+                $myTrips[$key]['isOwner'] = $isOwner;
                 $myTrips[$key]['members'] = $members;
             }    
         }
@@ -96,21 +102,24 @@ class TripController extends Controller
             'pages'=>$pages
         ));
     }
-
-
     /**
      * get members who is involes the the tour
+     * @param int tripId
+     * @param int userId //user who ask to join
+     * @param boolean $getOwner //including owner
      */
-    public function getTripper($tripId)
+    public function getTripper($tripId,$includeWaiting=false)
     {
+        $joinStatus = "AND RD.join_status IN (1, 9)";            
+        if($includeWaiting) $joinStatus .= "OR RD.join_status = 2";
+            
         $sql = "SELECT RD.user_name,RD.user_id, U.avatar, RD.join_status
-		FROM trip_user RD 
-		INNER JOIN user U ON U.id = RD.user_id
-		WHERE RD.trip_id = :tripId
-		AND RD.join_status = 1
-		OR RD.join_status = 2
-		ORDER BY RD.join_status ASC
-		";
+        FROM trip_user RD 
+        INNER JOIN user U ON U.id = RD.user_id
+        WHERE RD.trip_id = :tripId
+        $joinStatus
+        ORDER BY RD.join_status ASC
+        ";
         $command = Yii::app()->db->createCommand($sql);
         $command->bindParam(':tripId', $tripId, PDO::PARAM_INT);
         $members = $command->queryAll();
@@ -120,6 +129,8 @@ class TripController extends Controller
         }
         return $return;
     }
+
+    
 
     /**
      * publish a tour
@@ -283,8 +294,11 @@ class TripController extends Controller
         $comment = new Comment;
         $allComments = $this->actionGetComments($id);
         $joinStatus = $this->getJoinStatus($id);
-        $members = $this->getTripper($id);
+
         $isOwner = $this->isOwner($id);
+        if($isOwner) $includeWaiting = true; 
+        else $includeWaiting = false; 
+        $members = $this->getTripper($id,$includeWaiting);
 
         $this->render('_view', array(
             'trip' => $data[0],
@@ -390,9 +404,18 @@ class TripController extends Controller
                 $model->user_id = Yii::app()->user->id;
                 $model->user_name = Yii::app()->user->name;
                 //$model->avatar = Yii::app()->user->avatar;
+                $model->avatar = '';
                 $model->join_status = 2; //waiting
                 $model->trip_id = $_POST['trip_id'];
                 $model->save();
+                //get trippers to send notification
+                $toUsers = $this->getOwner($model->trip_id);
+
+                $joiner['from_user_name'] = $model->user_name;
+                $joiner['from_user_id'] = $model->user_id;
+                $joiner['from_avatar'] = $model->avatar;
+                $action = "asking to join";
+                $this->noticeTripper($model->trip_id,$joiner,$toUsers,$action);
                 Yii::app()->user->setFlash('joinRequested', Yii::t('translator','waiting for approve'));
             }
             echo '<div class="flash-success">
@@ -424,54 +447,20 @@ class TripController extends Controller
     /**
      * [noticeTripper notice to the tripper that this trip has deleted]
      * @param  [int] $tripId
-     * @param  [int] $owner
+     * @param  [array] $fromUser
+     * @param  [array] $toUser 
+     * @param  string $action
      * @return [void]
      */
-    private function noticeTripper($tripId,$userId,$owner=false){
+    private function noticeTripper($tripId,$fromUser,$toUsers,$action){
         //add to notification
         Yii::import('application.controllers.NotisController');
-        //get trippers to send notification
-        $trippers = $this->getTripper($tripId);
         //get trip from and to
         $tripRoute = $this->getTripRoute($tripId);
-
-        $joiner['from_user_name'] = $trippers[$userId]['user_name'];
-        $joiner['from_user_id'] = $trippers[$userId]['user_id'];
-        $joiner['from_avatar'] = $trippers[$userId]['avatar'];
-        
-        foreach ($trippers as $key => $tripper) {
-            $message = 'joined <b>'.$tripRoute.'</b>';   
-            NotisController::add('trip',$tripper['user_id'],$tripId,Yii::t('translator',$message),$joiner);
+        foreach ($toUsers as $key => $toUser) {
+            $message = "$action <b>".$tripRoute."</b>";   
+            NotisController::add('trip',$toUser['user_id'],$tripId,Yii::t('translator',$message),$fromUser);
         }
-        //if owner disjoin send message to all tripper
-        if($owner){
-            $trippersNum = count($trippers);
-            if(!empty($trippers)){
-                $sql = "INSERT INTO message 
-                    (`timestamp`,`from_user_id`,`to_user_id`,`title`,`message`)
-                    VALUES
-                    ";
-                $i = 1;    
-                foreach($trippers as $tripper){
-                    if($i<$trippersNum){
-                        $comma = ", ";
-                    }
-                    else{
-                        $comma = "";
-                    }
-                    $sql .="(:timestamp,:owner,'".$tripper['user_id']."','','Sorry this trip has removed by the owner')".$comma;
-                    $i++;
-                }
-
-                $command = Yii::app()->db->createCommand($sql);
-                $timestamp = time();
-                $command->bindParam(':owner', $owner, PDO::PARAM_INT);
-                $command->bindParam(':timestamp', $timestamp, PDO::PARAM_INT);
-                $result = $command->execute();
-            }
-        }
-
-        
     }
     public function actionOwnerDisJoin(){
         $this->layout=false;
@@ -625,7 +614,7 @@ class TripController extends Controller
                 //send notice to trippers
                 $this->noticeTripper($tripId,$userId);
             } else {
-                Yii::app()->user->setFlash('joinRequested', Yii::t('Waiting for approve','Cho duyet'));
+                Yii::app()->user->setFlash('joinRequested', Yii::t('translator','Waiting'));
             }
         } else {
             $return['status'] = 0;
@@ -635,7 +624,36 @@ class TripController extends Controller
         echo json_encode($return);
     }
 
+    /*
+    the owner of the trip accept user to join
+    */
+    public function actionDeclineJoin()
+    {
+        $tripId = $_POST['trip_id'];
+        $userId = $_POST['user_id'];
+        $loginId = Yii::app()->user->id;
+        $return['status'] = 0;
+        $return['msg'] = 'unsuccess';
+        if ($this->isOwner($tripId)) {
+            $sql = "DELETE FROM trip_user
+                    WHERE trip_id =:tripId
+                    AND user_id =:userId
+                    ";
+            $command = Yii::app()->db->createCommand($sql);
+            $command->bindParam(':userId', $userId, PDO::PARAM_INT);
+            $command->bindParam(':tripId', $tripId, PDO::PARAM_INT);
+            if ($command->execute()) {
+                $return['status'] = 1;
+                $return['msg'] = 'success';
+            }
+    
+        } else {
+            $return['status'] = 0;
+            $return['msg'] = 'You are not allow to do this action';
+        }
 
+        echo json_encode($return);
+    }
     /**
      * check the login user is the owner of the trip
      */
@@ -650,5 +668,24 @@ class TripController extends Controller
 
     }
 
+   
+    /**
+     * get members who is involes the the tour
+     * @param int tripId
+     */
+    public function getOwner($tripId)
+    {
+        $sql = "SELECT RD.user_name,RD.user_id, U.avatar, RD.join_status
+        FROM trip_user RD 
+        INNER JOIN user U ON U.id = RD.user_id
+        WHERE RD.trip_id = :tripId
+        AND RD.join_status = 9
+        ORDER BY RD.join_status ASC
+        ";
+        $command = Yii::app()->db->createCommand($sql);
+        $command->bindParam(':tripId', $tripId, PDO::PARAM_INT);
+        $owner = $command->queryAll();
+        return $owner;
+    }
 
 }

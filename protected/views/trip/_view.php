@@ -107,7 +107,15 @@
                                         ,'data' => 'user_id='.$member['user_id'].'&trip_id='.$_GET['id'].''
                                         )
                                     );
+
                                 }
+                                echo CHtml::ajaxSubmitButton ("Decline",
+                                        CController::createUrl('trip/DeclineJoin'),
+                                        array(
+                                            'success' => 'js:function(data) {declineJoinSuccess(data);}'
+                                        ,'data' => 'user_id='.$member['user_id'].'&trip_id='.$_GET['id'].''
+                                        )
+                                    );
                                 
                             }
                             else{

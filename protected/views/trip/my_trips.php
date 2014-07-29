@@ -57,13 +57,7 @@
                                         echo '<li class="" id="member_'.$member['user_id'].'"><img src="/'.$member['avatar'].'" alt="" width="32px" height="32px" />'.CHtml::link($member['user_name'], array('//profile/profile/view/id/'.$member['user_id']));                            
                                         echo '<span id="join_status_'.$member['user_id'].'">';
                                         if($trip['seat_avail']>0){
-                                            echo CHtml::ajaxSubmitButton ("Accept",
-                                                CController::createUrl('trip/acceptJoin'),
-                                                array(
-                                                    'success' => 'js:function(data) {approveJoinSuccess(data);}'
-                                                ,'data' => 'user_id='.$member['user_id'].'&trip_id='.$trip['id'].''
-                                                )
-                                            );
+                                            echo Yii::t('translator','Waiting');
                                         }
                                         
                                         echo '</span></li>';
