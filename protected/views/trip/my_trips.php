@@ -6,8 +6,6 @@
                 <article class="table_row">
                     
                     <div class="cell cell3">
-                        <div class="time" itemprop="startDate"><?php echo $trip['name']; ?></div>
-
                         <h4 />
                         <?php 
                             $leaveDate = new DateTime($trip['leave']);

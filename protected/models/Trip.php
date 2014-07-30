@@ -34,25 +34,25 @@ class Trip extends CActiveRecord
 			array('seat_avail,fee', 'numerical', 'integerOnly'=>true),
 			//array('user_id, from, to', 'length', 'max'=>20),
 			array('return_trip', 'length', 'max'=>1),
-			array('from, to, leave, return, fee, seat_avail', 'required'),
+			array('from, to, leave, return, fee, seat_avail,gathering_point', 'required'),
 			array('leave, return', 'date', 'format' => 'yyyy-mm-dd hh:mm'),
 			array('leave',
 	            'compare',
 	            'compareValue' => date('Y-m-d H:i:s'),
 	            'operator' => '>',
-	            'message' => 'Begin date must be after today.'
+	            'message' => 'Departure date must be after today.'
 	        ),
 	        array('leave',
 	            'compare',
 	            'compareAttribute' => 'return',
-	            'operator' => '<',
-	            'message' => 'Begin date must be before finish date.'
+	            'operator' => '<=',
+	            'message' => 'Departure date must be before return date.'
 	        ),
 	        array('return',
 	            'compare',
 	            'compareAttribute' => 'leave',
-	            'operator' => '>',
-	            'message' => 'End date must be after begin date.'
+	            'operator' => '>=',
+	            'message' => 'Return date must be after departure date.'
 	        ),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
@@ -87,6 +87,9 @@ class Trip extends CActiveRecord
 			'seat_avail' => 'Seat Avail',
 			'return_trip' => 'Return Trip',
 			'return' => 'Return',
+			'fee' => 'Fee',
+			'gathering_point' => 'Gathering point',
+			'description' => 'Description'
 		);
 	}
 

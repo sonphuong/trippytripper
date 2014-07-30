@@ -38,7 +38,7 @@ class TripController extends Controller
     public function actionMyTrips()
     {
         $loginId = Yii::app()->user->id;
-        $sql = "SELECT T.name,
+        $sql = "SELECT 
                         T.description,
                         U.username, 
                         U.avatar, 
@@ -206,7 +206,6 @@ class TripController extends Controller
         //search++++++++++++++++++++++++++++
         $sql = "SELECT
 			R.user_id,
-			R.name,
 			R.description,
 			U.username,
 			U.avatar,
@@ -454,9 +453,11 @@ class TripController extends Controller
         Yii::import('application.controllers.NotisController');
         //get trip from and to
         $tripRoute = $this->getTripRoute($tripId);
-        foreach ($toUsers as $key => $toUser) {
-            $message = "$action <b>".$tripRoute."</b>";   
-            NotisController::add('trip',$toUser['user_id'],$tripId,Yii::t('translator',$message),$fromUser);
+        if(count($toUsers)>0){
+            foreach ($toUsers as $toUser) {
+                $message = "$action <b>".$tripRoute."</b>";   
+                NotisController::add('trip',$toUser['user_id'],$tripId,Yii::t('translator',$message),$fromUser);
+            }
         }
     }
     public function actionOwnerDisJoin(){
@@ -491,9 +492,39 @@ class TripController extends Controller
                 $return['status'] = 1;
                 $return['msg'] = 'success';
             }
-        }  
-        //send notice to trippers
-        $this->noticeTripper($tripId,$userId,true);
+        }
+        
+        //notification--------------------------------------------------
+        $toUsers = $this->getTripper($tripId,true);
+        $action = "cancel";
+        $this->noticeTripper($tripId,$toUsers,$action);
+        //notification--------------------------------------------------
+        
+        //if owner disjoin send message to all tripper
+        $trippersNum = count($toUsers);
+        if(!empty($toUsers)){
+            $sql = "INSERT INTO message 
+                (`timestamp`,`from_user_id`,`to_user_id`,`title`,`message`)
+                VALUES";
+            $i = 1;    
+            foreach($toUsers as $tripper){
+                if($i<$trippersNum){
+                    $comma = ", ";
+                }
+                else{
+                    $comma = "";
+                }
+                $sql .="(:timestamp,:owner,'".$tripper['user_id']."','','Sorry this trip has removed by the owner')".$comma;
+                $i++;
+            }
+
+            $command = Yii::app()->db->createCommand($sql);
+            $timestamp = time();
+            $command->bindParam(':owner', $owner, PDO::PARAM_INT);
+            $command->bindParam(':timestamp', $timestamp, PDO::PARAM_INT);
+            $result = $command->execute();
+        }     
+        
         return $return;  
     }
 

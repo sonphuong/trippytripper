@@ -73,7 +73,7 @@ class NotisController extends Controller{
     	if($model->notis_type=='friend')
     		$model->message=Yii::t('translator','send you a friend request');
     	if($model->notis_type=='email')
-    		$model->message=Yii::t('translator','send you a friend message');
+    		$model->message=Yii::t('translator','send you a message');
     	if($model->notis_type=='trip'){
     		$model->trip_id = $tripId;
     		$model->message=$tripMsg;
@@ -85,33 +85,38 @@ class NotisController extends Controller{
 		$loginId = Yii::app()->user->id;
 		$objs = array('friend','email','trip');
 		$notis = array();
+        $limit = 10;
 		foreach ($objs as $obj) {
-		    $sql = "SELECT *,id AS notis_id
-		            FROM notis
-		            WHERE to_user_id = :loginId
-		            AND notis_type =  '".$obj."'
-		            ORDER BY create_time DESC
-		    ";
-		    
 		    //number +++++++++++++++++++++++++++++++++++++++++++++++
 		    $sqlCount = "SELECT count(1) as count
 		        FROM notis
 		        WHERE to_user_id = :loginId
-		        AND notis_type =  '".$obj."'
+		        AND notis_type =  :obj
 		        AND notis_read = '0'
 		    ";
 		    $commandCount = Yii::app()->db->createCommand($sqlCount);
 		    $commandCount->bindParam(':loginId', $loginId, PDO::PARAM_INT);
+            $commandCount->bindParam(':obj', $obj, PDO::PARAM_STR);
 		    $itemCount = $commandCount->queryRow();
 		    $itemCount = $itemCount['count'];
+            if($itemCount>$limit) $limit = $itemCount;
 		    //number +++++++++++++++++++++++++++++++++++++++++++++++
 		    
-		    //get all member invole to the trips
+		    //get notis---------------------------------------------
+            $sql = "SELECT *,id AS notis_id
+                    FROM notis
+                    WHERE to_user_id = :loginId
+                    AND notis_type =  :obj
+                    ORDER BY create_time DESC
+                    LIMIT $limit
+            ";
 		    $command = Yii::app()->db->createCommand($sql);
 		    $command->bindParam(':loginId', $loginId, PDO::PARAM_INT);
+            $command->bindParam(':obj', $obj, PDO::PARAM_STR);
 		    $rs = $command->queryAll();	
 		    $notis[$obj] = $rs;
 		    $notis[$obj.'Count'] = $itemCount;
+            //get notis---------------------------------------------
 		}
 
 	    $isAjax = Yii::app()->request->isAjaxRequest;
