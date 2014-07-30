@@ -20,7 +20,7 @@ else{
     $dbUser = 'root';
     $dbPass = '';
     $dbHost = 'localhost';
-    $userDebug = true;
+    $userDebug = false;
 }
 return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',

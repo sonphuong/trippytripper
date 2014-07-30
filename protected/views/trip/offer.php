@@ -1,4 +1,4 @@
-<div class="form search_box">
+<div class="form search_box" id="offer">
     <?php $form=$this->beginWidget('CActiveForm', array(
         'id'=>'top-websites-cr-form',
         'enableAjaxValidation'=>true,
@@ -10,29 +10,40 @@
     )); ?>
     <?php echo $form->errorSummary($model); ?>
     <div class="row">
+        <div class="label cell"><label><?php echo Yii::t('translator', 'From');?><span class="required">*</span></label></div>
+        <div class="cell">
         <?php echo $form->textField($model, 'from', array('id' => 'goFrom', 'class' => 'from', 'value'=>$fromVal,'autofocus'=>'autofocus')); ?>
+        </div>
     </div>
-    <div class="row"><?php echo Yii::t('translator','Example: Hanoi, Vietnam');?></div>
     <div class="row">
-        <?php echo $form->textField($model, 'to', array('id' => 'goTo', 'class' => 'to', 'value'=>$toVal)); ?>
+        <div class="label cell"><label><?php echo Yii::t('translator', 'To');?><span class="required">*</span></label></div>
+        <div class="cell"><?php echo $form->textField($model, 'to', array('id' => 'goTo', 'class' => 'to', 'value'=>$toVal)); ?></div>
     </div>
 
-    <div class="row"><?php echo Yii::t('translator','Departure date');?>:</div>
     <div class="row">
-        <?php
-        $this->widget('application.widgets.timepicker.timepicker', array(
-                'model' => $model,
-                'name' => 'leave',
-                'options' => array(
-                    'showOn' => 'focus',
-                    'dateFormat' => 'yy-mm-dd',
-                    'timeFormat' => 'hh:mm',
-                ),
-            ));
-        ?>
-        <?php //echo $form->error($model,'date_from'); ?></div>
-    <div class="row"><?php echo Yii::t('translator','Return date');?>:</div>
+        <div class="label cell">
+            <label><?php echo Yii::t('translator','Departure date');?><span class="required">*</span></label>
+        </div>
+        <div class="cell">
+            <?php
+            $this->widget('application.widgets.timepicker.timepicker', array(
+                    'model' => $model,
+                    'name' => 'leave',
+                    'options' => array(
+                        'showOn' => 'focus',
+                        'dateFormat' => 'yy-mm-dd',
+                        'timeFormat' => 'hh:mm',
+                    ),
+                ));
+            ?>
+        </div>
+    <?php //echo $form->error($model,'date_from'); ?>
+    </div>
     <div class="row">
+        <div class="label cell">
+        <label for="return"><?php echo Yii::t('translator','Return date');?><span class="required">*</span></label>
+        </div>
+        <div class="cell">
         <?php
         $this->
             widget('application.widgets.timepicker.timepicker', array(
@@ -45,30 +56,30 @@
                 ),
             ));
         ?>
+        </div>
     </div>
     <div class="row">
-        <span class="label"><?php echo Yii::t('translator', 'Seats');?>:</span>
-        <span class="fieldset">
-            <?php echo $form->textField($model, 'seat_avail', array('maxlength' => '2', 'size' => '2')); ?>
-        </span>
+        <div class="label cell"><label for="seat_avail"><?php echo Yii::t('translator', 'Seats');?><span class="required">*</span></label></div>
+        <div class="cell">
+            <?php echo $form->textField($model, 'seat_avail', array('maxlength' => '2')); ?>
+        </div>
     </div>
     <div class="row">
-        <span class="label"><?php echo Yii::t('translator', 'Fee');?>:</span>
-        <span class="fieldset">
-            <?php echo $form->textField($model, 'fee', array('maxlength' => '6', 'size' => '6')); ?>
-        </span>
+        <div class="label cell"><label><?php echo Yii::t('translator', 'Fee');?><span class="required">*</span></label></div>
+        <div class="cell">
+            <?php echo $form->textField($model, 'fee', array('maxlength' => '6')); ?>
+        </div>
     </div>
     <div class="row">
-        <span class="label"><?php echo Yii::t('translator', 'Gathering point');?>: </span>
-        <span class="fieldset">
-            <?php echo $form->textField($model, 'gathering_point'); ?></span>
+        <div class="label cell"><label><?php echo Yii::t('translator', 'Gathering point');?><span class="required">*</span></label></div>
+        <div class="cell gathering_point"><?php echo $form->textField($model, 'gathering_point'); ?></div>
     </div>
-    <div class="row"><?php echo Yii::t('translator', 'Trip details');?>:</div>
+    <div class="row"><label><?php echo Yii::t('translator', 'Trip details');?>:</label></div>
     <div class="row">
         <?php echo $form->textArea($model, 'description', array('rows' => 6, 'cols' => 45)); ?>
     </div>
     <div class="row"/>
-    <input type="submit" value="<?php echo Yii::t('translator', 'Offer');?>">
+    <input type="submit" class="orangeButton" value="<?php echo Yii::t('translator', 'Offer');?>">
 </div>
 <?php $this->endWidget(); ?></div>
 <div id="map-canvas"/>

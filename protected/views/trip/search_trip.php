@@ -1,17 +1,9 @@
-<div class="form search_box">
+<div class="form" id="search">
     <?php $form = $this->beginWidget('CActiveForm'); ?>
     <?php echo $form->errorSummary($model); ?>
     <div class="row">
-        <?php echo $form->textField($model, 'from', array('id' => 'goFrom', 'class' => 'from', 'value'=>$fromVal)); ?>
-    </div>
-    <div class="row"><?php echo Yii::t('translator','Example: Hanoi, Vietnam');?></div>
-    <div class="row">
-        <?php echo $form->textField($model, 'to', array('id' => 'goTo', 'class' => 'to', 'value'=>$toVal)); ?>
-    </div>
-
-    <div class="row"><?php echo Yii::t('translator','Departure date');?>:</div>
-    <div class="row">
-        <?php
+        <div class="cell"><?php echo $form->textField($model, 'from', array('id' => 'goFrom', 'class' => 'from', 'value'=>$fromVal)); ?></div>
+        <div class="cell"><?php
         $this->widget('application.widgets.timepicker.timepicker', array(
             'model' => $model,
             'name' => 'leave',
@@ -19,14 +11,14 @@
                 'showOn' => 'focus',
                 'dateFormat' => 'yy-mm-dd',
                 'timeFormat' => 'hh:mm',
+                'placeholder' => 'Departure date'
             ),
         ));
-        ?>
-        <?php //echo $form->error($model,'date_from'); ?>
+        ?></div>
     </div>
-    <div class="row"><?php echo Yii::t('translator','Return date');?>:</div>
-    <div class="row">
-        <?php
+    <div class="row">        
+        <div class="cell"><?php echo $form->textField($model, 'to', array('id' => 'goTo', 'class' => 'to', 'value'=>$toVal)); ?></div>
+        <div class="cell"><?php
         $this->widget('application.widgets.timepicker.timepicker', array(
             'model' => $model,
             'name' => 'return',
@@ -34,12 +26,15 @@
                 'showOn' => 'focus',
                 'dateFormat' => 'yy-mm-dd',
                 'timeFormat' => 'hh:mm',
+                'placeholder' =>'Return date',
             ),
         ));
-        ?>
+        ?></div>
+        <?php //echo $form->error($model,'date_from'); ?>
+        <div class="cell">
+            <input type="submit" class="orangeButton" value="<?php echo Yii::t('translator','Search');?>">
+        </div>
     </div>
-    <div class="row"/>
-    <input type="submit" value="<?php echo Yii::t('translator','Search');?>"></div>
 <?php $this->endWidget(); ?>
 </div>
 <hr/>

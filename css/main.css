@@ -25,6 +25,9 @@ body
 #content
 {
 	padding: 20px;
+	border: solid 1px #CCCCCC;
+	border-radius: 6px;
+	margin-top: 20px;
 }
 
 #sidebar
@@ -49,7 +52,10 @@ body
 
 #mainmenu
 {
-	background:white url(bg.gif) repeat-x left top;
+	/*background:white url(bg.gif) repeat-x left top;*/
+	background-color: #FCA019;
+	border-bottom-right-radius: 25px;
+	border-bottom-left-radius: 25px;
 }
 
 #mainmenu ul
@@ -75,8 +81,9 @@ body
 
 #mainmenu ul li a:hover, #mainmenu ul li.active a
 {
-	color: #6399cd;
-	background-color:#EFF4FA;
+	color: white;
+	background-color:#1E9CD2;
+	border-radius: 9px;
 	text-decoration:none;
 }
 
@@ -285,18 +292,32 @@ div.breadcrumbs span
 	border-bottom: 1px solid #CCC;
 	padding: 10px;
 }
+.row{
+	display: table;
+}
+.cell{
+	display: table-cell;
+	
+}
+#search .cell{
+	padding-right: 20px;
+}
+#offer .gathering_point input{
+	width: 320px;
+}
+#offer .label{
+	width: 100px;
+}
+#offer textarea{
+	width: 419px;
+}
 .row_detail{
 	display: table;
 	margin-top: 5px;
 	clear: both;
 	padding: 10px;
 }
-.cell{
-	display: table-cell;
-	float: left;
-	padding: 10px;
-	height: 140px;
-}
+
 .border_right{
     border-right: 1px solid #CCC;
 }
@@ -305,17 +326,17 @@ div.breadcrumbs span
     background: url("../images/search-from-plot.png") no-repeat scroll 6px 50% #FFFFFF;
     height: 28px;
     text-indent: 25px;
-    width: 350px;
+    width: 320px;
 }
 .to{
     background: url("../images/search-to-plot.png") no-repeat scroll 6px 50% #FFFFFF;
     height: 28px;
     text-indent: 25px;
-    width: 350px;
+    width: 320px;
 }
 #map-canvas{
 	width:450px;
-	height:450px;
+	height:682px;
 }
 #directions-panel {
     height: 100%;
@@ -323,10 +344,16 @@ div.breadcrumbs span
     width: 450px;
     overflow: auto;
 }
-.search_box{
+#offer{
 	width:450px; 
-	float:left
+	float:left;
+	margin-right: 10px !important;
+
 }
+#offer label{
+	
+}
+
 .trip-search-results {
     margin: 0 0 0 -10px;
     border-top: 1px solid #CCC;
@@ -448,5 +475,18 @@ article{
 }
 #myavatar{
 	text-decoration: none;
+	font-weight: bold;
+}
+input, textarea{
+	border-radius: 4px;
+	min-height: 25px;
+	border: solid 1px #DDDDDD;
+	padding:2px;
+}
+.orangeButton {
+	border-radius: 5px;
+	background-color: #FCA019;
+	color: white;
+	padding: 5px;
 	font-weight: bold;
 }

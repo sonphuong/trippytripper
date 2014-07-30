@@ -43,6 +43,7 @@ class timepicker extends CWidget {
 			'changeYear'=>false,
 			'value'=>'',
 			'tabularLevel'=>null,
+			'placeholder' =>'DD/MM/YYYY',
 		);
 
 		$this->options = array_merge($default, $this->options);

@@ -58,7 +58,7 @@ div.form label
 {
 	font-weight: bold;
 	font-size: 0.9em;
-	display: block;
+	/*display: block;*/
 }
 
 div.form .row
@@ -81,6 +81,7 @@ div.form .note
 div.form span.required
 {
 	color: red;
+	padding-left: 2px;
 }
 
 div.form div.error label,
