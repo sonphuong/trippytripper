@@ -17,7 +17,7 @@ else
 if(Yum::module('avatar')->avatarMaxWidth != 0)
 	echo '<p>' . Yum::t('The image should have at least 50px and a maximum of 200px in width and height. Supported filetypes are .jpg, .gif and .png') . '</p>';
 
-	echo CHtml::errorSummary($model);
+	/*echo CHtml::errorSummary($model);*/
 	echo CHtml::beginForm(array(
 				'//avatar/avatar/editAvatar', 'id' => $model->id), 'POST', array(
 	'enctype' => 'multipart/form-data'));
@@ -33,7 +33,7 @@ if(Yum::module('avatar')->avatarMaxWidth != 0)
 	// echo CHtml::link(Yum::t('Remove Avatar'), array(
 	// 			'//avatar/avatar/removeAvatar', 'id' => $model->id));
 	echo '<br />';
-	echo CHtml::submitButton(Yum::t('Upload avatar'));
+	echo CHtml::submitButton(Yum::t('Upload avatar'),array('class'=>'orangeButton'));
 	echo CHtml::endForm();
 	
 ?>

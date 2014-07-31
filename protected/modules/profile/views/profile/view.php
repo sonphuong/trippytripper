@@ -35,8 +35,8 @@ $this->widget('PcStarRankWidget', array('modelId' => $model->id, 'modelClassName
 ?>
 <div class="row"><?php echo Yii::t('translator','Leaded tours'); ?>: <?php echo $tourNo; ?></div>
 <!--<div class="row">Tỷ lệ trả lời: 50% </div>-->
-<div class="row"><?php echo Yii::t('translator','Last online');?>: <?php echo Time::timeAgoInWords(date('d-m-Y',$model->lastvisit)); ?></div>
 <div class="row"><?php echo Yii::t('translator','Member since');?>: <?php echo date('d-m-Y',$model->createtime);?></div>
+<div class="row"><?php echo Yii::t('translator','Last online');?>: <?php echo Time::timeAgoInWords(date('d-m-Y',$model->lastvisit)); ?></div>
 <?php $this->renderPartial(Yum::module('profile')->publicFieldsView, array(
 			'profile' => $model->profile)); ?>
 <br />

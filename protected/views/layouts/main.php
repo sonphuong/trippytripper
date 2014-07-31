@@ -62,10 +62,11 @@
 			),
 		)); ?>
 	</div><!-- mainmenu -->
-
-	<?php /*$this->widget('zii.widgets.CBreadcrumbs', array(
+	<?php 
+	/*$this->widget('zii.widgets.CBreadcrumbs', array(
 		'links'=>$this->breadcrumbs,
-	)); */?><!-- breadcrumbs -->
+	));*/ 
+	?><!-- breadcrumbs -->
 
 	<?php echo $content; ?>
 

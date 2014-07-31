@@ -13,6 +13,10 @@ class YumFriendshipController extends YumController {
 	}
 
 	public function actionIndex() {
+		$search = '';
+		if(isset($_POST['search_username']))
+			$search = $_POST['search_username'];
+
 		if(isset($_POST['YumFriendship']['inviter_id']) 
 				&& isset($_POST['YumFriendship']['friend_id']) ) {
 			$friendship = YumFriendship::model()->find(
@@ -38,8 +42,13 @@ class YumFriendshipController extends YumController {
 					}
 		}
 
+		
 		$user = YumUser::model()->findByPk(Yii::app()->user->id);
-		$this->render('myfriends', array('friends' => $user->getFriendships()));
+		$this->render('myfriends', array(
+			'friends' => $user->getFriendships($search),
+			'search_username' => $search ? $search : ''
+			)
+		);
 	}
 
 	public function actionAdmin() {

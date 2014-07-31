@@ -1,0 +1,23 @@
+/*css for home page*/
+#banner{background:url(images/bg_banner.jpg) repeat 50% 0; height:530px; text-align:center;}
+#banner .desc{font-size:35px; font-weight:700; line-height:65px; display:inline-block; margin-top:170px; color:#fff;}
+#banner .desc span{background:url(images/bg_black.png) repeat; padding:0 14px 10px;}
+#banner .btn{margin-top:45px;}
+#banner .btn-blue, #banner .btn-orange{width:140px; font-size:28px; height:45px; line-height:45px; font-weight:normal;}
+.home .lst-comment{padding-top:30px;}
+.home .lst-comment .tit-area{font-size:30px; line-height:44px; text-align:center; margin-bottom:20px;}
+.home .lst-comment .line{background:url(images/bg_line.gif) repeat-x 0 50%; height:46px; margin-bottom:30px; text-align:center;}
+.home .lst-comment .line .pin{background:#fff url(images/icon_pin.gif) no-repeat 50% 0; display:inline-block; width:47px; height:46px; padding:0 10px;}
+.home .comments{overflow:hidden;}
+.home .comments li{float:left; margin-right:37px; width:342px;}
+.home .comments li:last-child{margin-right:0;}
+.home .comments .box{background:#f6f6f6 none; padding:5px 15px 10px; position:relative; font-style:italic}
+.home .comments .box p{padding:10px 0 15px;}
+.home .comments .box .arrow{background:url(images/arrow_down.gif) no-repeat 0 0; position:absolute; width:20px; height:10px; bottom:-10px; left:35px;}
+.home .comments .user{margin-top:20px; font-size:13px;}
+.home .comments .user span{vertical-align:middle; display:inline-block;}
+.home .comments .user .img{margin-right:30px;}
+
+/*css for sub page*/
+#container.sub-page {background:url(images/bg_sub.jpg) no-repeat 0 50%;}
+.sub-page .wrap-ct{padding-top:61px;}

@@ -309,6 +309,22 @@ div.breadcrumbs span
 	display: table-cell;
 	
 }
+#trip_list .cell1{
+	width: 160px;
+	border-right: solid 1px #CCCCCC;
+	vertical-align: top;
+	padding: 10px;
+}
+#trip_list .cell2{
+	width: 570px;
+	border-right: solid 1px #CCCCCC;
+	vertical-align: top;
+	padding: 10px;
+}
+#trip_list .cell3{
+	vertical-align: top;
+	padding: 10px;
+}
 #profile_update label{
 	min-width: 150px;
 }
@@ -392,9 +408,7 @@ li {
 .trip-search-oneresult .user {
     width: 190px;
 }
-.cell2 {
-    width: 140px;
-}
+
 
 .user-info {
     float: left;
@@ -408,9 +422,7 @@ li {
     font-size: 12px;
     padding-top: 4px;
 }
-.cell5 {
-    width: 420px;
-}
+
 .trip-search-oneresult .offer {
     margin: 0 0 0 5px;
     float: left;
@@ -465,9 +477,7 @@ article{
     overflow: hidden;
     text-align: left;
 }
-.cell3 {
-    width: 300px;
-}
+
 .approved{
     color: green;
 }
@@ -508,4 +518,18 @@ input, textarea{
 	color: white;
 	padding: 5px;
 	font-weight: bold;
+}
+.grayButton{
+	border-radius: 5px;
+	background-color: #F8F4F5;
+	color: black;
+	padding: 5px;
+	font-weight: bold;
+}
+.aquaLink{
+	color: #38A4D1;
+	text-decoration: none;
+}
+.inlineButton{
+	margin-left: 20px;
 }

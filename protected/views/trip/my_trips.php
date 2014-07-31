@@ -78,5 +78,5 @@
     </ul>
     <?php $this->widget('CLinkPager', array('pages' => $pages,)); ?>
 <?php else: ?>    
-    <div><?php echo Yii::t('translator',"You haven't not publish any trip yet! click on 'Offer' to publish a trip");?></div>
+    <div><?php echo Yii::t('translator',"You haven't publish any trip yet! click on 'Offer' to publish a trip");?></div>
 <?php endif; ?>
