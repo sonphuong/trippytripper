@@ -17,9 +17,8 @@ border-radius: 4px;
 
 .menucontent {
 background-color: white;
-border: solid 1px #EFEFEF;
+border: solid 1px #CCCCCC;
 border-radius: 6px;
-margin-top: 5px;
 margin-left: 20px;
 }
 .menucontent ul {margin: 5px 0px 0px 9px; padding: 3px; list-style-type:none;cursor:pointer;}

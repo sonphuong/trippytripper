@@ -10,40 +10,31 @@
     )); ?>
     <?php echo $form->errorSummary($model); ?>
     <div class="row">
-        <div class="label cell"><label><?php echo Yii::t('translator', 'From');?><span class="required">*</span></label></div>
-        <div class="cell">
+        <label><?php echo Yii::t('translator', 'From');?><span class="required">*</span></label>
         <?php echo $form->textField($model, 'from', array('id' => 'goFrom', 'class' => 'from', 'value'=>$fromVal,'autofocus'=>'autofocus')); ?>
-        </div>
     </div>
     <div class="row">
-        <div class="label cell"><label><?php echo Yii::t('translator', 'To');?><span class="required">*</span></label></div>
-        <div class="cell"><?php echo $form->textField($model, 'to', array('id' => 'goTo', 'class' => 'to', 'value'=>$toVal)); ?></div>
+        <label><?php echo Yii::t('translator', 'To');?><span class="required">*</span></label>
+        <?php echo $form->textField($model, 'to', array('id' => 'goTo', 'class' => 'to', 'value'=>$toVal)); ?>
     </div>
 
     <div class="row">
-        <div class="label cell">
-            <label><?php echo Yii::t('translator','Departure date');?><span class="required">*</span></label>
-        </div>
-        <div class="cell">
-            <?php
-            $this->widget('application.widgets.timepicker.timepicker', array(
-                    'model' => $model,
-                    'name' => 'leave',
-                    'options' => array(
-                        'showOn' => 'focus',
-                        'dateFormat' => 'yy-mm-dd',
-                        'timeFormat' => 'hh:mm',
-                    ),
-                ));
-            ?>
-        </div>
+        <label><?php echo Yii::t('translator','Departure date');?><span class="required">*</span></label>
+        <?php
+        $this->widget('application.widgets.timepicker.timepicker', array(
+                'model' => $model,
+                'name' => 'leave',
+                'options' => array(
+                    'showOn' => 'focus',
+                    'dateFormat' => 'yy-mm-dd',
+                    'timeFormat' => 'hh:mm',
+                ),
+            ));
+        ?>
     <?php //echo $form->error($model,'date_from'); ?>
     </div>
     <div class="row">
-        <div class="label cell">
         <label for="return"><?php echo Yii::t('translator','Return date');?><span class="required">*</span></label>
-        </div>
-        <div class="cell">
         <?php
         $this->
             widget('application.widgets.timepicker.timepicker', array(
@@ -56,27 +47,22 @@
                 ),
             ));
         ?>
-        </div>
     </div>
     <div class="row">
-        <div class="label cell"><label for="seat_avail"><?php echo Yii::t('translator', 'Seats');?><span class="required">*</span></label></div>
-        <div class="cell">
-            <?php echo $form->textField($model, 'seat_avail', array('maxlength' => '2')); ?>
-        </div>
+        <label for="seat_avail"><?php echo Yii::t('translator', 'Seats');?><span class="required">*</span></label>
+        <?php echo $form->textField($model, 'seat_avail', array('maxlength' => '2')); ?>
     </div>
     <div class="row">
-        <div class="label cell"><label><?php echo Yii::t('translator', 'Fee');?><span class="required">*</span></label></div>
-        <div class="cell">
-            <?php echo $form->textField($model, 'fee', array('maxlength' => '6')); ?>
-        </div>
+        <label><?php echo Yii::t('translator', 'Fee');?><span class="required">*</span></label>
+        <?php echo $form->textField($model, 'fee', array('maxlength' => '6')); ?>
     </div>
     <div class="row">
-        <div class="label cell"><label><?php echo Yii::t('translator', 'Gathering point');?><span class="required">*</span></label></div>
-        <div class="cell gathering_point"><?php echo $form->textField($model, 'gathering_point'); ?></div>
+        <label><?php echo Yii::t('translator', 'Gathering point');?><span class="required">*</span></label>
+        <?php echo $form->textField($model, 'gathering_point'); ?>
     </div>
     <div class="row"><label><?php echo Yii::t('translator', 'Trip details');?>:</label></div>
     <div class="row">
-        <?php echo $form->textArea($model, 'description', array('rows' => 6, 'cols' => 45)); ?>
+        <?php echo $form->textArea($model, 'description', array('rows' => 6)); ?>
     </div>
     <div class="row"/>
     <input type="submit" class="orangeButton" value="<?php echo Yii::t('translator', 'Offer');?>">

@@ -1,3 +1,4 @@
+<div id="change_password">
 <?php 
 $this->pageTitle = Yum::t("change password");
 echo '<h2>'. Yum::t('change password') .'</h2>';
@@ -26,8 +27,9 @@ if(isset($expired) && $expired)
 			'form'=>$form)); ?>
 
 	<div class="row submit">
-	<?php echo CHtml::submitButton(Yum::t("Save")); ?>
+	<?php echo CHtml::submitButton(Yum::t("Save"),array('class'=>'orangeButton')); ?>
 	</div>
 
 <?php echo CHtml::endForm(); ?>
 </div><!-- form -->
+</div>

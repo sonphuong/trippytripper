@@ -1,3 +1,4 @@
+<div id="profile_update">
 <?php 
 $this->pageTitle = Yum::t( "Profile");
 $this->breadcrumbs=array(
@@ -45,3 +46,4 @@ $this->title = Yum::t('Edit profile');
 	<?php echo CHtml::endForm(); ?>
 
 	</div><!-- form -->
+</div>

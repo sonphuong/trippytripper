@@ -11,8 +11,8 @@ body
 {
 	margin-top: 5px;
 	margin-bottom: 5px;
-	background: white;
-	border: 1px solid #C9E0ED;
+	/*background: white;*/
+	/*border: 1px solid #C9E0ED;*/
 }
 
 #header
@@ -26,8 +26,18 @@ body
 {
 	padding: 20px;
 	border: solid 1px #CCCCCC;
+	background: white;
 	border-radius: 6px;
 	margin-top: 20px;
+}
+#yumcontent
+{
+	padding: 20px;
+	border: solid 1px #CCCCCC;
+	background: white;
+	border-radius: 6px;
+	margin-top: 20px;
+	width: 682px;
 }
 
 #sidebar
@@ -299,14 +309,23 @@ div.breadcrumbs span
 	display: table-cell;
 	
 }
+#profile_update label{
+	min-width: 150px;
+}
+#change_password label{
+	min-width: 170px;
+}
 #search .cell{
 	padding-right: 20px;
 }
-#offer .gathering_point input{
+#offer #Trip_gathering_point{
 	width: 320px;
 }
-#offer .label{
-	width: 100px;
+#offer #Trip_description{
+	width: 430px;
+}
+#offer label{
+	min-width: 110px;
 }
 #offer textarea{
 	width: 419px;
