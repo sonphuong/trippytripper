@@ -180,7 +180,7 @@ class YumFriendshipController extends YumController {
 
 			echo CHtml::beginForm(array('//friendship/friendship/invite'));
 			echo CHtml::hiddenField('user_id', $invited->id);
-			echo CHtml::submitButton(Yum::t('Add friend'));
+			echo CHtml::submitButton(Yum::t('Add friend'),array('class'=>'orangeButton'));
 			echo CHtml::endForm();
 		}
 	}

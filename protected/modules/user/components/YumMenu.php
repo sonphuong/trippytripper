@@ -22,7 +22,7 @@ class YumMenu extends CMenu {
 			if(isset($item['url']))
 				echo CHtml::link($item['label'],$item['url'],isset($item['linkOptions']) ? $item['linkOptions'] : array());
 			else
-				echo CHtml::tag('span',isset($item['linkOptions']) ? $item['linkOptions'] : array(), $item['label']);
+				echo CHtml::tag('div',isset($item['linkOptions']) ? $item['linkOptions'] : array(), $item['label']);
 			if(isset($item['items']) && count($item['items']))
 			{
 				echo "\n".CHtml::openTag('ul',$this->submenuHtmlOptions)."\n";
