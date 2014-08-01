@@ -1,15 +1,40 @@
+
 <ul class="ctrl">
     <li><a id="friend_num" class="friend numNotis" href="#none"></a></li>
     <li><a id="email_num" class="msg numNotis" href="#none"></a></li>
     <li><a id="trip_num" class="tripp numNotis" href="#none"></a></li>
 </ul>
-<div class="table_row">
-    <div id="friend_notis" class = "notis cell"></div>
-    <div id="email_notis" class = "notis cell"></div>
-    <div id="trip_notis" class = "notis cell"></div>
-</div>  
+<div id="friend_notis" class="notis"></div>
+<div id="email_notis" class="notis"></div>
+<div id="trip_notis" class="notis"></div>
+<!-- <div class="notis">
+    <span class="notis_header">Notifications</span>
+    
+    <span class="notis_footer">View all</span>
+</div> -->
+ <div class="user">
+    <a id="myavatar" href="#none" class="avatar">
+        <img src="<?php echo Yum::module('avatar')->getAvatarThumb(Yii::app()->user->avatar); ?>" width="30" height="30">
+    </a>
+ </div>
+ 
+<?php //echo Yii::app()->user->name; ?>
+<div id="mymenu">
+    <ul>
+        <li><a href="/index.php/profile/profile/view"><?php echo Yii::t('translator','My profile'); ?></a></li>
+        <li><a href="/index.php/trip/myTrips"><?php echo Yii::t('translator','My trips'); ?></a></li>
+        <li><a href="/index.php/friendship/friendship/index"><?php echo Yii::t('translator','My friends'); ?></a></li>
+        <li><a href="/index.php/message/message/index"><?php echo Yii::t('translator','My inbox'); ?></a></li>
+        <li><a href="/index.php/usergroup/groups/index"><?php echo Yii::t('translator','My groups'); ?></a></li>
+        <li><a href="/index.php/site/logout"><?php echo Yii::t('translator','Logout'); ?></a></li>
+    </ul>
+</div>
+
 <script>
 $( document ).ready(function() {
+    $("#myavatar").click(function() {
+        $("#mymenu").toggle();
+    });
     $("#friend_num").click(function(){
         $("#email_notis").hide();
         $("#trip_notis").hide();

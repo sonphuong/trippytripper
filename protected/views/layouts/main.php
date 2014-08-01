@@ -60,27 +60,12 @@
 			</ul>
 			<div class="right-area">
 				<?php $this->widget('application.widgets.notification.Notification'); ?>
-				<div class="user"><a href="#none" class="avatar"><img src="/images/C-30-30.jpg" width="30" height="30" alt="" /></a></div>
 			</div>
 		</div><!-- mainmenu -->	
 	</div>
-   	<div style="float:right">
-		<a id="myavatar" href="/index.php/profile/profile/view">
-			<img class="photo" src="<?php echo Yum::module('avatar')->getAvatarThumb(Yii::app()->user->avatar); ?>" width="42" height="42">
-			<?php echo Yii::app()->user->name; ?>
-		</a>
-		<div id="mymenu">
-			<ul>
-				<li><a href="/index.php/trip/myTrips"><?php echo Yii::t('translator','My trips'); ?></a></li>
-				<li><a href="/index.php/friendship/friendship/index"><?php echo Yii::t('translator','My friends'); ?></a></li>
-				<li><a href="/index.php/message/message/index"><?php echo Yii::t('translator','My inbox'); ?></a></li>
-				<li><a href="/index.php/usergroup/groups/index"><?php echo Yii::t('translator','My groups'); ?></a></li>
-				<li><a href="/index.php/site/logout"><?php echo Yii::t('translator','Logout'); ?></a></li>
-			</ul>
-		</div>
-	</div>
-	</div><!-- header -->
+   	
 	<?php endif; ?>
+	</div><!-- header -->
 	<div id="container" class="sub-page"> 
 		<div class="wrap-ct">
 		<?php 

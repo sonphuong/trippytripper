@@ -7,10 +7,10 @@ $module = Yum::module();
 $this->beginContent($module->baseLayout); ?>
 
 <div class="container">
-		<div id="usermenu">
-		<?php Yum::renderFlash(); ?>
-		<?php $this->renderMenu(); ?>
-		</div>
+	<div id="usermenu">
+	<?php Yum::renderFlash(); ?>
+	<?php $this->renderMenu(); ?>
+	</div>
 	<div id="yumcontent">
 		<div id="usercontent">
 		<?
@@ -30,6 +30,7 @@ $this->beginContent($module->baseLayout); ?>
 			<?php echo $content;  ?>
 		</div>
 	</div>
+
 
 </div>
 <?php $this->endContent(); ?>

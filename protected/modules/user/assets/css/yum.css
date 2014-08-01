@@ -24,7 +24,7 @@ margin-left: 20px;
 .menucontent ul {margin: 5px 0px 0px 9px; padding: 3px; list-style-type:none;cursor:pointer;}
 .menucontent li {margin: 5px 0px 0px 9px; list-style-type:none;}
 
-.avatar {float:left; margin-right: 5px;-moz-border-radius: 2px;}
+.avatar {float:left; margin-right: 5px;-moz-border-radius: 2px;border-radius:50%;}
 #usercontent {
 	width:100%; 
 }
@@ -36,7 +36,7 @@ label { display: inline }
 .info {background-color: lightgray; padding: 10px; margin:10px; border: 1px dotted black;}
 .new_messages td { border-bottom: 1px solid;} 
 .tooltip { display: none; padding: 5px; margin: 5px; background-color: #ffa;border: 1px solid #cc9; border-radius: 5px;}
-.view_user {float:left; margin:5px;width: 317px;border: solid 1px #EFEFEF;padding:1px;}
+.view_user {float:left; margin:5px;width: 370px;border: solid 1px #EFEFEF;padding:5px;}
 .profile_field_selection { float: right; margin: 5px;}
 .table_profile_fields { width: 50%; }
 .profilefieldlabel { float: left; margin-right: 5px; width: 100px;}

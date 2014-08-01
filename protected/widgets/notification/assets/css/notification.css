@@ -13,13 +13,6 @@
 #gnb .right-area .ctrl .msg:hover{background:url(images/icon_msg_on.png) no-repeat 0 0;}
 #gnb .right-area .ctrl .tripp{background:url(images/icon_tripp.png) no-repeat 0 0; width:21px;}
 #gnb .right-area .ctrl .tripp:hover{background:url(images/icon_tripp_on.png) no-repeat 0 0;}
-.notis{
-    display: none;
-    background-color: #FFE7A7;
-    width: 300px;
-    max-height: 500px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    z-index: 9999;
-}
+
+
 
