@@ -14,7 +14,7 @@ if($domain==='www.trippytripper.org'){
     $dbPass = 'trippytripper';
     $dbHost = 'trippytripper.c3mfgwza7g4u.us-west-2.rds.amazonaws.com';
     $userDebug = false;
-    $debug = false;
+    $debug = '';
 }
 else{
     $googleKey = 'AIzaSyAisOhSjoLbzL_hEtuBhUoS3pr71vhwtu4';    
@@ -22,7 +22,11 @@ else{
     $dbPass = '';
     $dbHost = 'localhost';
     $userDebug = false;
-    $debug = true;
+    $debug = 
+            array(
+            'class' => 'CWebLogRoute',
+            'levels' => 'trace, info, error, warning',
+            );   
 }
 return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
@@ -134,13 +138,7 @@ return array(
                     'levels' => 'error, warning',
                 ),
                 // uncomment the following to show log messages on web pages
-                if($debug){
-                    array(
-                    'class' => 'CWebLogRoute',
-                    'levels' => 'trace, info, error, warning',
-                    ),        
-                }
-                
+                $debug
             ),
         ),
     ),
