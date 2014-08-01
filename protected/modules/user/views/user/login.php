@@ -1,4 +1,16 @@
-<?
+<style type="text/css">
+#yumcontent
+{
+	padding: 20px;
+	border: solid 1px #CCCCCC;
+	background: white;
+	border-radius: 6px;
+	margin: auto;
+	width: 235px;
+}
+</style>
+<div id="login_page" class="login_page">
+<?php
 if(!isset($model)) 
 	$model = new YumUserLogin();
 
@@ -13,14 +25,7 @@ Yum::renderFlash();
 ?>
 
 <div class="form">
-<p>
-<?php 
-echo Yum::t(
-		'Please fill out the following form with your login credentials:'); ?>
-</p>
-
 <?php echo CHtml::beginForm(array('//user/auth/login'));  ?>
-
 <?
 if(isset($_GET['action']))
 	echo CHtml::hiddenField('returnUrl', urldecode($_GET['action']));
@@ -74,7 +79,7 @@ if(isset($_GET['action']))
 </div>
 
 <div class="row submit">
-<?php echo CHtml::submitButton(Yum::t('Login')); ?>
+<?php echo CHtml::submitButton(Yum::t('Login'),array('class'=>'orangeButton')); ?>
 </div>
 
 <?php echo CHtml::endForm(); ?>
@@ -105,3 +110,4 @@ $form = new CForm(array(
 			), $model);
 ?>
 
+</div>

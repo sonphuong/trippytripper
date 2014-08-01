@@ -42,4 +42,5 @@ a{color:#1698d2; text-decoration:none;}
 #siteInfo .menu li{float:left; margin-right:8px;}
 #siteInfo .menu li a{color:#fff; text-decoration:none; margin-right:5px;}
 #siteInfo .language{color:#9f9f9f;}
+#siteInfo .language form{display: inline}
 #siteInfo select{font-size:13px;}

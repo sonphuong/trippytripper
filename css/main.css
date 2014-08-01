@@ -56,9 +56,8 @@ body
 	margin-top: 20px;
 	width: 682px;
 }
-#login_page{
-	border: solid 1px;
-}
+
+
 #sidebar
 {
 	padding: 20px;
@@ -352,6 +351,12 @@ div.breadcrumbs span
 }
 #offer #Trip_description{
 	width: 430px;
+}
+#login_page label{
+	min-width: 73px;
+}
+#login_page .orangeButton{
+	min-width: 236px;
 }
 #offer label{
 	min-width: 110px;
