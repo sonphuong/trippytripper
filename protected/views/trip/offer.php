@@ -66,8 +66,9 @@
     </div>
     <div class="row"/>
     <input type="submit" class="orangeButton" value="<?php echo Yii::t('translator', 'Offer');?>">
+    <?php $this->endWidget(); ?></div>
 </div>
-<?php $this->endWidget(); ?></div>
+
 <div id="map-canvas"/>
 <!-- google maps -->
 <input id="fb_access_token" type="hidden" value="<?php echo Yii::app()->params['FB_ACCESS_TOKEN']; ?>">

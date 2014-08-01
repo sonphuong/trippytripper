@@ -1,14 +1,13 @@
+<ul class="ctrl">
+    <li><a id="friend_num" class="friend numNotis" href="#none"></a></li>
+    <li><a id="email_num" class="msg numNotis" href="#none"></a></li>
+    <li><a id="trip_num" class="tripp numNotis" href="#none"></a></li>
+</ul>
 <div class="table_row">
-    <div id="friend_num" class="numNotis cell"></div>
     <div id="friend_notis" class = "notis cell"></div>
-    
-    <div id="email_num" class="numNotis cell"></div>
-	<div id="email_notis" class = "notis cell"></div>
-    
-    <div id="trip_num" class="numNotis cell"></div>
+    <div id="email_notis" class = "notis cell"></div>
     <div id="trip_notis" class = "notis cell"></div>
-</div>	
-
+</div>  
 <script>
 $( document ).ready(function() {
     $("#friend_num").click(function(){

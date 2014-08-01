@@ -6,21 +6,13 @@
     cursor: pointer;
     padding-bottom: 6px;
 }
-#trip_num{
-	background: url(images/trip_icon.png);
-	background-size: 16px 16px;
-    background-repeat: no-repeat;	
-}
-#email_num{
-	background: url(images/email_icon.png);	
-	background-size: 16px 16px;
-    background-repeat: no-repeat;
-}
-#friend_num{
-	background: url(images/friend_icon.png);	
-	background-size: 16px 16px;
-    background-repeat: no-repeat;
-}
+
+#gnb .right-area .ctrl .friend{background:url(images/icon_friend.png) no-repeat 0 0; width:27px;}
+#gnb .right-area .ctrl .friend:hover{background:url(images/icon_friend_on.png) no-repeat 0 0;}
+#gnb .right-area .ctrl .msg{background:url(images/icon_msg.png) no-repeat 0 0; width:24px;}
+#gnb .right-area .ctrl .msg:hover{background:url(images/icon_msg_on.png) no-repeat 0 0;}
+#gnb .right-area .ctrl .tripp{background:url(images/icon_tripp.png) no-repeat 0 0; width:21px;}
+#gnb .right-area .ctrl .tripp:hover{background:url(images/icon_tripp_on.png) no-repeat 0 0;}
 .notis{
     display: none;
     background-color: #FFE7A7;
@@ -30,3 +22,4 @@
     overflow-x: hidden;
     z-index: 9999;
 }
+

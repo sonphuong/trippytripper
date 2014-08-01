@@ -44,55 +44,34 @@
 			</div>
 		</div>
 		<?php ///echo CHtml::encode(Yii::app()->name); ?>
-	<?php if(!Yii::app()->user->isGuest): ?>		
-	<div id="gnb">
-		<div class="bg"><!-- id = mainmenu -->
-			<ul class="gnb">
-				<?php $this->widget('zii.widgets.CMenu',array(
-					'items'=>array(
-						array('label'=>Yii::t('translator','Offer'), 'url'=>array('/trip/offer'), 'visible'=>!Yii::app()->user->isGuest),
-						array('label'=>Yii::t('translator','Trips'), 'url'=>array('/trip/searchTrip')),
-						array('label'=>Yii::t('translator','Trippers'), 'url'=>array('/user/user/browse'), 'visible'=>!Yii::app()->user->isGuest),
-						array('label'=>Yii::t('translator','Join us'), 'url'=>array('/registration/registration'), 'visible'=>Yii::app()->user->isGuest),
-						array('label'=>Yii::t('translator','Login'), 'url'=>array('/user/auth'), 'visible'=>Yii::app()->user->isGuest)
-					),
-				)); ?>
-			</ul>
-			<div class="right-area">
-				<?php $this->widget('application.widgets.notification.Notification'); ?>
-				<div class="user"><a href="#none" class="avatar"><img src="/images/C-30-30.jpg" width="30" height="30" alt="" /></a></div>
-			</div>
-		</div><!-- mainmenu -->	
-	</div>
-   	<div style="float:right">
-		<a id="myavatar" href="/index.php/profile/profile/view">
-			<img class="photo" src="<?php echo Yum::module('avatar')->getAvatarThumb(Yii::app()->user->avatar); ?>" width="42" height="42">
-			<?php echo Yii::app()->user->name; ?>
-		</a>
-		<div id="mymenu">
-			<ul>
-				<li><a href="/index.php/trip/myTrips"><?php echo Yii::t('translator','My trips'); ?></a></li>
-				<li><a href="/index.php/friendship/friendship/index"><?php echo Yii::t('translator','My friends'); ?></a></li>
-				<li><a href="/index.php/message/message/index"><?php echo Yii::t('translator','My inbox'); ?></a></li>
-				<li><a href="/index.php/usergroup/groups/index"><?php echo Yii::t('translator','My groups'); ?></a></li>
-				<li><a href="/index.php/site/logout"><?php echo Yii::t('translator','Logout'); ?></a></li>
-			</ul>
-		</div>
-	</div>
-	</div><!-- header -->
+	<?php if(!Yii::app()->user->isGuest): ?>
+	<!-- redirect -->
 	<?php endif; ?>
-	<div id="container" class="sub-page"> 
-		<div class="wrap-ct">
-		<?php 
-		/*$this->widget('zii.widgets.CBreadcrumbs', array(
-			'links'=>$this->breadcrumbs,
-		));*/ 
-		?><!-- breadcrumbs -->
+	</div><!-- header -->
+<div id="container" class="home"> 
+	<?php echo $content; ?>
+</div><!-- page -->
 
-		<?php echo $content; ?>
-		</div>
-	</div><!-- page -->
 	<div id="footer">
+	<!--<div class="social">
+			<div class="wrap-ct">
+				<div class="connect-us">
+					<span class="tit">Connect with us:</span>
+					<ul class="list">
+						<li><a href="#none"><img src="images/icon_social_01.gif" alt="" /></a></li>
+						<li><a href="#none"><img src="images/icon_social_02.gif" alt="" /></a></li>
+						<li><a href="#none"><img src="images/icon_social_03.gif" alt="" /></a></li>
+						<li><a href="#none"><img src="images/icon_social_04.gif" alt="" /></a></li>
+						<li><a href="#none"><img src="images/icon_social_05.gif" alt="" /></a></li>
+						<li><a href="#none"><img src="images/icon_social_06.gif" alt="" /></a></li>
+						<li><a href="#none"><img src="images/icon_social_07.gif" alt="" /></a></li>
+						<li><a href="#none"><img src="images/icon_social_08.gif" alt="" /></a></li>
+						<li><a href="#none"><img src="images/icon_social_09.gif" alt="" /></a></li>
+						<li><a href="#none"><img src="images/icon_social_10.gif" alt="" /></a></li>
+					</ul>
+				</div>
+			</div>
+		</div> -->
 		<div id="siteInfo">
 			<span class="copyright">trippytripper.org <?php echo date('Y'); ?> &copy;</span>
 			<div class="right-area">

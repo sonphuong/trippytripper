@@ -3,6 +3,8 @@
     <?php echo $form->errorSummary($model); ?>
     <div class="row">
         <div class="cell"><?php echo $form->textField($model, 'from', array('id' => 'goFrom', 'class' => 'from', 'value'=>$fromVal)); ?></div>
+        <div class="cell"><?php echo $form->textField($model, 'to', array('id' => 'goTo', 'class' => 'to', 'value'=>$toVal)); ?></div>
+        
         <div class="cell"><?php
         $this->widget('application.widgets.timepicker.timepicker', array(
             'model' => $model,
@@ -15,9 +17,6 @@
             ),
         ));
         ?></div>
-    </div>
-    <div class="row">        
-        <div class="cell"><?php echo $form->textField($model, 'to', array('id' => 'goTo', 'class' => 'to', 'value'=>$toVal)); ?></div>
         <div class="cell"><?php
         $this->widget('application.widgets.timepicker.timepicker', array(
             'model' => $model,

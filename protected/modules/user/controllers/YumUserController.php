@@ -82,6 +82,7 @@ class YumUserController extends YumController {
 	}
 
 	public function actionLogin() {
+		$this->layout = 'main';
 		// Do not show the login form if a session expires but a ajax request
 		// is still generated
 		if(Yii::app()->user->isGuest && Yii::app()->request->isAjaxRequest)
