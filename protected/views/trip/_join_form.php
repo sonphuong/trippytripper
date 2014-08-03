@@ -3,9 +3,10 @@
 	<input type="hidden" value="<?php echo $_GET['id']; ?>" name="trip_id">
 	<div class="row buttons">
 		<?php echo CHtml::ajaxSubmitButton ("Join",
-                          CController::createUrl('trip/join'), 
-                          array('update' => '#join_div')
-                          );
+				CController::createUrl('trip/join'), 
+				array('update' => '#join_div'),
+				array('class'=>'orangeButton')
+				);
 		?>
 	</div>
 </form>

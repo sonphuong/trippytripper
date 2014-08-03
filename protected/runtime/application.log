@@ -1022,3 +1022,50 @@ REQUEST_URI=/index.php/trip/searchTrip
 2014/08/03 10:33:17 [warning] [application] Failed to set unsafe attribute "to" of "SearchTripForm".
 2014/08/03 10:33:33 [warning] [application] Failed to set unsafe attribute "from" of "SearchTripForm".
 2014/08/03 10:33:33 [warning] [application] Failed to set unsafe attribute "to" of "SearchTripForm".
+2014/08/03 10:36:46 [warning] [application] Failed to set unsafe attribute "from" of "SearchTripForm".
+2014/08/03 10:36:46 [warning] [application] Failed to set unsafe attribute "to" of "SearchTripForm".
+2014/08/03 10:42:50 [error] [php] Array to string conversion (E:\wamp\www\trippytripper\protected\views\trip\_join_form.php:10)
+Stack trace:
+#0 E:\wamp\www\yiiframework\web\CController.php(869): TripController->renderFile()
+#1 E:\wamp\www\trippytripper\protected\views\trip\_view.php(82): TripController->renderPartial()
+#2 E:\wamp\www\yiiframework\web\CBaseController.php(126): require()
+#3 E:\wamp\www\yiiframework\web\CBaseController.php(95): TripController->renderInternal()
+#4 E:\wamp\www\yiiframework\web\CController.php(869): TripController->renderFile()
+#5 E:\wamp\www\yiiframework\web\CController.php(782): TripController->renderPartial()
+#6 E:\wamp\www\trippytripper\protected\controllers\TripController.php(317): TripController->render()
+#7 E:\wamp\www\yiiframework\web\actions\CInlineAction.php(49): TripController->actionView()
+#8 E:\wamp\www\yiiframework\web\CController.php(308): CInlineAction->runWithParams()
+#9 E:\wamp\www\yiiframework\web\CController.php(286): TripController->runAction()
+#10 E:\wamp\www\yiiframework\web\CController.php(265): TripController->runActionWithFilters()
+#11 E:\wamp\www\yiiframework\web\CWebApplication.php(282): TripController->run()
+#12 E:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController()
+#13 E:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 E:\wamp\www\trippytripper\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/trip/view/?id=47
+2014/08/03 10:54:37 [error] [php] Undefined index: trip_id (E:\wamp\www\trippytripper\protected\controllers\TripController.php:609)
+Stack trace:
+#0 E:\wamp\www\yiiframework\web\CController.php(286): TripController->runAction()
+#1 E:\wamp\www\yiiframework\web\CController.php(265): TripController->runActionWithFilters()
+#2 E:\wamp\www\yiiframework\web\CWebApplication.php(282): TripController->run()
+#3 E:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 E:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 E:\wamp\www\trippytripper\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/trip/acceptJoin?user_id=4&trip_id=47&_=1407056065318
+2014/08/03 10:54:41 [error] [php] Undefined index: trip_id (E:\wamp\www\trippytripper\protected\controllers\TripController.php:609)
+Stack trace:
+#0 E:\wamp\www\yiiframework\web\CController.php(286): TripController->runAction()
+#1 E:\wamp\www\yiiframework\web\CController.php(265): TripController->runActionWithFilters()
+#2 E:\wamp\www\yiiframework\web\CWebApplication.php(282): TripController->run()
+#3 E:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 E:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 E:\wamp\www\trippytripper\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/trip/acceptJoin?user_id=4&trip_id=47&_=1407056065319
+2014/08/03 10:56:07 [error] [php] Undefined index: trip_id (E:\wamp\www\trippytripper\protected\controllers\TripController.php:679)
+Stack trace:
+#0 E:\wamp\www\yiiframework\web\CController.php(286): TripController->runAction()
+#1 E:\wamp\www\yiiframework\web\CController.php(265): TripController->runActionWithFilters()
+#2 E:\wamp\www\yiiframework\web\CWebApplication.php(282): TripController->run()
+#3 E:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 E:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 E:\wamp\www\trippytripper\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/trip/DeclineJoin?user_id=4&trip_id=47&_=1407056165238

@@ -577,6 +577,13 @@ input, textarea{
 	padding: 5px;
 	font-weight: bold;
 }
+.blueButton{
+	border-radius: 5px;
+	background-color:#41b2e4;
+	color: white;
+	padding: 5px;
+	font-weight: bold;
+}
 .aquaLink{
 	color: #38A4D1;
 	text-decoration: none;
@@ -586,4 +593,10 @@ input, textarea{
 }
 #contact label{
 	min-width: 135px;
+}
+.avatar {
+float: left;
+margin-right: 5px;
+-moz-border-radius: 2px;
+border-radius: 50%;
 }
