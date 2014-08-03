@@ -3,15 +3,13 @@
     <div class="cell user cell2">
         <a href="/index.php/profile/profile/view/id/<?php echo $trip['user_id']; ?>">
         <img class="avatar" src="/<?php echo $trip['avatar']; ?>" width="120" height="120">
-        <div class="user-info">
-            <h3 class="username"><?php echo $trip['username']; ?></h3>
-        </div>
         </a>
+        <div class="username"><?php echo $trip['username']; ?>         
+        </div>
+        
     </div>
 
     <div class="cell cell5">
-        
-        
         <h4 />
         <?php 
             $leaveDate = new DateTime($trip['leave']);
