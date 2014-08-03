@@ -584,3 +584,6 @@ input, textarea{
 .inlineButton{
 	margin-left: 20px;
 }
+#contact label{
+	min-width: 135px;
+}

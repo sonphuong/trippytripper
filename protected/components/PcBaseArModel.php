@@ -327,7 +327,9 @@ abstract class PcBaseArModel extends CActiveRecord {
 	 * @abstract
 	 * @return string
 	 */
-	abstract public static function getCreatorRelationName();
+	public static function getCreatorRelationName(){
+
+	}
 	/**
 	 * Method returns the model's creator user id. this is a common task that is useful. This method also caches the loaded
 	 * object (or uses a cached object).
@@ -351,7 +353,9 @@ abstract class PcBaseArModel extends CActiveRecord {
 	 * @param int $id the primary key for the model in question
 	 * @return mixed
 	 */
-	abstract public static function getCreatorUserId($id);
+	public static function getCreatorUserId($id){
+		
+	}
 }
 
 /**

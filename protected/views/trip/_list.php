@@ -1,21 +1,19 @@
 <div id="trip_list">
-<div>94  tours from Hanoi to Myanmar                          rearrange by: departure date - prices</div>
 
-<?php foreach ($allTrips as $key => $trip): ?>
 <div class="row">
     <div class="cell user cell1">
-        <img class="photo" src="<?php echo Yum::module('avatar')->getAvatarThumb($trip['avatar']); ?>" width="42" height="42">
+        <a href="avatar"><img class="avatar" src="<?php echo Yum::module('avatar')->getAvatarThumb($data['avatar']); ?>" width="42" height="42"></a>
         <div class="user-info">
-            <h3 class="username"><?php echo $trip['username']; ?></h3>
+            <h3 class="username"><?php echo $data['username']; ?></h3>
         </div>
         <div class="user-trust">
             <div class="rating-container">
                 <?php
-                $this->widget('PcStarRankWidget', array('modelId' => $trip['user_id'], 'modelClassName' => get_class($model)));
+                //$this->widget('PcStarRankWidget', array('modelId' => $data['user_id'], 'modelClassName' => get_class($model)));
                 ?>
             </div>
-            <div class="row"><?php echo Yii::t('translator','Leaded tours'); ?>: <?php echo $trip['tour_no']; ?></div>
-            <div class="row"><?php echo Yii::t('translator','Member since');?>: <?php echo date('d-m-Y',$trip['createtime']);?></div>
+            
+            <div class="row"><?php echo Yii::t('translator','Member since');?>: <?php echo date('d-m-Y',$data['createtime']);?></div>
             
             <div class="preferences-container">
                 <span class="blabla prefs tip"></span>
@@ -26,7 +24,7 @@
     <div class="cell cell2">
         <h4/>
         <?php
-        $leaveDate = new DateTime($trip['leave']);
+        $leaveDate = new DateTime($data['leave']);
         $date = $leaveDate->format('Y-m-d');
         $time = $leaveDate->format('h:m');
         $today = date('Y-m-d');
@@ -40,11 +38,11 @@
             echo $date . ' : ' . $time;
         }
         ?>
-        <a href="view/?id=<?php echo $trip['id']; ?>" rel="nofollow" class="trip-search-oneresult">
+        <a href="view/?id=<?php echo $data['id']; ?>" rel="nofollow" class="trip-search-oneresult">
         <h3 class="fromto" itemprop="name">
-            <span class="trip-roads-stop"><?php echo $trip['from']; ?></span>
+            <span class="trip-roads-stop"><?php echo $data['from']; ?></span>
             <span class="arrow-ie">→</span>
-            <span class="trip-roads-stop"><?php echo $trip['to']; ?></span>
+            <span class="trip-roads-stop"><?php echo $data['to']; ?></span>
         </h3>
         </a>
         <dl class="geo-from">
@@ -54,7 +52,7 @@
         </span>
             </dt>
             <dd class="tip">
-                <?php echo $trip['gathering_point']; ?>
+                <?php echo $data['gathering_point']; ?>
             </dd>
         </dl>
     </div>
@@ -62,17 +60,14 @@
         <div class="price price-green" itemprop="location">
             <strong>
             <span>
-               <u>đ</u> <?php echo $trip['fee']; ?>K
+               <u>đ</u> <?php echo $data['fee']; ?>K
             </span>
             </strong>
             <span class="priceUnit"><?php echo Yii::t('translator','per passenger');?></span>
         </div>
         <div class="availability">
-            <strong><?php echo $trip['seat_avail']; ?></strong> <span><?php echo Yii::t('translator','seat(s) left');?></span>
+            <strong><?php echo $data['seat_avail']; ?></strong> <span><?php echo Yii::t('translator','seat(s) left');?></span>
         </div>
     </div>
 </div>
-<?php endforeach; ?>
-
-
 </div>
