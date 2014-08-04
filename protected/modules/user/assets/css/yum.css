@@ -24,7 +24,6 @@ margin-left: 20px;
 .menucontent ul {margin: 5px 0px 0px 9px; padding: 3px; list-style-type:none;cursor:pointer;}
 .menucontent li {margin: 5px 0px 0px 9px; list-style-type:none;}
 
-.avatar {float:left; margin-right: 5px;-moz-border-radius: 2px;border-radius:50%;}
 #usercontent {
 	width:100%; 
 }
@@ -41,4 +40,3 @@ label { display: inline }
 .table_profile_fields { width: 50%; }
 .profilefieldlabel { float: left; margin-right: 5px; width: 100px;}
 .friend { margin: 5px; } 
-.username{padding-top: 30px;font-weight: bold;font-size: 12px;}

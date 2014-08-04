@@ -1104,3 +1104,24 @@ Stack trace:
 REQUEST_URI=/index.php/notis/getNotis
 HTTP_REFERER=http://www.trippytripper.local/index.php/trip/view/?id=47
 ---
+2014/08/04 05:53:31 [warning] [PcStarRankWidget::_rankModel] Bummer, tried updating average score for ranking id 2 but I failed. Reported failure reason: Property "RankingVote.created_on" is not defined.
+2014/08/04 07:56:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "images".' in D:\wamp\www\yiiframework\web\CController.php:483
+Stack trace:
+#0 D:\wamp\www\yiiframework\web\CController.php(270): CController->missingAction('images')
+#1 D:\wamp\www\yiiframework\web\CWebApplication.php(282): CController->run('images')
+#2 D:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController('trip/images/ava...')
+#3 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 D:\wamp\www\trippytripper\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/trip/images/avatars/1.jpg
+HTTP_REFERER=http://www.trippytripper.local/index.php/trip/searchTrip
+---
+2014/08/04 08:41:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/icon_comment.gif".' in D:\wamp\www\yiiframework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\wamp\www\yiiframework\web\CWebApplication.php(141): CWebApplication->runController('images/icon_com...')
+#1 D:\wamp\www\yiiframework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\wamp\www\trippytripper\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/images/icon_comment.gif
+HTTP_REFERER=http://www.trippytripper.local/index.php/
+---

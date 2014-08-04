@@ -55,6 +55,7 @@ body
 	border-radius: 6px;
 	margin-top: 20px;
 	width: 786px;
+	min-height: 428px;
 }
 #mymenu{
 	background-color: white;
@@ -70,6 +71,7 @@ body
 	margin-left: 108px;
 }
 
+
 .notis{
     background-color: white;
     display: none;
@@ -82,53 +84,13 @@ body
     position: absolute;
     margin-left: -92px;
     width: 300px;
-    max-height: 500px;
+    max-height: 250px;
     overflow-y: auto;
     overflow-x: hidden;
+
 }
 .notis_header{
 	background-color: #CCCCCC;
-}
-#sidebar
-{
-	padding: 20px;
-}
-
-#mainmenu
-{
-	/*background:white url(bg.gif) repeat-x left top;*/
-	background-color: #FCA019;
-	border-bottom-right-radius: 25px;
-	border-bottom-left-radius: 25px;
-}
-
-#mainmenu ul
-{
-	padding:6px 20px 5px 20px;
-	margin:0px;
-}
-
-#mainmenu ul li
-{
-	display: inline;
-}
-
-#mainmenu ul li a
-{
-	color:#ffffff;
-	background-color:transparent;
-	font-size:12px;
-	font-weight:bold;
-	text-decoration:none;
-	padding:5px 8px;
-}
-
-#mainmenu ul li a:hover, #mainmenu ul li.active a
-{
-	color: white;
-	background-color:#1E9CD2;
-	border-radius: 9px;
-	text-decoration:none;
 }
 
 div.flash-error, div.flash-notice, div.flash-success
@@ -174,148 +136,6 @@ div.flash-success a
 	color:#264409;
 }
 
-div.form .rememberMe label
-{
-	display: inline;
-}
-
-div.view
-{
-	padding: 10px;
-	margin: 10px 0;
-	border: 1px solid #C9E0ED;
-}
-
-div.breadcrumbs
-{
-	font-size: 0.9em;
-	padding: 5px 20px;
-}
-
-div.breadcrumbs span
-{
-	font-weight: bold;
-}
-
-.portlet
-{
-
-}
-
-.portlet-decoration
-{
-	padding: 3px 8px;
-	background: #B7D6E7;
-	border-left: 5px solid #6FACCF;
-}
-
-.portlet-title
-{
-	font-size: 12px;
-	font-weight: bold;
-	padding: 0;
-	margin: 0;
-	color: #298dcd;
-}
-
-.portlet-content
-{
-	font-size:0.9em;
-	margin: 0;
-	padding: 5px 8px;
-	margin-bottom:15px;
-	background:#EFFDFF;
-}
-
-.portlet-content ul
-{
-	list-style-image:none;
-	list-style-position:outside;
-	list-style-type:none;
-	margin: 0;
-	padding: 0;
-}
-
-.portlet-content li
-{
-	padding: 2px 0 4px 0px;
-}
-
-.post
-{
-	margin: 0 0 20px;
-}
-
-.post .title
-{
-	font-size: 1.5em;
-	border-bottom: 1px solid #C9E0ED;
-}
-
-.post .title a
-{
-	color: #555;
-	text-decoration: none;
-}
-
-.post .author
-{
-	color: #888;
-	margin: 0 0 5px;
-}
-
-.post .nav
-{
-	-moz-border-radius:7px;
-	padding: 5px;
-	background: #EFFDFF;
-}
-
-.comment
-{
-	-moz-border-radius:7px;
-	padding: 10px;
-	background: #F5F5F5;
-	margin: 5px 0;
-}
-
-.comment .content
-{
-	margin: 10px 0;
-}
-
-.comment .author
-{
-	margin: 5px 0;
-	padding: 0 0 3px;
-	border-bottom: 1px solid #DDD;
-}
-
-.comment .time
-{
-	color: #888;
-	font-size: 0.8em;
-}
-
-.comment a.cid
-{
-	color:#CCC;
-	float:right;
-	font-size:1.5em;
-	font-weight:bold;
-	padding:0 5px 5px 5px;
-	text-decoration: none;
-}
-
-.comment a.cid:hover
-{
-	color:#555;
-}
-
-.comment .pending
-{
-	color:red;
-}
 .textbox{
 	width: 250px;
 	height: 28px;
@@ -344,20 +164,27 @@ div.breadcrumbs span
 	
 }
 #trip_list .cell1{
-	width: 160px;
-	border-right: solid 1px #CCCCCC;
+	width: 220px;
+	border-right: solid 1px #E5E5E5;
 	vertical-align: top;
 	padding: 10px;
 }
 #trip_list .cell2{
-	width: 570px;
-	border-right: solid 1px #CCCCCC;
+	width: 635px;
+	border-right: solid 1px #E5E5E5;
 	vertical-align: top;
 	padding: 10px;
 }
 #trip_list .cell3{
 	vertical-align: top;
 	padding: 10px;
+}
+#trip_list .row{
+	border-bottom: solid 1px #E5E5E5;
+	border-collapse:separate;
+	border-spacing:10px;
+	width: 100%;
+
 }
 #profile_update label{
 	min-width: 150px;
@@ -404,9 +231,7 @@ div.breadcrumbs span
 .container{
 	padding-bottom: 80px;
 }
-.border_right{
-    border-right: 1px solid #CCC;
-}
+
 
 .from{
     background: url("../images/search-from-plot.png") no-repeat scroll 6px 50% #FFFFFF;
@@ -440,94 +265,26 @@ div.breadcrumbs span
 	
 }
 
-.trip-search-results {
-    margin: 0 0 0 -10px;
-    border-top: 1px solid #CCC;
-}
-.trip-search-results .trip {
-    list-style: none;
-    border: 0;
-}
-li {
-    line-height: auto;
-}
-.trip-search-oneresult {
-    padding: 12px 0;
-    display: block;
-    color: #666;
-}
-.trip-search-oneresult .user {
-    width: 190px;
-}
-
-
-.user-info {
-    float: left;
-    width: 95px;
-    font-size: 12px;
-    padding-top: 6px;
-    margin: 0 0 0 8px;
-}
-.user-trust {
-    clear: both;
-    font-size: 12px;
-    padding-top: 4px;
-}
-
-.trip-search-oneresult .offer {
-    margin: 0 0 0 5px;
-    float: left;
-}
-
-
-.user-info .username {
-    margin-bottom: 2px;
-}
-article{
-    display: block;
-    
-}
-.user .photo {
-    margin-top: 1px;
-    float: left;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
-    -o-border-radius: 3px;
-    border-radius: 3px;
-}
-.trip-search-oneresult .time {
-    font-weight: bold;
-    font-size: 19px;
-    color: #0faaf0;
-    line-height: 27px;
-}
 .price {
     margin-bottom: 1px;
-    min-height: 61px;
-}
-.price-green {
-    color: #68be57;
-}
-.price strong {
-	font-size: 34px;
-	line-height: 30px;
+	font-size: 26px;
 	font-family: Arial,Helvetica,sans-serif;
+	font-weight: bold;
+	color: #FCA019;
+}
+.verticalLine {
+    border-right: solid 1px #CCCCCC;
+	padding-right: 10px;
+}
+
+.availability {
+	line-height: 30px;
+}
+.availability strong{
+	color: red;
 	font-weight: bold;
 }
 
-
-.icon-marker-green-small {
-    width: 12px;
-    height: 19px;
-    background-position: 0 -224px;
-}
-.geo-from .icon, .geo-to .icon, .car-type .icon {
-    margin-top: -2px;
-    text-indent: -119988px;
-    overflow: hidden;
-    text-align: left;
-}
 
 .approved{
     color: green;
@@ -595,8 +352,30 @@ input, textarea{
 	min-width: 135px;
 }
 .avatar {
-float: left;
-margin-right: 5px;
--moz-border-radius: 2px;
-border-radius: 50%;
+	float: left;
+	margin-right: 5px;
+	-moz-border-radius: 2px;
+	border-radius: 50%;
 }
+.date{
+	color: #1698d2;
+	font-size: 16px;
+	font-weight: bold;
+}
+.fromTo{
+	color: #1698d2;
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 40px;
+
+}
+.pickUpPoint{
+	color: #FCA019;
+	font-weight: bold;
+}
+.username {
+	padding-top: 30px;
+	font-weight: bold;
+	font-size: 12px;
+}
+
