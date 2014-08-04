@@ -210,6 +210,7 @@ class TripController extends Controller
 			U.username,
 			U.avatar,
             U.createtime,
+            U.lastvisit,
 			R.leave,
 			R.return,
 			R.return_trip,

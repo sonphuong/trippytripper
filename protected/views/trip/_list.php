@@ -3,10 +3,8 @@
         <div class="cell user cell1">
             <a href="/index.php/profile/profile/view/id/<?php echo $data['user_id']; ?>"><img class="avatar" src="/<?php echo $data['avatar']; ?>" width="100" height="100"></a>
             <span class="username"><?php echo $data['username']; ?></span>
-            <div>
-                <?php $this->widget('PcStarRankWidget', array('modelId' => $data['user_id'], 'modelClassName' => 'YumUser')); ?>
-            </div>
             <div><?php echo Yii::t('translator','Since');?>: <?php echo date('d-m-Y',$data['createtime']);?></div>
+            <div><?php echo Yii::t('translator','Last online');?>: <?php echo date('d-m-Y',$data['lastvisit']);?></div>
         </div>
         <div class="cell cell2 verticalLine">
             <div class="date">
