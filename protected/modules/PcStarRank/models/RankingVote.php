@@ -40,24 +40,26 @@ class RankingVote extends PcBaseArModel {
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id,score_ranked, ranking_id', 'required'),
+			array('score_ranked, ranking_id', 'required'),
+			array('user_id', 'length', 'max' => 10),
+			array('score_ranked, ranking_id', 'length', 'max' => 11),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			//array('id, user_id, score_ranked, ranking_id', 'safe', 'on' => 'search'),
+			array('id, user_id, score_ranked, ranking_id', 'safe', 'on' => 'search'),
 		);
 	}
 
 	/**
 	 * @return array relational rules.
 	 */
-	// public function relations() {
-	// 	// NOTE: you may need to adjust the relation name and the related
-	// 	// class name for the relations automatically generated below.
-	// 	return array(
-	// 		'user' => array(self::BELONGS_TO, 'User', 'user_id'),
-	// 		'ranking' => array(self::BELONGS_TO, 'Ranking', 'ranking_id'),
-	// 	);
-	// }
+	public function relations() {
+		// NOTE: you may need to adjust the relation name and the related
+		// class name for the relations automatically generated below.
+		return array(
+			'user' => array(self::BELONGS_TO, 'User', 'user_id'),
+			'ranking' => array(self::BELONGS_TO, 'Ranking', 'ranking_id'),
+		);
+	}
 
 	/**
 	 * @return array customized attribute labels (name=>label)

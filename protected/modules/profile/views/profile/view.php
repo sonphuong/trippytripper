@@ -31,7 +31,6 @@ $this->renderPartial('/message/write_a_message', array(
 <br />
 <?php
 $this->widget('PcStarRankWidget', array('modelId' => $model->id, 'modelClassName' => get_class($model)));
-//$this->widget('PcStarRankWidget', array('modelId' => $model->id, 'modelClassName' => 'YumUser'));
 //$this->widget('CStarRating',array('name'=>'rating'));
 ?>
 <div class="row"><?php echo Yii::t('translator','Leaded tours'); ?>: <?php echo $tourNo; ?></div>

@@ -18,6 +18,7 @@ echo CHtml::hiddenField('YumProfileComment[profile_id]', $profile->id); ?>
 <?
 echo CHtml::Button(Yum::t('Comment'), array(
 			'id' => 'write_comment',
+			'class' =>'blueButton'
 			));
 
 Yii::app()->clientScript->registerScript("write_comment", " 

@@ -170,7 +170,7 @@ div.flash-success a
 	padding: 10px;
 }
 #trip_list .cell2{
-	width: 635px;
+	width: 600px;
 	border-right: solid 1px #E5E5E5;
 	vertical-align: top;
 	padding: 10px;
@@ -296,8 +296,8 @@ div.flash-success a
     color: red;
 }
 .uiCloseButton {
-    /*background-image: url(/images/close.png);
-    background-repeat: no-repeat;*/
+    background-image: url(/images/close.png);
+    background-repeat: no-repeat;
     float: right;
     height: 15px;
     width: 15px;

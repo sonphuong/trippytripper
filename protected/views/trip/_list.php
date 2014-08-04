@@ -1,16 +1,12 @@
 <div id="trip_list">
     <div class="row">
         <div class="cell user cell1">
-            <a href="avatar"><img class="avatar" src="/<?php echo $data['avatar']; ?>" width="100" height="100"></a>
+            <a href="/index.php/profile/profile/view/id/<?php echo $data['user_id']; ?>"><img class="avatar" src="/<?php echo $data['avatar']; ?>" width="100" height="100"></a>
             <span class="username"><?php echo $data['username']; ?></span>
             <div>
-                <div class="rating-container">
-                    <?php
-                    //$this->widget('PcStarRankWidget', array('modelId' => $data['user_id'], 'modelClassName' => get_class($model)));
-                    ?>
-                </div>
-                <div><?php echo Yii::t('translator','Since');?>: <?php echo date('d-m-Y',$data['createtime']);?></div>
+                <?php $this->widget('PcStarRankWidget', array('modelId' => $data['user_id'], 'modelClassName' => 'YumUser')); ?>
             </div>
+            <div><?php echo Yii::t('translator','Since');?>: <?php echo date('d-m-Y',$data['createtime']);?></div>
         </div>
         <div class="cell cell2 verticalLine">
             <div class="date">

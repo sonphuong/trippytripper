@@ -9,6 +9,7 @@ if(Yum::hasModule('profile') && Yum::module('profile')->enablePrivacySetting) {
 	}
 }
 printf('<div class="username">%s %s</div>', $data->username, $online);			
+$this->widget('PcStarRankWidget', array('modelId' => $data->id, 'modelClassName' => 'YumUser'));
 $this->renderPartial('_tooltip', array('data' =>  $data));
 ?>
 </div>

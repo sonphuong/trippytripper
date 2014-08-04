@@ -161,18 +161,17 @@ class PcStarRankWidget extends CWidget {
 				return;
 			}
 
-			/* check if user is allowed to rank	*/
-			//phuongds comments
-			/*if (!$this->_checkAccess("star rank content")) {
-				Yii::log("User tried to star rank but he's not allowed to. User id = " . Yii::app()->user->id, CLogger::LEVEL_INFO, __METHOD__);
-				// return some anwswer that might be used on client side to do something
-				echo CJSON::encode(array(
-					'status' => 'register first',
-					'message' => Yii::t("PcStarRankModule.general", "Sorry - only registered, non-blocked users are allowed to rank content. Please {register} first.",
-						array('{register}' => CHtml::link(Yii::t("PcStarRankModule.general", "register"), array(Yii::app()->params['registrationRoute'])))),
-				));
-				return;
-			}*/
+			// /* check if user is allowed to rank	*/
+			// if (!$this->_checkAccess("star rank content")) {
+			// 	Yii::log("User tried to star rank but he's not allowed to. User id = " . Yii::app()->user->id, CLogger::LEVEL_INFO, __METHOD__);
+			// 	// return some anwswer that might be used on client side to do something
+			// 	echo CJSON::encode(array(
+			// 		'status' => 'register first',
+			// 		'message' => Yii::t("PcStarRankModule.general", "Sorry - only registered, non-blocked users are allowed to rank content. Please {register} first.",
+			// 			array('{register}' => CHtml::link(Yii::t("PcStarRankModule.general", "register"), array(Yii::app()->params['registrationRoute'])))),
+			// 	));
+			// 	return;
+			// }
 
 			/* check if user ranked this model already */
 			if ($this->_wasModelRankedByUser(Yii::app()->user)) {
@@ -311,7 +310,7 @@ class PcStarRankWidget extends CWidget {
 			$rank_vote->user_id = $user_id;
 			$rank_vote->score_ranked = $rank;
 			$rank_vote->save();
-
+			//Yii::trace('trace');
 			/*
 			 * Calculate average and save in the Ranking record
 			 */
