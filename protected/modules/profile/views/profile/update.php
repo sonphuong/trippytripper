@@ -31,16 +31,23 @@ $this->title = Yum::t('Edit profile');
 
 	if(Yum::module('profile')->enablePrivacySetting)
 		echo CHtml::button(Yum::t('Privacy settings'), array(
-					'submit' => array('/profile/privacy/update'))); ?>
+					'submit' => array('/profile/privacy/update')
+					,'class' => 'grayButton'
+					)
+					); ?>
 
 	<?php 
 		if(Yum::hasModule('avatar'))
 			echo CHtml::button(Yum::t('Upload avatar Image'), array(
-				'submit' => array('/avatar/avatar/editAvatar'))); ?>
+				'submit' => array('/avatar/avatar/editAvatar')
+				,'class' => 'orangeButton'
+				)); ?>
 
 	<?php echo CHtml::submitButton($user->isNewRecord 
 			? Yum::t('Create my profile') 
-			: Yum::t('Save profile changes')); ?>
+			: Yum::t('Save profile changes')
+			, array('class'=>'blueButton')
+			); ?>
 	</div>
 
 	<?php echo CHtml::endForm(); ?>

@@ -186,6 +186,9 @@ div.flash-success a
 	width: 100%;
 
 }
+#profile{
+	min-height: 250px;
+}
 #profile_update label{
 	min-width: 150px;
 }
@@ -326,6 +329,7 @@ input, textarea{
 	color: white;
 	padding: 5px;
 	font-weight: bold;
+	margin-right: 10px !important;
 }
 .grayButton{
 	border-radius: 5px;
@@ -333,6 +337,7 @@ input, textarea{
 	color: black;
 	padding: 5px;
 	font-weight: bold;
+	margin-right: 10px !important;
 }
 .blueButton{
 	border-radius: 5px;
@@ -340,6 +345,7 @@ input, textarea{
 	color: white;
 	padding: 5px;
 	font-weight: bold;
+	margin-right: 10px !important;
 }
 .aquaLink{
 	color: #38A4D1;

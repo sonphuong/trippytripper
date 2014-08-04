@@ -24,7 +24,9 @@
 
 <?
 echo CHtml::Button(Yum::t('Cancel'), array(
-			'submit' => array('groups/index'))); 
-echo CHtml::submitButton(Yum::t('Save')); 
+			'submit' => array('groups/index')
+			,'class' =>'grayButton'
+			)); 
+echo CHtml::submitButton(Yum::t('Save'),array('class' =>'orangeButton')); 
 $this->endWidget(); ?>
 </div> <!-- form -->
