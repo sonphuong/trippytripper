@@ -1,3 +1,4 @@
+<div id="contact">
 <?php
 $this->pageTitle=Yii::app()->name . ' - Contact Us';
 $this->breadcrumbs=array('Contact',);
@@ -66,3 +67,4 @@ If you have business inquiries or other questions, please fill out the following
 </div><!-- form -->
 
 <?php endif; ?>
+</div>

@@ -37,8 +37,17 @@
 <?php $this->endWidget(); ?>
 </div>
 <hr/>
-<div class="row"><?php $this->renderPartial('/trip/_list', array('allTrips' => $allTrips,'model' => $model,)); ?></div>
-<?php $this->widget('CLinkPager', array('pages' => $pages,)); ?>
+<?php
+$this->widget('zii.widgets.CListView', array(
+    'dataProvider'=>$dataProvider,
+    'itemView'=>'_list', 
+    'template' => '{summary} {sorter} {items} <div style="clear:both;"></div> {pager}',
+    'sortableAttributes'=>array(
+        'username',
+        'lastvisit',
+    ),
+));
+?>
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<?php echo Yii::app()->params['GOOGLE_API_KEY']; ?>&sensor=true&libraries=places"></script>
 <script type="text/javascript">

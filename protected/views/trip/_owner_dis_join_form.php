@@ -10,7 +10,8 @@
             array(
                 'success' => 'js:function(data) {ownerDisJoinSuccess(data);}'
             ,'data' => 'user_id='.Yii::app()->user->id.'&trip_id='.$_GET['trip_id'].''
-            )
+            ),
+            array('class'=>'grayButton')
         );
         ?>
     </div>

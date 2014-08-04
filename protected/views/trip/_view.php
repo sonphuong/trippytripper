@@ -2,16 +2,14 @@
 <article class="row_detail">
     <div class="cell user cell2">
         <a href="/index.php/profile/profile/view/id/<?php echo $trip['user_id']; ?>">
-        <img class="photo" src="/<?php echo $trip['avatar']; ?>" width="42" height="42">
-        <div class="user-info">
-            <h3 class="username"><?php echo $trip['username']; ?></h3>
-        </div>
+        <img class="avatar" src="/<?php echo $trip['avatar']; ?>" width="120" height="120">
         </a>
+        <div class="username"><?php echo $trip['username']; ?>         
+        </div>
+        
     </div>
 
     <div class="cell cell5">
-        
-        
         <h4 />
         <?php 
             $leaveDate = new DateTime($trip['leave']);
@@ -96,7 +94,7 @@
                 if(!empty($members)){
                     foreach ($members as $key => $member) {
                         if($member['join_status']==2){
-                            echo '<li class="" id="member_'.$member['user_id'].'"><img src="/'.$member['avatar'].'" alt="" width="32px" height="32px" />'.CHtml::link($member['user_name'], array('//profile/profile/view/id/'.$member['user_id']));                            
+                            echo '<li class="" id="member_'.$member['user_id'].'"><img class="avatar" src="<?php echo Yum::module("avatar")->getAvatarThumb($member["avatar"]); ?>" alt="" width="32px" height="32px" />'.CHtml::link($member['user_name'], array('//profile/profile/view/id/'.$member['user_id']));                            
                             echo '<span id="join_status_'.$member['user_id'].'">';
                             if($isOwner === true){
                                 if($trip['seat_avail']>0){
@@ -105,7 +103,9 @@
                                         array(
                                             'success' => 'js:function(data) {approveJoinSuccess(data);}'
                                         ,'data' => 'user_id='.$member['user_id'].'&trip_id='.$_GET['id'].''
-                                        )
+                                        ),
+                                        array('class'=>'orangeButton')
+
                                     );
 
                                 }
@@ -114,7 +114,8 @@
                                         array(
                                             'success' => 'js:function(data) {declineJoinSuccess(data);}'
                                         ,'data' => 'user_id='.$member['user_id'].'&trip_id='.$_GET['id'].''
-                                        )
+                                        ),
+                                        array('class'=>'grayButton')
                                     );
                                 
                             }
@@ -124,7 +125,7 @@
                             echo '</span></li>';
                         }
                         elseif($member['join_status']==1){
-                            echo '<li class="" id="member_'.$member['user_id'].'"><img src="/'.$member['avatar'].'" alt="" width="32px" height="32px" />'.CHtml::link($member['user_name'], array('//profile/profile/view/id/'.$member['user_id']));
+                            echo '<li class="" id="member_'.$member['user_id'].'"><img class="avatar" src="/'.$member['avatar'].'" alt="" width="32px" height="32px" />'.CHtml::link($member['user_name'], array('//profile/profile/view/id/'.$member['user_id']));
                         }
                     }
                 }
@@ -160,7 +161,7 @@
         </div>
         <ul id="commentsList">
         <?php  foreach ($allComments as $key => $value): ?>
-            <li><img src="/<?php echo $value['avatar']; ?>" alt="" width="32px" height="32px" />
+            <li><img class="avatar" src="<?php echo Yum::module('avatar')->getAvatarThumb($value['avatar']); ?>" alt="" width="32px" height="32px" />
             <?php echo $value['user_name'].':'; ?>
             <?php echo $value['content']; ?>
             </li>

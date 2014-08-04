@@ -218,8 +218,21 @@ class TripController extends Controller
 			R.to,
 			R.fee,
 			R.gathering_point,
-			R.id,
-            COUNT(R.user_id) AS tour_no
+			R.id
+        
+		FROM user U
+		INNER JOIN trip R ON U.id = R.user_id
+		WHERE 1
+        AND R.leave >= NOW()
+		$from
+		$to
+		$leave
+		$return
+		ORDER BY R.leave ASC
+
+		";
+  //       /*LEFT JOIN ranking_votes RV ON RV.user_id = */
+        $sqlCount = "SELECT COUNT(1) as count
 		FROM user U
 		INNER JOIN trip R ON U.id = R.user_id
 		WHERE 1
@@ -230,36 +243,29 @@ class TripController extends Controller
 		$return
 		ORDER BY R.leave ASC
 		";
-        /*LEFT JOIN ranking_votes RV ON RV.user_id = */
-        //paging+++++++++++++++++++++++++++++++++++++++++++++++
-        $sqlCount = "SELECT count(1) as count
-		FROM user U
-		INNER JOIN trip R ON U.id = R.user_id
-		WHERE 1
-        AND R.leave >= NOW()
-		$from
-		$to
-		$leave
-		$return
-		ORDER BY R.leave ASC
-		";
-        $itemCount = Yii::app()->db->createCommand($sqlCount)->queryRow();
-        $itemCount = $itemCount['count'];
-        $pages = new CPagination($itemCount);
-        $pages->setPageSize(Yii::app()->params['RECORDS_PER_PAGE']);
-        $page = (isset($_GET['page']) ? $_GET['page'] : 1);
-        $sql .= ' LIMIT ' . ($page - 1) . ', ' . Yii::app()->params['RECORDS_PER_PAGE'] . '';
-        $allTrips = Yii::app()->db->createCommand($sql)->queryAll();
-        //paging+++++++++++++++++++++++++++++++++++++++++++++++
-        $this->render('search_trip', array(
-            'model' => $model,
-            'fromVal' => $fromVal,
-            'toVal' => $toVal,
-            'itemCount' => $itemCount,
-            'pageSize' => Yii::app()->params['RECORDS_PER_PAGE'],
-            'pages' => $pages,
-            'allTrips' => $allTrips
+  
+
+        $count=Yii::app()->db->createCommand($sqlCount)->queryScalar();
+        $dataProvider=new CSqlDataProvider($sql, array(
+            'totalItemCount'=>$count,
+            'sort'=>array(
+                'attributes'=>array(
+                     'leave', 'fee'
+                ),
+            ),
+            'pagination'=>array(
+                'pageSize'=>Yii::app()->params['RECORDS_PER_PAGE'],
+            ),
         ));
+
+
+        $this->render('search_trip',array(
+                    'dataProvider'=>$dataProvider,
+                    'model' =>$model,
+                    'fromVal' => $fromVal,
+                    'toVal' => $toVal
+                    ));
+
     }
 
     /**
