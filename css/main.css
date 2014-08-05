@@ -35,7 +35,10 @@ body
 .home .comments .user .img{margin-right:30px;}
 
 /*css for sub page*/
-#container.sub-page {background:url(/images/bg_sub.jpg) no-repeat 0 50%;}
+#container.sub-page {
+	background:url(/images/bg_sub.png) repeat-x;
+	/*background-color: white;*/
+}
 .sub-page .wrap-ct{padding-top:61px;}
 
 
@@ -46,6 +49,8 @@ body
 	background: white;
 	border-radius: 6px;
 	margin-top: 20px;
+	height: auto;
+	overflow: hidden;
 }
 #yumcontent
 {
@@ -54,7 +59,7 @@ body
 	background: white;
 	border-radius: 6px;
 	margin-top: 20px;
-	width: 786px;
+	width: 713px;
 	min-height: 428px;
 }
 #mymenu{
@@ -170,7 +175,7 @@ div.flash-success a
 	padding: 10px;
 }
 #trip_list .cell2{
-	width: 600px;
+	width: 500px;
 	border-right: solid 1px #E5E5E5;
 	vertical-align: top;
 	padding: 10px;
@@ -178,6 +183,39 @@ div.flash-success a
 #trip_list .cell3{
 	vertical-align: top;
 	padding: 10px;
+}
+#trip_detail{
+	overflow: hidden;
+}
+#trip_detail .comments{
+	font-weight: bold;
+}
+#trip_detail .row{
+	line-height: 40px;
+}
+#trip_detail .trippers{
+	font-weight: bold;
+	color: red;
+}
+#trip_detail .username{
+	padding-top: 5px;
+}
+#trip_detail .cell1{
+	width: 140px;
+	border-right: solid 1px #E5E5E5;
+	vertical-align: top;
+	padding: 10px;
+}
+#trip_detail .cell2{
+	width: 570px;
+	border-right: solid 1px #E5E5E5;
+	vertical-align: top;
+	padding: 10px;
+}
+#trip_detail .cell3{
+	vertical-align: top;
+	padding: 10px;
+	float: right;
 }
 #trip_list .row{
 	border-bottom: solid 1px #E5E5E5;
@@ -199,10 +237,10 @@ div.flash-success a
 	padding-right: 20px;
 }
 #search .from{
-	width: 290px;
+	width: 240px;
 }
 #search .to{
-	width: 290px;
+	width: 240px;
 }
 #search .timepicker {
 	width: 160px;
@@ -222,9 +260,7 @@ div.flash-success a
 #offer label{
 	min-width: 110px;
 }
-#offer textarea{
-	width: 419px;
-}
+
 .row_detail{
 	display: table;
 	margin-top: 5px;
@@ -249,8 +285,9 @@ div.flash-success a
     width: 320px;
 }
 #map-canvas{
-	width:596px;
+	width:490px;
 	height:682px;
+	float: right;
 }
 #directions-panel {
     height: 100%;
@@ -259,7 +296,7 @@ div.flash-success a
     overflow: auto;
 }
 #offer{
-	width:450px; 
+	width:400px; 
 	float:left;
 	margin-right: 10px !important;
 
@@ -293,7 +330,7 @@ div.flash-success a
     color: green;
 }
 .waiting{
-    color: goldenrod;
+    color: #FCA019;
 }
 .denied{
     color: red;
@@ -379,9 +416,54 @@ input, textarea{
 	color: #FCA019;
 	font-weight: bold;
 }
+
 .username {
 	padding-top: 30px;
 	font-weight: bold;
 	font-size: 12px;
 }
 
+
+.numNotisSS{
+	color: white;
+	font-weight: bold;
+	width: 20px !important;
+	/* height: 20px !important; */
+	cursor: pointer;
+	padding-bottom: 3px;
+	background-color: red;
+	z-index: 1000;
+	/* margin-bottom: 10px; */
+	border-radius: 50%;
+	position: absolute;
+	text-align: center;
+	vertical-align: middle;
+	padding-top: 3px;
+	font-size: 9px;
+    box-shadow: 3px 3px 4px #888888;
+}
+.numNotis{
+	position: absolute;
+	color: #ffffff;
+	font-size: 10px;
+	font-weight: 700;
+	height: 16px;
+	line-height: 16px;
+	padding: 0 5px;
+	-webkit-border-radius: 9px;
+	-moz-border-radius: 9px;
+	border-radius: 9px;
+	-webkit-box-shadow: 0 2px 1px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0 2px 1px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.5);
+	background-color: #f6620c;
+	background-image: -moz-linear-gradient(top, #ff8a14, #e92500);
+	background-image: -ms-linear-gradient(top, #ff8a14, #e92500);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ff8a14), to(#e92500));
+	background-image: -webkit-linear-gradient(top, #ff8a14, #e92500);
+	background-image: -o-linear-gradient(top, #ff8a14, #e92500);
+	background-image: linear-gradient(top, #ff8a14, #e92500);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff8a14', endColorstr='#e92500', GradientType=0);
+	z-index: 2;
+}

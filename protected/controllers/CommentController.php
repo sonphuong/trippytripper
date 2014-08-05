@@ -68,7 +68,7 @@ class CommentController extends Controller
         }
         //get the record have just insert
         $lastCommentData = $this->getLastComment(Yii::app()->user->id, $arrData['trip_id']);
-        echo $lastCommentObj = '<li><img src="/' . Yii::app()->user->avatar . '" alt="" width="32px" height="32px">&nbsp' . Yii::app()->user->name . ':&nbsp' . $lastCommentData['content'] . '</li>';
+        echo $lastCommentObj = '<li><img class="avatar" src="/' . Yii::app()->user->avatar . '" alt="" width="32px" height="32px">&nbsp<span class="username">' . Yii::app()->user->name . '</span>:&nbsp' . $lastCommentData['content'] . '</li>';
     }
 
     public function getLastComment($userId, $tripId)

@@ -1,4 +1,4 @@
-<div class="from" id="dis_join_div">
+<div id="dis_join_div">
     <form method="post">
         <div class="row buttons">
             <?php

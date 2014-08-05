@@ -8,28 +8,23 @@
         </div>
         <div class="cell cell2 verticalLine">
             <div class="date">
-            <?php
+            <?php 
             $leaveDate = new DateTime($data['leave']);
             $date = $leaveDate->format('Y-m-d');
             $time = $leaveDate->format('h:m');
             $today = date('Y-m-d');
-            $today = new DateTime($today);
-            $interval = $leaveDate->diff($today);
-            if ($interval->days === 0) {
-                echo 'Hôm nay - ' . $time;
-            } elseif ($interval->days === 1) {
-                echo 'Ngày mai - ' . $time;
-            } else {
-                echo $date . ' : ' . $time;
-            }
+            $today = new DateTime($today);                            
+            $interval = $today->diff($leaveDate);
+            $days = (int)$interval->format("%r%a");
+            if($days===0) echo Yii::t('translator','Today').' - ' . $time;
+            elseif($days===1)   echo Yii::t('translator','Tomorrow').' - ' . $time;    
+            else echo $date .' : '. $time;
             ?>
             </div>
             <a href="view/?id=<?php echo $data['id']; ?>" rel="nofollow" class="fromTo">
-            <div>
-                <span><?php echo $data['from']; ?></span>
-                <span>→</span>
-                <span><?php echo $data['to']; ?></span>
-            </div>    
+            <div class="fromTo">
+            <span><?php echo $data['from']; ?> → <?php echo $data['to']; ?></span>
+            </div>  
             </a>
             <div>
                 <span class="pickUpPoint">
@@ -39,10 +34,10 @@
             </div>
         </div>
         <div class="cell offer cell3">
-            <div class="price" itemprop="location">
+            <div class="price">
                 <u>đ</u> <?php echo $data['fee']; ?>K
             </div>
-            <span class="priceUnit"><?php echo Yii::t('translator','per passenger');?></span>
+            <div class="priceUnit"><?php echo Yii::t('translator','per passenger');?></div>
             <div class="availability">
                 <strong><?php echo $data['seat_avail']; ?></strong> <span><?php echo Yii::t('translator','seat(s) left');?></span>
             </div>

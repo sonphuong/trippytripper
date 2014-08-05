@@ -1,8 +1,8 @@
 
 <ul class="ctrl">
-    <li><a id="friend_num" class="friend numNotis" href="#none"></a></li>
-    <li><a id="email_num" class="msg numNotis" href="#none"></a></li>
-    <li><a id="trip_num" class="tripp numNotis" href="#none"></a></li>
+    <li><a id ="friend"  class="friend" href="#none"></a><span id="friend_num"></span></li>
+    <li><a id ="msg" class="msg" href="#none"></a><span id="email_num"></span></li>
+    <li><a id ="tripp" class="tripp" href="#none"></a><span id="trip_num"></span></li>
 </ul>
 <div id="friend_notis" class="notis"></div>
 <div id="email_notis" class="notis"></div>
@@ -31,16 +31,28 @@
 </div>
 
 <script>
+$(document).mouseup(function (e)
+{
+    var myArray = ["#friend_notis", "#email_notis", "#trip_notis","#mymenu"];
+    $.each(myArray, function(index, value){
+        var container = $(value);
+        if (!container.is(e.target) // if the target of the click isn't the container...
+        && container.has(e.target).length === 0) // ... nor a descendant of the container
+        {
+            container.hide();
+        }
+    });
+});
+
 $( document ).ready(function() {
+
     $("#myavatar").click(function() {
         $("#mymenu").toggle();
     });
-    $("#friend_num").click(function(){
-        $("#email_notis").hide();
-        $("#trip_notis").hide();
-
+    $("#friend").click(function(){
         $("#friend_notis").toggle();
         $("#friend_num").html('');
+        $("#friend_num").removeClass('numNotis');
         //get notis id
         var friendIds = [];
         $(".liFriend").each(function(){
@@ -48,12 +60,10 @@ $( document ).ready(function() {
         });
         updateReadStatus(friendIds);
     });
-    $("#email_num").click(function(){
-        $("#friend_notis").hide();
-        $("#trip_notis").hide();
-
+    $("#msg").click(function(){
         $("#email_notis").toggle();
         $("#email_num").html('');
+        $("#email_num").removeClass('numNotis');
         //get notis id
         var emailIds = [];
         $(".liEmail").each(function(){
@@ -61,12 +71,10 @@ $( document ).ready(function() {
         });
         updateReadStatus(emailIds);
     });
-    $("#trip_num").click(function(){
-        $("#email_notis").hide();
-        $("#friend_notis").hide();
-
+    $("#tripp").click(function(){
         $("#trip_notis").toggle();
         $("#trip_num").html('');
+        $("#trip_num").removeClass('numNotis');
         //get notis id
         var tripIds = [];
         $(".liTrip").each(function(){
@@ -86,13 +94,11 @@ $( document ).ready(function() {
     }    
     setInterval(function(){getNotis();}, 10000);
 });
+
 function updateReadStatus(ids){
     var quote = '"';
     ids = ids.join('","');
     ids = quote.concat(ids).concat(quote);
-
-    console.log(ids); 
-
     $.ajax({
         url: '/index.php/notis/read',
         data: {"ids":ids},
@@ -117,8 +123,10 @@ function genNotisHTML(notis){
     };          
     friendNotis += '</ul>';
     $('#friend_notis').html(friendNotis);
-    if(notis.friendCount>0)
-    $("#friend_num").html(notis.friendCount);
+    if(notis.friendCount>0){
+        $("#friend_num").addClass('numNotis');    
+        $("#friend_num").html(notis.friendCount);
+    }
     //friend -----------------------
     //email ++++++++++++++++++++++
     var emailNotis='';
@@ -134,8 +142,11 @@ function genNotisHTML(notis){
     };          
     emailNotis += '</ul>';
     $('#email_notis').html(emailNotis);
-    if(notis.emailCount>0)
-    $("#email_num").html(notis.emailCount);
+    if(notis.emailCount>0){
+        $("#email_num").addClass('numNotis');
+        $("#email_num").html(notis.emailCount);    
+    }
+    
     //email -----------------------
     //trip ++++++++++++++++++++++
     var tripNotis='';
@@ -151,8 +162,11 @@ function genNotisHTML(notis){
     };          
     tripNotis += '</ul>';
     $('#trip_notis').html(tripNotis);
-    if(notis.tripCount>0)
-    $("#trip_num").html(notis.tripCount);
+    if(notis.tripCount>0){
+        $("#trip_num").addClass('numNotis');    
+        $("#trip_num").html(notis.tripCount);
+    }
+    
     //trip -----------------------
 }
 </script>

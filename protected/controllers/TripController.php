@@ -111,13 +111,14 @@ class TripController extends Controller
     public function getTripper($tripId,$includeWaiting=false)
     {
         $joinStatus = "AND RD.join_status IN (1, 9)";            
-        if($includeWaiting) $joinStatus .= "OR RD.join_status = 2";
+        if($includeWaiting) $joinStatus .= " OR RD.join_status = 2";
             
         $sql = "SELECT RD.user_name,RD.user_id, U.avatar, RD.join_status
         FROM trip_user RD 
         INNER JOIN user U ON U.id = RD.user_id
         WHERE RD.trip_id = :tripId
         $joinStatus
+        GROUP BY RD.user_id
         ORDER BY RD.join_status ASC
         ";
         $command = Yii::app()->db->createCommand($sql);
@@ -342,7 +343,7 @@ class TripController extends Controller
         if($tripId==null){
             $tripId = Yii::app()->request->getParam('tripId');
         }            
-        $sql = "SELECT content,create_time,user_name,avatar 
+        $sql = "SELECT content,create_time,user_id,user_name,avatar 
 		FROM comments  
 		WHERE trip_id = :trip_id 
 		ORDER BY create_time DESC
@@ -380,8 +381,8 @@ class TripController extends Controller
             $html = '';
             if(!empty($data)){
                 foreach ($data as $key => $value){
-                    $html .='<li><img src="/'.$value['avatar'].'" alt="" width="32px" height="32px" />';
-                    $html .=$value['user_name'].':'.$value['content'];
+                    $html .='<li><img class="avatar" src="/'.$value['avatar'].'" alt="" width="32px" height="32px" />';
+                    $html .='<span class="username">'.$value['user_name'].'</span>:'.$value['content'];
                     $html .='</li>';
                 }    
             }
