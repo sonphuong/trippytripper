@@ -1,22 +1,26 @@
 
 <ul class="ctrl">
-    <li><a id ="friend"  class="friend" href="#none"></a><span id="friend_num"></span></li>
+    <li><a id ="friend" class="friend" href="#none"></a><span id="friend_num"></span></li>
     <li><a id ="msg" class="msg" href="#none"></a><span id="email_num"></span></li>
     <li><a id ="tripp" class="tripp" href="#none"></a><span id="trip_num"></span></li>
 </ul>
-<div id="friend_notis" class="notis"></div>
-<div id="email_notis" class="notis"></div>
-<div id="trip_notis" class="notis"></div>
-<!-- <div class="notis">
-    <span class="notis_header">Notifications</span>
-    
-    <span class="notis_footer">View all</span>
-</div> -->
- <div class="user">
+<div class="box notis">
+    <div class="boxTitle"><?php echo Yii::t('translator','Notifications'); ?></div>
+    <div id="notisContent" class="boxContent">
+        
+    </div>
+</div>
+<div style="display:none;">
+<div id="friend_notis"></div>
+<div id="email_notis"></div>
+<div id="trip_notis"></div>
+</div>
+
+<div class="user">
     <a id="myavatar" href="#none" class="avatar">
         <img src="<?php echo Yum::module('avatar')->getAvatarThumbPhoto(Yii::app()->user->avatar); ?>" width="30" height="30">
     </a>
- </div>
+</div>
  
 <?php //echo Yii::app()->user->name; ?>
 <div id="mymenu">
@@ -33,7 +37,7 @@
 <script>
 $(document).mouseup(function (e)
 {
-    var myArray = ["#friend_notis", "#email_notis", "#trip_notis","#mymenu"];
+    var myArray = [".notis","#mymenu"];
     $.each(myArray, function(index, value){
         var container = $(value);
         if (!container.is(e.target) // if the target of the click isn't the container...
@@ -50,7 +54,8 @@ $( document ).ready(function() {
         $("#mymenu").toggle();
     });
     $("#friend").click(function(){
-        $("#friend_notis").toggle();
+        $(".notis").toggle();
+        $('#notisContent').html($("#friend_notis").html());
         $("#friend_num").html('');
         $("#friend_num").removeClass('numNotis');
         //get notis id
@@ -61,7 +66,8 @@ $( document ).ready(function() {
         updateReadStatus(friendIds);
     });
     $("#msg").click(function(){
-        $("#email_notis").toggle();
+        $(".notis").toggle();
+        $('#notisContent').html($("#email_notis").html());
         $("#email_num").html('');
         $("#email_num").removeClass('numNotis');
         //get notis id
@@ -72,7 +78,8 @@ $( document ).ready(function() {
         updateReadStatus(emailIds);
     });
     $("#tripp").click(function(){
-        $("#trip_notis").toggle();
+        $(".notis").toggle();
+        $('#notisContent').html($("#trip_notis").html());
         $("#trip_num").html('');
         $("#trip_num").removeClass('numNotis');
         //get notis id

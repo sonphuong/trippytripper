@@ -80,23 +80,22 @@ body
     background-color: white;
     display: none;
     z-index: 9999;
-    margin-top: 37px;
-    padding: 10px;
-    border-radius: 3px;
     /* opacity: 0.9; */
-    border: solid 1px #CCCCCC;
     position: absolute;
-    margin-left: -92px;
+    margin-left: -117px;
+    margin-top: 37px !important;
     width: 300px;
     max-height: 250px;
-    overflow-y: auto;
-    overflow-x: hidden;
     box-shadow: 0px 5px 10px 0px;
 
 }
-.notis_header{
-	background-color: #CCCCCC;
+#notisContent{
+	overflow-y: auto !important;
+    overflow-x: hidden;
+    width: 280px;
+    max-height: 230px;
 }
+
 
 div.flash-error, div.flash-notice, div.flash-success
 {
@@ -230,7 +229,9 @@ div.flash-success a
 	vertical-align: top;
 	float: right;
 	width:95%;
-
+}
+#trip_detail .cell3 .orangeButton{
+	width:100%;
 }
 #trip_list .row{
 	border-bottom: solid 1px #E5E5E5;

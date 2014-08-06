@@ -383,7 +383,9 @@ class TripController extends Controller
             $html = '';
             if(!empty($data)){
                 foreach ($data as $key => $value){
-                    $html .='<li><img class="avatar" src="/'.$value['avatar'].'" alt="" width="32px" height="32px" />';
+                    $avatar = Yum::module("avatar")->getAvatarThumb($value['user_id'],$value['avatar']);
+                    $html .='<li>';
+                    $html .= $avatar;
                     $html .='<span class="username">'.$value['user_name'].'</span>:'.$value['content'];
                     $html .='</li>';
                 }    
