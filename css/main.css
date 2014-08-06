@@ -96,8 +96,12 @@ body
     max-height: 193px;
     padding: 10px;
 }
-
-
+#commentsList li{
+	padding-top: 8px !important;
+}
+#comments{
+	margin-top: 30px;
+}
 div.flash-error, div.flash-notice, div.flash-success
 {
 	padding:.8em;
