@@ -1,6 +1,6 @@
 <div id="dis_join_div">
     <form method="post">
-        <div class="row buttons">
+        <div>
             <?php
             echo CHtml::ajaxSubmitButton (Yii::t('translator','Quit'),
                 CController::createUrl('trip/disJoin'),

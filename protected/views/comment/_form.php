@@ -16,7 +16,7 @@
 				                              		$("#Comment_content").val("");
 												}')
 			//array('update' => '#commentsList')
-			,array('class' => 'blueButton','hidefocus'=>"true")
+			,array('class' => 'blueButton')
 			);
 		?>
 		</span>

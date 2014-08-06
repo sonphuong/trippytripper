@@ -198,7 +198,7 @@ div.flash-success a
 	font-weight: bold;
 }
 #trip_detail .row{
-	line-height: 40px;
+	
 }
 #trip_detail .des{
 	margin-top: 10px;
@@ -221,7 +221,6 @@ div.flash-success a
 }
 #trip_detail .cell2{
 	width: 700px;
-	border-right: solid 1px #E5E5E5;
 	vertical-align: top;
 	padding: 10px;
 }
@@ -233,12 +232,19 @@ div.flash-success a
 #trip_detail .cell3 .orangeButton{
 	width:100%;
 }
+#trip_detail .cell3 .grayButton{
+	width:100%;
+}
 #trip_list .row{
 	border-bottom: solid 1px #E5E5E5;
 	border-collapse:separate;
 	border-spacing:10px;
 	width: 100%;
 
+}
+#commentsList li{
+	clear: both;
+	padding-top: 2px;
 }
 #profile{
 	min-height: 250px;
@@ -366,7 +372,7 @@ div.flash-success a
 }
 .box{
 	border: solid 1px #CCCCCC;
-	margin-top: 20px;
+	
 	border-radius: 4px;
 	overflow: hidden;
 }
@@ -436,6 +442,7 @@ input, textarea{
 	color: #1698d2;
 	font-size: 16px;
 	font-weight: bold;
+
 }
 .fromTo{
 	color: #1698d2;

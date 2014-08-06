@@ -1,7 +1,7 @@
 <div class="boxTitle"><?php echo Yii::t('translator','Trip Detail');?></div>
 <div class="boxContent">
 <div id="trip_detail" class="row">
-    <div class="cell cell2 verticalLine">
+    <div class="cell cell2">
         <div class="date">
         <?php 
             $leaveDate = new DateTime($trip['leave']);
@@ -33,6 +33,7 @@
     <form method="post">
         <input type="hidden" value="<?php echo $_GET['id']; ?>" name="trip_id">
         <div class="trippers"><?php echo Yii::t('translator','Trippers');?>:</div>
+    </br>
         <?php 
         if($isOwner === true) $memberlistClass = 'memberListVer';
         else $memberlistClass = 'memberListHor';
@@ -87,9 +88,8 @@
         </ul>
     </form>
     </div>
-    <div class="box">
+</br>
         <div class="boxTitle"><?php echo Yii::t('translator','Comments');?></div>
-        <div class="boxContent">
             <div class="row">
             <div id="viewMoreComments">
             <input type="hidden" name="commentsOffset" id = "commentsOffset" value="<?php echo Yii::app()->params['COMMENTS_PER_TIME']; ?>">
@@ -126,6 +126,7 @@
 
             <?php if($joinStatus==1 || $joinStatus==9): ?>
             <div id="comments">
+                <?php $avatar = Yum::module("avatar")->getAvatarThumb(Yii::app()->user->id,Yii::app()->user->avatar); ?>
                 <?php $this->renderPartial('/comment/_form',array(
                         'model'=>$comment,
                     )); ?>
@@ -133,41 +134,44 @@
             
             <?php endif; ?>
             </div>
-        </div>
-    </div>
+    
     
     </div>
     <div class="cell cell3">
-
-        <div class="price">
-            <u>đ</u> <?php echo $trip['fee']; ?>K
-        </div>
-        <div class="priceUnit"><?php echo Yii::t('translator','per passenger');?></div>
-        <div class="availability">
-            <strong id="seats_left"> <?php echo $trip['seat_avail']; ?></strong> <span> <?php echo Yii::t('translator', 'seat(s) left');?> </span>
-            <?php if($trip['seat_avail']==0): ?>
-            <h2 style="color:red"><?php echo Yii::t('translator', 'Fulled'); ?></h2>
-            <?php endif;?>
-        </div>
-        <!-- check current date (no meaning for these below actions if the trip already done) -->
-        <?php if($days>=0):?>
-        <?php if($joinStatus==9): ?><a href="/index.php/trip/ownerDisJoin/?height=150&width=400&trip_id=<?php echo $_GET['id']; ?>" class="thickbox"><?php echo Yii::t('translator','Cancel this tour');?></a>
-            <?php //$this->renderPartial('/trip/_owner_dis_join_form',array('model'=>$model,)); ?>
-        <?php elseif($joinStatus==1): ?>
-            <?php $this->renderPartial('/trip/_dis_join_form',array('model'=>$model,)); ?>
-        <?php elseif($joinStatus==2): ?>
-            <div class="flash-success">
-                <?php echo Yii::t('translator','Waiting for approve');?>
+        <div class="box">
+            <div class="boxTitle"><?php echo Yii::t('translator','Price');?></div>
+            <div class="boxContent">
+                <div class="price">
+                    <u>đ</u> <?php echo $trip['fee']; ?>K
+                </div>
+                <div class="priceUnit"><?php echo Yii::t('translator','per passenger');?></div>
+                <div class="availability">
+                    <strong id="seats_left"> <?php echo $trip['seat_avail']; ?></strong> <span> <?php echo Yii::t('translator', 'seat(s) left');?> </span>
+                    <?php if($trip['seat_avail']==0): ?>
+                    <h2 style="color:red"><?php echo Yii::t('translator', 'Fulled'); ?></h2>
+                    <?php endif;?>
+                </div>
+                <!-- check current date (no meaning for these below actions if the trip already done) -->
+                <?php if($days>=0):?>
+                <?php if($joinStatus==9): ?><a href="/index.php/trip/ownerDisJoin/?height=150&width=400&trip_id=<?php echo $_GET['id']; ?>" class="thickbox"><?php echo Yii::t('translator','Cancel this tour');?></a>
+                    <?php //$this->renderPartial('/trip/_owner_dis_join_form',array('model'=>$model,)); ?>
+                <?php elseif($joinStatus==1): ?>
+                    <?php $this->renderPartial('/trip/_dis_join_form',array('model'=>$model,)); ?>
+                <?php elseif($joinStatus==2): ?>
+                    <div class="flash-success">
+                        <?php echo Yii::t('translator','Waiting for approve');?>
+                    </div>
+                <?php else: ?>
+                    <?php 
+                    //if seat is availabel 
+                    if($trip['seat_avail']>0)
+                    $this->renderPartial('/trip/_join_form',array('model'=>$model,)); 
+                    ?>
+                <?php endif; ?>
+                <?php endif; ?>
             </div>
-        <?php else: ?>
-            <?php 
-            //if seat is availabel 
-            if($trip['seat_avail']>0)
-            $this->renderPartial('/trip/_join_form',array('model'=>$model,)); 
-            ?>
-        <?php endif; ?>
-        <?php endif; ?>
-        <?php //if(!$isOwner): ?>
+        </div>
+        </br>
         <div class="box">
             <div class="boxTitle">Leader info</div>
             <div class="boxContent">
