@@ -44,7 +44,6 @@ body
 
 #content
 {
-	padding: 20px;
 	border: solid 1px #CCCCCC;
 	background: white;
 	border-radius: 6px;
@@ -54,13 +53,13 @@ body
 }
 #yumcontent
 {
-	padding: 20px;
 	border: solid 1px #CCCCCC;
 	background: white;
 	border-radius: 6px;
 	margin-top: 20px;
 	width: 713px;
 	min-height: 428px;
+	overflow: hidden;
 }
 #mymenu{
 	background-color: white;
@@ -92,6 +91,7 @@ body
     max-height: 250px;
     overflow-y: auto;
     overflow-x: hidden;
+    box-shadow: 0px 5px 10px 0px;
 
 }
 .notis_header{
@@ -186,6 +186,14 @@ div.flash-success a
 }
 #trip_detail{
 	overflow: hidden;
+	width:100%;
+}
+.commentButton{
+	vertical-align: top;
+	margin-left: 10px;
+}
+.commentButton .blueButton{
+	vertical-align: top;
 }
 #trip_detail .comments{
 	font-weight: bold;
@@ -193,12 +201,18 @@ div.flash-success a
 #trip_detail .row{
 	line-height: 40px;
 }
+#trip_detail .des{
+	margin-top: 10px;
+	line-height: 20px;
+	margin-bottom: 10px;
+}
 #trip_detail .trippers{
 	font-weight: bold;
 	color: red;
 }
 #trip_detail .username{
 	padding-top: 5px;
+	color: #555;
 }
 #trip_detail .cell1{
 	width: 140px;
@@ -207,15 +221,16 @@ div.flash-success a
 	padding: 10px;
 }
 #trip_detail .cell2{
-	width: 570px;
+	width: 700px;
 	border-right: solid 1px #E5E5E5;
 	vertical-align: top;
 	padding: 10px;
 }
 #trip_detail .cell3{
 	vertical-align: top;
-	padding: 10px;
 	float: right;
+	width:95%;
+
 }
 #trip_list .row{
 	border-bottom: solid 1px #E5E5E5;
@@ -342,13 +357,29 @@ div.flash-success a
     height: 15px;
     width: 15px;
 }
-.memberList{
+.memberListVer{
 	list-style-type: none;
 }
-.memberList a{
-    text-decoration: none;
-    color: #555;
-    font-weight: bold;
+#trip_detail .memberListHor li{
+	display: inline;
+}
+.box{
+	border: solid 1px #CCCCCC;
+	margin-top: 20px;
+	border-radius: 4px;
+	overflow: hidden;
+}
+
+.boxTitle{
+	border-bottom: solid 1px #CCCCCC;
+	font-weight: bold;
+	font-size: 14px;
+	padding: 10px;
+	background-color: #F2F2F2;
+	overflow: hidden;
+}
+.boxContent{
+	padding: 20px;
 }
 #myavatar{
 	text-decoration: none;
@@ -466,4 +497,12 @@ input, textarea{
 	background-repeat: repeat-x;
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff8a14', endColorstr='#e92500', GradientType=0);
 	z-index: 2;
+}
+
+#profileComment .row{
+	width: 100%;
+}
+.commentTime{
+	color: #959BA6;
+	font-size: 11px;
 }

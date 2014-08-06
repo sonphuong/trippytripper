@@ -1,12 +1,6 @@
+<div class="boxTitle"><?php echo Yii::t('translator','Trip Detail');?></div>
+<div class="boxContent">
 <div id="trip_detail" class="row">
-    <div class="cell user cell1">
-        <div class="row">
-        <a href="/index.php/profile/profile/view/id/<?php echo $trip['user_id']; ?>">
-        <img class="avatar" src="/<?php echo $trip['avatar']; ?>" width="120" height="120">
-        </a>
-        </div>
-        <div class="username"><?php echo $trip['username']; ?></div>
-    </div>
     <div class="cell cell2 verticalLine">
         <div class="date">
         <?php 
@@ -39,14 +33,22 @@
     <form method="post">
         <input type="hidden" value="<?php echo $_GET['id']; ?>" name="trip_id">
         <div class="trippers"><?php echo Yii::t('translator','Trippers');?>:</div>
-        <ul class="memberList">
+        <?php 
+        if($isOwner === true) $memberlistClass = 'memberListVer';
+        else $memberlistClass = 'memberListHor';
+        ?>
+        <ul class="<?php echo $memberlistClass?>">
             <?php 
             if(!empty($members)){
                 foreach ($members as $key => $member) {
-                    $avatar = Yum::module("avatar")->getAvatarThumb($member["avatar"]);
-                    echo '<li id="member_'.$member['user_id'].'"><img class="avatar" src="'.$avatar.'" alt="" width="32px" height="32px" />'.CHtml::link($member['user_name'], array('//profile/profile/view/id/'.$member['user_id']),array('class'=>'username'));                            
+                    $avatar ='';
+                    $thumb = Yum::module("avatar")->getAvatarThumbPhoto($member["avatar"]);
+                    $avatar .='<a href="/index.php/profile/profile/view/id/'.$member['user_id'].'">';
+                    $avatar .='<img title="'.$member['user_name'].'" alt="'.$member['user_name'].'" class="avatar" src="'.$thumb.'"  width="40px" height="40px" />';
+                    $avatar .='</a>';
+                    echo '<li id="member_'.$member['user_id'].'">'.$avatar;
+                    if($isOwner === true) echo CHtml::link($member['user_name'], array('//profile/profile/view/id/'.$member['user_id']),array('class'=>'username'));                            
                     if($member['join_status']==2){
-                        
                         echo '<span id="join_status_'.$member['user_id'].'">';
                         if($isOwner === true){
                             if($trip['seat_avail']>0){
@@ -76,7 +78,6 @@
                         }
                         echo '</span></li>';
                     }
-                    
                 }
             }
             else{
@@ -86,51 +87,58 @@
         </ul>
     </form>
     </div>
-    <div class="row">
-        <div class="comments"><?php echo Yii::t('translator','Comments');?>:</div>
-        <div id="viewMoreComments">
-        <input type="hidden" name="commentsOffset" id = "commentsOffset" value="<?php echo Yii::app()->params['COMMENTS_PER_TIME']; ?>">
-        <?php 
-        echo CHtml::ajaxLink(
-            $text = Yii::t('translator','view previous comments'), 
-            $url = '/index.php/trip/getComments', 
-            $ajaxOptions=array (
-                'type'=>'GET',
-                'dataType'=>'json',
-                'data'=>array("offset"=>"js:$('#commentsOffset').val()","tripId"=>Yii::app()->request->getQuery('id')),
-                'success'=>'function(objReturn){ 
-                    $("#commentsList").prepend(objReturn.html); 
-                    $("#commentsOffset").val(objReturn.offset);     
-                    if(objReturn.noMoreComments==1){
-                        $("#viewMoreComments").html("");
-                    }
-                }'
-                ), 
-            $htmlOptions=array ()
-            );
-        ?>
-        </div>
-        <ul id="commentsList">
-        <?php  foreach ($allComments as $key => $value): ?>
-            <?php $avatar = Yum::module("avatar")->getAvatarThumb($value["avatar"]); ?>
-            <li><img class="avatar" src="<?php echo $avatar; ?>" alt="" width="32px" height="32px" />
-            <?php echo CHtml::link($value['user_name'], array('//profile/profile/view/id/'.$value['user_id']),array('class'=>'username')); ?>:
-            <?php echo $value['content']; ?>
-            </li>
-        <?php endforeach; ?>
-        </ul>
+    <div class="box">
+        <div class="boxTitle"><?php echo Yii::t('translator','Comments');?></div>
+        <div class="boxContent">
+            <div class="row">
+            <div id="viewMoreComments">
+            <input type="hidden" name="commentsOffset" id = "commentsOffset" value="<?php echo Yii::app()->params['COMMENTS_PER_TIME']; ?>">
+            <?php 
+            echo CHtml::ajaxLink(
+                $text = Yii::t('translator','view previous comments'), 
+                $url = '/index.php/trip/getComments', 
+                $ajaxOptions=array (
+                    'type'=>'GET',
+                    'dataType'=>'json',
+                    'data'=>array("offset"=>"js:$('#commentsOffset').val()","tripId"=>Yii::app()->request->getQuery('id')),
+                    'success'=>'function(objReturn){ 
+                        $("#commentsList").prepend(objReturn.html); 
+                        $("#commentsOffset").val(objReturn.offset);     
+                        if(objReturn.noMoreComments==1){
+                            $("#viewMoreComments").html("");
+                        }
+                    }'
+                    ), 
+                $htmlOptions=array ()
+                );
+            ?>
+            </div>
+            <ul id="commentsList">
+            <?php  foreach ($allComments as $key => $value): ?>
+                <?php $avatar = Yum::module("avatar")->getAvatarThumb($value['user_id'],$value["avatar"]); ?>
+                <li>
+                <?php echo $avatar; ?>    
+                <?php echo CHtml::link($value['user_name'], array('//profile/profile/view/id/'.$value['user_id']),array('class'=>'username')); ?>:
+                <?php echo $value['content']; ?>
+                </li>
+            <?php endforeach; ?>
+            </ul>
 
-        <?php if($joinStatus==1 || $joinStatus==9): ?>
-        <div id="comments">
-            <?php $this->renderPartial('/comment/_form',array(
-                    'model'=>$comment,
-                )); ?>
+            <?php if($joinStatus==1 || $joinStatus==9): ?>
+            <div id="comments">
+                <?php $this->renderPartial('/comment/_form',array(
+                        'model'=>$comment,
+                    )); ?>
+            </div>
+            
+            <?php endif; ?>
+            </div>
         </div>
-        
-        <?php endif; ?>
     </div>
+    
     </div>
     <div class="cell cell3">
+
         <div class="price">
             <u>đ</u> <?php echo $trip['fee']; ?>K
         </div>
@@ -159,6 +167,24 @@
             ?>
         <?php endif; ?>
         <?php endif; ?>
+        <?php //if(!$isOwner): ?>
+        <div class="box">
+            <div class="boxTitle">Leader info</div>
+            <div class="boxContent">
+            <div class="row">
+            <span>
+            <?php echo Yum::module("avatar")->getAvatar($trip['user_id'],$trip["avatar"]); ?>
+            </span>
+            <span class="username"><?php echo $trip['username']; ?> </span>
+            </div>
+            <?php //$this->widget('PcStarRankWidget', array('modelId' => $trip['user_id'], 'modelClassName' => 'YumUser')); ?>
+            <div class=""><?php echo Yii::t('translator','Leaded tours'); ?>: <?php //echo $tourNo; ?></div>
+            <!--<div class="row">Tỷ lệ trả lời: 50% </div>-->
+            <div class=""><?php echo Yii::t('translator','Member since');?>: <?php echo date('d-m-Y',$trip["createtime"]);?></div>
+            <div class=""><?php echo Yii::t('translator','Last online');?>: <?php echo Time::timeAgoInWords(date('d-m-Y',$trip["lastvisit"])); ?></div>
+            </div>
+        </div>
+    <?php //endif; ?>
     </div>
 </div>
-
+</div>

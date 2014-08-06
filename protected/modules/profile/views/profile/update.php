@@ -1,3 +1,5 @@
+<div class="boxTitle"><?php echo Yii::t('translator','Update Profile');?></div>
+<div class="boxContent">
 <div id="profile_update">
 <?php 
 $this->pageTitle = Yum::t( "Profile");
@@ -53,4 +55,5 @@ $this->title = Yum::t('Edit profile');
 	<?php echo CHtml::endForm(); ?>
 
 	</div><!-- form -->
+</div>
 </div>

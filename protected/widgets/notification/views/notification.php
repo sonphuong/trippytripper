@@ -14,7 +14,7 @@
 </div> -->
  <div class="user">
     <a id="myavatar" href="#none" class="avatar">
-        <img src="<?php echo Yum::module('avatar')->getAvatarThumb(Yii::app()->user->avatar); ?>" width="30" height="30">
+        <img src="<?php echo Yum::module('avatar')->getAvatarThumbPhoto(Yii::app()->user->avatar); ?>" width="30" height="30">
     </a>
  </div>
  

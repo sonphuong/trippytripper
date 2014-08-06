@@ -13,7 +13,7 @@ class AvatarModule extends CWebModule {
 	// Set avatarMaxWidth to a value other than 0 to enable image size check
 	public $avatarMaxWidth = 1000;
 
-	public $avatarThumbnailWidth = 42; // For display in user browse, friend list
+	public $avatarThumbnailWidth = 50; // For display in user browse, friend list
 	public $avatarDisplayWidth = 120;
 
 	public $enableGravatar = true;
@@ -30,10 +30,25 @@ class AvatarModule extends CWebModule {
 					'application.modules.avatar.models.*',
 					));
 	}
-	public static function getAvatarThumb($avatar){
-    	//subtring the path to put thumb
+	public static function getAvatarThumbPhoto($avatar){
     	$avatar = substr($avatar, strrpos($avatar,"/"));
-		return '/images/avatars/thumbs'.$avatar;
+    	return '/images/avatars/thumbs'.$avatar;
+    }
+	public static function getAvatarThumb($userId,$avatar,$nolink=false){
+    	//subtring the path to put thumb
+    	$html = '';
+    	$avatar = substr($avatar, strrpos($avatar,"/"));
+    	if($nolink==false) $html .= '<a href="/index.php/profile/profile/view/id/'.$userId.'">';
+    	$html .= '<img class="avatar" src="/images/avatars/thumbs'.$avatar.'" alt="" width="40px" height="40px" />';
+    	if($nolink==false) $html .='</a>';
+		return $html;
+
+    }
+    public static function getAvatar($userId,$avatar){
+    	$html = '<a href="/index.php/profile/profile/view/id/'.$userId.'">';
+    	$html .= '<img class="avatar" src="/'.$avatar.'" alt="" width="120px" height="120px" />';
+    	$html .='</a>';
+		return $html;
 
     }
 }

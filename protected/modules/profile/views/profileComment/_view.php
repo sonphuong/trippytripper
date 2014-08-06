@@ -1,20 +1,11 @@
-<div class="guestbook">
-	<div class="guestbook-header">
-			<strong><?php echo CHtml::encode($data->getAttributeLabel('user_id')); ?>:</strong>
-			<?php echo CHtml::link(CHtml::encode($data->user->username), array(
-						'//profile/profile/view', 'id' => $data->user_id)); ?>
-			|
-			<!-- <strong><?php echo CHtml::encode($data->getAttributeLabel('createtime')); ?>:</strong> -->
-			<?php $locale = CLocale::getInstance(Yii::app()->language);
-            echo Time::timeAgoInWords($locale->getDateFormatter()->formatDateTime($data->createtime, 'medium', 'medium'));
-            ?>
-	</div>
-		
-	<div class="guestbook-avatar">
+<div id="profileComment">
+	<div class="row">
 		<?php echo $data->user->getAvatar(true); ?>
-	</div>
-
-	<div class="guestbook-comment">
+		<span class="username">
+		<?php echo CHtml::link(CHtml::encode($data->user->username), array(
+					'//profile/profile/view', 'id' => $data->user_id)); ?>
+		</span>
+		<span>
 		<?php echo CHtml::encode($data->comment); ?>
         <?
         // the owner of the profile as well as the owner of the comment can remove
@@ -26,8 +17,11 @@
                 'submit' => array( '//profile/comments/delete', 'id' => $data->id)));
         }
         ?>
+        </span>
+        <div class="commentTime">
+		<?php $locale = CLocale::getInstance(Yii::app()->language);
+        echo Time::timeAgoInWords($locale->getDateFormatter()->formatDateTime($data->createtime, 'medium', 'medium'));
+        ?>
+        </div>
 	</div>
-
-	<div class="guestbook-footer">&nbsp;</div>
-
 </div>

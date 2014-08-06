@@ -1,3 +1,5 @@
+<div class="boxTitle">Search trip</div>
+<div class="boxContent">
 <div class="form" id="search">
     <?php $form = $this->beginWidget('CActiveForm'); ?>
     <?php echo $form->errorSummary($model); ?>
@@ -36,7 +38,7 @@
     </div>
 <?php $this->endWidget(); ?>
 </div>
-<hr/>
+
 <?php
 $this->widget('zii.widgets.CListView', array(
     'dataProvider'=>$dataProvider,
@@ -48,6 +50,7 @@ $this->widget('zii.widgets.CListView', array(
     ),
 ));
 ?>
+</div>
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<?php echo Yii::app()->params['GOOGLE_API_KEY']; ?>&sensor=true&libraries=places"></script>
 <script type="text/javascript">
