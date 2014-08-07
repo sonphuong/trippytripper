@@ -38,6 +38,7 @@ body
 #container.sub-page {
 	background:url(/images/bg_sub.png) repeat-x;
 	/*background-color: white;*/
+	min-height: 600px;
 }
 .sub-page .wrap-ct{padding-top:61px;}
 
@@ -310,6 +311,10 @@ div.flash-success a
 #offer #Trip_description{
 	width: 430px;
 }
+#login_page .rememberMe input{
+	line-height: 10px !important;
+}
+
 #login_page label{
 	min-width: 73px;
 }

@@ -1,26 +1,18 @@
 <style type="text/css">
 #yumcontent
 {
-	padding: 20px;
-	border: solid 1px #CCCCCC;
-	background: white;
-	border-radius: 6px;
+	width: 265px;
 	margin: auto;
-	width: 235px;
 }
 </style>
 <div id="login_page" class="login_page">
+<div class="boxTitle"><?php echo Yii::t('translator','Login');?></div>
+<div class="boxContent">
+
 <?php
 if(!isset($model)) 
 	$model = new YumUserLogin();
-
 $module = Yum::module();
-
-$this->pageTitle = Yum::t('Login');
-if(isset($this->title))
-$this->title = Yum::t('Login');
-$this->breadcrumbs=array(Yum::t('Login'));
-
 Yum::renderFlash();
 ?>
 
@@ -110,4 +102,5 @@ $form = new CForm(array(
 			), $model);
 ?>
 
+</div>
 </div>
