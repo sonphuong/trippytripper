@@ -3,6 +3,12 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="language" content="en" />
+	<meta name="description" content="trippytripper.org is a traveler community, helping traveler connect" />
+	<meta name="keywords" content="Traveler, Car share, Tripper, Travel, Trip" />
+	<meta name="robots" content="index,follow" />
+	<meta name="rating" content="travel"/>
+	<meta name="author" content="trippytripper.org"/>
+	<meta name="copyright" content="(C) Copyright trippytripper.org."/>
 	<!--[if lt IE 8]>
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
 	<![endif]-->
