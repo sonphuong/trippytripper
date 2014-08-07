@@ -1,8 +1,8 @@
 
 <ul class="ctrl">
-    <li><a id ="friend" class="friend" href="#none"></a><span id="friend_index"></span><span id="friend_num"></span></li>
-    <li><a id ="msg" class="msg" href="#none"></a><span id="msg_index"></span><span id="email_num"></span></li>
-    <li><a id ="tripp" class="tripp" href="#none"></a><span id="trip_index"></span><span id="trip_num"></span></li>
+    <li><a id ="friend" class="friend" href="#none"></a><span class="notisArrow" id="friend_index"></span><span id="friend_num"></span></li>
+    <li><a id ="msg" class="msg" href="#none"></a><span class="notisArrow" id="msg_index"></span><span id="email_num"></span></li>
+    <li><a id ="tripp" class="tripp" href="#none"></a><span class="notisArrow" id="trip_index"></span><span id="trip_num"></span></li>
 </ul>
 <div class="boxNotis notis">
     <div class="boxTitle" id="notisBoxHeader"><?php echo Yii::t('translator','Notifications'); ?></div>
@@ -37,7 +37,7 @@
 <script>
 $(document).mouseup(function (e)
 {
-    var myArray = [".notis","#mymenu","#friend_index","#msg_index","#trip_index"];
+    var myArray = [".notis","#mymenu",".notisArrow"];
     $.each(myArray, function(index, value){
         var container = $(value);
         if (!container.is(e.target) // if the target of the click isn't the container...

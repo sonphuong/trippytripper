@@ -75,10 +75,14 @@ body
 	margin-left: 97px;
 }
 #msg_index{
-    content: '';
+	margin-left: -19px;
+    
+}
+.notisArrow{
+	content: '';
 	position: absolute;
 	top: 77%;
-	margin-left: -19px;
+	
 	width: 1px;
 	/* height: 34px; */
 	border-bottom: 8px solid #434343;
@@ -88,30 +92,10 @@ body
 	display: none;
 }
 #friend_index{
-    content: '';
-	position: absolute;
-	top: 77%;
-	margin-left: -25px;
-	width: 1px;
-	/* height: 34px; */
-	border-bottom: 8px solid #434343;
-	border-right: 8px solid transparent;
-	border-left: 8px solid transparent;
-	z-index: 2;
-	display: none;
+    margin-left: -25px;
 }
 #trip_index{
-    content: '';
-	position: absolute;
-	top: 77%;
-	margin-left: -18px;
-	width: 1px;
-	/* height: 34px; */
-	border-bottom: 8px solid #434343;
-	border-right: 8px solid transparent;
-	border-left: 8px solid transparent;
-	z-index: 2;
-	display: none;
+    margin-left: -18px;
 }
 .notis{
     background-color: white;
@@ -126,7 +110,7 @@ body
     box-shadow: 0px 5px 10px 0px;
 
 }
-.notisBox{
+.boxNotis{
 	border-radius: 4px;
 	overflow: hidden;
 }
