@@ -598,3 +598,9 @@ a:hover.tooltips span {
   margin-left: -32px;
   z-index: 999;
 }
+#registrationPage{
+
+}
+#registrationPage label{
+	min-width: 150px;
+}

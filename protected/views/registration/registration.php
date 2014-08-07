@@ -1,7 +1,6 @@
-
-<h2> <?php echo Yum::t('Registration'); ?> </h2>
-
-<?php $this->breadcrumbs = array(Yum::t('Registration')); ?>
+<div class="boxTitle"><?php echo Yii::t('translator','Registration');?></div>
+<div class="boxContent">
+<?php //$this->breadcrumbs = array(Yum::t('Registration')); ?>
 
 <div class="form">
 <?php $activeform = $this->beginWidget('CActiveForm', array(
@@ -60,8 +59,9 @@ echo $activeform->textField($profile,'lastname');
 	<?php endif; ?>
 	
 	<div class="row submit">
-		<?php echo CHtml::submitButton(Yum::t('Registration')); ?>
+		<?php echo CHtml::submitButton(Yum::t('Registration'), array('class'=>'orangeButton')); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
 </div><!-- form -->
+</div>
