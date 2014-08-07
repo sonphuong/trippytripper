@@ -8,7 +8,7 @@
 
 //google key
 $domain = $_SERVER['SERVER_NAME'];
-if($domain==='www.trippytripper.org'){
+if($domain==='www.trippytripper.org' || $domain==='trippytripper.org'){
     $googleKey = 'AIzaSyD-o3Di-HaEWv6q81Sa-Kh5n5jaZ-Exkr8';
     $dbUser = 'trippytripper';
     $dbPass = 'trippytripper';
@@ -19,7 +19,7 @@ if($domain==='www.trippytripper.org'){
 else{
     $googleKey = 'AIzaSyAisOhSjoLbzL_hEtuBhUoS3pr71vhwtu4';    
     $dbUser = 'root';
-    $dbPass = '';
+    $dbPass = 'root';
     $dbHost = 'localhost';
     $userDebug = false;
     $debug = 
