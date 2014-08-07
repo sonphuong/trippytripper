@@ -68,13 +68,12 @@
 	</div><!-- header -->
 	<div id="container" class="sub-page"> 
 		<div class="wrap-ct">
-		<?php 
-		/*$this->widget('zii.widgets.CBreadcrumbs', array(
-			'links'=>$this->breadcrumbs,
-		));*/ 
-		?><!-- breadcrumbs -->
-
-		<?php echo $content; ?>
+			<?php 
+			/*$this->widget('zii.widgets.CBreadcrumbs', array(
+				'links'=>$this->breadcrumbs,
+			));*/ 
+			?><!-- breadcrumbs -->
+			<?php echo $content; ?>
 		</div>
 	</div><!-- page -->
 	<div id="footer">

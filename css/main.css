@@ -187,6 +187,12 @@ div.flash-success a
 	overflow: hidden;
 	width:100%;
 }
+#trip_detail label{
+	min-width: 130px;
+	line-height: 30px;
+	font-size: 16px;
+	
+}
 .commentButton{
 	vertical-align: top;
 	margin-left: 10px;
@@ -366,6 +372,7 @@ div.flash-success a
 }
 .memberListVer{
 	list-style-type: none;
+	line-height: 44px;
 }
 #trip_detail .memberListHor li{
 	display: inline;
@@ -450,6 +457,9 @@ input, textarea{
 	font-weight: bold;
 	line-height: 40px;
 
+}
+#trip_detail .fromTo{
+	font-size: 26px;
 }
 .pickUpPoint{
 	color: #FCA019;

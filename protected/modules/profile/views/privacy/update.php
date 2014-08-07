@@ -1,3 +1,5 @@
+<div class="boxTitle"><?php echo Yii::t('translator','My Groups');?></div>
+<div class="boxContent">
 <?
 $this->breadcrumbs=array(
 		Yum::t('Privacysettings')=>array('index'),
@@ -160,8 +162,10 @@ echo '<div class="clear"></div>';
 
 <?
 echo CHtml::Button(Yum::t( 'Cancel'), array(
-			'submit' => array('//profile/profile/view')));
-echo CHtml::submitButton(Yum::t('Save')); 
+			'submit' => array('//profile/profile/view')
+			,'class'=>'grayButton'
+			));
+echo CHtml::submitButton(Yum::t('Save'),array('class'=>'orangeButton')); 
 $this->endWidget(); ?>
 </div> <!-- form -->
 
@@ -178,3 +182,4 @@ $this->endWidget(); ?>
 });
 ");
 ?>
+</div>

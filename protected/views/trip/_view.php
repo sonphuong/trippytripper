@@ -1,31 +1,52 @@
 <div class="boxTitle"><?php echo Yii::t('translator','Trip Detail');?></div>
 <div class="boxContent">
 <div id="trip_detail" class="row">
-    <div class="cell cell2">
-        <div class="date">
-        <?php 
-            $leaveDate = new DateTime($trip['leave']);
-            $date = $leaveDate->format('Y-m-d');
-            $time = $leaveDate->format('h:m');
-            $today = date('Y-m-d');
-            $today = new DateTime($today);                            
-            $interval = $today->diff($leaveDate);
-            $days = (int)$interval->format("%r%a");
-            if($days===0) echo Yii::t('translator','Today').' - ' . $time;
-            elseif($days===1)   echo Yii::t('translator','Tomorrow').' - ' . $time;    
-            else echo $date .' : '. $time;
-        ?>
-        </div>
+    <div class="cell cell2 form">
+        
         <div class="fromTo">
             <span><?php echo $trip['from']; ?> → <?php echo $trip['to']; ?></span>
         </div>
-        <div>
-            <span class="pickUpPoint">
+        <div class="row">
+            <label><?php echo Yii::t('translator','Departure date:'); ?> &nbsp;</label>
+            <label class="date">
+            <?php 
+                $leaveDate = new DateTime($trip['leave']);
+                $date = $leaveDate->format('Y-m-d');
+                $time = $leaveDate->format('h:m');
+                $today = date('Y-m-d');
+                $today = new DateTime($today);                            
+                $interval = $today->diff($leaveDate);
+                $days = (int)$interval->format("%r%a");
+                if($days===0) echo Yii::t('translator','Today').' - ' . $time;
+                elseif($days===1)   echo Yii::t('translator','Tomorrow').' - ' . $time;    
+                else echo $date .' : '. $time;
+            ?>
+            </label>
+        </div>
+        <div class="row">
+            <label><?php echo Yii::t('translator','Return date:'); ?> &nbsp;</label>
+            <label class="date">
+            <?php 
+                $leaveDate = new DateTime($trip['return']);
+                $date = $leaveDate->format('Y-m-d');
+                $time = $leaveDate->format('h:m');
+                $today = date('Y-m-d');
+                $today = new DateTime($today);                            
+                $interval = $today->diff($leaveDate);
+                $days = (int)$interval->format("%r%a");
+                if($days===0) echo Yii::t('translator','Today').' - ' . $time;
+                elseif($days===1)   echo Yii::t('translator','Tomorrow').' - ' . $time;    
+                else echo $date .' : '. $time;
+            ?>
+            </label>
+        </div>
+        <div class="row">
+            <label class="pickUpPoint">
                 <?php echo Yii::t('translator','Pick up point');?>:
-            </span>
-            <strong>
+            </label>
+            <label>
                 <?php echo $trip['gathering_point']; ?>
-            </strong>
+            </label>
         </div>
     
     <div class="row des"><?php echo $trip['description']; ?></div>
