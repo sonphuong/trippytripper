@@ -10,8 +10,8 @@
 $domain = $_SERVER['SERVER_NAME'];
 if($domain==='www.trippytripper.org' || $domain==='trippytripper.org'){
     $googleKey = 'AIzaSyD-o3Di-HaEWv6q81Sa-Kh5n5jaZ-Exkr8';
-    $dbUser = 'root';
-    $dbPass = 'root';
+    $dbUser = 'trippytripper';
+    $dbPass = 'trippytripper';
     $dbHost = 'trippytripper.c3mfgwza7g4u.us-west-2.rds.amazonaws.com';
     $userDebug = false;
     $debug = array(
