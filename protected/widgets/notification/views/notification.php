@@ -1,11 +1,11 @@
 
 <ul class="ctrl">
-    <li><a id ="friend" class="friend" href="#none"></a><span id="friend_num"></span></li>
-    <li><a id ="msg" class="msg" href="#none"></a><span id="email_num"></span></li>
-    <li><a id ="tripp" class="tripp" href="#none"></a><span id="trip_num"></span></li>
+    <li><a id ="friend" class="friend" href="#none"></a><span id="friend_index"></span><span id="friend_num"></span></li>
+    <li><a id ="msg" class="msg" href="#none"></a><span id="msg_index"></span><span id="email_num"></span></li>
+    <li><a id ="tripp" class="tripp" href="#none"></a><span id="trip_index"></span><span id="trip_num"></span></li>
 </ul>
-<div class="box notis">
-    <div class="boxTitle"><?php echo Yii::t('translator','Notifications'); ?></div>
+<div class="boxNotis notis">
+    <div class="boxTitle" id="notisBoxHeader"><?php echo Yii::t('translator','Notifications'); ?></div>
     <div id="notisContent" class="boxContent">
         
     </div>
@@ -37,7 +37,7 @@
 <script>
 $(document).mouseup(function (e)
 {
-    var myArray = [".notis","#mymenu"];
+    var myArray = [".notis","#mymenu","#friend_index","#msg_index","#trip_index"];
     $.each(myArray, function(index, value){
         var container = $(value);
         if (!container.is(e.target) // if the target of the click isn't the container...
@@ -55,6 +55,7 @@ $( document ).ready(function() {
     });
     $("#friend").click(function(){
         $(".notis").toggle();
+        $("#friend_index").toggle();
         $('#notisContent').html($("#friend_notis").html());
         $("#friend_num").html('');
         $("#friend_num").removeClass('numNotis');
@@ -67,6 +68,7 @@ $( document ).ready(function() {
     });
     $("#msg").click(function(){
         $(".notis").toggle();
+        $("#msg_index").toggle();
         $('#notisContent').html($("#email_notis").html());
         $("#email_num").html('');
         $("#email_num").removeClass('numNotis');
@@ -79,6 +81,7 @@ $( document ).ready(function() {
     });
     $("#tripp").click(function(){
         $(".notis").toggle();
+        $("#trip_index").toggle();
         $('#notisContent').html($("#trip_notis").html());
         $("#trip_num").html('');
         $("#trip_num").removeClass('numNotis');

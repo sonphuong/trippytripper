@@ -16,7 +16,10 @@ a{color:#1698d2; text-decoration:none;}
 #header .connect-us .tit{font-size:14px; font-weight:700;}
 #header .connect-us .list li img{width:18px; height:18px;}
 #gnb{background:url(/images/line_gnb.png) repeat-x 0 0; position:relative; margin: 17px 0 -60px; padding-top:6px; z-index:1000}
-#gnb .bg{background:url(/images/bg_gnb.png) no-repeat 100% 0; max-width:922px; height:39px; margin:0 auto; padding:0 40px;}
+#gnb .gnb_center{background:url(/images/bg_gnb_center.png) repeat 100% 0; height: 39px;}
+#gnb .bg {background:url(/images/bg_gnb_left.png) no-repeat 0 0px; max-width:1022px; padding-left: 39px; margin:0 auto;}
+#gnb .gnb_right {background:url(/images/bg_gnb_right.png) no-repeat 100% 0px; padding-right: 39px;}
+
 #gnb .gnb{float:left; padding-top:5px;}
 #gnb .gnb li{float:left; margin-right:15px;}
 #gnb .gnb li a{float:left; padding:0 15px; height:22px; line-height:22px; color:#343333; font-weight:700; border-radius:20px;}

@@ -65,8 +65,9 @@
                 foreach ($members as $key => $member) {
                     $avatar ='';
                     $thumb = Yum::module("avatar")->getAvatarThumbPhoto($member["avatar"]);
-                    $avatar .='<a href="/index.php/profile/profile/view/id/'.$member['user_id'].'">';
-                    $avatar .='<img title="'.$member['user_name'].'" alt="'.$member['user_name'].'" class="avatar" src="'.$thumb.'"  width="40px" height="40px" />';
+                    $avatar .='<a class="tooltips" href="/index.php/profile/profile/view/id/'.$member['user_id'].'">';
+                    if(!$isOwner) $avatar .= '<span>'.$member['user_name'].'</span>';
+                    $avatar .='<img alt="" class="avatar" src="'.$thumb.'"  width="40px" height="40px" />';
                     $avatar .='</a>';
                     echo '<li id="member_'.$member['user_id'].'">'.$avatar;
                     if($isOwner === true) echo CHtml::link($member['user_name'], array('//profile/profile/view/id/'.$member['user_id']),array('class'=>'username'));                            
