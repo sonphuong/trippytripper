@@ -10,11 +10,14 @@
 $domain = $_SERVER['SERVER_NAME'];
 if($domain==='www.trippytripper.org' || $domain==='trippytripper.org'){
     $googleKey = 'AIzaSyD-o3Di-HaEWv6q81Sa-Kh5n5jaZ-Exkr8';
-    $dbUser = 'trippytripper';
-    $dbPass = 'trippytripper';
+    $dbUser = 'root';
+    $dbPass = 'root';
     $dbHost = 'trippytripper.c3mfgwza7g4u.us-west-2.rds.amazonaws.com';
     $userDebug = false;
-    $debug = '';
+    $debug = array(
+            'class' => 'CWebLogRoute',
+            'levels' => 'trace, info, error, warning',
+            );
 }
 else{
     $googleKey = 'AIzaSyAisOhSjoLbzL_hEtuBhUoS3pr71vhwtu4';    
