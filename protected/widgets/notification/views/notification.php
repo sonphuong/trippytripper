@@ -21,7 +21,7 @@
 
 <div class="user">
     <a id="myavatar" href="#none" class="avatar">
-        <img src="<?php echo Yum::module('avatar')->getAvatarThumbPhoto(Yii::app()->user->avatar); ?>" width="30" height="30">
+        <img src="<?php echo Yum::module('avatar')->getAvatarThumbPhoto(Yii::app()->user->avatar); ?>" width="32" height="30">
     </a>
 </div>
  
@@ -121,6 +121,7 @@ function updateReadStatus(ids){
         }
     });
 }
+
 function genNotisHTML(notis){
     //friend ++++++++++++++++++++++
     var friendNotis='';
@@ -129,8 +130,8 @@ function genNotisHTML(notis){
     for (var i = 0; i < friends.length; i++) {
         friendNotis +='<a href="/index.php/friendship/friendship/index">';
         friendNotis +='<li name="'+friends[i].notis_id+'" class="liFriend">';
-        friendNotis +='<img src="/'+friends[i].from_avatar+'" alt="" width="32px" height="32px" />';                               
-        friendNotis += friends[i].from_user_name +' '+ friends[i].message;
+        friendNotis +='<img class="avatar" src="/'+friends[i].from_avatar+'" alt="" width="32px" height="32px" />';                               
+        friendNotis += '<span class="username">'+ friends[i].from_user_name +'</span>' +' '+  friends[i].message;
         friendNotis += '</li>';
         friendNotis += '</a>';
     };          
@@ -148,8 +149,8 @@ function genNotisHTML(notis){
     for (var i = 0; i < emails.length; i++) {
         emailNotis +='<a href="/index.php/message/message/index">';
         emailNotis +='<li name="'+emails[i].notis_id+'" class="liEmail">';
-        emailNotis +='<img src="/'+emails[i].from_avatar+'" alt="" width="32px" height="32px" />';                               
-        emailNotis += emails[i].from_user_name +' '+ emails[i].message;
+        emailNotis +='<img class="avatar" src="/'+emails[i].from_avatar+'" alt="" width="32px" height="32px" />';                               
+        emailNotis += '<span class="username">'+emails[i].from_user_name+'</span>' +' '+ emails[i].message;
         emailNotis += '</li>';
         emailNotis += '</a>';
     };          
@@ -168,8 +169,8 @@ function genNotisHTML(notis){
     for (var i = 0; i < trips.length; i++) {
         tripNotis +='<a href="/index.php/trip/view/?id='+trips[i].trip_id+'">';
         tripNotis +='<li name="'+trips[i].notis_id+'" class="liTrip">';
-        tripNotis +='<img src="/'+trips[i].from_avatar+'" alt="" width="32px" height="32px" />';                               
-        tripNotis += trips[i].from_user_name +' '+ trips[i].message;
+        tripNotis +='<img class="avatar" src="/'+trips[i].from_avatar+'" alt="" width="32px" height="32px" />';                               
+        tripNotis += '<span class="username">'+trips[i].from_user_name+'</span>' +' '+ trips[i].message;
         tripNotis += '</li>';
         tripNotis += '</a>';
     };          
