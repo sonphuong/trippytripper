@@ -93,10 +93,15 @@ body
 	overflow-y: auto !important;
     overflow-x: hidden;
     width: 280px;
-    max-height: 230px;
+    max-height: 193px;
+    padding: 10px;
 }
-
-
+#commentsList li{
+	padding-top: 8px !important;
+}
+#comments{
+	margin-top: 30px;
+}
 div.flash-error, div.flash-notice, div.flash-success
 {
 	padding:.8em;
