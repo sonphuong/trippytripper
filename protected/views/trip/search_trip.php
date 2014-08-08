@@ -39,9 +39,9 @@
 $this->widget('zii.widgets.CListView', array(
     'dataProvider'=>$dataProvider,
     'itemView'=>'_list',
-    'template' => '{summary} {sorter} {items} <div style="clear:both;"></div> {pager}',
+    'template' => '{sorter} {items} <div style="clear:both;"></div>{summary} {pager}',
     'sortableAttributes'=>array(
-        'leave',
+        'departure_date',
         'fee',
     ),
 ));

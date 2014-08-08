@@ -20,7 +20,7 @@ echo CHtml::endForm();
 $this->widget('zii.widgets.CListView', array(
     'dataProvider'=>$dataProvider,
     'itemView'=>'_view', 
-	'template' => '{summary} {sorter} {items} <div style="clear:both;"></div> {pager}',
+	'template' => '{sorter} <div style="clear:both;"></div>  {items} <div style="clear:both;"></div>{summary}  {pager}',
     'sortableAttributes'=>array(
         'username',
         'lastvisit',

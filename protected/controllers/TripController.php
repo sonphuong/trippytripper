@@ -40,7 +40,7 @@ class TripController extends Controller
                         U.lastvisit, 
                         U.username, 
                         U.avatar, 
-                        T.leave, 
+                        T.leave AS departure_date, 
                         T.return, 
                         T.return_trip, 
                         T.gathering_point, 
@@ -53,7 +53,6 @@ class TripController extends Controller
                 INNER JOIN trip T  ON T.id = TU.trip_id
                 INNER JOIN user U ON U.id = T.user_id
                 WHERE TU.user_id = $loginId
-                ORDER BY T.leave DESC
         ";
         
         
@@ -64,14 +63,14 @@ class TripController extends Controller
             INNER JOIN trip T  ON T.id = TU.trip_id
             INNER JOIN user U ON U.id = T.user_id
             WHERE TU.user_id = $loginId
-            ORDER BY T.leave DESC
         ";
         $count=Yii::app()->db->createCommand($sqlCount)->queryScalar();
         $dataProvider=new CSqlDataProvider($sql, array(
             'totalItemCount'=>$count,
             'sort'=>array(
+                'defaultOrder'=>'departure_date',
                 'attributes'=>array(
-                     'leave', 'fee'
+                     'departure_date', 'fee'
                 ),
             ),
             'pagination'=>array(
@@ -195,7 +194,7 @@ class TripController extends Controller
 			U.avatar,
             U.createtime,
             U.lastvisit,
-			R.leave,
+			R.leave AS departure_date,
 			R.return,
 			R.return_trip,
 			R.seat_avail,
@@ -213,8 +212,6 @@ class TripController extends Controller
 		$to
 		$leave
 		$return
-		ORDER BY R.leave ASC
-
 		";
   //       /*LEFT JOIN ranking_votes RV ON RV.user_id = */
         $sqlCount = "SELECT COUNT(1) as count
@@ -226,7 +223,6 @@ class TripController extends Controller
 		$to
 		$leave
 		$return
-		ORDER BY R.leave ASC
 		";
   
 
@@ -234,8 +230,10 @@ class TripController extends Controller
         $dataProvider=new CSqlDataProvider($sql, array(
             'totalItemCount'=>$count,
             'sort'=>array(
+                'defaultOrder'=>'departure_date ASC',
                 'attributes'=>array(
-                     'leave', 'fee'
+                     'fee',
+                     'departure_date',
                 ),
             ),
             'pagination'=>array(

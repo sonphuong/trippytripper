@@ -9,7 +9,7 @@
         <div class="cell cell2 verticalLine">
             <div class="date">
             <?php 
-            $leaveDate = new DateTime($data['leave']);
+            $leaveDate = new DateTime($data['departure_date']);
             $date = $leaveDate->format('Y-m-d');
             $time = $leaveDate->format('h:m');
             $today = date('Y-m-d');

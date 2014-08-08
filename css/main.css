@@ -604,3 +604,13 @@ a:hover.tooltips span {
 #registrationPage label{
 	min-width: 150px;
 }
+.list-view .summary {
+	margin: 4px 0 5px 0 !important;
+	float: left;
+}
+.list-view .sorter {
+	font-size: 0.9em;
+	font-weight: bold;
+	float: right;
+	clear: both;
+}
