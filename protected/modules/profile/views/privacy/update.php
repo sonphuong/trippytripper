@@ -1,6 +1,4 @@
-<div class="boxTitle"><?php echo Yii::t('translator','My Groups');?></div>
-<div class="boxContent">
-<?
+<?php
 $this->breadcrumbs=array(
 		Yum::t('Privacysettings')=>array('index'),
 		$model->user->username=>array(
@@ -182,4 +180,3 @@ $this->endWidget(); ?>
 });
 ");
 ?>
-</div>

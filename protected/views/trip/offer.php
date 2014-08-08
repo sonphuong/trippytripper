@@ -1,5 +1,3 @@
-<div class="boxTitle">Offer</div>
-<div class="boxContent">
 <div class="form search_box" id="offer">
     <?php $form=$this->beginWidget('CActiveForm', array(
         'id'=>'top-websites-cr-form',
@@ -138,4 +136,3 @@
         calcRoute($('#goFrom').val(),$('#goTo').val());
     });
 </script>
-</div>

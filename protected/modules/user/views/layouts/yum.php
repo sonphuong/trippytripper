@@ -12,6 +12,8 @@ $this->beginContent($module->baseLayout); ?>
 	<?php $this->renderMenu(); ?>
 	</div>
 	<div id="yumcontent">
+		<div class="boxTitle"><?php echo Yii::t('translator',$this->pageTitle);?></div>
+		<div class="boxContent">
 		<div id="usercontent">
 		<?
 		if (Yum::module()->debug) {
@@ -28,6 +30,7 @@ $this->beginContent($module->baseLayout); ?>
 		if($this->title)
 			printf('<h2> %s </h2>', $this->title);  ?>
 			<?php echo $content;  ?>
+		</div>
 		</div>
 	</div>
 

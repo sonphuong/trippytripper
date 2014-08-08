@@ -1,5 +1,3 @@
-<div class="boxTitle"><?php echo Yii::t('translator','My Friends');?></div>
-<div class="boxContent">
 <div id="my_friend" class="search_options" style="overflow: hidden">
 <?php echo CHtml::beginForm(); ?>
 <div>
@@ -75,5 +73,4 @@ if($friends) {
 	echo Yum::t('You do not have any friends yet');
 }
 ?>
-</div>
 </div>

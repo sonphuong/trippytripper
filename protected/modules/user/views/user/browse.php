@@ -3,8 +3,6 @@
 //$this->breadcrumbs=array(Yum::t('Browse users'));
 Yum::register('css/yum.css'); 
 ?>
-<div class="boxTitle">Search trip</div>
-<div class="boxContent">
 <div class="search_options">
 <?php echo CHtml::beginForm(); ?>
 <div style="float: left;">
@@ -32,4 +30,3 @@ $this->widget('zii.widgets.CListView', array(
 ?>
 </div>
 <div style="clear: both;"> </div>
-</div>

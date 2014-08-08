@@ -1,5 +1,3 @@
-<div class="boxTitle"><?php echo Yii::t('translator','Login');?></div>
-<div class="boxContent">
 <?php
 $this->pageTitle=Yii::app()->name . ' - Login';
 $this->breadcrumbs=array(
@@ -46,4 +44,3 @@ $this->breadcrumbs=array(
 
 <?php $this->endWidget(); ?>
 </div><!-- form -->
-</div>

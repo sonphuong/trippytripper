@@ -1,5 +1,3 @@
-<div class="boxTitle"><?php echo Yii::t('translator','Upload Avatar');?></div>
-<div class="boxContent">
 <div class="form">
 <?
 $this->breadcrumbs = array(
@@ -39,5 +37,4 @@ if(Yum::module('avatar')->avatarMaxWidth != 0)
 	echo CHtml::endForm();
 	
 ?>
-</div>
 </div>

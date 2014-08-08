@@ -7,6 +7,7 @@ $module = Yii::app()->getModule('user');
 $this->beginContent($module->baseLayout); ?>
 <div class="container">
 	<div id="usermenu">
+
 	<?php Yum::renderFlash(); ?>
 	<?php 
 	/*if(Yum::hasModule('message')) {
@@ -21,8 +22,11 @@ $this->beginContent($module->baseLayout); ?>
 
 	</div>
 	<div id="yumcontent">
-		<div id="usercontent">
-		<?php echo $content;  ?>
+		<div class="boxTitle"><?php echo Yii::t('translator',$this->pageTitle);?></div>
+		<div class="boxContent">
+			<div id="usercontent">
+			<?php echo $content;  ?>
+			</div>
 		</div>
 	</div>
 </div>

@@ -1,5 +1,3 @@
-<div class="boxTitle"><?php echo Yii::t('translator','Trip Detail');?></div>
-<div class="boxContent">
 <div id="trip_detail" class="row">
     <div class="cell cell2 form">
         
@@ -212,5 +210,4 @@
         </div>
     <?php //endif; ?>
     </div>
-</div>
 </div>

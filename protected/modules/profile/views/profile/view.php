@@ -1,5 +1,3 @@
-<div class="boxTitle">Profile detail</div>
-<div class="boxContent">
 <?php
 if(!$profile = $model->profile)
 	$profile = new YumProfile;
@@ -51,4 +49,3 @@ if(Yum::module('profile')->enableProfileComments
              'commentAble' =>$commentAble
     )); ?>
  </div>
-</div>
