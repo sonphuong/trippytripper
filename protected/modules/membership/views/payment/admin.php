@@ -1,4 +1,4 @@
-<?
+<?php
 $this->breadcrumbs=array(
 	Yum::t('Payments')=>array(Yii::t('app', 'index')),
 	Yum::t('Manage'),

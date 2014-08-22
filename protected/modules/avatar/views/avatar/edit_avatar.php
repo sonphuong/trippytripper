@@ -1,5 +1,5 @@
 <div class="form">
-<?
+<?php
 $this->breadcrumbs = array(
 		Yum::t('Profile') => array('//profile/profile/view'),
 		Yum::t('Upload avatar'));

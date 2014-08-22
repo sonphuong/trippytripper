@@ -10,7 +10,7 @@ echo CHtml::submitButton(Yum::t('Search'),array('class'=>'orangeButton inlineBut
 ?>
 Rearrange by: online - name
 </div>
-<?
+<?php
 
 echo CHtml::endForm();
 ?>

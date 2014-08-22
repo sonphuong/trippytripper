@@ -163,6 +163,7 @@ class TripController extends Controller
     public function actionSearchTrip()
     {
         $this->pageTitle = Yii::t('translator','Search Trip'); 
+        $this->layout = '//layouts/column1';
         $model = new SearchTripForm;
         //search++++++++++++++++++++++++++++
         $from = '';
