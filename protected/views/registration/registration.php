@@ -1,5 +1,3 @@
-<div class="boxTitle"><?php echo Yii::t('translator','Registration');?></div>
-<div class="boxContent">
 <?php //$this->breadcrumbs = array(Yum::t('Registration')); ?>
 
 <div class="form">
@@ -64,4 +62,3 @@ echo $activeform->textField($profile,'lastname');
 
 <?php $this->endWidget(); ?>
 </div><!-- form -->
-</div>

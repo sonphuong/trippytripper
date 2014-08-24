@@ -1,12 +1,9 @@
-<div class="boxTitle">Search trip</div>
-<div class="boxContent">
 <div class="form" id="search">
     <?php $form = $this->beginWidget('CActiveForm'); ?>
     <?php echo $form->errorSummary($model); ?>
     <div class="row">
         <div class="cell"><?php echo $form->textField($model, 'from', array('id' => 'goFrom', 'class' => 'from', 'value'=>$fromVal)); ?></div>
         <div class="cell"><?php echo $form->textField($model, 'to', array('id' => 'goTo', 'class' => 'to', 'value'=>$toVal)); ?></div>
-        
         <div class="cell"><?php
         $this->widget('application.widgets.timepicker.timepicker', array(
             'model' => $model,
@@ -38,20 +35,17 @@
     </div>
 <?php $this->endWidget(); ?>
 </div>
-
 <?php
 $this->widget('zii.widgets.CListView', array(
     'dataProvider'=>$dataProvider,
-    'itemView'=>'_list', 
-    'template' => '{summary} {sorter} {items} <div style="clear:both;"></div> {pager}',
+    'itemView'=>'_list',
+    'template' => '{sorter} {items} <div style="clear:both;"></div>{summary} {pager}',
     'sortableAttributes'=>array(
-        'username',
-        'lastvisit',
+        'departure_date',
+        'fee',
     ),
 ));
 ?>
-</div>
-
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<?php echo Yii::app()->params['GOOGLE_API_KEY']; ?>&sensor=true&libraries=places"></script>
 <script type="text/javascript">
     var fromOptions = {

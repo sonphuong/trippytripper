@@ -86,7 +86,9 @@
 				'links'=>$this->breadcrumbs,
 			));*/ 
 			?><!-- breadcrumbs -->
+
 			<?php echo $content; ?>
+			
 		</div>
 	</div><!-- page -->
 	<div id="footer">

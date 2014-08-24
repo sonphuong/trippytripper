@@ -6,9 +6,6 @@
 }
 </style>
 <div id="login_page" class="login_page">
-<div class="boxTitle"><?php echo Yii::t('translator','Login');?></div>
-<div class="boxContent">
-
 <?php
 if(!isset($model)) 
 	$model = new YumUserLogin();
@@ -102,5 +99,4 @@ $form = new CForm(array(
 			), $model);
 ?>
 
-</div>
 </div>

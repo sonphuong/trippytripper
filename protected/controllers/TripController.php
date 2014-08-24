@@ -23,13 +23,7 @@ class TripController extends Controller
         );
     }
 
-    /**
-     * get all available tour
-     */
-    public function getAllTrips()
-    {
-
-    }
+    
 
 
     /**
@@ -37,12 +31,16 @@ class TripController extends Controller
      */
     public function actionMyTrips()
     {
+        $this->pageTitle = 'My Trips';
         $loginId = Yii::app()->user->id;
         $sql = "SELECT 
                         T.description,
+                        U.id as user_id, 
+                        U.createtime, 
+                        U.lastvisit, 
                         U.username, 
                         U.avatar, 
-                        T.leave, 
+                        T.leave AS departure_date, 
                         T.return, 
                         T.return_trip, 
                         T.gathering_point, 
@@ -54,8 +52,7 @@ class TripController extends Controller
                 FROM trip_user TU 
                 INNER JOIN trip T  ON T.id = TU.trip_id
                 INNER JOIN user U ON U.id = T.user_id
-                WHERE TU.user_id = :loginId
-                ORDER BY T.leave DESC
+                WHERE TU.user_id = $loginId
         ";
         
         
@@ -65,42 +62,26 @@ class TripController extends Controller
             FROM trip_user TU 
             INNER JOIN trip T  ON T.id = TU.trip_id
             INNER JOIN user U ON U.id = T.user_id
-            WHERE TU.user_id = :loginId
-            ORDER BY T.leave DESC
+            WHERE TU.user_id = $loginId
         ";
-        $commandCount = Yii::app()->db->createCommand($sqlCount);
-        $commandCount->bindParam(':loginId', $loginId, PDO::PARAM_INT);
-        $itemCount = $commandCount->queryRow();
-        
-        $itemCount = $itemCount['count'];
-        $pages = new CPagination($itemCount);
-        $pages->setPageSize(Yii::app()->params['RECORDS_PER_PAGE']);
-        $page = (isset($_GET['page']) ? $_GET['page'] : 0);
-        $sql .= ' LIMIT ' . $page . ', ' . Yii::app()->params['RECORDS_PER_PAGE'] . '';
-        //paging+++++++++++++++++++++++++++++++++++++++++++++++
-        
-        //get all member invole to the trips
-        $command = Yii::app()->db->createCommand($sql);
-        $command->bindParam(':loginId', $loginId, PDO::PARAM_INT);
-        $myTrips = $command->queryAll();
-        
-        if(!empty($myTrips)){
-            foreach ($myTrips as $key => $myTrip) {
-                $isOwner = $this->isOwner($myTrip['id']);
-                if($isOwner) $includeWaiting = true; 
-                else $includeWaiting = false; 
-                $members = $this->getTripper($myTrip['id'],$includeWaiting);
-
-                $myTrips[$key]['isOwner'] = $isOwner;
-                $myTrips[$key]['members'] = $members;
-            }    
-        }
-
-        $this->render('my_trips', array(
-            //'members' => $members,
-            'myTrips' => $myTrips,
-            'pages'=>$pages
+        $count=Yii::app()->db->createCommand($sqlCount)->queryScalar();
+        $dataProvider=new CSqlDataProvider($sql, array(
+            'totalItemCount'=>$count,
+            'sort'=>array(
+                'defaultOrder'=>'departure_date',
+                'attributes'=>array(
+                     'departure_date', 'fee'
+                ),
+            ),
+            'pagination'=>array(
+                'pageSize'=>Yii::app()->params['RECORDS_PER_PAGE'],
+            ),
         ));
+
+
+        $this->render('my_trips',array(
+                    'dataProvider'=>$dataProvider,
+                    ));
     }
     /**
      * get members who is involes the the tour
@@ -142,7 +123,7 @@ class TripController extends Controller
         $cs = Yii::app()->getClientScript();
         $cs->registerScriptFile("https://maps.googleapis.com/maps/api/js?key=".Yii::app()->params['GOOGLE_API_KEY']."&sensor=true&libraries=places");
         $cs->registerScriptFile($baseUrl.'/js/offer.js');*/
-        
+        $this->pageTitle = Yii::t('translator','Offer Trip');
         $fromVal = '';
         $toVal = '';
         $model = new Trip;
@@ -181,6 +162,7 @@ class TripController extends Controller
      */
     public function actionSearchTrip()
     {
+        $this->pageTitle = Yii::t('translator','Search Trip'); 
         $model = new SearchTripForm;
         //search++++++++++++++++++++++++++++
         $from = '';
@@ -212,7 +194,7 @@ class TripController extends Controller
 			U.avatar,
             U.createtime,
             U.lastvisit,
-			R.leave,
+			R.leave AS departure_date,
 			R.return,
 			R.return_trip,
 			R.seat_avail,
@@ -230,8 +212,6 @@ class TripController extends Controller
 		$to
 		$leave
 		$return
-		ORDER BY R.leave ASC
-
 		";
   //       /*LEFT JOIN ranking_votes RV ON RV.user_id = */
         $sqlCount = "SELECT COUNT(1) as count
@@ -243,7 +223,6 @@ class TripController extends Controller
 		$to
 		$leave
 		$return
-		ORDER BY R.leave ASC
 		";
   
 
@@ -251,8 +230,10 @@ class TripController extends Controller
         $dataProvider=new CSqlDataProvider($sql, array(
             'totalItemCount'=>$count,
             'sort'=>array(
+                'defaultOrder'=>'departure_date ASC',
                 'attributes'=>array(
-                     'leave', 'fee'
+                     'fee',
+                     'departure_date',
                 ),
             ),
             'pagination'=>array(
@@ -275,6 +256,7 @@ class TripController extends Controller
      */
     public function actionView()
     {
+        $this->pageTitle = 'Trip detail';
         $model = new Trip;
         $id = $_GET['id'];
         $sql = "SELECT 

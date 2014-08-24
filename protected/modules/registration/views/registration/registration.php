@@ -4,8 +4,6 @@
 	margin: auto;
 }
 </style>
-<div class="boxTitle"><?php echo Yii::t('translator','Registration');?></div>
-<div class="boxContent">
 <div id="registrationPage">
 <?php //$this->breadcrumbs = array(Yum::t('Registration')); ?>
 
@@ -71,5 +69,4 @@ echo $activeform->textField($profile,'lastname');
 
 <?php $this->endWidget(); ?>
 </div><!-- form -->
-</div>
 </div>

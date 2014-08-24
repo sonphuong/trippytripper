@@ -62,6 +62,7 @@ class YumRegistrationController extends YumController {
 	 * user/docs/registration.txt
 	 */
 	public function actionRegistration() {
+		$this->pageTitle = Yii::t('translator','Registration');
 		// When we override the registrationUrl, this one is not valid anymore!
 		if(Yum::module('registration')->registrationUrl != array(
 					'//registration/registration/registration'))

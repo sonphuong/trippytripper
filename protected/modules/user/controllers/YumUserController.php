@@ -83,6 +83,7 @@ class YumUserController extends YumController {
 
 	public function actionLogin() {
 		$this->layout = 'main';
+		$this->pageTitle = Yii::t('translator','Login');
 		// Do not show the login form if a session expires but a ajax request
 		// is still generated
 		if(Yii::app()->user->isGuest && Yii::app()->request->isAjaxRequest)
@@ -327,6 +328,7 @@ class YumUserController extends YumController {
 	}
 
 	public function actionBrowse() {
+        $this->pageTitle = Yii::t('translator','Browse Users');
 		$search = '';
 		if(isset($_POST['search_username']))
 			$search = $_POST['search_username'];

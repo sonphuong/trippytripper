@@ -3,8 +3,6 @@
 //$this->breadcrumbs=array(Yum::t('Browse users'));
 Yum::register('css/yum.css'); 
 ?>
-<div class="boxTitle">Search trip</div>
-<div class="boxContent">
 <div class="search_options">
 <?php echo CHtml::beginForm(); ?>
 <div style="float: left;">
@@ -22,7 +20,7 @@ echo CHtml::endForm();
 $this->widget('zii.widgets.CListView', array(
     'dataProvider'=>$dataProvider,
     'itemView'=>'_view', 
-	'template' => '{summary} {sorter} {items} <div style="clear:both;"></div> {pager}',
+	'template' => '{sorter} <div style="clear:both;"></div>  {items} <div style="clear:both;"></div>{summary}  {pager}',
     'sortableAttributes'=>array(
         'username',
         'lastvisit',
@@ -32,4 +30,3 @@ $this->widget('zii.widgets.CListView', array(
 ?>
 </div>
 <div style="clear: both;"> </div>
-</div>
