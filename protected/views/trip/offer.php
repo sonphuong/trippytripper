@@ -62,7 +62,7 @@
         <label><?php echo Yii::t('translator', 'Gathering point');?><span class="required">*</span></label>
         <?php echo $form->textField($model, 'gathering_point'); ?>
     </div>
-    <div class="row"><label><?php echo Yii::t('translator', 'Trip details');?>:</label></div>
+    <div class="row"><label><?php echo Yii::t('translator', 'Trip details');?><span class="required">*</span></label></div>
     <div class="row">
         <?php echo $form->textArea($model, 'description', array('rows' => 6)); ?>
     </div>

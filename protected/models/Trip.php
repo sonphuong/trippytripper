@@ -10,7 +10,6 @@
  * @property string $to
  * @property string $leave
  * @property integer $seat_avail
- * @property string $return_trip
  * @property string $return
  */
 class Trip extends CActiveRecord
@@ -34,7 +33,7 @@ class Trip extends CActiveRecord
 			array('seat_avail,fee', 'numerical', 'integerOnly'=>true),
 			//array('user_id, from, to', 'length', 'max'=>20),
 			array('return_trip', 'length', 'max'=>1),
-			array('from, to, leave, return, fee, seat_avail, gathering_point', 'required'),
+			array('from, to, leave, return, fee, seat_avail, gathering_point, description', 'required'),
 			array('leave, return', 'date', 'format' => 'yyyy-mm-dd hh:mm'),
 			array('leave',
 	            'compare',
@@ -56,7 +55,8 @@ class Trip extends CActiveRecord
 	        ),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, user_id, from, to, leave, seat_avail, return_trip, return,fee,description', 'safe', 'on'=>'search'),
+			array('from, to, leave, return, fee, seat_avail, gathering_point, description', 'safe', 'on'=>'add'),
+			array('id, user_id, from, to, leave, seat_avail, return_trip, return,fee', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -83,10 +83,10 @@ class Trip extends CActiveRecord
 			'user_id' => 'User',
 			'from' => 'From',
 			'to' => 'To',
-			'leave' => 'Leave',
+			'leave' => 'Departure date',
 			'seat_avail' => 'Seat Avail',
 			'return_trip' => 'Return Trip',
-			'return' => 'Return',
+			'return' => 'Return date',
 			'fee' => 'Fee',
 			'gathering_point' => 'Gathering point',
 			'description' => 'Description'
