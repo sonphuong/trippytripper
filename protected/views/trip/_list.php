@@ -11,13 +11,12 @@
             <?php 
             $leaveDate = new DateTime($data['departure_date']);
             $date = $leaveDate->format('Y-m-d');
-            $time = $leaveDate->format('h:m');
+            $time = $leaveDate->format('H:i');
             $today = date('Y-m-d');
-            $today = new DateTime($today);                            
-            $interval = $today->diff($leaveDate);
-            $days = (int)$interval->format("%r%a");
-            if($days===0) echo Yii::t('translator','Today').' - ' . $time;
-            elseif($days===1)   echo Yii::t('translator','Tomorrow').' - ' . $time;    
+            $today = new DateTime($today);
+            $days = ($leaveDate->format('U') - $today->format('U')) / (60*60*24);
+            if(0< $days && $days <= 1) echo Yii::t('translator','Today').' - ' . $time;
+            elseif(1< $days && $days <2)   echo Yii::t('translator','Tomorrow').' - ' . $time;    
             else echo $date .' : '. $time;
             ?>
             </div>

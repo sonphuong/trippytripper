@@ -284,6 +284,32 @@ abstract class PcBaseArModel extends CActiveRecord {
 	 */
 	public static function checkExists($pk_value) {
 		// we use the following 3 statements only to enable child classes implement their own primaryKey()
+		if (!function_exists('get_called_class')) {
+		    function get_called_class() {
+		        $bt = debug_backtrace();
+		        /*
+		            echo '<br><br>';
+		            echo '<pre>';
+		            print_r($bt);
+		            echo '</pre>';
+		        */
+		        if (self::$fl == $bt[1]['file'] . $bt[1]['line']) {
+		            self::$i++;
+		        } else {
+		            self::$i = 0;
+		            self::$fl = $bt[1]['file'] . $bt[1]['line'];
+		        }
+		        if ($bt[1]['type'] == '::') {
+
+		            $lines = file($bt[1]['file']);
+		            preg_match_all('/([a-zA-Z0-9\_]+)::' . $bt[1]['function'] . '/', $lines[$bt[1]['line'] - 1], $matches);
+		            $result = $matches[1][self::$i];
+		        } else if ($bt[1]['type'] == '->') {
+		            $result = get_class($bt[1]['object']);
+		        }
+		        return $result;
+		    }
+		}
 		$model_name = get_called_class();
 		$model = $model_name::model();
 		$pk_name = $model->primaryKey();

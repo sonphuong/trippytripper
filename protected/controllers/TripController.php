@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @author phuongds
  */
@@ -10,7 +9,6 @@ class TripController extends Controller
      * @var CActiveRecord the currently loaded data model instance.
      */
     private $_model;
-   
     public function accessRules() {
         return array(
             array('allow',
@@ -22,10 +20,6 @@ class TripController extends Controller
             ),
         );
     }
-
-    
-
-
     /**
      * get login-user's tours
      */
@@ -54,9 +48,6 @@ class TripController extends Controller
                 INNER JOIN user U ON U.id = T.user_id
                 WHERE TU.user_id = $loginId
         ";
-        
-        
-        
         //paging+++++++++++++++++++++++++++++++++++++++++++++++
         $sqlCount = "SELECT count(1) as count
             FROM trip_user TU 
@@ -77,8 +68,6 @@ class TripController extends Controller
                 'pageSize'=>Yii::app()->params['RECORDS_PER_PAGE'],
             ),
         ));
-
-
         $this->render('my_trips',array(
                     'dataProvider'=>$dataProvider,
                     ));
@@ -93,7 +82,6 @@ class TripController extends Controller
     {
         $joinStatus = "AND RD.join_status IN (1, 9)";            
         if($includeWaiting) $joinStatus .= " OR RD.join_status = 2";
-            
         $sql = "SELECT RD.user_name,RD.user_id, U.avatar, RD.join_status
         FROM trip_user RD 
         INNER JOIN user U ON U.id = RD.user_id
@@ -111,9 +99,6 @@ class TripController extends Controller
         }
         return $return;
     }
-
-    
-
     /**
      * publish a tour
      */
@@ -156,14 +141,12 @@ class TripController extends Controller
             ,'toVal' => $toVal
         ));
     }
-
     /**
      * Search a tour.
      */
     public function actionSearchTrip()
     {
         $this->pageTitle = Yii::t('translator','Search Trip'); 
-        $this->layout = '//layouts/column1';
         $model = new SearchTripForm;
         //search++++++++++++++++++++++++++++
         $from = '';
@@ -172,13 +155,11 @@ class TripController extends Controller
         $toVal='';
         $leave = '';
         $return = '';
-        
         if (isset($_POST['SearchTripForm'])) {
             $model->attributes = $_POST['SearchTripForm'];
             if (!empty($_POST['SearchTripForm']['from'])) {
                 $from = 'AND R.from LIKE "%' . $_POST['SearchTripForm']['from'] . '%"';
                 $fromVal = $_POST['SearchTripForm']['from'];
-
             }
             if (!empty($_POST['SearchTripForm']['to'])) {
                 $to = 'AND R.to LIKE "%' . $_POST['SearchTripForm']['to'] . '%"';
@@ -189,44 +170,41 @@ class TripController extends Controller
         }
         //search++++++++++++++++++++++++++++
         $sql = "SELECT
-			R.user_id,
-			R.description,
-			U.username,
-			U.avatar,
+            R.user_id,
+            R.description,
+            U.username,
+            U.avatar,
             U.createtime,
             U.lastvisit,
-			R.leave AS departure_date,
-			R.return,
-			R.return_trip,
-			R.seat_avail,
-			R.from,
-			R.to,
-			R.fee,
-			R.gathering_point,
-			R.id
-        
-		FROM user U
-		INNER JOIN trip R ON U.id = R.user_id
-		WHERE 1
+            R.leave AS departure_date,
+            R.return,
+            R.return_trip,
+            R.seat_avail,
+            R.from,
+            R.to,
+            R.fee,
+            R.gathering_point,
+            R.id
+        FROM user U
+        INNER JOIN trip R ON U.id = R.user_id
+        WHERE 1
         AND R.leave >= NOW()
-		$from
-		$to
-		$leave
-		$return
-		";
+        $from
+        $to
+        $leave
+        $return
+        ";
   //       /*LEFT JOIN ranking_votes RV ON RV.user_id = */
         $sqlCount = "SELECT COUNT(1) as count
-		FROM user U
-		INNER JOIN trip R ON U.id = R.user_id
-		WHERE 1
+        FROM user U
+        INNER JOIN trip R ON U.id = R.user_id
+        WHERE 1
         AND R.leave >= NOW()
-		$from
-		$to
-		$leave
-		$return
-		";
-  
-
+        $from
+        $to
+        $leave
+        $return
+        ";
         $count=Yii::app()->db->createCommand($sqlCount)->queryScalar();
         $dataProvider=new CSqlDataProvider($sql, array(
             'totalItemCount'=>$count,
@@ -241,17 +219,13 @@ class TripController extends Controller
                 'pageSize'=>Yii::app()->params['RECORDS_PER_PAGE'],
             ),
         ));
-
-
         $this->render('search_trip',array(
                     'dataProvider'=>$dataProvider,
                     'model' =>$model,
                     'fromVal' => $fromVal,
                     'toVal' => $toVal
                     ));
-
     }
-
     /**
      * Displays a particular model.
      */
@@ -261,37 +235,35 @@ class TripController extends Controller
         $model = new Trip;
         $id = $_GET['id'];
         $sql = "SELECT 
-					R.description, 
-					U.username, 
+                    R.description, 
+                    U.username, 
                     U.id AS user_id, 
-					U.avatar, 
+                    U.avatar, 
                     U.createtime,
                     U.lastvisit,
-					R.leave, 
-					R.return, 
-					R.return_trip, 
-					R.seat_avail, 
+                    R.leave, 
+                    R.return, 
+                    R.return_trip, 
+                    R.seat_avail, 
                     R.gathering_point,
-					R.from, 
-					R.to, 
-					R.fee, 
-					R.id
-				FROM user U 
-				INNER JOIN trip R ON U.id = R.user_id
-				WHERE R.id = :id
-				";
+                    R.from, 
+                    R.to, 
+                    R.fee, 
+                    R.id
+                FROM user U 
+                INNER JOIN trip R ON U.id = R.user_id
+                WHERE R.id = :id
+                ";
         $command = Yii::app()->db->createCommand($sql);
         $command->bindParam(':id', $id, PDO::PARAM_INT);
         $data = $command->queryAll();
         $comment = new Comment;
         $allComments = $this->actionGetComments($id);
         $joinStatus = $this->getJoinStatus($id);
-
         $isOwner = $this->isOwner($id);
         if($isOwner) $includeWaiting = true; 
         else $includeWaiting = false; 
         $members = $this->getTripper($id,$includeWaiting);
-
         $this->render('_view', array(
             'trip' => $data[0],
             'model' => $model,
@@ -300,9 +272,7 @@ class TripController extends Controller
             'allComments' => $allComments,
             'joinStatus' => $joinStatus,
             'isOwner' => $isOwner
-
         ));
-
     }
     public function getTripRoute($id)
     {
@@ -329,10 +299,10 @@ class TripController extends Controller
             $tripId = Yii::app()->request->getParam('tripId');
         }            
         $sql = "SELECT content,create_time,user_id,user_name,avatar 
-		FROM comments  
-		WHERE trip_id = :trip_id 
-		ORDER BY create_time DESC
-		";
+        FROM comments  
+        WHERE trip_id = :trip_id 
+        ORDER BY create_time DESC
+        ";
         //paging+++++++++++++++++++++++++++++++++++++++++++++++
         $sqlCount = "SELECT count(1) AS count 
         FROM comments  
@@ -342,26 +312,19 @@ class TripController extends Controller
         $commandCount = Yii::app()->db->createCommand($sqlCount);
         $commandCount->bindParam(':trip_id', $tripId, PDO::PARAM_INT);
         $itemCount = $commandCount->queryRow();
-        
         $itemCount = $itemCount['count'];
         $offset = Yii::app()->request->getParam('offset', 0);
-        
         $sql .= ' LIMIT ' . $offset . ', ' . Yii::app()->params['COMMENTS_PER_TIME'] . '';
         //paging+++++++++++++++++++++++++++++++++++++++++++++++
-        
         $command = Yii::app()->db->createCommand($sql);
         $command->bindParam(':trip_id', $tripId, PDO::PARAM_INT);
-
         //no more record to get
         if($offset < $itemCount){
             $data = $command->queryAll();
             //reorder follow by time
             $data = array_reverse($data);
         }
-        
-
         $isAjax = Yii::app()->request->isAjaxRequest;
-
         if($isAjax){
             $html = '';
             if(!empty($data)){
@@ -383,9 +346,7 @@ class TripController extends Controller
         else{
             return $data;    
         }
-        
     }
-
     /*
     send joining request to the owner
     */
@@ -410,14 +371,12 @@ class TripController extends Controller
                 Yii::app()->user->setFlash('joinRequested', Yii::t('translator','Waiting for approve'));
             }
             echo '<div class="flash-success">
-	                ' . Yii::app()->user->getFlash('joinRequested') . '
-	            </div>';
+                    ' . Yii::app()->user->getFlash('joinRequested') . '
+                </div>';
         } else {
             echo '<div class="flash-success">'.Yii::t('translator','You need to be a member').'</div>';
         }
-
     }
-
     /*
     the owner of the trip accept user to join
     */
@@ -426,13 +385,11 @@ class TripController extends Controller
         $tripId = $_POST['trip_id'];
         $userId = $_POST['user_id'];
         $loginId = Yii::app()->user->id;
-        
         if ($this->isOwner($tripId)) {
             $return = $this->ownerDisJoin($tripId,$userId);
         } else {
             $return = $this->disJoin($tripId,$userId);
         }
-
         echo json_encode($return);
     }
     /**
@@ -472,7 +429,6 @@ class TripController extends Controller
         $command = Yii::app()->db->createCommand($sql);
         $command->bindParam(':tripId', $tripId, PDO::PARAM_INT);
         $command->bindParam(':deleted', $deleted, PDO::PARAM_INT);
-
         if ($command->execute()) {
             //update status
             $sql = 'UPDATE trip_user
@@ -488,13 +444,11 @@ class TripController extends Controller
                 $return['msg'] = 'success';
             }
         }
-        
         //notification--------------------------------------------------
         $toUsers = $this->getTripper($tripId,true);
         $action = "cancel";
         $this->noticeTripper($tripId,$toUsers,$action);
         //notification--------------------------------------------------
-        
         //if owner disjoin send message to all tripper
         $trippersNum = count($toUsers);
         if(!empty($toUsers)){
@@ -512,17 +466,14 @@ class TripController extends Controller
                 $sql .="(:timestamp,:owner,'".$tripper['user_id']."','','Sorry this trip has removed by the owner')".$comma;
                 $i++;
             }
-
             $command = Yii::app()->db->createCommand($sql);
             $timestamp = time();
             $command->bindParam(':owner', $owner, PDO::PARAM_INT);
             $command->bindParam(':timestamp', $timestamp, PDO::PARAM_INT);
             $result = $command->execute();
         }     
-        
         return $return;  
     }
-
     private function disJoin($tripId,$userId){
         $return['status'] = 0;
         $return['msg'] = 'unsuccess';
@@ -540,7 +491,6 @@ class TripController extends Controller
         $command = Yii::app()->db->createCommand($sql);
         $command->bindParam(':tripId', $tripId, PDO::PARAM_INT);
         $command->bindParam(':seatsLeft', $seatsLeft, PDO::PARAM_INT);
-
         if ($command->execute()) {
             //update status
             $sql = 'DELETE FROM trip_user
@@ -562,10 +512,8 @@ class TripController extends Controller
                 $return['msg'] = 'success';
             }
         }
-        
         return $return;  
     }
-
     /*
     get join status to display the join button
     */
@@ -574,13 +522,13 @@ class TripController extends Controller
         $joinStatus = '';
         $loginId = Yii::app()->user->id;
         $sql = "SELECT RU.join_status
-				FROM trip_user RU
-				INNER JOIN trip R ON RU.trip_id = R.id
-				INNER JOIN user U ON RU.user_id = U.id
-				WHERE RU.trip_id = :trip_id
-					AND RU.user_id = :user_id
-				LIMIT 1	
-				";
+                FROM trip_user RU
+                INNER JOIN trip R ON RU.trip_id = R.id
+                INNER JOIN user U ON RU.user_id = U.id
+                WHERE RU.trip_id = :trip_id
+                    AND RU.user_id = :user_id
+                LIMIT 1 
+                ";
         $command = Yii::app()->db->createCommand($sql);
         $command->bindParam(':user_id', $loginId, PDO::PARAM_INT);
         $command->bindParam(':trip_id', $tripId, PDO::PARAM_INT);
@@ -589,7 +537,6 @@ class TripController extends Controller
             $joinStatus = $data[0]['join_status'];
         return $joinStatus;
     }
-
     /*
     the owner of the trip accept user to join
     */
@@ -612,15 +559,14 @@ class TripController extends Controller
                 //update seat
                 $seatsLeft = $seatAvail - 1;
                 $sql = "UPDATE trip
-					SET seat_avail =:seatsLeft
-					WHERE id =:tripId
-					AND user_id =:loginId
-					";
+                    SET seat_avail =:seatsLeft
+                    WHERE id =:tripId
+                    AND user_id =:loginId
+                    ";
                 $command = Yii::app()->db->createCommand($sql);
                 $command->bindParam(':loginId', $loginId, PDO::PARAM_INT);
                 $command->bindParam(':tripId', $tripId, PDO::PARAM_INT);
                 $command->bindParam(':seatsLeft', $seatsLeft, PDO::PARAM_INT);
-
                 if ($command->execute()) {
                     //update status
                     $sql = "UPDATE trip_user
@@ -656,10 +602,8 @@ class TripController extends Controller
             $return['status'] = 0;
             $return['msg'] = 'You are not allow to do this action';
         }
-
         echo json_encode($return);
     }
-
     /*
     the owner of the trip accept user to join
     */
@@ -678,7 +622,6 @@ class TripController extends Controller
             $command = Yii::app()->db->createCommand($sql);
             $command->bindParam(':userId', $userId, PDO::PARAM_INT);
             $command->bindParam(':tripId', $tripId, PDO::PARAM_INT);
-            
             if ($command->execute()) {
                 //notification--------------------------------------------------
                 $owner = $this->getOwner($tripId);
@@ -690,12 +633,10 @@ class TripController extends Controller
                 $return['status'] = 1;
                 $return['msg'] = 'success';
             }
-    
         } else {
             $return['status'] = 0;
             $return['msg'] = 'You are not allow to do this action';
         }
-
         echo json_encode($return);
     }
     /**
@@ -709,10 +650,7 @@ class TripController extends Controller
         } else {
             return false;
         }
-
     }
-
-   
     /**
      * get members who is involes the the tour
      * @param int tripId
@@ -731,5 +669,4 @@ class TripController extends Controller
         $owner = $command->queryAll();
         return $owner;
     }
-
 }
