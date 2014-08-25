@@ -81,7 +81,7 @@ class TripController extends Controller
     public function getTripper($tripId,$includeWaiting=false)
     {
         $joinStatus = "AND RD.join_status IN (1, 9)";            
-        if($includeWaiting) $joinStatus .= " OR RD.join_status = 2";
+        if($includeWaiting) $joinStatus = " AND (RD.join_status IN (1, 9) OR RD.join_status = 2) ";
         $sql = "SELECT RD.user_name,RD.user_id, U.avatar, RD.join_status
         FROM trip_user RD 
         INNER JOIN user U ON U.id = RD.user_id
