@@ -50,7 +50,7 @@
 			</div>
 		</div>
 		<?php ///echo CHtml::encode(Yii::app()->name); ?>
-	<?php if(!Yii::app()->user->isGuest): ?>		
+	
 	<div id="gnb">
 		<!-- <div id="gnb_left">&nbsp;</div> -->
 		<div class="bg"><!-- id = mainmenu -->
@@ -67,9 +67,11 @@
 							),
 						)); ?>
 					</ul>
+					<?php if(!Yii::app()->user->isGuest): ?>		
 					<div class="right-area">
 						<?php $this->widget('application.widgets.notification.Notification'); ?>
 					</div>
+					<?php endif; ?>
 				</div>
 			</div>
 			<!-- <div id="gnb_right"></div> -->
@@ -77,7 +79,7 @@
 		
 	</div>
    	
-	<?php endif; ?>
+	
 	</div><!-- header -->
 	<div id="container" class="sub-page"> 
 		<div class="wrap-ct">
