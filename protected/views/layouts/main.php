@@ -18,16 +18,13 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/thickbox.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/reset.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/layout.css" />
-
 	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-2.0.3.min.js"></script>
 	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/select2.js"></script>
 	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/common.js"></script>
 	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/thickbox.js"></script>
 	<?php Yii::app()->clientScript->scriptMap=array('jquery.js'=>false,);?>
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
-
 </head>
-
 <body>
 <div id="wrapper">
 	<div id="header">
@@ -50,7 +47,6 @@
 			</div>
 		</div>
 		<?php ///echo CHtml::encode(Yii::app()->name); ?>
-	
 	<div id="gnb">
 		<!-- <div id="gnb_left">&nbsp;</div> -->
 		<div class="bg"><!-- id = mainmenu -->
@@ -76,10 +72,7 @@
 			</div>
 			<!-- <div id="gnb_right"></div> -->
 		</div><!-- mainmenu -->	
-		
 	</div>
-   	
-	
 	</div><!-- header -->
 	<div id="container" class="sub-page"> 
 		<div class="wrap-ct">
@@ -88,9 +81,7 @@
 				'links'=>$this->breadcrumbs,
 			));*/ 
 			?><!-- breadcrumbs -->
-
 			<?php echo $content; ?>
-			
 		</div>
 	</div><!-- page -->
 	<div id="footer">

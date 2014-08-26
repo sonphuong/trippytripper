@@ -11,7 +11,7 @@
 				'cols' => 40, 'rows' => 6,
 				)) . '<br />';
 
-	echo CHtml::submitButton(Yum::t('Write message'));
+	echo CHtml::submitButton(Yum::t('Write message'),array('class'=>'orangeButton'));
 
 	echo CHtml::endForm();
 

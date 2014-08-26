@@ -614,3 +614,7 @@ a:hover.tooltips span {
 	float: right;
 	clear: both;
 }
+.title{
+	font-weight: bold;
+	font-size: 16px;
+}
