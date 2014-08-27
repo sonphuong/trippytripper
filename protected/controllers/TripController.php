@@ -109,15 +109,11 @@ class TripController extends Controller
         $cs->registerScriptFile("https://maps.googleapis.com/maps/api/js?key=".Yii::app()->params['GOOGLE_API_KEY']."&sensor=true&libraries=places");
         $cs->registerScriptFile($baseUrl.'/js/offer.js');*/
         $this->pageTitle = Yii::t('translator','Offer Trip');
-        $fromVal = '';
-        $toVal = '';
         $model = new Trip;
         if (isset($_POST['Trip'])) {
             //========================================================
             //careful when using json_decode with non-utf8 (vietnamese language)
             $model->attributes = $_POST['Trip'];
-            $fromVal = $_POST['Trip']['from'];
-            $toVal = $_POST['Trip']['to'];
             $model->user_id = Yii::app()->user->id;
             if ($model->validate()) {
                 if ($model->save()) {
@@ -136,9 +132,8 @@ class TripController extends Controller
             }
         }
         $this->render('offer', array(
-            'model' => $model
-            ,'fromVal' => $fromVal
-            ,'toVal' => $toVal
+            'model' => $model,
+            'btnValue' =>Yii::t('translator', 'Offer')
         ));
     }
     /**
@@ -273,6 +268,66 @@ class TripController extends Controller
             'joinStatus' => $joinStatus,
             'isOwner' => $isOwner
         ));
+    }
+    /**
+     * Displays a particular model.
+     */
+    public function actionEdit()
+    {
+        $this->pageTitle = 'Edit trip';
+        $newTrip = new Trip;
+        $id = $_GET['id'];
+        $model = $newTrip->findByPk($id);
+        $sql = "SELECT 
+                    R.description, 
+                    U.username, 
+                    U.id AS user_id, 
+                    U.avatar, 
+                    U.createtime,
+                    U.lastvisit,
+                    R.leave, 
+                    R.return, 
+                    R.return_trip, 
+                    R.seat_avail, 
+                    R.gathering_point,
+                    R.from, 
+                    R.to, 
+                    R.fee, 
+                    R.id
+                FROM user U 
+                INNER JOIN trip R ON U.id = R.user_id
+                WHERE R.id = :id
+                ";
+        $command = Yii::app()->db->createCommand($sql);
+        $command->bindParam(':id', $id, PDO::PARAM_INT);
+        $data = $command->queryAll();
+        $comment = new Comment;
+        $allComments = $this->actionGetComments($id);
+        $joinStatus = $this->getJoinStatus($id);
+        $isOwner = $this->isOwner($id);
+        if($isOwner) {
+            $includeWaiting = true; 
+            $members = $this->getTripper($id,$includeWaiting);
+            if (isset($_POST['Trip'])) {
+                //careful when using json_decode with non-utf8 (vietnamese language)
+                $model->attributes = $_POST['Trip'];
+                $model->user_id = Yii::app()->user->id;
+                if ($model->validate()) {
+                    if ($model->save()) {
+                        $this->redirect(array('trip/view','id'=>$id));
+                    }
+                }
+            }
+            $this->render('offer', array(
+                'model' => $model,
+                'btnValue' =>Yii::t('translator', 'Update')
+            ));
+        }
+        else{
+            $this->redirect(array('trip/view','id'=>$id));
+        }
+        
+        
     }
     public function getTripRoute($id)
     {

@@ -11,11 +11,11 @@
     <?php echo $form->errorSummary($model); ?>
     <div class="row">
         <label><?php echo Yii::t('translator', 'From');?><span class="required">*</span></label>
-        <?php echo $form->textField($model, 'from', array('id' => 'goFrom', 'class' => 'from', 'value'=>$fromVal,'autofocus'=>'autofocus')); ?>
+        <?php echo $form->textField($model, 'from', array('id' => 'goFrom', 'class' => 'from', 'autofocus'=>'autofocus')); ?>
     </div>
     <div class="row">
         <label><?php echo Yii::t('translator', 'To');?><span class="required">*</span></label>
-        <?php echo $form->textField($model, 'to', array('id' => 'goTo', 'class' => 'to', 'value'=>$toVal)); ?>
+        <?php echo $form->textField($model, 'to', array('id' => 'goTo', 'class' => 'to')); ?>
     </div>
 
     <div class="row">
@@ -65,7 +65,7 @@
         <?php echo $form->textArea($model, 'description', array('rows' => 6)); ?>
     </div>
     <div class="row"/>
-    <input type="submit" class="orangeButton" value="<?php echo Yii::t('translator', 'Offer');?>">
+    <input type="submit" class="orangeButton" value="<?php echo $btnValue; ?>">
     <?php $this->endWidget(); ?></div>
 </div>
 

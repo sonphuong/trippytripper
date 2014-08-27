@@ -1,6 +1,6 @@
 <?php 
-if(!$this->title) 
-	$this->title = Yum::t('Compose new message'); 
+// if(!$this->title) 
+//	$this->title = Yum::t('Compose new message'); 
 if($this->breadcrumbs == array())
 	$this->breadcrumbs = array(Yum::t('Messages'), Yum::t('Compose'));
 ?>
@@ -14,9 +14,10 @@ if($this->breadcrumbs == array())
 			'enableClientValidation'=>true,
 			)); ?>
 
-<?php echo Yum::requiredFieldNote(); 
+<?php 
+//echo Yum::requiredFieldNote(); 
 
-echo $form->errorSummary($model); 
+//echo $form->errorSummary($model); 
 
 echo CHtml::hiddenField('YumMessage[answered]', $answer_to);
 
@@ -40,15 +41,16 @@ if($to_user_id) {
 
 <div class="row">
 <?php echo $form->labelEx($model,'message'); ?>
-<?php echo $form->textArea($model,'message',array('rows'=>6, 'cols'=>50)); ?>
-<?php echo $form->error($model,'message'); ?>
 </div>
-
+<div class="row">
+	<?php echo $form->textArea($model,'message',array('rows'=>6, 'cols'=>50)); ?>
+	<?php echo $form->error($model,'message'); ?>
+</div>
 <div class="row buttons">
 
 <?php echo CHtml::submitButton($model->isNewRecord 
 			? Yum::t('Send') 
-			: Yum::t('Save'));
+			: Yum::t('Save'), array('class'=>'orangeButton'));
 ?>
 
 </div>

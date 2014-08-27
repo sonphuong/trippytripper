@@ -36,14 +36,14 @@ if($friends) {
 
 		if($friend->status == 1) { // Confirmation Pending
 			if($friend->inviter_id == Yii::app()->user->id) {
-				$options = CHtml::submitButton(Yum::t('Cancel request'),array(
+				$options = CHtml::submitButton(Yum::t('Cancel request'),array('class'=>'grayButton',
 							'id'=>'cancel_request', 'name'=>'YumFriendship[cancel_request]'));
 			} else {
-				$options = CHtml::submitButton(Yum::t('Confirm'), array(
+				$options = CHtml::submitButton(Yum::t('Confirm'), array('class'=>'blueButton',
 							'id'=>'add_request','name'=>'YumFriendship[add_request]'));
 //				$options .= CHtml::submitButton(Yum::t('Ignore'), array(
 //							'id'=>'ignore_request','name'=>'YumFriendship[ignore_request]'));
-				$options .= CHtml::submitButton(Yum::t('Deny'), array(
+				$options .= CHtml::submitButton(Yum::t('Deny'), array('class'=>'grayButton',
 							'id'=>'deny_request','name'=>'YumFriendship[deny_request]'));
 			}
 		} else if($friend->status == 2) { // Users are friends

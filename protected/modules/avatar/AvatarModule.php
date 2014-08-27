@@ -31,13 +31,23 @@ class AvatarModule extends CWebModule {
 					));
 	}
 	public static function getAvatarThumbPhoto($avatar){
-    	$avatar = substr($avatar, strrpos($avatar,"/"));
+		if($avatar=='gravatar')
+			$avatar = '/no_avatar.jpg';
+		else{
+	    	//subtring the path to put thumb
+	    	$avatar = substr($avatar, strrpos($avatar,"/"));
+    	}
+    	
     	return '/images/avatars/thumbs'.$avatar;
     }
 	public static function getAvatarThumb($userId,$avatar,$nolink=false){
-    	//subtring the path to put thumb
-    	$html = '';
-    	$avatar = substr($avatar, strrpos($avatar,"/"));
+		$html = '';
+		if($avatar=='gravatar')
+			$avatar = '/no_avatar.jpg';
+		else{
+	    	//subtring the path to put thumb
+	    	$avatar = substr($avatar, strrpos($avatar,"/"));
+    	}
     	if($nolink==false) $html .= '<a href="/index.php/profile/profile/view/id/'.$userId.'">';
     	$html .= '<img class="avatar" src="/images/avatars/thumbs'.$avatar.'" alt="" width="40px" height="40px" />';
     	if($nolink==false) $html .='</a>';

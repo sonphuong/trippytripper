@@ -514,12 +514,12 @@ class YumUser extends YumActiveRecord
 		$this->superuser = 0;
 
 		// Users stay banned until they confirm their email address.
-		$this->status = YumUser::STATUS_INACTIVE;
+		$this->status = YumUser::STATUS_ACTIVE;
 
 		// If the avatar module and avatar->enableGravatar is activated, we assume
 		// the user wants to use his Gravatar automatically after registration
 		if(Yum::hasModule('avatar') && Yum::module('avatar')->enableGravatar)
-			$this->avatar = 'gravatar';
+			$this->avatar = 'images/avatars/no_avatar.jpg';
 
 		if ($this->validate() && $profile->validate()) {
 			$this->save();

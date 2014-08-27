@@ -2,7 +2,11 @@
     <div class="cell cell2 form">
         
         <div class="fromTo">
-            <span><?php echo $trip['from']; ?> → <?php echo $trip['to']; ?></span>
+            <?php if($isOwner === true): ?>
+                <a title="Edit" href="/index.php/trip/edit/?id=<?php echo $_GET['id']; ?>"><span><?php echo $trip['from']; ?> → <?php echo $trip['to']; ?></span></a>
+            <?php else: ?>
+                <span><?php echo $trip['from']; ?> → <?php echo $trip['to']; ?></span>
+            <?php endif; ?>
         </div>
         <div class="row">
             <label><?php echo Yii::t('translator','Departure date:'); ?> &nbsp;</label>

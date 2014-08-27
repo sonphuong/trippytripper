@@ -86,7 +86,7 @@ class YumRegistrationController extends YumController {
 				$user->register($form->username, $form->password, $profile);
 
 				$this->sendRegistrationEmail($user);
-				Yum::setFlash('Thank you for your registration. Please check your email.');
+				Yum::setFlash('Thank you for your registration. Login and enjoy!.');
 				$this->redirect(Yum::module()->loginUrl);
 			}
 		} 
