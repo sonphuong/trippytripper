@@ -10,18 +10,12 @@ echo CHtml::submitButton(Yum::t('Search'),array('class'=>'orangeButton inlineBut
 ?>
 Rearrange by: online - name
 </div>
-<?php
-
-echo CHtml::endForm();
-?>
-
+<?php echo CHtml::endForm(); ?>
 <?php
 //$this->title = Yum::t('My friends');
 //$this->breadcrumbs = array(Yum::t('Friends'));
-
 if($friends) {
 	echo '<div class="list-view">';
-	
 	foreach($friends as $friend) {
 		echo '<div class="items">';
 		echo '<div class="view_user">';
@@ -30,10 +24,8 @@ if($friends) {
 			'id'=>'groups-form',
 			'enableAjaxValidation'=>false,
 			));
-
 		echo CHtml::activeHiddenField($friend, 'inviter_id');
 		echo CHtml::activeHiddenField($friend, 'friend_id');
-
 		if($friend->status == 1) { // Confirmation Pending
 			if($friend->inviter_id == Yii::app()->user->id) {
 				$options = CHtml::submitButton(Yum::t('Cancel request'),array('class'=>'grayButton',
@@ -54,16 +46,14 @@ if($friends) {
 				$label = $friend->invited;
 			else
 				$label = $friend->inviter;
-
 			printf('%s<div class="username">%s</div><div>%s</div><div>%s</div><div class="text-right">%s</div>',
 			CHtml::link($label->getAvatar(false),array('//profile/profile/view', 'id'=>$label->id)),
-			$label->username, 
+			$label->username,
 				$friend->getStatus(),
 				CHtml::link(Yum::t('Write a message'), array(
 					'//message/message/compose', 'to_user_id'=>$label->id),array('class'=>'aquaLink')),
 					$friend->status != 3 ? $options : ''
 			);
-
 		$this->endWidget();
 	echo '</div>';
 	echo '</div>';

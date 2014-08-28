@@ -1,4 +1,5 @@
 div.form .tooltip { display: none; background-color:#EFFDFF; border:1px solid #79B4DC; padding: 10px; width: 300px; }
+
 #usermenu {float:right; width:25%; margin: 0px 5px 0px 5px;}
 #usermenu .parent {
 text-align: center;
@@ -11,7 +12,9 @@ border-radius: 4px;
 }
 #usermenu a {color: gray; padding:3px; text-decoration: none;}
 #usermenu a:hover {color: black; text-decoration:underline;}
+
 #usermenu .active {font-weight: bold; margin: 9px; text-decoration: underline; }
+
 .menucontent {
 background-color: white;
 border: solid 1px #CCCCCC;
@@ -20,6 +23,7 @@ margin-left: 20px;
 }
 .menucontent ul {margin: 5px 0px 0px 9px; padding: 3px; list-style-type:none;cursor:pointer;}
 .menucontent li {margin: 5px 0px 0px 9px; list-style-type:none;}
+
 #usercontent {
 	width:100%; 
 }
@@ -35,4 +39,4 @@ label { display: inline }
 .profile_field_selection { float: right; margin: 5px;}
 .table_profile_fields { width: 50%; }
 .profilefieldlabel { float: left; margin-right: 5px; width: 100px;}
-.friend { margin: 5px; }
+.friend { margin: 5px; } 

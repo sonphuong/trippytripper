@@ -5,7 +5,6 @@ class Notification extends CWidget
     public $assets = '';
     public function init(){
         $this->assets = Yii::app()->assetManager->publish(dirname(__FILE__).DIRECTORY_SEPARATOR.'assets');
-        
         Yii::app()->clientScript
         ->registerScriptFile( $this->assets.'/js/notification.js' )
         ->registerCssFile( $this->assets.'/css/notification.css' );
@@ -14,7 +13,5 @@ class Notification extends CWidget
     {
         $this->render('notification');
     }
-    
-    
 }
 ?>

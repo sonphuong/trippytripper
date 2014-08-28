@@ -259,7 +259,10 @@ class TripController extends Controller
         if($isOwner) $includeWaiting = true; 
         else $includeWaiting = false; 
         $members = $this->getTripper($id,$includeWaiting);
+        $user = YumUser::model()->findByPk(Yii::app()->user->id);
+        $search = '';
         $this->render('_view', array(
+            'friends' => $user->getFriendships($search),
             'trip' => $data[0],
             'model' => $model,
             'comment' => $comment,

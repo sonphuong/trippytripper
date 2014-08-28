@@ -1,6 +1,5 @@
 <div id="trip_detail" class="row">
     <div class="cell cell2 form">
-        
         <div class="fromTo">
             <?php if($isOwner === true): ?>
                 <a title="Edit" href="/index.php/trip/edit/?id=<?php echo $_GET['id']; ?>"><span><?php echo $trip['from']; ?> → <?php echo $trip['to']; ?></span></a>
@@ -48,7 +47,6 @@
                 <?php echo $trip['gathering_point']; ?>
             </label>
         </div>
-    
     <div class="row des"><?php echo $trip['description']; ?></div>
     <div class="row">
     <form method="post">
@@ -82,9 +80,7 @@
                                     ,'data' => 'user_id='.$member['user_id'].'&trip_id='.$_GET['id'].''
                                     ),
                                     array('class'=>'orangeButton')
-
                                 );
-
                             }
                             echo CHtml::ajaxSubmitButton ("Decline",
                                     CController::createUrl('trip/DeclineJoin'),
@@ -94,7 +90,6 @@
                                     ),
                                     array('class'=>'grayButton')
                                 );
-                            
                         }
                         else{
                             echo ' - '.Yii::t('translator','Waiting for approve'); 
@@ -145,7 +140,6 @@
                 </li>
             <?php endforeach; ?>
             </ul>
-
             <?php if($joinStatus==1 || $joinStatus==9): ?>
             <div id="comments">
                 <?php $avatar = Yum::module("avatar")->getAvatarThumb(Yii::app()->user->id,Yii::app()->user->avatar); ?>
@@ -153,11 +147,8 @@
                         'model'=>$comment,
                     )); ?>
             </div>
-            
             <?php endif; ?>
             </div>
-    
-    
     </div>
     <div class="cell cell3">
         <div class="box">
@@ -209,6 +200,43 @@
             <div class=""><?php echo Yii::t('translator','Member since');?>: <?php echo date('d-m-Y',$trip["createtime"]);?></div>
             <div class=""><?php echo Yii::t('translator','Last online');?>: <?php echo Time::timeAgoInWords(date('d-m-Y',$trip["lastvisit"])); ?></div>
             </div>
+        </div>
+        </br>
+        <!-- <div class="box">
+            <div class="boxTitle">Invite your friends</div>
+            <div class="boxContent">
+                <?php
+                // if($friends) {
+                //     echo '<ul id="inviteFriend">';
+                //     foreach($friends as $friend) {
+                //         echo '<li>';
+                //         $options = array();
+                //         $form=$this->beginWidget('CActiveForm', array(
+                //             'id'=>'groups-form',
+                //             'enableAjaxValidation'=>false,
+                //             ));
+                //         echo CHtml::activeHiddenField($friend, 'inviter_id');
+                //         echo CHtml::activeHiddenField($friend, 'friend_id');
+                //         if($friend->status == 2){
+                //             if($friend->inviter_id == Yii::app()->user->id)
+                //                 $label = $friend->invited;
+                //             else
+                //                 $label = $friend->inviter;
+                //             printf('%s<a class="username">%s</a><div>%s</div>',
+                //             CHtml::link($label->getAvatar(true),array('//profile/profile/view', 'id'=>$label->id)),
+                //             $label->username,
+                //             CHtml::ajaxLink('Invite',array())
+                //             );
+                //         } 
+                //         $this->endWidget();
+                //     echo '</li>';
+                // }
+                //     echo '</ul>';
+                // } else {
+                //     echo Yum::t('You do not have any friends yet');
+                // }
+                ?>
+            </div> -->
         </div>
     <?php //endif; ?>
     </div>
