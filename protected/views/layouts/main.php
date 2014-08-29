@@ -26,10 +26,19 @@
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s); js.id = id;
+js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=830328023674875&version=v2.0";
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 <div id="wrapper">
 	<div id="header">
 		<div class="wrap-ct">
-        	<h1 id="logo"><a href="/index.php"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.png" alt="trippytripper" /></a></h1>
+        	<h1 id="logo"><a href="/index.php"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.png" alt="trippytripper" /></a>
+        	</h1>
 			<div class="connect-us">
 				<span class="tit">Connect with us:</span>
 				<ul class="list">
@@ -86,14 +95,18 @@
 	</div><!-- page -->
 	<div id="footer">
 		<div id="siteInfo">
-			<span class="copyright">trippytripper.org <?php echo date('Y'); ?> &copy;</span>
+			<span class="copyright">trippytripper.org <?php echo date('Y'); ?> &copy; &nbsp;</span>
+			<span class="fb-like" data-href="https://www.facebook.com/trippytripper.org/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></span>
 			<div class="right-area">
 				<ul class="menu">
 					<li><a href="/index.php/site/index"><?php echo Yii::t('translator','Homepage'); ?></a> |</li>
 					<li><a href="/index.php/site/about"><?php echo Yii::t('translator','About us'); ?></a> |</li>
-					<li><a href="/index.php/site/contact"><?php echo Yii::t('translator','Contact'); ?></a> |</li>
+					<li><a href="/index.php/site/contact"><?php echo Yii::t('translator','Contact'); ?></a> </li>
 				</ul>
-				<?php $this->widget('application.widgets.langbox.LangBox'); ?>
+				<?php
+				if(!Yii::app()->user->isGuest)
+				$this->widget('application.widgets.langbox.LangBox'); 
+				?>
 			</div>
 		</div>
 	</div><!--//footer-->

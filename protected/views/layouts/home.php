@@ -53,34 +53,18 @@
 </div><!-- page -->
 
 	<div id="footer">
-	<!--<div class="social">
-			<div class="wrap-ct">
-				<div class="connect-us">
-					<span class="tit">Connect with us:</span>
-					<ul class="list">
-						<li><a href="#none"><img src="images/icon_social_01.gif" alt="" /></a></li>
-						<li><a href="#none"><img src="images/icon_social_02.gif" alt="" /></a></li>
-						<li><a href="#none"><img src="images/icon_social_03.gif" alt="" /></a></li>
-						<li><a href="#none"><img src="images/icon_social_04.gif" alt="" /></a></li>
-						<li><a href="#none"><img src="images/icon_social_05.gif" alt="" /></a></li>
-						<li><a href="#none"><img src="images/icon_social_06.gif" alt="" /></a></li>
-						<li><a href="#none"><img src="images/icon_social_07.gif" alt="" /></a></li>
-						<li><a href="#none"><img src="images/icon_social_08.gif" alt="" /></a></li>
-						<li><a href="#none"><img src="images/icon_social_09.gif" alt="" /></a></li>
-						<li><a href="#none"><img src="images/icon_social_10.gif" alt="" /></a></li>
-					</ul>
-				</div>
-			</div>
-		</div> -->
 		<div id="siteInfo">
 			<span class="copyright">trippytripper.org <?php echo date('Y'); ?> &copy;</span>
 			<div class="right-area">
 				<ul class="menu">
 					<li><a href="/index.php/site/index"><?php echo Yii::t('translator','Homepage'); ?></a> |</li>
 					<li><a href="/index.php/site/about"><?php echo Yii::t('translator','About us'); ?></a> |</li>
-					<li><a href="/index.php/site/contact"><?php echo Yii::t('translator','Contact'); ?></a> |</li>
+					<li><a href="/index.php/site/contact"><?php echo Yii::t('translator','Contact'); ?></a> </li>
 				</ul>
-				<?php $this->widget('application.widgets.langbox.LangBox'); ?>
+				<?php 
+				if(!Yii::app()->user->isGuest)
+				$this->widget('application.widgets.langbox.LangBox'); 
+				?>
 			</div>
 		</div>
 	</div><!--//footer-->

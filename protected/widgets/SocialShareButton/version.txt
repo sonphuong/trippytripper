@@ -1,0 +1,27 @@
+Author: Rohit Suthar <rohitsuthar@gmail.com>
+Copyright 2014 Rohit Suthar
+Package: SocialShareButton
+Version: 1.0
+
+
+For more extension & tutorials visit - https://yiiexpert.github.io
+
+
+Like Us on -  https://facebook.com/yiiexperts
+Follow Us on -  https://twitter.com/yiiexperts
+
+
+Contact Me -
+http://fb.com/rohisuthar
+
+
+For Query -
+Mail us - yiiexpert@gmail.com
+
+
+Github -
+https://github.com/yiiexpert/SocialShareButton/
+https://github.com/rohitsuthar/SocialShareButton/
+
+
+Thanks for the support!!

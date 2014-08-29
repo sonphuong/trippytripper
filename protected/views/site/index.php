@@ -19,13 +19,13 @@ $this->breadcrumbs=array(
 </div>
 <div class="lst-comment">
 	<div class="wrap-ct">
-		<p class="tit-area">Let's build a beautiful community from trippytripper.<br />
-		<!-- <strong>See who's helping out now:</strong></p>
+		<p class="tit-area">Let's build a beautiful community from trippytripper.<br /></p>
+		<!-- <strong>See who's helping out now:</strong>
 		<div class="line">
 			<span class="pin"></span>
 		</div>
-		<ul class="comments"> -->
-<!-- 			<li>
+		<ul class="comments">
+			<li>
 				<div class="box">
 					<p>I like Yakitori Totto on 55th Street between 7th and 8th. Upstairs. Arrive early as they don't take reservations.</p>
 					<p>The bar Le Bernardin serves food now, if you don't mind splurging. I second the motion that Casa Mono is great …</p>
@@ -48,9 +48,10 @@ $this->breadcrumbs=array(
 					<span class="img"><img src="images/icon_comment.gif" alt="" /></span>
 					<span class="name"><strong>tuandx</strong>,abcxyz</span>
 				</div>
-			</li> -->
+			</li> 
 			
 		</ul>
+		-->
 	</div>
 </div>
 <?php endif; ?>

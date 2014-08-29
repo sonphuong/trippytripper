@@ -48,6 +48,13 @@
             </label>
         </div>
     <div class="row des"><?php echo $trip['description']; ?></div>
+    <?php
+    $this->widget('application.widgets.SocialShareButton.SocialShareButton', array(
+        'style'=>'horizontal',
+        'networks' => array('facebook','googleplus','linkedin','twitter'),
+        'data_via'=>'rohisuthar', //twitter username (for twitter only, if exists else leave empty)
+    ));
+    ?>
     <div class="row">
     <form method="post">
         <input type="hidden" value="<?php echo $_GET['id']; ?>" name="trip_id">
