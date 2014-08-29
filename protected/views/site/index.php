@@ -1,9 +1,3 @@
-<?php
-$this->pageTitle=Yii::app()->name . ' - index';
-$this->breadcrumbs=array(
-	'Home',
-);
-?>
 <?php if(!Yii::app()->user->isGuest): ?>
 <?php $this->redirect('/index.php/trip/searchTrip'); ?>
 <?php else: ?>

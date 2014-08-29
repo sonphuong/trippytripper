@@ -11,7 +11,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $this->layout = 'home';
+        $this->layout = 'main';
+        $this->pageTitle = Yii::t('translator','Homepage'); 
         $notisModel = new Notis;
         $allNotis = $notisModel->findAll();
         $this->render('index', array(
