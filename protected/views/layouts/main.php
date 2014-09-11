@@ -44,16 +44,13 @@ fjs.parentNode.insertBefore(js, fjs);
 			<div class="connect-us">
 				<span class="tit">Connect with us:</span>
 				<ul class="list">
-					<li><a href="https://www.facebook.com/trippytripper.org"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/icon_social_01.gif" alt="" /></a></li>
-					<li><a href="#none"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/icon_social_02.gif" alt="" /></a></li>
-					<li><a href="https://plus.google.com/101230437362157655560"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/icon_social_03.gif" alt="" /></a></li>
-					<li><a href="#none"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/icon_social_04.gif" alt="" /></a></li>
-					<li><a href="#none"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/icon_social_05.gif" alt="" /></a></li>
-					<li><a href="#none"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/icon_social_06.gif" alt="" /></a></li>
-					<li><a href="#none"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/icon_social_07.gif" alt="" /></a></li>
-					<li><a href="#none"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/icon_social_08.gif" alt="" /></a></li>
-					<li><a href="#none"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/icon_social_09.gif" alt="" /></a></li>
-					<li><a href="#none"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/icon_social_10.gif" alt="" /></a></li>
+					<li><a target="_blank" href="https://www.facebook.com/trippytripper.org"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/icon_social_01.gif" alt="" /></a></li>
+					<li><a target="_blank" href="https://twitter.com/trippytripper_"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/icon_social_02.gif" alt="" /></a></li>
+					<li><a target="_blank" href="https://plus.google.com/101230437362157655560"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/icon_social_03.gif" alt="" /></a></li>
+					<li><a target="_blank" href="#none"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/icon_social_04.gif" alt="" /></a></li>
+					<li><a target="_blank" href="#none"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/icon_social_05.gif" alt="" /></a></li>
+					<li><a target="_blank" href="#none"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/icon_social_06.gif" alt="" /></a></li>
+					<li><a target="_blank" href="#none"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/icon_social_07.gif" alt="" /></a></li>
 				</ul>
 			</div>
 		</div>
