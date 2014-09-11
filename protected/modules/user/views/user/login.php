@@ -1,7 +1,7 @@
 <style type="text/css">
 #yumcontent
 {
-	width: 265px;
+	width: 290px;
 	margin: auto;
 }
 </style>
@@ -63,7 +63,7 @@ if(isset($_GET['action']))
 	</div>
 
 <div class="row rememberMe">
-<?php echo CHtml::activeCheckBox($model,'rememberMe', array('style' => 'display: inline;')); ?>
+<?php echo CHtml::activeCheckBox($model,'rememberMe', array('style' => 'display: inline;')); ?>&nbsp;
 <?php echo CHtml::activeLabelEx($model,'rememberMe', array('style' => 'display: inline;')); ?>
 </div>
 

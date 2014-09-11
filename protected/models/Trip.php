@@ -34,7 +34,7 @@ class Trip extends CActiveRecord
 			//array('user_id, from, to', 'length', 'max'=>20),
 			array('return_trip', 'length', 'max'=>1),
 			array('from, to, leave, return, fee, seat_avail, gathering_point, description', 'required'),
-			array('leave, return', 'date', 'format' => 'yyyy-mm-dd hh:mm:00'),
+			array('leave, return', 'date', 'format' => 'yyyy-mm-dd hh:mm'),
 			array('leave',
 	            'compare',
 	            'compareValue' => date('Y-m-d H:i:s'),

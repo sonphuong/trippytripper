@@ -42,7 +42,7 @@ fjs.parentNode.insertBefore(js, fjs);
         	<h1 id="logo"><a href="/index.php"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.png" alt="trippytripper" /></a>
         	</h1>
 			<div class="connect-us">
-				<span class="tit">Connect with us:</span>
+				<span class="tit"><?php echo Yii::t('translator','Connect with us'); ?>:</span>
 				<ul class="list">
 					<li><a target="_blank" href="https://www.facebook.com/trippytripper.org"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/icon_social_01.gif" alt="" /></a></li>
 					<li><a target="_blank" href="https://twitter.com/trippytripper_"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/icon_social_02.gif" alt="" /></a></li>
