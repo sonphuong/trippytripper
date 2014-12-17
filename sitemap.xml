@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>http://www.trippytripper.org/</loc>
+</url>
+<url>
+  <loc>http://www.trippytripper.org/index.php</loc>
+</url>
+<url>
+  <loc>http://www.trippytripper.org/index.php/registration/registration</loc>
+</url>
+<url>
+  <loc>http://www.trippytripper.org/index.php/user/auth</loc>
+</url>
+<url>
+  <loc>http://www.trippytripper.org/index.php/site/index</loc>
+</url>
+<url>
+  <loc>http://www.trippytripper.org/index.php/site/about</loc>
+</url>
+<url>
+  <loc>http://www.trippytripper.org/index.php/site/contact</loc>
+</url>
+<url>
+  <loc>http://www.trippytripper.org/index.php/trip/searchTrip</loc>
+</url>
+<url>
+  <loc>http://www.trippytripper.org/index.php/registration/registration/registration</loc>
+</url>
+<url>
+  <loc>http://www.trippytripper.org/index.php/registration/registration/recovery</loc>
+</url>
+<url>
+  <loc>http://www.trippytripper.org/index.php/trip/searchTrip/sort/departure_date</loc>
+</url>
+<url>
+  <loc>http://www.trippytripper.org/index.php/trip/searchTrip/sort/fee</loc>
+</url>
+<url>
+  <loc>http://www.trippytripper.org/index.php/trip/searchTrip/sort/departure_date.desc</loc>
+</url>
+<url>
+  <loc>http://www.trippytripper.org/index.php/trip/searchTrip/sort/fee.desc</loc>
+</url>
+</urlset>
