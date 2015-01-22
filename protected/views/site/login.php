@@ -5,6 +5,8 @@ $this->breadcrumbs=array(
 );
 ?>
 
+<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/zocial.css" />
+<a href="login.php?provider=facebook" class="zocial facebook">Sign in with Facebook</a>
 <h1>Login</h1>
 
 <p>Please fill out the following form with your login credentials:</p>
@@ -41,6 +43,7 @@ $this->breadcrumbs=array(
 	<div class="row submit">
 		<?php echo CHtml::submitButton('Login'); ?>
 	</div>
+
 
 <?php $this->endWidget(); ?>
 </div><!-- form -->

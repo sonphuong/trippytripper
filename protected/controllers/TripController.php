@@ -136,6 +136,15 @@ class TripController extends Controller
             'btnValue' =>Yii::t('translator', 'Offer')
         ));
     }
+    public function getFriends(){
+        // Yii::import('application.modules.user.controllers.YumController');
+        // Yii::import('application.modules.user.components.*');
+        // Yii::import('application.modules.user.models.*');
+        // Yii::import('application.modules.friendship.models.*');
+        $user = YumUser::model()->findByPk(Yii::app()->user->id);
+        $friends = $user->getFriendships();
+        echo json_encode($friends);
+    }
     /**
      * Search a tour.
      */

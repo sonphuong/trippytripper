@@ -1,5 +1,17 @@
+<?php
+$fbconfig = Yum::module()->facebookConfig;
+if(isset($fbconfig)) {
+    Yii::import('application.modules.user.vendors.facebook.*');
+        require_once('Facebook.php');
+    $facebook = new Facebook($fbconfig);
+    $fb_session = $facebook->getSession();
+    if($fb_session && Yii::app()->user->isGuest)
+                if($this->action->id != 'login')
+                        $this->redirect($this->createUrl('/user/auth/login'));
+}
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" ng-app="trippytripper">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="language" content="en" />
@@ -18,24 +30,56 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/thickbox.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/reset.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/layout.css" />
+	
 	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-2.0.3.min.js"></script>
 	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/select2.js"></script>
 	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/common.js"></script>
 	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/thickbox.js"></script>
+	<!-- angular -->
+	<!-- <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/angular.min.js"></script> -->
+	<!-- angular: autocomplete -->
+	<!-- <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/ui-bootstrap-tpls-0.9.0.js"></script> -->
+
 	<!-- Place this tag in your head or just before your close body tag. -->
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
 	<?php Yii::app()->clientScript->scriptMap=array('jquery.js'=>false,);?>
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 <body>
+<?php if(isset($fbconfig)): ?>
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
+<script>
+window.fbAsyncInit = function() {
+    FB.init({
+        appId   : '<?php echo $facebook->getAppId(); ?>',
+        session : <?php echo json_encode($fb_session); ?>, // don't refetch the session when PHP already has it
+        status  : <?php echo $fbconfig['status']; ?>, // check login status
+        cookie  : <?php echo $fbconfig['cookie']; ?>, // enable cookies to allow the server to access the session
+        xfbml   : <?php echo $fbconfig['xfbml']; ?> // parse XFBML
+    });
+
+    // whenever the user logs in, we refresh the page
+    FB.Event.subscribe('auth.login', function() {
+        window.location.reload();
+    });
+};
+
+(function() {
+    var e = document.createElement('script');
+    e.src = document.location.protocol + '//connect.facebook.net/<?php echo $fbconfig['lang']; ?>/all.js';
+    e.async = true;
+    document.getElementById('fb-root').appendChild(e);
+}());
+</script>
+<?php endif; ?>	
+<!-- <div id="fb-root"></div> -->
+<script>/*(function(d, s, id) {
 var js, fjs = d.getElementsByTagName(s)[0];
 if (d.getElementById(id)) return;
 js = d.createElement(s); js.id = id;
 js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=830328023674875&version=v2.0";
 fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+}(document, 'script', 'facebook-jssdk'));*/</script>
 <div id="wrapper">
 	<div id="header">
 		<div class="wrap-ct">

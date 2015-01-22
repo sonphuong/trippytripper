@@ -60,10 +60,15 @@
         <label><?php echo Yii::t('translator', 'Gathering point');?><span class="required">*</span></label>
         <?php echo $form->textField($model, 'gathering_point'); ?>
     </div>
+    <div class="row" ng-controller="autoCompleteController">
+        <label><?php echo Yii::t('translator', 'Invite your friends');?></label>
+        <?php echo $form->textField($model, 'gathering_point'); ?>
+    </div>
     <div class="row"><label><?php echo Yii::t('translator', 'Trip details');?><span class="required">*</span></label></div>
     <div class="row">
         <?php echo $form->textArea($model, 'description', array('rows' => 6)); ?>
     </div>
+    
     <div class="row"/>
     <input type="submit" class="orangeButton" value="<?php echo $btnValue; ?>">
     <?php $this->endWidget(); ?></div>

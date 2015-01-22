@@ -49,4 +49,18 @@
 </Ifmodule>
 
 ###End Kloxo PHP config Area
+# For sites running on a port other than 80
+RewriteCond %{HTTP_HOST}   !^www\.trippytripper\.org [NC]
+RewriteCond %{HTTP_HOST}   !^$
+RewriteCond %{SERVER_PORT} !^80$
+RewriteRule ^/(.*)         http://www.trippytripper.org:%{SERVER_PORT}/$1 [L,R]
 
+# And for a site running on port 80
+RewriteCond %{HTTP_HOST}   !^www\.trippytripper\.org [NC]
+RewriteCond %{HTTP_HOST}   !^$
+RewriteRule ^/(.*)         http://www.trippytripper.org/$1 [L,R]
+
+RewriteEngine on
+Options FollowSymlinks
+rewritecond %{http_host} ^trippytripper.org [nc]
+rewriterule ^(.*)$ http://www.trippytripper.org/$1 [r=301,nc]

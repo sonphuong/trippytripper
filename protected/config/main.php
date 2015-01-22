@@ -8,11 +8,11 @@
 
 //google key
 $domain = $_SERVER['SERVER_NAME'];
-if($domain==='www.trippytripper.org' || $domain==='trippytripper.org'){
+if($domain==='www.trippytripper.org'){
     $googleKey = 'AIzaSyD-o3Di-HaEWv6q81Sa-Kh5n5jaZ-Exkr8';
     $dbUser = 'trippytripper';
-    $dbPass = 'trippytripper';
-    $dbHost = 'trippytripper.c3mfgwza7g4u.us-west-2.rds.amazonaws.com';
+    $dbPass = 'aOJWXegj6tG';
+    $dbHost = 'localhost';
     $userDebug = false;
     $debug = array(
             'class' => 'CWebLogRoute',
@@ -94,9 +94,50 @@ return array(
         'role' => array(),
         'user' => array(
             'debug' => $userDebug,
+            'facebookConfig'=>array(
+                'appId'=>'830328023674875',
+                'secret'=>'5a102cb541201ec9a15b70e7f2cb2b69',
+                'domain'=>'http://www.trippytripper.org',
+                'status'=>true,
+                'xfbml'=>true,
+                'cookie'=>true,
+                'lang'=>'en_US',
+            ),
+            //'loginType' => 8, //By username and Facebook should be 9.
         ),
 
         'usergroup' => array(),
+        'hybridauth' => array(
+            'baseUrl' => 'http://'. $_SERVER['SERVER_NAME'] . '/index.php/hybridauth', 
+            'withYiiUser' => true, // Set to true if using yii-user
+            "providers" => array ( 
+                // "openid" => array (
+                //     "enabled" => true
+                // ),
+ 
+                // "yahoo" => array ( 
+                //     "enabled" => true 
+                // ),
+ 
+                /*"Google" => array ( 
+                     "enabled" => true,
+                     "keys"    => array ( "id" => "", "secret" => "" ),
+                     "scope"   => ""
+                ),*/
+ 
+                "Facebook" => array ( 
+                    "enabled" => true,
+                    "keys"    => array ( "id" => "711026555619509", "secret" => "c2af46a92b8f760191eb5b6be64404ab" ),
+                    "scope"   => "email,publish_stream", 
+                    "display" => "" 
+                ),
+ 
+                // "Twitter" => array ( 
+                //     "enabled" => true,
+                //     "keys"    => array ( "key" => "", "secret" => "" ) 
+                // )
+            )
+        ),
        
     ),
     // application components

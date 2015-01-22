@@ -734,7 +734,7 @@ class YumUser extends YumActiveRecord
 		return md5(strtolower(trim($this->profile->email)));		
 	}
 
-	public function getAvatar($thumb = false)
+	public function getAvatar($thumb = false,$notis=false)
 	{
 		if (Yum::hasModule('avatar') && $this->profile) {
 			$options = array();
@@ -763,6 +763,12 @@ class YumUser extends YumActiveRecord
 							Yum::t('No image available'),
 							$options));
 			$return .= '</div><!-- avatar -->';
+			if($notis){
+				$options = array('style' => 'width: ' . Yum::module('avatar')->avatarThumbnailWidth . 'px;height: ' . Yum::module('avatar')->avatarThumbnailWidth . 'px;');
+				$return = '<div class="user"><a id="myavatar" href="#none" class="avatar">';
+				$return .= CHtml::image($avatar, 'Avatar', $options);
+				$return .='</a></div>';
+			}
 			return $return;
 		}
 	}

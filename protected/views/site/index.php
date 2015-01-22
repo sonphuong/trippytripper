@@ -9,6 +9,16 @@
 			<a href="/index.php/registration/registration" class="btn-blue">Join Us</a>
 			<a href="/index.php/user/auth" class="btn-orange">Log In</a>
 		</div>
+		<div>
+		<?php if (!Yii::app()->user->isGuest): ?>
+			<a href="<?php echo $this->createUrl('/user/auth/logout'); ?>" class="exit"><div></div>
+			   <span>Logout</span>
+			</a>
+			<?php else: ?>
+			<div><br/></div>
+			<?php $this->widget('application.modules.hybridauth.widgets.renderProviders'); ?>
+			<?php endif; ?>
+		</div>
 	</div>
 </div>
 <div class="lst-comment">

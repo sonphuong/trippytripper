@@ -13,6 +13,17 @@ $(document).ready(function () {
     });
 
     google.maps.event.addDomListener(window, 'load', initialize);
+    //auto complete
+    var app = angular.module('trippytripper',['ui.bootstrap']);
+    app.controller('autoCompleteController',function($scope,$http){
+        getCountries();
+        function getCountries(){
+            $http.get('trip/getFriends').success(function(data){
+                $scope.countries = data;
+            });
+        };
+
+    });
 });
 
 function initialize() {

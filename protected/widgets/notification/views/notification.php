@@ -18,13 +18,12 @@
 <div id="email_notis"></div>
 <div id="trip_notis"></div>
 </div>
-
-<div class="user">
-    <a id="myavatar" href="#none" class="avatar">
-        <img src="<?php echo Yum::module('avatar')->getAvatarThumbPhoto(Yii::app()->user->avatar); ?>" width="32" height="30">
-    </a>
-</div>
- 
+<?php
+    $id = Yii::app()->user->id;
+    if(is_numeric($id))
+    $user = YumUser::model()->findByPk($id);
+    echo $user->getAvatar(true,true);         
+?>
 <?php //echo Yii::app()->user->name; ?>
 <div id="mymenu">
     <ul>

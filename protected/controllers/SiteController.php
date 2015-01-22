@@ -81,6 +81,32 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+        //login by social network
+        if (!isset($_GET['provider']))
+        {
+            $this->redirect('/site/index');
+            return;
+        }
+ 
+        try
+        {
+            Yii::import('ext.components.HybridAuthIdentity');
+            $haComp = new HybridAuthIdentity();
+            if (!$haComp->validateProviderName($_GET['provider']))
+                throw new CHttpException ('500', 'Invalid Action. Please try again.');
+ 
+            $haComp->adapter = $haComp->hybridAuth->authenticate($_GET['provider']);
+            $haComp->userProfile = $haComp->adapter->getUserProfile();
+ 
+            $haComp->processLogin();  //further action based on successful login or re-direct user to the required url
+        }
+        catch (Exception $e)
+        {
+            //process error message as required or as mentioned in the HybridAuth 'Simple Sign-in script' documentation
+            $this->redirect('/site/index');
+            return;
+        }
+        //==================================================
         if (!defined('CRYPT_BLOWFISH') || !CRYPT_BLOWFISH)
             throw new CHttpException(500, "This application requires that PHP was compiled with Blowfish support for crypt().");
         $model = new LoginForm;
@@ -98,6 +124,13 @@ class SiteController extends Controller
         }
         // display the login form
         $this->render('login', array('model' => $model));
+    }
+    public function actionSocialLogin()
+    {
+        Yii::import('ext.components.HybridAuthIdentity');
+        $path = Yii::getPathOfAlias('ext.HybridAuth');
+        require_once $path . '/hybridauth-' . HybridAuthIdentity::VERSION . '/hybridauth/index.php';
+ 
     }
     /**
      * Logs out the current user and redirect to homepage.

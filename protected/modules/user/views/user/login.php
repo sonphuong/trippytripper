@@ -31,7 +31,6 @@ if(isset($_GET['action']))
 			printf ('<label for="YumUserLogin_username">%s <span class="required">*</span></label>', Yum::t('E-Mail address')); 
 		if($module->loginType & UserModule::LOGIN_BY_OPENID)
 			printf ('<label for="YumUserLogin_username">%s <span class="required">*</span></label>', Yum::t('OpenID username'));  ?>
-
 		<?php echo CHtml::activeTextField($model,'username') ?>
 	</div>
 	
@@ -66,14 +65,11 @@ if(isset($_GET['action']))
 <?php echo CHtml::activeCheckBox($model,'rememberMe', array('style' => 'display: inline;')); ?>&nbsp;
 <?php echo CHtml::activeLabelEx($model,'rememberMe', array('style' => 'display: inline;')); ?>
 </div>
-
 <div class="row submit">
 <?php echo CHtml::submitButton(Yum::t('Login'),array('class'=>'orangeButton')); ?>
 </div>
-
 <?php echo CHtml::endForm(); ?>
 </div><!-- form -->
-
 <?
 $form = new CForm(array(
 			'elements'=>array(
