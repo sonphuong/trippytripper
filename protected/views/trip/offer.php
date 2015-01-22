@@ -11,11 +11,11 @@
     <?php echo $form->errorSummary($model); ?>
     <div class="row">
         <label><?php echo Yii::t('translator', 'From');?><span class="required">*</span></label>
-        <?php echo $form->textField($model, 'from', array('id' => 'goFrom', 'class' => 'from', 'autofocus'=>'autofocus')); ?>
+        <?php echo $form->textField($model, 'from', array('id' => 'goFrom', 'class' => 'from', 'autofocus'=>'autofocus','onChange'=>'calcRoute()')); ?>
     </div>
     <div class="row">
         <label><?php echo Yii::t('translator', 'To');?><span class="required">*</span></label>
-        <?php echo $form->textField($model, 'to', array('id' => 'goTo', 'class' => 'to')); ?>
+        <?php echo $form->textField($model, 'to', array('id' => 'goTo', 'class' => 'to','onChange'=>'calcRoute()')); ?>
     </div>
 
     <div class="row">
@@ -71,10 +71,15 @@
     
     <div class="row"/>
     <input type="submit" class="orangeButton" value="<?php echo $btnValue; ?>">
+    <input type="button" class="blueButton" value="<?php echo Yii::t('translator', 'Show direction');?>"  style="display:none;" id="showDirectionButton" onclick >
+    <div style="clear:both">&nbsp;</div>
+    <div id="directions-panel" style="display:none;"></div>
     <?php $this->endWidget(); ?></div>
 </div>
 
 <div id="map-canvas"/>
+
+
 <!-- google maps -->
 <input id="fb_access_token" type="hidden" value="<?php echo Yii::app()->params['FB_ACCESS_TOKEN']; ?>">
 
@@ -110,22 +115,19 @@
         var from = $('#goFrom').val();
         var to = $('#goTo').val();
         if(from.length>0 && to.length>0){
-            calcRoute($('#goFrom').val(),$('#goTo').val());
+            calcRoute();
             console.log('first load');
         }
     }
-    function calcRoute(start,end) {
-        var digiLocation = {
-            "lat": "51.597336",
-            "long": "-0.109035"
-        };
-        directionsDisplay = new google.maps.DirectionsRenderer();
+    function calcRoute() {
+        console.log('calcRoute');
+        var start = $('#goFrom').val();
+        var end = $('#goTo').val();
+        //directionsDisplay = new google.maps.DirectionsRenderer();
         var request = {
             origin: start,
-            destination: new google.maps.LatLng(digiLocation.lat, digiLocation.long),
-            //destination: end,
-            //travelMode: google.maps.TravelMode.DRIVING
-            travelMode: google.maps.DirectionsTravelMode.DRIVING
+            destination: end,
+            travelMode: google.maps.TravelMode.DRIVING
         };
         directionsService.route(request, function (response, status) {
             if (status == google.maps.DirectionsStatus.OK) {
@@ -133,11 +135,17 @@
                 console.log('set direction');
             }
         });
+        if(start.length>0 && end.length>0){
+            console.log('show direction');
+            $("#showDirectionButton").show();
+
+        }
     }
-    google.maps.event.addDomListener(window, 'load', initialize);
     
-    //load again when change the value of destination
-    $('#goTo').change(function () {
-        calcRoute($('#goFrom').val(),$('#goTo').val());
+    google.maps.event.addDomListener(window, 'load', initialize);
+    $(document).ready(function () {
+        $("#showDirectionButton").click(function(){
+            $("#directions-panel  ").toggle();
+        });
     });
 </script>

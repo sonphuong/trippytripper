@@ -358,16 +358,16 @@ div.flash-success a
     width: 320px;
 }
 #map-canvas{
-	width:490px;
-	height:682px;
+	width: 490px;
+	height: 535px;
 	float: right;
 	margin-bottom: 20px;
 }
 #directions-panel {
-    height: 100%;
-    float: right;
-    width: 450px;
-    overflow: auto;
+	height: auto;
+	float: right;
+	width: 959px;
+	overflow: hidden;
 }
 #offer{
 	width:400px; 
