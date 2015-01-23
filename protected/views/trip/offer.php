@@ -1,6 +1,6 @@
 <div class="form search_box" id="offer">
     <?php $form=$this->beginWidget('CActiveForm', array(
-        'id'=>'top-websites-cr-form',
+        'id'=>'offerForm',
         'enableAjaxValidation'=>true,
         'clientOptions' => array(
             'validateOnSubmit'=>true,
@@ -11,11 +11,11 @@
     <?php echo $form->errorSummary($model); ?>
     <div class="row">
         <label><?php echo Yii::t('translator', 'From');?><span class="required">*</span></label>
-        <?php echo $form->textField($model, 'from', array('id' => 'goFrom', 'class' => 'from', 'autofocus'=>'autofocus','onChange'=>'calcRoute()')); ?>
+        <?php echo $form->textField($model, 'from', array('id' => 'goFrom', 'class' => 'from', 'autofocus'=>'autofocus','onChange'=>'calcRoute()','onblur'=>'calcRoute()')); ?>
     </div>
     <div class="row">
         <label><?php echo Yii::t('translator', 'To');?><span class="required">*</span></label>
-        <?php echo $form->textField($model, 'to', array('id' => 'goTo', 'class' => 'to','onChange'=>'calcRoute()')); ?>
+        <?php echo $form->textField($model, 'to', array('id' => 'goTo', 'class' => 'to','onChange'=>'calcRoute()','onblur'=>'calcRoute()')); ?>
     </div>
 
     <div class="row">
@@ -70,8 +70,8 @@
     </div>
     
     <div class="row"/>
-    <input type="submit" class="orangeButton" value="<?php echo $btnValue; ?>">
-    <input type="button" class="blueButton" value="<?php echo Yii::t('translator', 'Show direction');?>"  style="display:none;" id="showDirectionButton" onclick >
+    <input type="button" class="orangeButton" value="<?php echo $btnValue; ?>" id="offerButton">
+    <input type="button" class="blueButton" value="<?php echo Yii::t('translator', 'Show direction');?>"  style="display:none;" id="showDirectionButton">
     <div style="clear:both">&nbsp;</div>
     <div id="directions-panel" style="display:none;"></div>
     <?php $this->endWidget(); ?></div>
@@ -116,11 +116,9 @@
         var to = $('#goTo').val();
         if(from.length>0 && to.length>0){
             calcRoute();
-            console.log('first load');
         }
     }
     function calcRoute() {
-        console.log('calcRoute');
         var start = $('#goFrom').val();
         var end = $('#goTo').val();
         //directionsDisplay = new google.maps.DirectionsRenderer();
@@ -129,23 +127,23 @@
             destination: end,
             travelMode: google.maps.TravelMode.DRIVING
         };
-        directionsService.route(request, function (response, status) {
-            if (status == google.maps.DirectionsStatus.OK) {
-                directionsDisplay.setDirections(response);
-                console.log('set direction');
-            }
-        });
         if(start.length>0 && end.length>0){
-            console.log('show direction');
+            directionsService.route(request, function (response, status) {
+                if (status == google.maps.DirectionsStatus.OK) {
+                    directionsDisplay.setDirections(response);
+                }
+            });
             $("#showDirectionButton").show();
-
         }
     }
     
     google.maps.event.addDomListener(window, 'load', initialize);
     $(document).ready(function () {
         $("#showDirectionButton").click(function(){
-            $("#directions-panel  ").toggle();
+            $("#directions-panel").toggle();
+        });
+        $("#offerButton").click(function(){
+            $("#offerForm").submit();
         });
     });
 </script>
