@@ -113,6 +113,7 @@ fjs.parentNode.insertBefore(js, fjs);
 							<?php $this->widget('zii.widgets.CMenu',array(
 								'items'=>array(
 									array('label'=>Yii::t('translator','Offer'), 'url'=>array('/trip/offer'), 'visible'=>!Yii::app()->user->isGuest),
+									array('label'=>Yii::t('translator','Location'), 'url'=>array('/location/location')),
 									array('label'=>Yii::t('translator','Trips'), 'url'=>array('/trip/searchTrip')),
 									array('label'=>Yii::t('translator','Trippers'), 'url'=>array('/user/user/browse'), 'visible'=>!Yii::app()->user->isGuest),
 									array('label'=>Yii::t('translator','Join us'), 'url'=>array('/registration/registration'), 'visible'=>Yii::app()->user->isGuest),

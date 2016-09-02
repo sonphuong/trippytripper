@@ -347,7 +347,7 @@ class YumUserController extends YumController {
 		$dataProvider=new CActiveDataProvider('YumUser', array(
 					'criteria' => $criteria, 
 					'pagination'=>array(
-						'pageSize'=>50,
+						'pageSize'=>10,
 						)));
 
 		$this->render('browse',array(

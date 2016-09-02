@@ -129,7 +129,7 @@ function genNotisHTML(notis){
     for (var i = 0; i < friends.length; i++) {
         friendNotis +='<a href="/index.php/friendship/friendship/index">';
         friendNotis +='<li name="'+friends[i].notis_id+'" class="liFriend">';
-        friendNotis +='<img class="avatar" src="/'+friends[i].from_avatar+'" alt="" width="32px" height="32px" />';                               
+        friendNotis +='<img class="avatar" src="'+Yii::app()->request->baseUrl+'/'+friends[i].from_avatar+'" alt="" width="32px" height="32px" />';                               
         friendNotis += '<span class="username">'+ friends[i].from_user_name +'</span>' +' '+  friends[i].message;
         friendNotis += '</li>';
         friendNotis += '</a>';
@@ -148,7 +148,7 @@ function genNotisHTML(notis){
     for (var i = 0; i < emails.length; i++) {
         emailNotis +='<a href="/index.php/message/message/index">';
         emailNotis +='<li name="'+emails[i].notis_id+'" class="liEmail">';
-        emailNotis +='<img class="avatar" src="/'+emails[i].from_avatar+'" alt="" width="32px" height="32px" />';                               
+        emailNotis +='<img class="avatar" src="'+Yii::app()->request->baseUrl+'/'+emails[i].from_avatar+'" alt="" width="32px" height="32px" />';                               
         emailNotis += '<span class="username">'+emails[i].from_user_name+'</span>' +' '+ emails[i].message;
         emailNotis += '</li>';
         emailNotis += '</a>';
@@ -168,7 +168,7 @@ function genNotisHTML(notis){
     for (var i = 0; i < trips.length; i++) {
         tripNotis +='<a href="/index.php/trip/view/?id='+trips[i].trip_id+'">';
         tripNotis +='<li name="'+trips[i].notis_id+'" class="liTrip">';
-        tripNotis +='<img class="avatar" src="/'+trips[i].from_avatar+'" alt="" width="32px" height="32px" />';                               
+        tripNotis +='<img class="avatar" src="'+Yii::app()->request->baseUrl+'/'+trips[i].from_avatar+'" alt="" width="32px" height="32px" />';                               
         tripNotis += '<span class="username">'+trips[i].from_user_name+'</span>' +' '+ trips[i].message;
         tripNotis += '</li>';
         tripNotis += '</a>';

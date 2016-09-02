@@ -15,22 +15,31 @@ a{color:#1698d2; text-decoration:none;}
 #header .connect-us{position:absolute; right:0; top:7px;}
 #header .connect-us .tit{font-size:14px; font-weight:700;}
 #header .connect-us .list li img{width:18px; height:18px;}
-#gnb{background:url(/images/line_gnb.png) repeat-x 0 0; position:relative; margin: 17px 0 -60px; padding-top:6px; z-index:1000}
-#gnb .gnb_center{background:url(/images/bg_gnb_center.png) repeat 100% 0; height: 39px;}
-#gnb .bg {background:url(/images/bg_gnb_left.png) no-repeat 0 0px; max-width:1022px; padding-left: 39px; margin:0 auto;}
-#gnb .gnb_right {background:url(/images/bg_gnb_right.png) no-repeat 100% 0px; padding-right: 39px;}
+#gnb{background:#1a6384; position:relative; margin: 17px 0 -60px; z-index:1000}
+#gnb .gnb_center{height: 39px;}
+#gnb .bg {max-width:1022px; padding-left: 39px; margin:0 auto;}
+#gnb .gnb_right {padding-right: 39px;}
 
-#gnb .gnb{float:left; padding-top:5px;}
+#gnb .gnb{float:left;}
 #gnb .gnb li{float:left; margin-right:15px;}
-#gnb .gnb li a{float:left; padding:0 15px; height:22px; line-height:22px; color:#343333; font-weight:700; border-radius:20px;}
-#gnb .gnb li a:hover, #gnb .gnb li.activ a{background:#1698d2 none; color:#fff;}
+#gnb .gnb li a{
+float: left;
+padding: 10px 15px 0px;
+height: 29px;
+/* line-height: 22px; */
+color: white;
+font-weight: 700;
+/* border-radius: 20px; */
+vertical-align: middle;
+}
+#gnb .gnb li a:hover, #gnb .gnb li.activ a{background:#066088 none; color:#fff;}
 #gnb .right-area{float:right; padding-top:2px;}
 #gnb .right-area .ctrl{float:left;}
 #gnb .right-area .ctrl li{float:left; margin-right:25px;}
 #gnb .right-area .ctrl a{float:left; height:24px;}
 
 #gnb .right-area .user{float:left; padding-left:10px;}
-#gnb .right-area .user .avatar{background:url(/images/arrow_black.png) no-repeat 100% 50%; padding-right:18px; display:inline-block;}
+#gnb .right-area .user .avatar{background:url(/images/arrow_black.png) no-repeat 100% 50%; padding-right:18px; margin-top: 2px; display:inline-block;}
 #gnb .right-area .user .avatar img{width:30px; height:30px; border-radius:50%;}
 #container{padding-bottom:40px;}
 
