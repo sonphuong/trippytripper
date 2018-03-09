@@ -18,52 +18,32 @@ if($domain==='www.trippytripper.org'){
             'class' => 'CWebLogRoute',
             'levels' => 'trace, info, error, warning',
             );
-}elseif($domain==='trippytripper.herokuapp.com'){
-      $googleKey = 'AIzaSyD-o3Di-HaEWv6q81Sa-Kh5n5jaZ-Exkr8';
-      $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-      $dbUser = $url["user"];
-      $dbPass = $url["pass"];
-      $dbHost = $url["host"];
-      $userDebug = false;
-      $debug = array(
-              'class' => 'CWebLogRoute',
-              'levels' => 'trace, info, error, warning',
-              );
-
-}else if($domain==='trippytripper.herokuapp.com'){
-      $googleKey = 'AIzaSyD-o3Di-HaEWv6q81Sa-Kh5n5jaZ-Exkr8';
-      $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-      $dbUser = $url["user"];
-      $dbPass = $url["pass"];
-      $dbHost = $url["host"];
-      $userDebug = false;
-      $debug = array(
-              'class' => 'CWebLogRoute',
-              'levels' => 'trace, info, error, warning',
-              );
 }else{
-    // //for localhost
-    // $googleKey = 'AIzaSyAisOhSjoLbzL_hEtuBhUoS3pr71vhwtu4';
-    // $dbUser = 'root';
-    // $dbPass = 'root';
-    // $dbHost = 'localhost';
-    // $userDebug = false;
-    // $debug = array(
-    //         'class' => 'CWebLogRoute',
-    //         'levels' => 'trace, info, error, warning',
-    //         );
-
-    $googleKey = 'AIzaSyD-o3Di-HaEWv6q81Sa-Kh5n5jaZ-Exkr8';
-    $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-    $dbUser = $url["user"];
-    $dbPass = $url["pass"];
-    $dbHost = $url["host"];
-    $userDebug = false;
-    $debug = array(
-            'class' => 'CWebLogRoute',
-            'levels' => 'trace, info, error, warning',
-            );
+      //elseif($domain==='trippytripper.herokuapp.com')
+      $googleKey = 'AIzaSyD-o3Di-HaEWv6q81Sa-Kh5n5jaZ-Exkr8';
+      $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+      $dbUser = $url["user"];
+      $dbPass = $url["pass"];
+      $dbHost = $url["host"];
+      $dbname = substr($url["path"], 1);
+      $userDebug = false;
+      $debug = array(
+              'class' => 'CWebLogRoute',
+              'levels' => 'trace, info, error, warning',
+              );
 }
+// else{
+//     //for localhost
+//     $googleKey = 'AIzaSyAisOhSjoLbzL_hEtuBhUoS3pr71vhwtu4';
+//     $dbUser = 'root';
+//     $dbPass = 'root';
+//     $dbHost = 'localhost';
+//     $userDebug = false;
+//     $debug = array(
+//             'class' => 'CWebLogRoute',
+//             'levels' => 'trace, info, error, warning',
+//             );
+// }
 return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
     'name' => 'Trippy Tripper',
@@ -186,13 +166,19 @@ return array(
         // uncomment the following to use a MySQL database
 
         'db' => array(
-            'connectionString' => 'mysql:host='.$dbHost.';dbname=trippytripper',
-            'emulatePrepare' => true,
+            // 'connectionString' => 'mysql:host='.$dbHost.';dbname='.$dbName.'',
+            // 'emulatePrepare' => true,
+            // 'username' => $dbUser,
+            // 'password' => $dbPass,
+            // 'charset' => 'utf8',
+            // 'enableParamLogging' => true
+
+
+            'class' => 'yii\db\Connection',
+            'dsn' => 'mysql:host=' . $dbHost . ';dbname=' . $dbName,
             'username' => $dbUser,
             'password' => $dbPass,
             'charset' => 'utf8',
-            'enableParamLogging' => true
-            //'tablePrefix' => 'tbl_',
         ),
 
         'errorHandler' => array(
