@@ -18,18 +18,39 @@ if($domain==='www.trippytripper.org'){
             'class' => 'CWebLogRoute',
             'levels' => 'trace, info, error, warning',
             );
-}
-else{
-    $googleKey = 'AIzaSyAisOhSjoLbzL_hEtuBhUoS3pr71vhwtu4';    
+}elseif($domain==='trippytripper.herokuapp.com'){
+      $googleKey = 'AIzaSyD-o3Di-HaEWv6q81Sa-Kh5n5jaZ-Exkr8';
+      $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+      $dbUser = $url["user"];
+      $dbPass = $url["pass"];
+      $dbHost = $url["host"];
+      $userDebug = false;
+      $debug = array(
+              'class' => 'CWebLogRoute',
+              'levels' => 'trace, info, error, warning',
+              );
+
+}else if($domain==='trippytripper.herokuapp.com'){
+      $googleKey = 'AIzaSyD-o3Di-HaEWv6q81Sa-Kh5n5jaZ-Exkr8';
+      $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+      $dbUser = $url["user"];
+      $dbPass = $url["pass"];
+      $dbHost = $url["host"];
+      $userDebug = false;
+      $debug = array(
+              'class' => 'CWebLogRoute',
+              'levels' => 'trace, info, error, warning',
+              );
+}else{
+    $googleKey = 'AIzaSyAisOhSjoLbzL_hEtuBhUoS3pr71vhwtu4';
     $dbUser = 'root';
     $dbPass = 'root';
     $dbHost = 'localhost';
     $userDebug = false;
-    $debug = 
-            array(
+    $debug = array(
             'class' => 'CWebLogRoute',
             'levels' => 'trace, info, error, warning',
-            );   
+            );
 }
 return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
@@ -73,7 +94,7 @@ return array(
         'application.modules.PcStarRank.controllers.*',
         'application.modules.PcStarRank.components.*',
         'application.modules.PcStarRank.extensions.PcStarRankWidget.*',
-        
+
     ),
 
     'defaultController' => 'site',
@@ -108,37 +129,37 @@ return array(
 
         'usergroup' => array(),
         'hybridauth' => array(
-            'baseUrl' => 'http://'. $_SERVER['SERVER_NAME'] . '/index.php/hybridauth', 
+            'baseUrl' => 'http://'. $_SERVER['SERVER_NAME'] . '/index.php/hybridauth',
             'withYiiUser' => true, // Set to true if using yii-user
-            "providers" => array ( 
+            "providers" => array (
                 // "openid" => array (
                 //     "enabled" => true
                 // ),
- 
-                // "yahoo" => array ( 
-                //     "enabled" => true 
+
+                // "yahoo" => array (
+                //     "enabled" => true
                 // ),
- 
-                /*"Google" => array ( 
+
+                /*"Google" => array (
                      "enabled" => true,
                      "keys"    => array ( "id" => "", "secret" => "" ),
                      "scope"   => ""
                 ),*/
- 
-                "Facebook" => array ( 
+
+                "Facebook" => array (
                     "enabled" => true,
                     "keys"    => array ( "id" => "711026555619509", "secret" => "c2af46a92b8f760191eb5b6be64404ab" ),
-                    "scope"   => "email,publish_stream", 
-                    "display" => "" 
+                    "scope"   => "email,publish_stream",
+                    "display" => ""
                 ),
- 
-                // "Twitter" => array ( 
+
+                // "Twitter" => array (
                 //     "enabled" => true,
-                //     "keys"    => array ( "key" => "", "secret" => "" ) 
+                //     "keys"    => array ( "key" => "", "secret" => "" )
                 // )
             )
         ),
-       
+
     ),
     // application components
     'components' => array(
