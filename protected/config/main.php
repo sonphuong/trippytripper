@@ -42,10 +42,22 @@ if($domain==='www.trippytripper.org'){
               'levels' => 'trace, info, error, warning',
               );
 }else{
-    $googleKey = 'AIzaSyAisOhSjoLbzL_hEtuBhUoS3pr71vhwtu4';
-    $dbUser = 'root';
-    $dbPass = 'root';
-    $dbHost = 'localhost';
+    // //for localhost
+    // $googleKey = 'AIzaSyAisOhSjoLbzL_hEtuBhUoS3pr71vhwtu4';
+    // $dbUser = 'root';
+    // $dbPass = 'root';
+    // $dbHost = 'localhost';
+    // $userDebug = false;
+    // $debug = array(
+    //         'class' => 'CWebLogRoute',
+    //         'levels' => 'trace, info, error, warning',
+    //         );
+
+    $googleKey = 'AIzaSyD-o3Di-HaEWv6q81Sa-Kh5n5jaZ-Exkr8';
+    $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+    $dbUser = $url["user"];
+    $dbPass = $url["pass"];
+    $dbHost = $url["host"];
     $userDebug = false;
     $debug = array(
             'class' => 'CWebLogRoute',
